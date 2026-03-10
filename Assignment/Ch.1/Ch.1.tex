@@ -1,0 +1,424 @@
+\documentclass{ctexart}
+\usepackage{Note}
+\setCJKmainfont[
+  BoldFont = 思源宋体 Bold,
+  ItalicFont = 楷体,
+]{宋体}
+\author{2400011785 蒋锦豪}
+\title{\tbf{结构化学\ 第1章作业}}
+\begin{document}
+\maketitle
+\begin{homework}[1.]
+    计算(或估算)以下物质的德布罗意波长:
+    \begin{enumerate}[label=(\alph*)]
+        \item 室温下的He原子(典型速度为$\SI{1000}{\meter\per\second}$);
+        \item 2008年奥运会百米比赛中的博尔特;
+        \item 飞行中的子弹头;
+        \item 动能为$\SI{300}{\electronvolt}$的自由电子.
+    \end{enumerate}
+\end{homework}
+\begin{solution}
+\begin{enumerate}[label=(\alph*)]
+    \item \[\lambda=\dfrac{h}{p}=\dfrac{\SI{6.626e-34}{\joule\second}}{\dfrac{\SI{4.00}{\gram\per\mol}}{\SI{6.022e-23}{\per\mol}}\cdot\SI{1000}{\meter\per\second}}=\SI{9.97e-11}{\meter}\]
+    \item \[\lambda=\dfrac{h}{p}=\dfrac{\SI{6.626e-34}{\joule\second}}{\SI{85}{\kilogram}\cdot\dfrac{\SI{100}{\meter}}{\SI{9.68}{\second}}}=\SI{7.54e-37}{\meter}\]
+    \item 这里采用典型的$7.62\times39\text{ mm}$子弹的数据.
+    \[\lambda=\dfrac{h}{p}=\dfrac{\SI{6.626e-34}{\joule\second}}{\SI{10}{\gram}\cdot\SI{800}{\meter\per\second}}=\SI{8.28e-35}{\meter}\]
+    \item \[\lambda=\dfrac{h}{p}=\dfrac{h}{\sqrt{2mE}}=\dfrac{\SI{6.626e-34}{\joule\second}}{\sqrt{2\cdot\SI{9.109e-31}{\kilogram}\cdot300\cdot\SI{1.602e-19}{\joule}}}=\SI{7.08e-11}{\meter}\]
+\end{enumerate}
+\end{solution}
+\begin{homework}[2.]
+    证明:在长波长, 普朗克分布还原为瑞利-金斯定律.
+\end{homework}
+\begin{proof}
+    我们有
+    \[\lim_{\lambda\to+\infty}\dfrac{\rho_{P}(\lambda,T)}{\rho_{R-J}(\lambda,T)}=\lim_{\lambda\to+\infty}\dfrac{\dfrac{8\pi hc}{\lambda^5\left(\e^{hc/\lambda kT}-1\right)}}{\dfrac{8\pi kT}{\lambda^4}}=\lim_{\lambda\to+\infty}\dfrac{hc}{kT\lambda(\e^{hc/\lambda kT}-1)}=\lim_{\lambda\to+\infty}\dfrac{hc}{kT\lambda\cdot\dfrac{hc}{\lambda kT}}=1\]
+    这里用到了$\displaystyle\lim_{x\to+\infty}x\left(\e^{1/x}-1\right)=\lim_{y\to0^+}\dfrac{\e^y-1}{y}=1$.于是在长波长时两个公式给出相同的结果.
+\end{proof}
+\begin{homework}[3.]
+    证明:普朗克分布的最大值处的波长$\lambda_{\max}$满足
+    \[x\e^x-5\left(\e^x-1\right)=0,\quad x=\dfrac{hc}{\lambda kT}\]
+    该方程的数值解为$x=4.965$.用此结果确认维恩定律,即$\lambda_{\max}T$是一个常数,并导出其表达式.
+\end{homework}
+\begin{proof}
+    当$\rho(\lambda,T)$取到最大值时$\dfrac{1}{\rho(\lambda,T)}$应当取到最小值.于是命
+    \[0=\dfrac{\p(\rho(\lambda,T))^{-1}}{\p\lambda}=\dfrac{\p}{\p\lambda}\left(\dfrac{\lambda^5\left(\e^{hc/\lambda kT}-1\right)}{8\pi hc}\right)=\dfrac{1}{8\pi hc}\lambda^4\left[5\left(\e^{hc/\lambda kT}-1\right)+\lambda\cdot\dfrac{hc}{kT}\cdot\left(-\dfrac{1}{\lambda^2}\right)\e^{hc/\lambda kT}\right]\]
+    令$x=\dfrac{hc}{\lambda kT}$,即可得
+    \[\dfrac{1}{8\pi hc}\left(\dfrac{hc}{xkT}\right)^4\left[5(\e^x-1)-x\e^x\right]=0\]
+    由于$x\neq0$,因此有
+    \[x\e^x-5\left(\e^x-1\right)=0\]
+    于是题设的方程即成立.此时
+    \[\lambda_{\max}T=\dfrac{hc}{xk}=\SI{2.898e-3}{\meter\kelvin}\]
+\end{proof}
+\begin{homework}[4.]
+    计算普朗克分布对应的黑体辐射的总能量密度,由此导出斯特藩-玻尔兹曼定律,即黑体辐射的总能量密度与$T^4$成正比,并写出比例系数.
+\end{homework}
+\begin{proof}
+    对普朗克分布在$\lambda\in(0,+\infty)$上积分可得
+    \[\begin{aligned}
+        \mathcal{E}(T)
+        &=\int_{0}^{+\infty}\rho(\lambda,T)\di\lambda=\int_{0}^{+\infty}\dfrac{8\pi hc}{\lambda^5\left(\e^{hc/\lambda kT}-1\right)}\di\lambda\\
+        &\xlongequal{x=\frac{hc}{\lambda kT}}\int_{+\infty}^{0}\dfrac{8\pi hc}{\left(\dfrac{hc}{xkT}\right)^5\left(\e^x-1\right)}\left(-\dfrac{hc}{x^2kT}\right)\di x\\
+        &=\dfrac{8\pi (kT)^4}{(hc)^3}\int_{0}^{+\infty}\dfrac{x^3}{\e^x-1}\di x=\dfrac{8\pi^5(kT)^4}{15(hc)^3}
+    \end{aligned}\]
+    于是$\mathcal{E}(T)\propto T^4$, 比例系数为$\dfrac{8\pi^5k^4}{15h^3c^3}$.
+\end{proof}
+\begin{homework}[5.]
+    太阳表面的温度大约是$\SI{5800}{\kelvin}$.假设人眼已经进化到其最敏感的光的波长对应于太阳辐射能量分布的最大值,指出人眼最敏感的光的颜色.
+\end{homework}
+\begin{solution}
+    根据\tbf{3.}的结论可得
+    \[\lambda_{\max}=\dfrac{\SI{2.898e-3}{\meter\kelvin}}{\SI{5800}{\kelvin}}=\SI{5.00e-7}{\meter}\]
+\end{solution}
+\begin{homework}[6.]
+    如果定义范数为
+    \[\|\vec{x}\|=\sqrt{\left\langle\vec{x},\vec{x}\right\rangle}\]
+    证明$\|\vec{x}\|$满足范数的要求(三角不等式,放缩性,正定性).
+\end{homework}
+\begin{proof}
+    \tbf{三角不等式}:对任意$\vec{x},\vec{y}$和$t$,考虑函数
+    \[f(t)=\|\vec{x}+t\vec{y}\|^2=\left\langle\vec{x}+t\vec{y},\vec{x}+t\vec{y}\right\rangle=t^2\|\vec{y}\|^2+t\left(\avg{\vec{x},\vec{y}}+\avg{\vec{y},\vec{x}}\right)+\|\vec{x}\|^2\]
+    显然$f(t)\geq0$.上述函数的判别式为
+    \[\Delta=4\left|\left\langle\vec{x},\vec{y}\right\rangle\right|^2-4\|\vec{x}\|^2\|\vec{y}\|^2\]
+    由于$f(t)$是开口向上的二次函数并且$f(t)\geq0$,于是$\Delta\leq0$,则
+    \[\left|\left\langle\vec{x},\vec{y}\right\rangle\right|<\|\vec{x}\|\|\vec{y}\|\]于是
+    \[\left(\|\vec{x}\|+\|\vec{y}\|\right)^2-\|\vec{x}+\vec{y}\|^2=2\left(\|\vec{x}\|\|\vec{y}\|-\left|\left\langle\vec{x},\vec{y}\right\rangle\right|\right)\geq0\]
+    于是
+    \[\|\vec{x}\|+\|\vec{y}\|\geq\|\vec{x}+\vec{y}\|\]
+    \tbf{放缩性}:对任意$\vec{x}$和$\alpha$有
+    \[\|\alpha\vec{x}\|=\sqrt{\left\langle\alpha\vec{x},\alpha\vec{x}\right\rangle}=\sqrt{\alpha^2\left\langle\vec{x},\vec{x}\right\rangle}=|\alpha|\sqrt{\left\langle\vec{x},\vec{x}\right\rangle}=|\alpha|\|\vec{x}\|\]
+    \tbf{正定性}:根据内积的定义可得$\left\langle\vec{x},\vec{x}\right\rangle\geq0$,取等当且仅当$\vec{x}=\mbf0$.于是$\|\vec{x}\|\geq0$,取等当且仅当$\vec{x}=\mbf0$.
+\end{proof}
+\begin{homework}[7.]
+    假设在某系统中,沿一维$(0\leq x\leq+\infty)$自由运动的粒子可以用未归一化的波函数$\psi(x)=\e^{-ax}$描述,其中$a=\SI{2}{\per\meter}$.求在$x\geq\SI{1}{\meter}$处发现粒子的概率.
+\end{homework}
+\begin{solution}
+    首先有
+    \[\int_{0}^{+\infty}\left|\psi(x)\right|^2\di x=\int_{0}^{+\infty}\e^{-2ax}\di x=\left.-\dfrac{\e^{-2ax}}{2a}\right|_0^{+\infty}=\dfrac{1}{2a}\]
+    于是归一化后的波函数
+    \[\phi(x)=2a\e^{-ax}\]
+    在$x\geq\SI{1}{\meter}$处发现粒子的概率为
+    \[P(x\geq1)=\int_{1}^{+\infty}\left|\phi(x)\right|^2\di x=4a^2\int_{1}^{+\infty}\e^{-2ax}\di x=7.33\times10^{-2}\]
+\end{solution}
+\begin{homework}[8.]
+    氢原子的归一化基态波函数是
+    \[\psi(r)=\sqrt{\dfrac{1}{\pi a_0^3}}\exp\left(-\dfrac{r}{a_0}\right)\]
+    其中$a_0=\SI{53}{\pico\meter}$, $r$是离核的距离.
+    \begin{enumerate}[label=(\alph*)]
+        \item 计算在以核为中心的,半径为$\SI{1.0}{\pico\meter}$的球体内的某处发现电子的概率.
+        \item 现在,假设同样的球体位于$r=a_0$处,计算电子在期内的概率.可以将电子在位置$r$处的一个小体积$\delta V$内的概率近似为$\psi(r)^2\delta V$.
+    \end{enumerate}
+\end{homework}
+\begin{solution}
+\begin{enumerate}[label=(\alph*)]
+    \item 我们有
+    \[P(r\leq\SI{1.0}{\pico\meter})=\int_{r\leq\SI{1.0}{\pico\meter}}\left|\psi(r)\right|^2\di V=\int_0^1\left|\psi(r)\right|^24\pi r^2\di r=\dfrac{4}{a_0^3}\int_0^1r^2\exp\left(-\dfrac{2r}{a_0}\right)\di r=8.71\times10^{-6}\]
+    \item 在此区域内,近似地认为$r=a_0$不变,于是
+    \[P=\psi(r)^2\delta V=\dfrac{4\pi r'^3}{3}\dfrac{1}{\pi a_0^3}\exp\left(-\dfrac{2r}{a_0}\right)=1.21\times10^{-6}\]
+\end{enumerate}
+\end{solution}
+\begin{homework}[9.]
+    假定振动的原子可用波函数$\psi(x)=Nx\exp\left(-\dfrac{x^2}{2a^2}\right)$描述,找出原子的最概然位置.
+\end{homework}
+\begin{solution}
+    最概然位置满足$\psi(x)$最大,此时
+    \[0=\dfrac{\di\psi(x)}{\di x}=N\exp\left(-\dfrac{x^2}{2a^2}\right)-N\dfrac{x^2}{a^2}\exp\left(-\dfrac{x^2}{2a^2}\right)\]
+    于是可得$x^2=a^2$,因而最概然位置$x=\pm a$.
+\end{solution}
+\begin{homework}[10.]
+    已知算符$\hat{A}$为厄米算符,证明:
+    \begin{enumerate}[label=(\alph*)]
+        \item $\hat{A}^2$为厄米算符;
+        \item 一维动能算符为厄米算符;
+        \item $\hat{A}^2$的期望值非负.
+    \end{enumerate}
+\end{homework}
+\begin{proof}
+\begin{enumerate}[label=(\alph*)]
+    \item 考虑任意的$\vec{u}$, $\vec{v}\in\mathcal{H}$,由于$\hat{A}$为厄米算符,于是
+    \[\avg{\hat{A}^2\vec{u},\vec{v}}=\avg{\hat{A}\vec{u},\hat{A}\vec{v}}=\avg{\vec{u},\hat{A}^2\vec{v}}\]
+    于是$\hat{A}^2$是厄米算符.
+    \item 考虑波函数$\psi_i$和$\psi_j$有
+    \[\begin{aligned}
+        \int_{-\infty}^{+\infty}\psi_i^\ast\hat{p}\psi_j\di x
+        &=-\i\hbar\int_{-\infty}^{+\infty}\psi_i^\ast\dfrac{\di\psi_j}{\di x}\di x=-\i\hbar\left(\left.\psi_i^\ast\psi_j\right|_{-\infty}^{+\infty}-\int_{-\infty}^{+\infty}\psi_{j}\dfrac{\di\psi_i^\ast}{\di x}\di x\right)\\
+        &=\i\hbar\int_{-\infty}^{+\infty}\psi_j\dfrac{\di\psi^\ast}{\di x}\di x=-\i\hbar\int_{-\infty}^{+\infty}\psi_j^\ast\dfrac{\di\psi_i}{\di x}\di x=\int_{-\infty}^{+\infty}\psi_j^\ast\hat{p}\psi_i\di x
+    \end{aligned}\]
+    于是$\hat{p}$是厄米算符.
+    \item 考虑$\hat{A}^2$的本征值$A$和本征函数$\psi$,总有
+    \[A\avg{\psi,\psi}=\avg{A\psi,\psi}=\avg{\hat{A}^2\psi,\psi}=\avg{\hat{A}\psi,\hat{A}\psi}\]
+    既然$\avg{\psi,\psi}$和$\avg{\hat{A}\psi,\hat{A}\psi}$都非负,因此$A$也非负.
+\end{enumerate}
+\end{proof}
+\begin{homework}[11.]
+    回答下列问题.
+    \begin{enumerate}[label=(\alph*)]
+        \item 证明:
+            \[\nabla^2\dfrac{1}{r}=-4\pi\delta(\vec{r})\]
+            其中$\vec{r}$是三维位置矢量, $r=|\vec{r}|$是其模长, $\delta(\vec{r})=\delta(x)\delta(y)\delta(z)$是三维$\delta$函数.
+        \item 已知电荷密度为$\rho(\vec{r})$的库伦体系产生的静电势为(介质为真空):
+        \[\Phi(\vec{r})=\dfrac{1}{4\pi\epsilon_0}\int\di\vec{r}'\dfrac{\rho(\vec{r}')}{\left|\vec{r}-\vec{r}'\right|}\]
+        其中$\epsilon_0$为真空介电常数.静电场$\vec{E}=-\symbf\nabla\Phi$,证明:
+        \[\symbf\nabla\cdot\vec{E}=\dfrac{\rho}{\epsilon_0},\quad\symbf\nabla\times\vec{E}=\mbf0\]
+    \end{enumerate}
+\end{homework}
+\begin{proof}
+    \begin{enumerate}[label=(\alph*)]
+        \item 根据Laplace算子的定义可得
+        \[\nabla^2\dfrac{1}{r}=\left(\dfrac{\p}{\p x^2}+\dfrac{\p}{\p y^2}+\dfrac{\p}{\p z^2}\right)\dfrac{1}{\sqrt{x^2+y^2+z^2}}=\dfrac{3\left(x^2+y^2+z^2\right)}{\left(x^2+y^2+z^2\right)^{5/2}}-\dfrac{3}{\left(x^2+y^2+z^2\right)^{3/2}}\]
+        当$x^2+y^2+z^2=r^2>0$时$\nabla^2\dfrac1r=0$.\\
+        现在考虑一个包含原点的半径为$1$的球形区域$\Omega$,记其外侧边界为$S^+$,则根据高斯公式有
+        \[\iiint_{\Omega}\nabla^2\dfrac{1}{r}\di r=\iiint_{\Omega}\nabla\cdot\nabla\dfrac{1}{r}\di r=\iint_{S^+}\nabla\dfrac{1}{r}\cdot\vec{n}\di S\]
+        而$\nabla\dfrac1r=-\dfrac{(x,y,z)}{\left(x^2+y^2+z^2\right)^{3/2}}=-\dfrac{\vec{r}}{r^3}$, 单位球的外法向量$\vec{n}=\vec{r}$,并且在球面$S^+$上$r=1$.于是
+        \[\iiint_{\Omega}\nabla^2\dfrac{1}{r}\di r=-\iint_{S^+}-\dfrac{\vec{r}}{r^3}\cdot\vec{r}\di S=-\iint_{S^+}\dfrac{1}{r}\di S=-4\pi\]
+        于是就有
+        \[\nabla^2\dfrac{1}{r}=-4\pi\delta(\vec{r})\]
+        \item 我们有
+        \[\begin{aligned}
+            \symbf\nabla\cdot\vec{E}(\vec{r})
+            &=-\symbf\nabla^2\Phi(\vec{r})=-\dfrac{1}{4\pi\epsilon_0}\nabla^2\int\dfrac{\rho(\vec{r}')\di\vec{r}'}{\left|\vec{r}-\vec{r}'\right|}\\
+            &=-\dfrac{1}{4\pi\epsilon_0}\int\nabla^2\dfrac{\rho(\vec{r}')\di\vec{r}'}{\left|\vec{r}-\vec{r}'\right|}\\
+            &=-\dfrac{1}{4\pi\epsilon_0}\int\rho(\vec{r'})(-4\pi\delta\left(\vec{r}-\vec{r}'\right))\di\vec{r}'\\
+            &=-\dfrac{1}{4\pi\epsilon_0}(-4\pi\rho(\vec{r}))=\dfrac{\rho(\vec{r})}{\epsilon_0}
+        \end{aligned}\]
+        于是$\symbf\nabla\cdot\vec{E}=\dfrac{\rho}{\epsilon_0}$.而
+        \[\symbf\nabla\times\symbf\nabla=\left(\dfrac{\p}{\p x},\dfrac{\p}{\p y},\dfrac{\p}{\p z}\right)\times\left(\dfrac{\p}{\p x},\dfrac{\p}{\p y},\dfrac{\p}{\p z}\right)=\begin{vmatrix}
+            \vec{i}&\vec{j}&\vec{k}\\
+            \frac{\p}{\p x}&\frac{\p}{\p y}&\frac{\p}{\p z}\\
+            \frac{\p}{\p x}&\frac{\p}{\p y}&\frac{\p}{\p z}
+        \end{vmatrix}=\mbf0\]
+        于是$\symbf\nabla\times\vec{E}=(\symbf\nabla\times\symbf\nabla)\Phi=\mbf0\Phi=\mbf0$.
+    \end{enumerate}
+\end{proof}
+\begin{homework}[12.]
+    一个粒子处于由归一化波函数$\psi(x)=\left(\dfrac{2a}{\pi}\right)^{1/4}\e^{-ax^2}$所描述的状态中,其中$a$是常数, $-\infty\leq x\leq\infty$.
+    \begin{enumerate}[label=(\alph*)]
+        \item 计算期望值$\avg{x}$, $\avg{x^2}$, $\avg{p_x}$和$\avg{p_x^2}$.
+        \item 计算$\Delta p_x=\sqrt{\avg{p_x^2}-\avg{p_x}^2}$和$\Delta x=\sqrt{\avg{x^2}-\avg{x}^2}$.
+        \item 验证$\Delta p_x\Delta x$的值与不确定原理的预测相一致.
+    \end{enumerate}
+\end{homework}
+\begin{solution}
+    \begin{enumerate}[label=(\alph*)]
+        \item 我们有
+        \[\avg{x}=\int_{-\infty}^{+\infty}x\left|\psi(x)\right|^2\di x=\int_{-\infty}^{+\infty}\left(\dfrac{2a}{\pi}\right)^{1/2}x\e^{-2ax^2}\di x=0\]
+        \[\avg{x^2}=\int_{-\infty}^{+\infty}x^2\left|\psi(x)\right|^2\di x=\int_{-\infty}^{+\infty}\left(\dfrac{2a}{\pi}\right)^{1/2}x^2\e^{-2ax^2}\di x=\dfrac{1}{4a}\]
+        \[\begin{aligned}
+            \avg{p_x}
+            &=\int_{-\infty}^{+\infty}\psi(x)\hat{p_x}\psi^\ast(x)\di x=\int_{-\infty}^{+\infty}\left(\dfrac{2a}{\pi}\right)^{1/2}\e^{-ax^2}\left(-\i\hbar\dfrac{\di}{\di x}\right)\e^{-ax^2}\di x\\
+            &=\int_{-\infty}^{+\infty}\left(\dfrac{2a}{\pi}\right)^{1/2}(2\i\hbar ax)\e^{-ax^2}\di x=0
+        \end{aligned}\]
+        \[\begin{aligned}
+            \avg{p_x^2}
+            &=\int_{-\infty}^{+\infty}\psi(x)\left(\hat{p_x}\right)^2\psi^\ast(x)\di x=\int_{-\infty}^{+\infty}\left(\dfrac{2a}{\pi}\right)^{1/2}\e^{-ax^2}\left(-\hbar^2\dfrac{\di^2}{\di x^2}\right)\e^{-ax^2}\di x\\
+            &=\int_{-\infty}^{+\infty}\left(\dfrac{2a}{\pi}\right)^{1/2}\e^{-2ax^2}\hbar^2\left(2a-4a^2x^2\right)\di x=a\hbar^2
+        \end{aligned}\]
+        \item 我们有
+        \[\Delta p_x=\sqrt{\avg{p_x^2}-\avg{p_x}^2}=\sqrt{a}\hbar\]
+        \[\Delta x=\sqrt{\avg{x^2}-\avg{x}^2}=\dfrac{1}{2\sqrt{a}}\]
+        \item 我们有
+        \[\Delta p_x\Delta x=\dfrac{\hbar}{2}\geq\dfrac{\hbar}{2}\]
+        于是满足不确定原理.
+    \end{enumerate}
+\end{solution}
+\begin{homework}[13.]
+    计算对易子: (a)$\left[\hat{H},\hat{p_x}\right]$和(b)$\left[\hat{H},\hat{x}\right]$,其中$\hat{H}=\dfrac{\hat{p_x}^2}{2m}+\hat{V}(x)$.选取(i) $V(x)=V_0$为常数和(ii) $V(x)=\dfrac12k_fx^2$.
+\end{homework}
+\begin{solution}
+\begin{enumerate}[label=(\alph*)]
+    \item 我们有
+        \[\left[\hat{H},\hat{p_x}\right]\psi=\hat{H}\hat{p_x}\psi-\hat{p_x}\hat{H}\psi=\left(\dfrac{\hat{p_x}^3}{2m}+\hat{V}\hat{p_x}\right)\psi-\left(\dfrac{\hat{p_x}^3}{2m}+\hat{p_x}\hat{V}\right)\psi=\hat{V}\hat{p_x}\psi-\hat{p_x}\hat{V}\psi\]
+        于是$\left[\hat{H},\hat{p_x}\right]=\hat{V}\hat{p_x}-\hat{p_x}\hat{V}$.
+        \begin{enumerate}[label=(\roman*)]
+            \item 当$V(x)=V_0$时有
+            \[\left[\hat{H},\hat{p_x}\right]=V_0\left(-\i\hbar\dfrac{\di}{\di x}\right)-\left(-\i\hbar\dfrac{\di}{\di x}\right)V_0=0\]
+            \item 当$V(x)=\dfrac12k_fx^2$时有
+            \[\left[\hat{H},\hat{p_x}\right]=\dfrac12k_fx^2\left(-\i\hbar\dfrac{\di}{\di x}\right)-\left(-\i\hbar\dfrac{\di}{\di x}\right)\left(\dfrac12k_fx^2\right)=\i\hbar k_fx\]
+        \end{enumerate}
+    \item 我们有
+        \[\left[\hat{H},\hat{x}\right]\psi=\left(\dfrac{\hat{p_x}^2\hat{x}}{2m}+\hat{V}\hat{x}\right)\psi-\left(\dfrac{\hat{x}\hat{p_x}^2}{2m}+\hat{x}\hat{V}\right)\psi=\]
+        而
+        \[\hat{p_x}^2\hat{x}\psi=-\hbar^2\dfrac{\di^2}{\di x^2}\left(x\psi\right)=-\hbar^2\left(x\dfrac{\di^2}{\di x^2}+2\dfrac{\di}{\di x}\right)\psi,\quad\hat{x}\hat{p_x}^2\psi=-x\hbar^2\dfrac{\di^2}{\di x^2}\psi\]
+        于是
+        \[\left[\hat{H},\hat{x}\right]=-2\hbar^2\dfrac{\di}{\di x}+\hat{V}\hat{x}-\hat{x}\hat{V}\]
+        \begin{enumerate}[label=(\roman*)]
+            \item 当$V(x)=V_0$时有
+            \[\left[\hat{H},\hat{x}\right]=-2\hbar^2\dfrac{\di}{\di x}\]
+            \item 当$V(x)=\dfrac12k_fx^2$时有
+            \[\left[\hat{H},\hat{x}\right]=-2\hbar^2\dfrac{\di}{\di x}\]
+        \end{enumerate}
+\end{enumerate}
+\end{solution}
+\begin{homework}[14.]
+    回答下面的问题.
+    \begin{enumerate}[label=(\alph*)]
+        \item 求解边长为$L$的三维无限深方势箱的本征能量和波函数,并证明它们分别可用三个量子数标记(提示:该薛定谔方程可以分离变量).
+        \item  仿照Atkins教材263页的图7D.2,画出三维势箱最低的$10$个能级(同图7D.2,能量以$E_1=\dfrac{h^2}{8mL^2}$为单位),并标记各能级的量子数和简并度;与一维势箱相比,三维势箱的能级是更稀疏还是更稠密?
+        \item 定义函数$\Phi(\epsilon)$为能量不超过$\epsilon$的态的数目.编写程序,计算函数$\Phi(\epsilon)$,并画出$\epsilon\in[0,30]$区间上的函数图像(提示:单位同(b),程序不需要输入$L$, $m$, $h$等参数;画出的$\Phi(\epsilon)$图像应该呈阶梯形);
+        \item 在密度泛函理论的Thomas-Fermi模型中,$\Phi(\epsilon)$可用如下函数近似:
+        \[\Phi(\epsilon)\approx\Phi^{TF}(\epsilon)=\dfrac{\pi}{6}\left(\dfrac{\epsilon}{E_1}\right)^{3/2}\]
+        在同一张图中比较$[0,1000]$区间上$\Phi(\epsilon)$和$\Phi^{TF}(\epsilon)$的图像,验证$\epsilon\to\infty$时,$\Phi(\epsilon)\approx\Phi^{TF}(\epsilon)$(比值趋于$1$),并思考为什么;
+        \item  假设$\Phi(\epsilon)$可以近似为$\Phi^{TF}(\epsilon)$,求能量区间$[\epsilon,\epsilon+\delta\epsilon]$态内的态数目$g(\epsilon)\delta\epsilon$，其中$\delta\epsilon$为小量.这里的函数$g(\epsilon)$称为能量$\epsilon$处的\tbf{态密度};
+        \item 能量较小时,如何严格定义$g(\epsilon)$?
+    \end{enumerate}
+\end{homework}
+\begin{solution}
+\begin{enumerate}[label=(\alph*)]
+    \item 三维薛定谔方程为
+    \[-\dfrac{\hbar^2}{2m}\nabla^2\psi(x,y,z)+V\psi=E\psi\]
+    边长为$L$的三维无限深方势箱的势函数为
+    \[V(x,y,z)=\left\{\begin{array}{l}
+        0,\quad 0\leq x,y,x\leq L\\
+        +\infty,\quad\text{其它情况}
+    \end{array}\right.\]
+    在势箱外,由于$V=+\infty$,而能量$E$不能为无限的值,因此$\psi=0$.\\
+    现在考虑势箱内的波函数$\psi(x,y,z)$.对其进行变量分离,设
+    \[\psi(x,y,z)=\psi_x(x)\psi_y(y)\psi_z(z)\]
+    那么薛定谔方程可以改写为
+    \[-\dfrac{\hbar^2}{2m}\left(\psi_y\psi_z\dfrac{\di^2\psi_x}{\di x^2}+\psi_x\psi_z\dfrac{\di^2\psi_y}{\di y^2}+\psi_x\psi_y\dfrac{\di^2\psi_z}{\di z^2}\right)=E\psi_x\psi_y\psi_z\]
+    即
+    \[-\dfrac{\hbar^2}{2m}\left(\dfrac{1}{\psi_x}\dfrac{\di^2\psi_x}{\di x^2}+\dfrac{1}{\psi_y}\dfrac{\di^2\psi_y}{\di y^2}+\dfrac{1}{\psi_z}\dfrac{\di^2\psi_z}{\di z^2}\right)=E\]
+    上述方程可以分为三个独立的微分方程$-\dfrac{\hbar^2}{2m}\dfrac{\di^2\psi_{u}}{\di u^2}=E_u\psi_u$,其中$u$分别代表$x$, $y$和$z$.这个微分方程就是一维势阱对应的薛定谔方程,它的解为
+    \[\psi_{u,n_u}=\sqrt{\dfrac{2}{L}}\sin\left(\dfrac{n_u\pi}{L}u\right),\quad E_u=\dfrac{n_u^2h^2}{8mL^2},\quad u=x,y,z\]
+    于是三维势箱的波函数为
+    \[\psi(x,y,z)=\left(\dfrac{8}{L^3}\right)^{1/2}\sin\left(\dfrac{n_x\pi}{L}x\right)\sin\left(\dfrac{n_y\pi}{L}y\right)\sin\left(\dfrac{n_y\pi}{L}y\right),\quad E=\dfrac{\left(n_x^2+n_y^2+n_z^2\right)h^2}{8mL^2}\]
+    其中$n_x$, $n_y$和$n_z$为正整数.
+    \item 根据上面的结果作图如下:
+    \begin{figure}[H]\centering
+        \input{figure/14(b).tex}
+    \end{figure}
+    \item 使用程序计算并作图如下:
+    \begin{figure}[H]\centering
+        \includegraphics[scale=0.75]{figure/14(c).eps}
+    \end{figure}
+    \item 使用程序计算并作图如下:
+    \begin{figure}[H]\centering
+        \includegraphics[scale=0.75]{figure/14(d).eps}
+    \end{figure}
+    证明如下:考虑所有满足条件的$(n_x,n_y,n_z)$,有
+    \[n_x^2+n_y^2+n_z^2\leq\dfrac{\epsilon}{E_1}\]
+    即
+    \[\sqrt{n_x^2+n_y^2+n_z^2}\leq\sqrt{\dfrac{\epsilon}{E_1}}\]
+    也即空间中到原点的距离不大于$\sqrt{\dfrac{\epsilon}{E_1}}$的第一卦限内的点的数目.在$\ep\to\infty$时,把整点看作以其为中心的体积为$1$的正方体,所有满足条件的整点近似地组成一个半径为$\sqrt{\dfrac{\epsilon}{E_1}}$的$1/8$球,因此数目近似为
+    \[\Psi(\epsilon)\approx\dfrac{1}{8}\dfrac{4}{3}\pi\left(\sqrt{\dfrac{\epsilon}{E_1}}\right)^3=\dfrac{\pi}{6}\left(\dfrac{\epsilon}{E_1}\right)^3\]
+    \item 按照上面的近似有
+    \[g(\epsilon)=\dfrac{\di\Phi^{TF}(\epsilon)}{\di\epsilon}=\dfrac{\pi}{4E_1}\sqrt{\dfrac{\epsilon}{E_1}}\]
+    \item 低能区域的态是离散的,应当使用$\delta$函数定义$g(\epsilon)$.
+\end{enumerate}
+\end{solution}
+\begin{homework}[15.]
+    一氧化碳与蛋白质肌红蛋白的血红素(亚铁血红素)基团的 \ce{Fe^2+}强烈结合.通过使用P7E.6中的数据以及下面的假设估算肌红蛋白键合的 \ce{CO}的振动频率.这些假设为:与血红素基团结合的原子是固定的;与 \ce{C}原子或 \ce{O}原子相比,蛋白质在质量上是无限大的; \ce{C}原子与 \ce{Fe^2+}结合,且 \ce{CO}与蛋白质的结合不改变 \ce{CO}键的力常数.
+\end{homework}
+\begin{solution}
+    \ce{CO}与 \ce{Fe^2+}结合后相当于 \ce{C}原子被固定,只有 \ce{O}原子进行振动.由于力常数$k$不发生变化,因此结合前后的振动波数之比为
+    \[\dfrac{\tilde{\nu}_1}{\tilde{\nu}_0}=\dfrac{\frac{1}{2\pi}\sqrt{\frac{k}{\mu_1}}}{\frac{1}{2\pi}\sqrt{\frac{k}{\mu_0}}}=\sqrt{\dfrac{\mu_0}{\mu_1}},\quad\mu_0=\dfrac{m_{\ce{C}}m_{\ce{O}}}{m_{\ce{C}}+m_{\ce{O}}},\quad\mu_1=m_{\ce{O}}\]
+    于是结合后振动的频率为
+    \[\omega_1=2\pi c\tilde{\nu}_1=2\pi c\sqrt{\dfrac{\mu_0}{\mu_1}}\nu_0=\SI{2.68e14}{\per\second}\]
+\end{solution}
+\begin{homework}[16.]
+    使用例题7E.3中相同的方法,计算处在$v=0,1,\cdots,7$状态的谐振子在经典禁区被发现的概率.将概率作为$v$的函数作图,并依据对应性原理解释这个结果.
+\end{homework}
+\begin{solution}
+    根据经典力学,禁区是满足$V(x)\geq E_v$的区域.在边界上就有
+    \[\dfrac12k_fx_v^2=\left(v+\dfrac12\right)\hbar\omega\]
+    于是禁区的边界即为$x=\pm\sqrt{\dfrac{(2v+1)\hbar\omega}{k_f}}$.并且根据对称性,这一区域关于$x=0$中心对称,因此可以考虑$x>0$的部分.做变量代换$y=\dfrac{x}{\alpha}$,其中$\alpha=\left(\dfrac{\hbar^2}{mk_f}\right)^{1/4}$,则转折点为
+    \[y_v=\dfrac{x_v}{\alpha}=\sqrt{\dfrac{(2v+1)\hbar\omega}{k_f}\cdot\dfrac{\sqrt{mk_f}}{\hbar}}=\sqrt{2v+1}\]
+    于是在禁区的概率即为
+    \[P_v=2\int_{x_v}^{+\infty}\psi_v^2x\di x=2\alpha\int_{y_v}^{+\infty}\dfrac{1}{\alpha\sqrt{\pi}2^vv!}H_v^2\e^{-y^2}\di y=\dfrac{1}{\sqrt{\pi}2^{v-1}v!}\int_{\sqrt{2v+1}}^{+\infty}H_v^2\e^{-y^2}\di y\]
+    当$v=0,1,\cdots,7$时,对应的概率分别为
+    \begin{table}[H]\centering
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+            \hline
+            $v$&0&1&2&3&4&5&6&7\\
+            \hline
+            $P_v$&0.1573&0.1116&0.0951&0.0855&0.0789&0.0740&0.0702&0.0670\\\hline
+        \end{tabular}
+    \end{table}
+    上述结果作图如下:
+    \begin{figure}[H]\centering
+        \includegraphics{figure/16.pdf}
+    \end{figure}
+    可以看出,出现在禁区的概率随着$v$的增加而减小.这说明当量子数$v$增大时,出现在经典力学所不允许的禁区的概率就越小,即量子力学与经典力学的结论在$v\to\infty$时应当相同.
+\end{solution}
+\begin{homework}[17.]
+    一个分子的振动态之间的光谱跃迁强度与在所有空间积分$\int\psi_{v'}x\psi_{v}\di x$的平方成正比.使用表7E.1中给出的厄米多项式之间的关系,证明允许的跃迁只能是那些$v'=v\pm1$的跃迁,并计算这些情况下的积分.
+\end{homework}
+\begin{proof}
+    做变量代换$y=x/\alpha$.量子数为$v$的能级的波函数为
+    \[\psi_v(x)=N_vH_v(y)\e^{-y^2/2}\]
+    于是从$v$到$v'$的跃迁的强度满足
+    \[I_{v\to v'}\propto\int\psi_{v'}x\psi_{v}\di v\propto\int H_vH_{v'}y\e^{-y^2}\di y\]
+    而$yH_v=\dfrac{H_{v+1}+2vH_{v-1}}{2}$,于是
+    \[\int H_vH_{v'}y\e^{-y^2}\di y=\dfrac12\int H_{v+1}H_{v'}\e^{-y^2}\di y+\int H_{v-1}H_{v'}\e^{-y^2}\di y\]
+    厄米特多项式的性质为
+    \[\int H_{v'}H_v\e^{-y^2}\di y\neq0,\quad\text{当且仅当 }v=v'\]
+    欲使上式不为零,则仅有$v'=v+1$或$v'=v-1$才能成立.这两种情况的积分分别为
+    \[\int\psi_{v-1}x\psi_v\di x=\alpha N_{v-1}N_{v}\int H_{v-1}H_vy\e^{-y^2}\di y=\left(\dfrac{1}{\sqrt{\pi}2^{2v-1}v!(v-1)!}\right)^{1/2}\sqrt{\pi}2^{v-1}v!=\left(\dfrac{\sqrt{\pi}v}{2}\right)^{1/2}\]
+    \[\int\psi_{v+1}x\psi_v\di x=\alpha N_{v+1}N_{v}\int H_{v-1}H_vy\e^{-y^2}\di y=\left(\dfrac{1}{\sqrt{\pi}2^{2v+1}v!(v+1)!}\right)^{1/2}\sqrt{\pi}2^{v}(v+1)!=\left(\dfrac{\sqrt{\pi}(v+1)}{2}\right)^{1/2}\]
+\end{proof}
+\begin{homework}[18.]
+    通过计算回答下面的问题,结果请用波数表示.
+    \begin{enumerate}[label=(\alph*)]
+        \item \ce{CH4}分子的转动惯量是\SI{5.27e-47}{\kilogram\meter\squared},求使其转动的最小能量.
+        \item \ce{SF6}分子的转动惯量是\SI{3.07e-45}{\kilogram\meter\squared},求使其转动的最小能量.
+    \end{enumerate}
+\end{homework}
+\begin{solution}
+\begin{enumerate}[label=(\alph*)]
+    \item
+    \[\lambda_{\ce{CH4}}=\dfrac{\Delta E}{hc}=\dfrac{\hbar^2}{I_{\ce{CH4}}hc}=\SI{10.6}{\per\centi\meter}\]
+    \item
+    \[\lambda_{\ce{SF6}}=\dfrac{\Delta E}{hc}=\dfrac{\hbar^2}{I_{\ce{CH4}}hc}=\SI{0.182}{\per\centi\meter}\]
+\end{enumerate}
+\end{solution}
+\begin{homework}[19.]
+    本题考虑在7F.13中给出的角动量的$x$, $y$, $z$分量算符之间的对易关系.
+    \begin{enumerate}[label=(\alph*)]
+        \item 考虑$\left[\hat{l}_x,\hat{l}_y\right]=\hat{l}_x\hat{l}_y-\hat{l}_y\hat{l}_x$.计算
+        \[\hat{l}_x\hat{l}_yf=-\hbar^2\left(\underbrace{y\dfrac{\p}{\p z}}_{A}-\underbrace{z\dfrac{\p}{\p y}}_{B}\right)\left(\underbrace{z\dfrac{\p f}{\p x}}_{C}-\underbrace{x\dfrac{\p f}{\p z}}_{D}\right)\]
+        \item 计算$\hat{l}_y\hat{l}_xf$.
+        \item 证明$\hat{l}_x\hat{l}_yf-\hat{l}_y\hat{l}_xf=\i\hbar\hat{l}_zf$.
+        \item 在7F.13中的定义通过$x$, $y$和$z$的循环置换是彼此关联的,请说明之.
+        \item 相同的循环置换也可以应用于这些算符的对易子.从$\left[\hat{l}_x,\hat{l}_y\right]=\i\hbar\hat{l}_z$开始,证明循环置换产生7F.14中的其它两个对易子.
+    \end{enumerate}
+\end{homework}
+\begin{solution}
+\begin{enumerate}[label=(\alph*)]
+    \item 采用题中的符号可得
+    \[\begin{aligned}
+        \hat{l}_x\hat{l}_yf
+        &=-\hbar^2(A-B)(C-D)\\
+        &=-\hbar^2\left(AC-AD-BC+BD\right)\\
+        &=-\hbar^2(y\p_xf+yz\p_z\p_xf-xy\p_z^2f-z^2\p_y\p_xf+xz\p_y\p_zf)\\
+        &=-\hbar^2\left(y\dfrac{\p f}{\p x}+yz\dfrac{\p^2f}{\p z\p x}-xy\dfrac{\p^2f}{\p z^2}-z^2\dfrac{\p^2f}{\p y\p x}+xz\dfrac{\p^2f}{\p y\p z}\right)
+    \end{aligned}\]
+    \item 同样地可以计算得到
+    \[\hat{l}_y\hat{l}_xf=-\hbar^2\left(yz\dfrac{\p^2f}{\p x\p z}-z^2\dfrac{\p^2f}{\p x\p y}-xy\dfrac{\p^2f}{\p z^2}+x\dfrac{\p f}{\p y}+xz\dfrac{\p^2f}{\p y\p z}\right)\]
+    \item 根据前面两问的计算结果有
+    \[\hat{l}_x\hat{l}_yf-\hat{l}_y\hat{l}_xf=-\hbar^2\left(y\dfrac{\p f}{\p x}-x\dfrac{\p f}{\p y}\right)=\i\hbar\left[\i\hbar\left(y\dfrac{\p}{\p x}-x\dfrac{\p}{\p y}\right)\right]f=\i\hbar\hat{l}_zf\]
+    \item 可以看出$x$, $y$和$z$在定义中是轮换对称的,即做变换$\{x,y,z\}\to\{y,z,x\}$不会使定义发生变化.
+    \item 对$\left[\hat{l}_x,\hat{l}_y\right]=\i\hbar\hat{l}_z$做一次变换$\{x,y,z\}\to\{y,z,x\}$可得
+    \[\left[\hat{l}_y,\hat{l}_z\right]=\i\hbar\hat{l}_x\]
+    再做一次变换$\{x,y,z\}\to\{y,z,x\}$可得
+    \[\left[\hat{l}_z,\hat{l}_x\right]=\i\hbar\hat{l}_y\]
+\end{enumerate}
+\end{solution}
+\begin{homework}[20.]
+    从7F.13中给出的算符$\hat{l}_z$的定义开始,证明:在球极坐标中有
+    \[\hat{l}_z=-\i\hbar\dfrac{\p}{\p\phi}\]
+\end{homework}
+\begin{proof}
+    首先有
+    \[\dfrac{\p f}{\p x}=\dfrac{\p f}{\p r}\dfrac{\p r}{\p x}+\dfrac{\p f}{\p\theta}\dfrac{\p\theta}{\p x}+\dfrac{\p f}{\p\phi}\dfrac{\p\phi}{\p x}\]
+    \[\dfrac{\p f}{\p y}=\dfrac{\p f}{\p r}\dfrac{\p r}{\p y}+\dfrac{\p f}{\p\theta}\dfrac{\p\theta}{\p y}+\dfrac{\p f}{\p\phi}\dfrac{\p\phi}{\p y}\]
+    在球极坐标中有
+    \[x=r\sin\theta\cos\phi,\quad y=r\sin\theta\sin\phi\]
+    因此
+    \[\dfrac{\p r}{\p x}=\dfrac{x}{r},\quad\dfrac{\p r}{\p y}=\dfrac{y}{r}\]
+    \[\dfrac{\p\theta}{\p x}=\dfrac{1}{1+\dfrac{x^2+y^2}{z^2}}\dfrac{x}{\sqrt{x^2+y^2}},\quad\dfrac{\p\theta}{\p y}=\dfrac{1}{1+\dfrac{x^2+y^2}{z^2}}\dfrac{y}{\sqrt{x^2+y^2}}\]
+    \[\dfrac{\p\phi}{\p x}=-\dfrac{y}{x^2}\dfrac{1}{1+\dfrac{y^2}{x^2}}=-\dfrac{y}{x^2+y^2},\quad\dfrac{\p\phi}{\p y}=\dfrac{1}{x}\dfrac{1}{1+\dfrac{y^2}{x^2}}=\dfrac{x}{x^2+y^2}\]
+    于是
+    \[\hat{l}_zf=\i\hbar\left(y\dfrac{\p f}{\p x}-x\dfrac{\p f}{\p y}\right)=\i\hbar\left(-\dfrac{y^2}{x^2+y^2}\dfrac{\p f}{\p\phi}-\dfrac{x^2}{x^2+y^2}\dfrac{\p f}{\p\phi}\right)=-\i\hbar\dfrac{\p f}{\p\phi}\]
+    于是
+    \[\hat{l}_z=-\i\hbar\dfrac{\p}{\p\phi}\]
+\end{proof}
+\end{document}
