@@ -1,0 +1,30 @@
+\documentclass{ctexart}
+\usepackage{Note}
+\setCJKmainfont[
+  BoldFont = 思源宋体 Bold,
+  ItalicFont = 楷体,
+]{宋体}
+\author{2400011785 蒋锦豪}
+\title{\tbf{结构化学\ 第2章作业}}
+\begin{document}
+\maketitle
+\begin{homework}[1.]
+    计算(或估算)以下物质的德布罗意波长:
+    \begin{enumerate}[label=(\alph*)]
+        \item 室温下的He原子(典型速度为$\SI{1000}{\meter\per\second}$);
+        \item 2008年奥运会百米比赛中的博尔特;
+        \item 飞行中的子弹头;
+        \item 动能为$\SI{300}{\electronvolt}$的自由电子.
+    \end{enumerate}
+\end{homework}
+\begin{solution}
+\begin{enumerate}[label=(\alph*)]
+    \item \[\lambda=\dfrac{h}{p}=\dfrac{\SI{6.626e-34}{\joule\second}}{\dfrac{\SI{4.00}{\gram\per\mol}}{\SI{6.022e-23}{\per\mol}}\cdot\SI{1000}{\meter\per\second}}=\SI{9.97e-11}{\meter}\]
+    \item \[\lambda=\dfrac{h}{p}=\dfrac{\SI{6.626e-34}{\joule\second}}{\SI{85}{\kilogram}\cdot\dfrac{\SI{100}{\meter}}{\SI{9.68}{\second}}}=\SI{7.54e-37}{\meter}\]
+    \item 这里采用典型的$7.62\times39\text{ mm}$子弹的数据.
+    \[\lambda=\dfrac{h}{p}=\dfrac{\SI{6.626e-34}{\joule\second}}{\SI{10}{\gram}\cdot\SI{800}{\meter\per\second}}=\SI{8.28e-35}{\meter}\]
+    \item \[\lambda=\dfrac{h}{p}=\dfrac{h}{\sqrt{2mE}}=\dfrac{\SI{6.626e-34}{\joule\second}}{\sqrt{2\cdot\SI{9.109e-31}{\kilogram}\cdot300\cdot\SI{1.602e-19}{\joule}}}=\SI{7.08e-11}{\meter}\]
+\end{enumerate}
+\end{solution}
+
+\end{document}
