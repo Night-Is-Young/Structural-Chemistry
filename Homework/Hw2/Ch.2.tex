@@ -9,22 +9,258 @@
 \begin{document}
 \maketitle
 \begin{homework}[1.]
-    计算(或估算)以下物质的德布罗意波长:
-    \begin{enumerate}[label=(\alph*)]
-        \item 室温下的He原子(典型速度为$\SI{1000}{\meter\per\second}$);
-        \item 2008年奥运会百米比赛中的博尔特;
-        \item 飞行中的子弹头;
-        \item 动能为$\SI{300}{\electronvolt}$的自由电子.
+    确定$\text{p}_x$和$\text{p}_y$轨道是否为$\hat{l}_z$的本征函数.如果不是,是否存在这两个轨道的线性组合使得它为$\hat{l}_z$的本征函数?
+\end{homework}
+\begin{solution}
+    对于$\text{p}_x$和$\text{p}_y$轨道有
+    \[\psi_{\text{p}_x}=\left(Y_1^{+1}-Y_1^{-1}\right)f(r),\quad \psi_{\text{p}_y}=\i\left(Y_1^{+1}+Y_1^{-1}\right)f(r)\]
+    而
+    \[\hat{l}_zY_{l}^{m}=m\hbar Y_{l}^{m}\]
+    于是
+    \[\hat{l}_z\psi_{\text{p}_x}=\hbar f(r)\left(Y_1^{+1}+Y_{1}^{-1}\right),\quad \psi_{\text{p}_y}=\i\hbar f(r)\left(Y_1^{+1}-Y_{1}^{-1}\right)\]
+    因此$\text{p}_x$和$\text{p}_y$轨道不是$\hat{l}_z$的本征函数.\\
+    \indent 考虑到$Y_{1}^{\pm1}$是$\hat{l}_z$的本征函数,因此设
+    \[\psi_{\pm}=\psi_{\text{p}_x}\pm\i\psi_{\text{p}_y}=\mp2Y_{1}^{\mp1}f(r)\]
+    显然$\psi_\pm$是$\hat{l}_z$的本征函数.因此存在这两个轨道的线性组合使得它们为$\hat{l}_z$的本征函数.
+\end{solution}
+\begin{homework}[2.]
+    一个原子的大小可以被考虑为球的半径,在该球内最外层占据轨道中发现电子的概率为$90\%$.根据这一定义计算基态氢原子的大小.接下来,考察定义改变至其它百分数时氢原子的大小变化,并将结论作图表示.
+\end{homework}
+\begin{solution}
+    基态氢原子的最外层占据轨道为1s轨道,其波函数为
+    \[\iPsi=\dfrac{1}{\sqrt{\pi a_0^3}}\e^{-r/a_0}\]
+    因此在半径为$r_0$的球内发现电子的概率为
+    \[P\left(r\leq r_0\right)=\int_{0\leq r\leq r_0}\left|\iPsi\right|^2\di V\xlongequal{\di V=4\pi r^2\di r}\dfrac{4}{a_0^3}\int_0^{r_0}r^2\e^{-2r/a_0}\di r=1-\e^{-2r/a_0}\left[1+2\left(\dfrac{r_0}{a_0}\right)+2\left(\dfrac{r_0}{a_0}\right)^2\right]\]
+    现在令$P\left(r\leq r_0\right)=0.9$,解得
+    \[r_0=\SI{141}{\pico\meter}\]
+    即按照此定义,基态氢原子的半径为$\SI{141}{\pico\meter}$.\\
+    \indent 现在将$r_0$(单位为pm)对$P\left(r\leq r_0\right)$作图如下:
+    \begin{figure}[H]\centering
+        \includegraphics[scale=1.3]{figure/2.eps}
+    \end{figure}
+    \noindent 可以看出,随着所取概率$P$的增大,依定义得到的氢原子半径也增大,并且在$P\to1$时$r_0\to+\infty$.
+\end{solution}
+\begin{homework}[3.]
+    一些原子性质依赖于$1/r$的平均值而非$r$的平均值.对于\tbf{(a)}类氢1s轨道, \tbf{(b)}类氢2s轨道,以及\tbf{(c)}类氢2p轨道,分别计算$1/r$的期望值. $\avg{1/r}=1/\avg{r}$吗?
+\end{homework}
+\begin{solution}
+定义
+\[\rho=\dfrac{2Z}{na}r,\quad a=\dfrac{4\pi\ep_0h^2}{\mu e^2}\]
+其中$Z$为核电荷数, $n$为主量子数.如果做近似$\mu=m_e$,则$a=a_0$.
+\begin{enumerate}[label=\tbf{(\alph*)}]
+    \item 类氢1s轨道的波函数为
+    \[\iPsi_{1\text{s}}(r,\theta,\phi)=R_{1,0}(r)Y_{0,0}(\theta,\phi)=2\left(\dfrac{Z}{a}\right)^{3/2}\e^{-\rho/2}\sqrt{\dfrac{1}{4\pi}}=2\left(\dfrac{Z}{a}\right)^{3/2}\e^{-(Z/a)r}\sqrt{\dfrac{1}{4\pi}}\]
+    于是
+    \[\begin{aligned}
+        \avg{\dfrac1r}_{1\text{s}}=\int\dfrac{1}{r}\left|\iPsi_{1\text{s}}\right|^2\d\tau
+        &=\int_0^\pi\int_0^{2\pi}\int_0^{+\infty}4\left(\dfrac{Z}{a}\right)^3\dfrac{\e^{-2(Z/a)r}}{r}\dfrac{1}{4\pi}r^2\d r\sin\theta\d\theta\d\phi\\
+        &=4\left(\dfrac{Z}{a}\right)^3\int_0^{+\infty}r\e^{-2(Z/a)r}\d r=\dfrac{Z}{a}
+    \end{aligned}\]
+    \item 类氢2s轨道的波函数为
+    \[\iPsi_{2\text{s}}(r,\theta,\phi)=R_{2,0}(r)Y_{0,0}(\theta,\phi)=\dfrac{1}{\sqrt8}\left(\dfrac{Z}{a}\right)^{3/2}(2-\rho)\e^{-\rho/2}\sqrt{\dfrac{1}{4\pi}}=\dfrac{1}{\sqrt8}\left(\dfrac{Z}{a}\right)^{3/2}\left(2-\dfrac{Z}{a}r\right)\e^{-Zr/(2a)}\sqrt{\dfrac{1}{4\pi}}\]
+    于是
+    \[\begin{aligned}
+        \avg{\dfrac1r}_{2\text{s}}=\int\dfrac{1}{r}\left|\iPsi_{2\text{s}}\right|^2\d\tau
+        &=\int_0^\pi\int_0^{2\pi}\int_0^{+\infty}\dfrac{1}{8}\left(\dfrac{Z}{a}\right)^3\left(2-\dfrac{Z}{a}r\right)^2\dfrac{\e^{-(Z/a)r}}{r}\dfrac{1}{4\pi}r^2\d r\sin\theta\d\theta\d\phi\\
+        &=\dfrac{1}{8}\left(\dfrac{Z}{a}\right)^3\int_0^{+\infty}\left(2-\dfrac{Z}{a}r\right)^2r\e^{-(Z/a)r}\d r=\dfrac{Z}{4a}
+    \end{aligned}\]
+    \item 类氢2p轨道的波函数为
+    \[\iPsi_{2\text{p}}(r,\theta,\phi)=R_{2,1}(r)Y_{1,m_l}(\theta,\phi)=\dfrac{1}{\sqrt{24}}\left(\dfrac{Z}{a}\right)^{3/2}\rho\e^{-\rho/2}Y_{1,m_l}=\dfrac{1}{\sqrt{24}}\left(\dfrac{Z}{a}\right)^{3/2}\dfrac{Zr}{a}\e^{-Zr/(2a)}Y_{1,m_l}\]
+    于是
+    \[\begin{aligned}
+        \avg{\dfrac1r}_{2\text{p}}=\int\dfrac{1}{r}\left|\iPsi_{2\text{s}}\right|^2\d\tau
+        &=\int_0^\pi\int_0^{2\pi}\int_0^{+\infty}\dfrac{1}{24}\left(\dfrac{Z}{a}\right)^3\left(\dfrac{Z}{a}r\right)^2\dfrac{\e^{-(Z/a)r}}{r}r^2\d r\left|Y_{1,m_l}\right|^2\sin\theta\d\theta\d\phi\\
+        &=\dfrac{1}{24}\left(\dfrac{Z}{a}\right)^3\int_0^{+\infty}\left(\dfrac{Z}{a}r\right)^2r\e^{-(Z/a)r}\d r=\dfrac{Z}{4a}
+    \end{aligned}\]
+\end{enumerate}
+考虑任意常数$a$,总有
+\[\left(\dfrac{1}{\sqrt{r}}-a\sqrt{r}\right)^2\geq0\]
+展开并取期望可得
+\[\avg{\dfrac1r}-2a+a^2\avg{r}\geq0\]
+由于上式对所有$a$都成立,因此
+\[\Delta=4-4\avg{\dfrac1r}\avg{r}\leq0\]
+即
+\[\avg{\dfrac1r}\geq\dfrac{1}{\avg{r}}\]
+等号成立当且仅当$r$是常数,但对于这里的问题显然是不成立的.因此严格的有
+\[\avg{\dfrac1r}>\dfrac{1}{\avg{r}}\]
+\end{solution}
+\begin{homework}[4.]
+    在玻尔原子模型中,电子在绕原子核的一个圆上运动,库伦吸引力$\dfrac{Ze^2}{4\pi\ep_0 r^2}$被圆周运动的离心力所平衡.玻尔提出角动量受限于$\hbar$的整数倍.当两个力平衡时,原子维持在静态,直至发生光谱跃迁.请用玻尔模型计算类氢原子的能量.
+\end{homework}
+\begin{solution}
+    假定电子圆周运动的角速度为$\omega$,则离心力和角动量分别为
+    \[f=m\omega^2 r,\quad L=m\omega r^2\]
+    根据玻尔模型有
+    \[\left\{\begin{array}{l}
+        \dfrac{Ze^2}{4\pi\ep_0 r^2}=m\omega^2r\\
+        m\omega r^2=n\hbar
+    \end{array}\right.\]
+    将$\omega=\dfrac{n\hbar}{mr^2}$代入第一个式子则有
+    \[\dfrac{Ze^2}{4\pi\ep_0 r^2}=\dfrac{n^2\hbar^2}{mr^3}\]
+    于是
+    \[r=\dfrac{4\pi\ep_0\hbar^2}{m_ee^2}\dfrac{n^2}{Z}\]
+    假定原子核静止不动,则类氢原子的能量应为电子势能和动能的加和,则
+    \[E_n=-\dfrac{e^2}{4\pi\ep_0 r}+\dfrac{1}{2}m\omega^2r^2=-\dfrac{e^2}{8\pi\ep_0r}=-\dfrac{m_ee^4}{8\ep_0^2h^2}\dfrac{Z}{n^2},\quad n=1,2,\cdots\]
+\end{solution}
+\begin{homework}[5.]
+    回答下列问题.
+    \begin{enumerate}[label=\tbf{(\alph*)}]
+        \item 已知氢原子的$3\text{d}_{z^2}$轨道在原子单位制下可以表示为
+        \[\psi_{3\text{d}_{z^2}}(r,\theta,\phi)=N_0r^2\e^{-r/3}\left(3\cos^2\theta-1\right)\]
+        计算归一化系数$N_0$以及电子出现在$3\text{d}_{z^2}$轨道正值区域的概率.
+        \item 已知氢原子的$3\text{d}_{x^2-y^2}$轨道和$3\text{d}_{xy}$轨道在原子单位制下分别可以表示为
+        \[\psi_{3\text{d}_{x^2-y^2}}(r,\theta,\phi)=N_1r^2\e^{-r/3}\sin^2\theta\cos2\phi\]
+        \[\psi_{3\text{d}_{xy}}(r,\theta,\phi)=N_2r^2\e^{-r/3}\sin^2\theta\sin2\phi\]
+        分别计算电子出现在相应轨道正值区域的概率.
+        \item 考虑氢原子的一个实值轨道$\psi(\vec{r})=R(r)L(\theta,\phi)$.不妨假定$\left|L(\theta,\phi)\right|$在定义区间上的最大值是$1$.依照如下方式定义其边界面:\begin{enumerate}[label=(\arabic*)]
+            \item 边界面上任意一点$(r,\theta,\phi)$满足曲面方程$r=r_0\left|L(\theta,\phi)\right|$,其中$r_0$是一个常数,即边界面的最大伸展距离.
+            \item 电子出现在边界面围成的封闭区域内的总概率为$0.9$.注意:该封闭区域可分为正值区域和负值区域两部分.
+        \end{enumerate}
+        根据以上定义,求出氢原子$3\text{d}_{z^2}$轨道边界面的最大伸展距离$r_0$.
+        \item  假设修改\tbf{(c)}中$3\text{d}_{z^2}$轨道边界面定义的概率阈值使得$r_0=30$,请分别计算新定义的边界面围成的正负区域的体积以及电子出现在这两个区域的概率.
     \end{enumerate}
 \end{homework}
 \begin{solution}
-\begin{enumerate}[label=(\alph*)]
-    \item \[\lambda=\dfrac{h}{p}=\dfrac{\SI{6.626e-34}{\joule\second}}{\dfrac{\SI{4.00}{\gram\per\mol}}{\SI{6.022e-23}{\per\mol}}\cdot\SI{1000}{\meter\per\second}}=\SI{9.97e-11}{\meter}\]
-    \item \[\lambda=\dfrac{h}{p}=\dfrac{\SI{6.626e-34}{\joule\second}}{\SI{85}{\kilogram}\cdot\dfrac{\SI{100}{\meter}}{\SI{9.68}{\second}}}=\SI{7.54e-37}{\meter}\]
-    \item 这里采用典型的$7.62\times39\text{ mm}$子弹的数据.
-    \[\lambda=\dfrac{h}{p}=\dfrac{\SI{6.626e-34}{\joule\second}}{\SI{10}{\gram}\cdot\SI{800}{\meter\per\second}}=\SI{8.28e-35}{\meter}\]
-    \item \[\lambda=\dfrac{h}{p}=\dfrac{h}{\sqrt{2mE}}=\dfrac{\SI{6.626e-34}{\joule\second}}{\sqrt{2\cdot\SI{9.109e-31}{\kilogram}\cdot300\cdot\SI{1.602e-19}{\joule}}}=\SI{7.08e-11}{\meter}\]
+\begin{enumerate}[label=\tbf{(\alph*)}]
+    \item 归一化条件要求
+    \[1=\int\left|\psi_{3\text{d}_{z^2}}\right|^2\di\tau=N_0^2\int_0^{2\pi}\d\phi\int_0^{\pi}\left(3\cos^2\theta-1\right)^2\sin\theta\d\theta\int_0^{+\infty}r^6\e^{-2r/3}\d r=39366\pi N_0^2\]
+    于是归一化系数
+    \[N_0=\dfrac{1}{81\sqrt{6\pi}}\]
+    电子出现在正值区域要求$3\cos^2\theta-1\geq0$,即
+    \[0\leq\theta\leq\arccos\dfrac{1}{\sqrt{3}}\quad\text{或}\quad\pi-\arccos\dfrac{1}{\sqrt{3}}\leq\theta\leq\pi\]
+    根据对称性可知电子出现在该区域的概率为
+    \[P=2N_0^2\int_0^{2\pi}\d\phi\int_0^{\arccos(1/\sqrt3)}\left(3\cos^2\theta-1\right)^2\sin\theta\d\theta\int_0^{+\infty}r^6\e^{-2r/3}\d r=1-\dfrac{2\sqrt3}{9}\]
+    \item 对于$3\text{d}_{x^2-y^2}$轨道,波函数的符号仅取决于$\cos2\phi$的正负.当波函数取正值时有$\cos2\phi\geq0$,即
+    \[0\leq\phi\leq\dfrac{\pi}{4}\quad\text{或}\quad\dfrac{3}{4}\pi\leq\phi\leq\dfrac{5\pi}{4}\quad\text{或}\quad\dfrac{7\pi}{4}\leq\phi\leq2\pi\]
+    在计算概率的重积分中有关$\phi$的项为$\displaystyle\int\cos^22\phi\di\phi$.因此电子出现在$3\text{d}_{x^2-y^2}$轨道正值区域的概率为
+    \[P=\dfrac{\displaystyle\int_0^{\pi/4}\cos^22\phi\d\phi+\int_{3\pi/4}^{5\pi/4}\cos^22\phi\d\phi+\int_{7\pi/4}^{2\pi}\cos^22\phi\d\phi}{\displaystyle\int_0^{2\pi}\cos^22\phi\d\phi}=\dfrac{1}{2}\]
+    根据对称性类似地可知电子出现在$3\text{d}_{xy}$轨道正值区域也是$\dfrac12$.
+    \item 对于$3\text{d}_{z^2}$轨道,依题设可知
+    \[R(r)=\dfrac{1}{162\sqrt{6\pi}}r^2\e^{-r/3},\quad L(\theta,\phi)=\dfrac{3\cos^2\theta-1}{2}\]
+    边界区域即为曲面$S:r\leq\left|\dfrac{3\cos^2\theta-1}{2}\right|r_0$.在此曲面包围的区域$V$上有
+    \[\int_V\left|\psi_{3\text{d}_{z^2}}\right|^2\di\tau=0.9\]
+    也即
+    \[\dfrac{1}{157464\pi}\int_0^{2\pi}\d\phi\int_0^{\pi}\left[\left(3\cos^2\theta-1\right)\sin\theta\int_0^{\left|\frac{3\cos^2\theta-1}{2}\right|r_0}r^6\e^{-2r/3}\d r\right]\d\theta=0.9\]
+    这就是$r_0$需要满足的方程.
+    \item 当$r_0=30$时,正负区域的体积
+    \[V_+=\int_{V_+}\di\tau=2\int_0^{2\pi}\d\phi\int_0^{\arccos(1/\sqrt{3})}\left(\int_0^{\frac{3\cos^2\theta-1}{2}\cdot30}r^2\d r\right)\sin\theta\d\theta=\dfrac{4800(3+\sqrt3)\pi}{7}\]
+    \[V_-=\int_{V_-}\di\tau=\int_0^{2\pi}\d\phi\int_{\arccos(1/\sqrt{3})}^{\pi-\arccos(1/\sqrt{3})}\left(\int_0^{\frac{1-3\cos^2\theta}{2}\cdot30}r^2\d r\right)\sin\theta\d\theta=\dfrac{4800\sqrt{3}\pi}{7}\]
+    电子分别出现在两个区域内的概率为
+    \[\begin{aligned}
+        P_+
+        &=\int_{V_+}\left|\psi_{3\text{d}_{z^2}}\right|\di\tau\\
+        &=2N_0^2\int_0^{2\pi}\d\phi\int_0^{\arccos(1/\sqrt{3})}\left(3\cos^2\theta-1\right)^2\left(\int_0^{\frac{3\cos^2\theta-1}{2}\cdot30}r^6\e^{-2r/3}\d r\right)\sin\theta\d\theta\\
+        &=0.569
+    \end{aligned}\]
+    \[\begin{aligned}
+        P_-
+        &=\int_{V_-}\left|\psi_{3\text{d}_{z^2}}\right|\di\tau\\
+        &=N_0^2\int_0^{2\pi}\d\phi\int_{\arccos(1/\sqrt{3})}^{\pi-\arccos(1/\sqrt{3})}\left(3\cos^2\theta-1\right)^2\left(\int_0^{\frac{1-3\cos^2\theta}{2}\cdot30}r^6\e^{-2r/3}\d r\right)\sin\theta\d\theta\\
+        &=0.278
+    \end{aligned}\]
 \end{enumerate}
 \end{solution}
-
+\begin{homework}[6.]
+    回答下列问题.
+    \begin{enumerate}[label=\tbf(\alph*)]
+        \item 证明氢原子的动能可以分解为质心动能与相对动能的加和,即:
+        \[-\dfrac{\hbar^2}{2m_e}\nabla_{\vec{r}_e}^2-\dfrac{\hbar^2}{2m_N}\nabla_{\vec{r}_N}^2=-\dfrac{\hbar^2}{2M}\nabla_{\vec{R}}^2-\dfrac{\hbar^2}{2\mu}\nabla_{\vec{r}}^2\]
+        其中
+        \[M=m_e+m_N,\quad\mu=\dfrac{m_em_N}{m_e+m_N},\quad\vec{R}=\dfrac{m_e\vec{r}_e+m_N\vec{r}_N}{m_e+m_N},\quad\vec{r}=\vec{r}_e-\vec{r}_N\]
+        \item 证明经典力学中也有类似的关系,即
+        \[\dfrac12m_e\vec{v}_e^2+\dfrac12m_N\vec{v}_N^2=\dfrac12M\vec{v}_{\vec{R}}^2+\dfrac12\mu\vec{v}_{\vec{r}}^2\]
+        其中$\vec{v}_e$和$\vec{v}_N$分别为某惯性系下电子和原子核的速度, $\vec{v}_{\vec{R}}$和$\vec{v}_{\vec{r}}$分别为两个粒子的质心速度和相对速度.
+    \end{enumerate}
+\end{homework}
+\begin{proof}
+\begin{enumerate}[label=\tbf{(\alph*)}]
+    \item 根据定义
+    \[\nabla_{\vec{r}_e}=\dfrac{\p}{\p\vec{r}_e}=\dfrac{\p}{\p\vec{r}}\dfrac{\p\vec{r}}{\p\vec{r}_e}+\dfrac{\p}{\p\vec{R}}\dfrac{\p\vec{R}}{\p\vec{r}_e}=\nabla_{\vec{r}}+\dfrac{\mu}{m_N}\nabla_{\vec{R}},\quad\nabla_{\vec{r}_N}=-\nabla_{\vec{r}}+\dfrac{\mu}{m_e}\nabla_{\vec{R}}\]
+    这样就有
+    \[\begin{aligned}
+        -\dfrac{\hbar^2}{2m_e}\nabla_{\vec{r}_e}^2-\dfrac{\hbar^2}{2m_N}\nabla_{\vec{r}_N}^2
+        &=-\dfrac{\hbar^2}{2}\left(\dfrac{\nabla_{\vec{r}}^2}{m_e}+\dfrac{2\mu\nabla_{\vec{r}}\nabla_{\vec{R}}}{2m_em_N}+\dfrac{\mu^2\nabla_{\vec{R}}^2}{m_em_N^2}+\dfrac{\nabla_{\vec{r}}^2}{m_N}-\dfrac{2\mu\nabla_{\vec{r}}\nabla_{\vec{R}}}{2m_em_N}+\dfrac{\mu^2\nabla_{\vec{R}}^2}{m_e^2m_N}\right)\\
+        &=-\dfrac{\hbar^2}{2}\left(\dfrac{1}{m_e}+\dfrac{1}{m_N}\right)\nabla_{\vec{r}}^2-\dfrac{\hbar^2}{2}\dfrac{\mu^2}{m_em_N\left(m_e+m_N\right)}\nabla_{\vec{R}}^2\\
+        &=-\dfrac{\hbar^2}{2M}\nabla_{\vec{R}}^2-\dfrac{\hbar^2}{2\mu}\nabla_{\vec{r}}^2
+    \end{aligned}\]
+    于是命题得证.
+    \item 将质心位置和相对位置对时间求导得到质心速度和相对速度:
+    \[\vec{v}_{\vec{R}}=\dfrac{m_e\vec{v}_e+m_N\vec{v}_N}{m_e+m_N},\quad\vec{v}_{\vec{r}}=\vec{v}_e-\vec{v}_N\]
+    于是可得
+    \[\vec{v}_e=\vec{v}_{\vec{R}}+\dfrac{m_N}{M}\vec{v}_{\vec{r}},\quad\vec{v}_N=\vec{v}_{\vec{R}}-\dfrac{m_e}{M}\vec{v}_{\vec{r}}\]
+    于是系统的总动能
+    \[\begin{aligned}
+        E_k
+        &=\dfrac12m_e\vec{v}_e^2+\dfrac12m_N\vec{v}_N^2\\
+        &=\dfrac12m_e\left(\vec{v}_{\vec{R}}+\dfrac{m_N}{M}\vec{v}_{\vec{r}}\right)^2+\dfrac12m_N\left(\vec{v}_{\vec{R}}-\dfrac{m_e}{M}\vec{v}_{\vec{r}}\right)^2\\
+        &=\dfrac12m_e\vec{v}_{\vec{R}}^2+\dfrac{m_em_N}{2M}\vec{v}_{\vec{R}}\vec{v}_{\vec{r}}+\dfrac{m_em_N^2}{2M^2}\vec{v}_{\vec{r}}^2+\dfrac12m_N\vec{v}_{\vec{R}}^2-\dfrac{m_em_N}{2M}\vec{v}_{\vec{R}}\vec{v}_{\vec{r}}+\dfrac{m_e^2m_N}{2M^2}\vec{v}_{\vec{r}}^2\\
+        &=\dfrac12\left(m_e+m_N\right)\vec{v}_{\vec{R}}^2+\dfrac12\dfrac{m_em_N\left(m_e+m_N\right)}{M^2}\vec{v}_{\vec{r}}^2\\
+        &=\dfrac12M\vec{v}_{\vec{R}}^2+\dfrac12\mu\vec{v}_{\vec{r}}^2
+    \end{aligned}\]
+    于是命题得证.
+\end{enumerate}
+\end{proof}
+\begin{homework}[7.]
+    回答下列问题.
+    \begin{enumerate}[label=\tbf{(\alph*)}]
+        \item 考虑处在氢原子1s轨道上的一个电子,计算该电子运动速度超越光速的概率.已知原子单位制下光速$c\approx137$.
+        \item 对2s, 2p, $3\text{d}_{z^2}$轨道重复上述计算.
+    \end{enumerate}
+\end{homework}
+\begin{solution}
+\begin{enumerate}[label=\tbf{(\alph*)}]
+    \item 对$\psi_{1\text{s}}=\dfrac{1}{\sqrt{\pi}}\e^{-r}$进行傅里叶变换得到动量空间波函数
+    \[\phi(\vec{p})=\dfrac{1}{(2\pi)^{3/2}}\int\e^{-\i\vec{p}\cdot\vec{r}}\psi_{1\text{s}}\d^3r\]
+    由于$\psi_{1\text{s}}$是球对称的,因此动量分布函数也应当是球对称的,不妨设$\vec{p}$指向$z$轴,则$\vec{p}\cdot\vec{r}=pr\cos\theta$.于是
+    \[\begin{aligned}
+        \phi(p)
+        &=\dfrac{1}{(2\pi)^{3/2}}\dfrac{1}{\sqrt{\pi}}\int_0^{2\pi}\d\phi\int_0^{\infty}\e^{-r}r^2\left(\int_0^{\pi}\sin\theta\e^{-\i pr\cos\theta}\d\theta\right)\d r\\
+        &=\dfrac{\sqrt2}{\pi}\int_0^{+\infty}\e^{-r}r^2\dfrac{\sin pr}{pr}\d r\\
+        &=\dfrac{2\sqrt{2}}{\pi\left(1+p^2\right)^2}
+    \end{aligned}\]
+    可以验证这一波函数在动量空间满足归一化条件.在原子单位下, $v\geq c$即$p\geq mc\approx137$,因此概率约为
+    \[P_{v>c}\approx\int_{137}^{+\infty}\left|\phi(p)\right|^24\pi p^2\d p=4.22\times10^{-11}\]
+\end{enumerate} 
+\end{solution}
+\begin{homework}[8.]
+    在国际单位制和原子单位制下写出Li原子的薛定谔方程.
+\end{homework}
+\begin{homework}[9.]
+    试通过\tbf{(a)}中心力场法, \tbf{(b)}微扰法计算\ce{H-}的能量,并预测其是否能稳定存在.
+\end{homework}
+\begin{homework}[10.]
+    为什么He原子的基态是单重态而不是三重态?
+\end{homework}
+\begin{homework}[11.]
+    角动量量子化体现为角动量矢量在三维实空间中只有特定的取向,可以用其与$z$轴的夹角描述.
+    \begin{enumerate}[label=\tbf{(\alph*)}]
+        \item 对于角量子数$l=0,1,2$的轨道角动量本征态试求角动量与$z$轴正方向的可能夹角.
+        \item 试求出电子自旋角动量与$z$轴正方向的可能夹角.
+    \end{enumerate}
+\end{homework}
+\begin{homework}[12.]
+    构建组态为$1\text{s}^12\text{s}^1$的\ce{He}原子的一个激发态的波函数.对于$1\text{s}$电子, $Z_{\text{eff}}=2$;对于$2\text{s}$电子, $Z_{\text{eff}}=1$.
+\end{homework}
+\begin{homework}[13.]
+    写出碳原子的光谱项和光谱支项,并指出能量最低的支项.
+\end{homework}
+\begin{homework}[14.]
+    电子组态$n\text{s}^1n\text{d}^1$的可能原子谱项是什么?哪一个谱项能量可能最低?
+\end{homework}
+\begin{homework}[15.]
+    下面哪个谱项间的跃迁是多电子原子的电子发射光谱中所允许的?
+    \begin{center}
+        (i) $^3\text{D}_2\to^3\text{P}_1$;    (ii) $^3\text{P}_2\to^1\text{S}_0$;     (iii) $^3\text{F}_4\to^3\text{D}_3$.
+    \end{center}
+\end{homework}
+\begin{homework}[16.]
+    电子偶素有绕它们的共同质心轨道运动的一个电子和一个正电子组成,因而预期光谱的大致特征与氢原子相似,差异主要来源于质量的不同.预测电子偶素的巴尔末谱系的前三条谱线的波数;电子偶素基态的结合能是多少?
+\end{homework}
+\begin{homework}[17.]
+    Zeeman效应是指强磁场作用下对原子光谱的修正。它源自外加磁场及轨道和自旋角动量引起的磁矩之间的相互作用(回忆专题8B中Stern-Gerlach实验提供的电子自旋的证据).在涉及单重态的跃迁中,观察到了所谓的正常Zeeman效应,为了对该效应有一定了解,考虑一个p电子,其\(l=1\)及\(m_l=0,\pm 1 \).在没有磁场时,这三个状态是简并的.当一强度为\(\mathcal{B}\)的磁场存在时,简并度被移去,观察到\(m_l=+1\)的状态其能量上移了\( \mu_\text{B}\mathcal{B}\), \(m_l=0\)的状态能量不变,而\(m_l=-1\)的状态其能量则下移了\( \mu_\text{B}\mathcal{B}\)，式中\(\mu_\text{B}=e\hbar/2m_e=9.274\times10^{-24}\ \text{J·T}^{-1} \)为玻尔磁子.所以,在有磁场存在时, \(^1\text{S}_0\)谱项和\(^1\text{P}_1\)谱项之间的跃迁可由三条谱线组成,而在没有磁场存在时,则只有一条谱线.
+    \begin{enumerate}[label=\tbf{(\alph*)}]
+        \item 计算在强度为2T(\( 1\ \text{T} = 1\ \text{kg\cdot s}^{-2}\cdot\text{A}^{-1} \))的磁场存在下,\( ^1\text{S}_0 \)谱项和\( ^1\text{P}_1 \)谱项之间的跃迁的三条谱线之间的裂分,用\( \text{cm}^{-1} \)表示.
+        \item 将\tbf{(a)}中计算的值与典型的光跃迁波数(如氢原子巴尔末谱系的那些)相比较,由正常Zeeman效应引起的谱线裂分是相对较小还是相对较大?
+    \end{enumerate}
+\end{homework}
 \end{document}
