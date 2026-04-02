@@ -1,0 +1,153 @@
+\documentclass{ctexbook}
+\usepackage{Note}
+\usepackage{unicode-math}
+\setCJKmainfont[
+  BoldFont = 思源宋体 Bold,
+  ItalicFont = 楷体,
+]{宋体}
+\setcounter{secnumdepth}{3}
+\begin{document}
+\chapter{原子结构与光谱}
+\section{类氢原子}
+\subsection{类氢原子的薛定谔方程}
+氢原子的哈密顿量包含三部分:
+\[\hat{H}=\underbrace{-\dfrac{\hbar^2}{2m_e}\nabla_{\vec{r}_e}^2}_{\hat{E}_{k,\text{electron}}}\underbrace{-\dfrac{\hbar^2}{2m_N}\nabla_{\vec{r}_N}^2}_{\hat{E}_{k,\text{nucleus}}}\underbrace{-\dfrac{Ze^2}{4\pi\ep_0 r}}_{\hat{V}}\]
+其中$\vec{r}_e$, $\vec{r}_N$分别是电子和原子核的坐标, $Z$是核电荷数, $r$是电子与原子核的距离.为了求解该方程,改写动能项为质心动能与相对动能之和:
+\[-\dfrac{\hbar^2}{2m_e}\nabla_{\vec{r}_e}^2-\dfrac{\hbar^2}{2m_N}\nabla_{\vec{r}_N}^2=-\dfrac{\hbar^2}{2M}\nabla_{\vec{R}}^2-\dfrac{\hbar^2}{2\mu}\nabla_{\vec{r}}^2\]
+其中
+\[M=m_e+m_N,\quad\mu=\dfrac{m_em_N}{m_e+m_N},\quad\vec{R}=\dfrac{m_e\vec{r}_e+m_N\vec{r}_N}{m_e+m_N},\quad\vec{r}=\vec{r}_e-\vec{r}_N\]
+这样体系的定态薛定谔方程即可改写为
+\[-\dfrac{\hbar^2}{2M}\nabla_{\vec{R}}^2\iPsi-\dfrac{\hbar^2}{2\mu}\nabla_{\vec{r}}^2\iPsi-\dfrac{Ze^2}{4\pi\ep_0r}\iPsi=E_{\text{tot}}\iPsi\]
+分量变量,令
+\[\iPsi(\vec{r},\vec{R})=\chi(\vec{R})\psi(\vec{r}),\quad E_{\text{tot}}=\mathcal{E}+E\]
+则可以得到
+\[\left\{\begin{array}{l}
+    -\dfrac{\hbar^2}{2M}\nabla_{\vec{R}}^2\chi=\mathcal{E}\chi\\[6pt]
+    -\dfrac{\hbar^2}{2\mu}\nabla_{\vec{r}}^2\psi-\dfrac{Ze^2}{4\pi\ep_0 r}\psi=E\psi
+\end{array}\right.\]
+\indent 质心波函数$\chi$满足自由粒子运动方程,其解为
+\[\chi(\vec{R})=\dfrac{1}{(2\pi)^{3/2}}\e^{-\i\vec{k}\cdot\vec{R}},\quad\mathcal{E}=\dfrac{\hbar^2k^2}{2M}\]
+下面求解相对运动方程.
+\subsection{相对运动方程}
+在相对运动方程中,由于$m_N\gg m_e$,因此$\mu\approx m_e$.利用球坐标中拉普拉斯算子的表达形式
+\[\nabla^2=\dfrac{1}{r}\dfrac{\p^2}{\p r^2}r+\dfrac{1}{r^2}\hat{\Lambda}^2,\quad\hat{\Lambda}^2=\dfrac{1}{\sin^2\theta}\dfrac{\p}{\p\phi^2}+\dfrac{1}{\sin\theta}\dfrac{\p}{\p\theta}\sin\theta\dfrac{\p}{\p\theta}\]
+对波函数$\psi(\vec{r})$分离变量
+\[\psi(\vec{r})=\psi(r,\theta,\phi)=R(r)Y(\theta,\phi)\]
+可得
+\[-\dfrac{\hbar^2}{2\mu}\left[\dfrac1r\left(\dfrac{\p^2}{\p r^2}\right)+\dfrac{\hat{\Lambda}^2}{r^2}\right]R(r)Y(\theta,\phi)-\dfrac{Ze^2}{4\pi\ep_0 r}R(r)Y(\theta,\phi)=ER(r)Y(\theta,\phi)\]
+对上式两端同除以$R(r)Y(\theta,\phi)$可得
+\[-\dfrac{\hbar^2}{2\mu}\dfrac{1}{rR(r)}\left(\dfrac{\p^2}{\p r^2}rR(r)\right)-\dfrac{\hbar^2}{2\mu}\dfrac{1}{r^2Y(\theta,\phi)}\hat{\Lambda}^2Y(\theta,\phi)-\dfrac{Ze}{4\pi\ep_0r}=E\]
+对上式两端同乘以$r^2$可得
+\[-\dfrac{\hbar^2}{2\mu}\dfrac{r}{R(r)}\left(\dfrac{\p^2}{\p r^2}rR(r)\right)-\dfrac{Zer}{4\pi\ep_0}-Er^2=\dfrac{\hbar^2}{2\mu}\dfrac{1}{Y(\theta,\phi)}\hat{\Lambda}^2Y(\theta,\phi)=\text{Const}\]
+为了方便求解(主要是角方程与角动量量子化的统一),令常数为$C\dfrac{\hbar^2}{2\mu}$.
+\subsubsection{角向方程}
+于是角向方程为
+\[\hat{\Lambda}^2Y(\theta,\phi)=CY(\theta,\phi)\]
+我们已经知道$\hat{\Lambda}^2$的本征函数是球谐函数$Y_{l,m_l}$,本征值为$-l(l+1)$.于是角向方程即得其解.
+\subsubsection{径向方程}
+在$C=-l(l+1)$的前提下,径向方程可以改写为
+\[-\dfrac{\hbar^2}{2\mu}\left(\dfrac{\p^2 R}{\p r^2}+\dfrac{2}{r}\dfrac{\p R}{\p r}\right)+\left[\dfrac{l(l+1)\hbar^2}{2\mu r^2}-\dfrac{Ze^2}{4\pi\ep_0r}\right]R=ER\]
+做变量代换
+\[\rho=\dfrac{2Zr}{na},\quad a=\dfrac{m_e}{\mu}a_0,\quad a_0=\dfrac{4\pi\ep_0\hbar^2}{m_ee^2}\]
+\section{多电子原子}
+\subsection{轨道近似}
+氦原子的定态薛定谔方程为
+\[\hat{H}=\underbrace{-\dfrac{\hbar^2}{2m_e}\nabla_{\vec{r}_1}^2-\dfrac{2e^2}{4\pi\ep_0 r_1}}_{\hat{H}_1}\underbrace{-\dfrac{\hbar^2}{2m_e}\nabla_{\vec{r}_2}^2-\dfrac{2e^2}{4\pi\ep_0 r_2}}_{\hat{H}_2}+\dfrac{e^2}{4\pi\ep_0r_{12}}\]
+\subsection{自旋}
+将氦原子的全波函数的空间部分与自旋部分进行变量分离:
+\[\iPsi(1,2)=\psi(\vec{r}_1,\vec{r}_2)\chi(1,2)\]
+根据泡利不相容原理,由于电子是费米子,因此全波函数必须是反对称的,即$\iPsi(1,2)=-\iPsi(2,1)$.在单电子近似下,基态氦原子的空间波函数为
+\[\psi(\vec{r}_1,\vec{r}_2)=\psi_{1\text{s}}(\vec{r}_1)\psi_{1\text{s}}(\vec{r}_2)\]
+\subsection{构造原理}
+\subsubsection{钻穿与屏蔽}
+多电子原子中的电子受到来自其它所有电子的库仑排斥作用.如果电子离核的距离为$r$,它受到的平均排斥作用等效于与核的位置相同的负点电荷,其电荷量为半径为$r$内所有电子的总电荷.
+\subsubsection{洪特规则}
+\begin{theorem}[洪特规则]
+	基态原子采用具有最多未成对电子数目的组态.
+\end{theorem}
+考虑电子$1$, $2$处于不同轨道$a$, $b$上的波函数
+\[\iPsi_{\pm}=\dfrac{1}{\sqrt2}\left[\psi_a(\vec{r}_1)\psi_b(\vec{r}_2)\pm\psi_a(\vec{r}_1)\psi_b(\vec{r}_2)\right]\]
+对于对称的组合$\iPsi_+$,为了满足泡利原理,自旋波函数$\chi(1,2)$应当是反对称的,这只能有
+\[\chi(1,2)=\sigma_-(1,2)=\dfrac{1}{\sqrt{2}}\left[\alpha(1)\beta(2)-\alpha(2)\beta(1)\right]\]
+而对于反对称的组合$\iPsi_-$,自旋波函数$\chi(1,2)$则应当是对称的,也即
+\[\alpha(1)\alpha(2),\quad\beta(1)\beta(2),\quad\sigma_+(1,2)=\dfrac{1}{\sqrt{2}}\left[\alpha(1)\beta(2)+\alpha(2)\beta(1)\right]\]
+中的一者.\\
+\indent 简单而言,当$\vec{r}_1\to\vec{r}_2$时,由于库伦势能增大,波函数$\iPsi(1,2)$应当趋近于$0$.反对称的组合$\iPsi_-(1,2)$天然地满足这一点,而$\iPsi_+(1,2)$则不一定.因而这两个空间波函数对应于不同的能量,我们称之为\tbf{三重态}(对应于$\iPsi_-$)和\tbf{单重态}(对应于$\iPsi_+$).
+\section{原子光谱}
+\subsection{类氢原子的光谱}
+原子中的电子分布从一个态向另一个态转变并导致能量变化(通常是吸收/放出一个光子)的过程称作\tbf{跃迁}.在光谱学中,跃迁被描述为在两个\tbf{谱项}间发生.\\
+\indent 并非所有谱项间的跃迁都能发生.如果它们能发生,则称这一跃迁是\tbf{允许}的;如果它们不发生,则光谱跃迁是\tbf{禁阻}的.\\
+\indent 首先,光子的自旋角动量对应的量子数为$s=1$.为了保证自旋角动量守恒,我们引入以下近似对体系进行处理:
+\begin{theorem}[偶极近似]
+	如果原子(或分子)需要吸收(或产生)频率为$\nu$的光子,那么它们必须拥有在此频率上振荡的偶极子.
+\end{theorem}
+\subsubsection{微扰理论}
+研究两个态之间的变化必须引入时间参量,也就是求解含时薛定谔方程.这是很难求解的,因此我们需要采用合适的办法进行近似.\tbf{微扰理论}就是一个很合适的办法.
+\paragraph{定态微扰}
+\indent 首先考虑定态微扰问题:
+\[\hat{H}\psi_n=E_n\psi_n,\quad\hat{H}=\hat{H}^{(0)}+\hat{H}^{(1)}\]
+其中$\hat{H}^{(0)}$是对体系微扰前的哈密顿算符, $\hat{H}^{(1)}$是微扰哈密顿算符.微扰前的薛定谔方程
+\[\hat{H}^{(0)}\psi_n^{(0)}=E_n^{(0)}\psi_n^{(0)}\]
+的解已知.现在,对$\hat{H}$, $E_n$和$\psi_n$泰勒展开:
+\[\hat{H}=\hat{H}^{(0)}+\lambda\hat{H}^{(1)}+o(\lambda)\]
+\[E_n=E_n^{(0)}+\lambda E_n^{(1)}+o(\lambda)\]
+\[\psi_n=\psi_n^{(0)}+\lambda\psi_n^{(1)}+o(\lambda)\]
+代入薛定谔方程,展开后忽略高阶无穷小项并比较$\lambda$项的系数可得
+\[\hat{H}^{(1)}\psi_n^{(0)}+\hat{H}^{(0)}\psi_n^{(1)}=E_n^{(1)}\psi_n^{(0)}+E_n^{(0)}\psi_n^{(1)}\]
+\indent 将上述方程与$\psi_{n}^{(0)}$做内积可得
+\[\bra{\psi_{n}^{(0)}}\hat{H}^{(1)}\ket{\psi_{n}^{(0)}}+\bra{\psi_{n}^{(0)}}\hat{H}^{(0)}\ket{\psi_{n}^{(1)}}=E_n^{(0)}\inprod{\psi_{n}^{(0)}}{\psi_{n}^{(1)}}+E_n^{(1)}\inprod{\psi_{n}^{(0)}}{\psi_{n}^{(0)}}\]
+由于$\hat{H}$是厄米算符,因此$\hat{H}^{(k)}$也是厄米算符,从而
+\[\bra{\psi_{n}^{(0)}}\hat{H}^{(0)}\ket{\psi_{n}^{(1)}}=\hat{H}^{(0)}\inprod{\psi_{n}^{(0)}}{\psi_{n}^{(1)}}=E_n^{(0)}\inprod{\psi_{n}^{(0)}}{\psi_{n}^{(1)}}\]
+于是
+\[E_n^{(1)}=\bra{\psi_{n}^{(0)}}\hat{H}^{(1)}\ket{\psi_{n}^{(0)}}\]
+\indent 将上述方程与$\psi_k^{(0)}(k\neq n)$做内积可得
+\[\bra{\psi_{k}^{(0)}}\hat{H}^{(1)}\ket{\psi_{n}^{(0)}}+\bra{\psi_{k}^{(0)}}\hat{H}^{(0)}\ket{\psi_{n}^{(1)}}=E_n^{(0)}\inprod{\psi_{k}^{(0)}}{\psi_{n}^{(1)}}+E_n^{(1)}\inprod{\psi_{k}^{(0)}}{\psi_{n}^{(0)}}\]
+根据波函数的正交性可得$\inprod{\psi_{k}^{(0)}}{\psi_{n}^{(0)}}=0$,而
+\[\bra{\psi_{k}^{(0)}}\hat{H}^{(0)}\ket{\psi_{n}^{(1)}}=\hat{H}^{(0)}\inprod{\psi_{k}^{(0)}}{\psi_{n}^{(1)}}=E_k^{(0)}\inprod{\psi_{k}^{(0)}}{\psi_{n}^{(1)}}\]
+从而
+\[\inprod{\psi_{k}^{(0)}}{\psi_{n}^{(1)}}=\dfrac{\bra{\psi_{k}^{(0)}}\hat{H}^{(1)}\ket{\psi_{n}^{(0)}}}{E_n^{(0)}-E_k^{(0)}}\]
+于是利用基组展开的技巧可得
+\[\ket{\psi_n^{(1)}}=\sum_{k}\ket{\psi_k^{(0)}}\inprod{\psi_{k}^{(0)}}{\psi_{n}^{(1)}}=\sum_{k\neq n}\dfrac{\bra{\psi_{k}^{(0)}}\hat{H}^{(1)}\ket{\psi_{n}^{(0)}}}{E_n^{(0)}-E_k^{(0)}}\ket{\psi_k^{(0)}}\]
+这一求和隐含的条件是$\psi_{n}^{(0)}$与$\psi_{n}^{(1)}$的正交性.由于$\psi_n$是归一的,因此
+\[\inprod{\psi_{n}^{(0)}+\lambda\psi_{n}^{(1)}+o(\lambda)}{\psi_{n}^{(0)}+\lambda\psi_{n}^{(1)}+o(\lambda)}=\inprod{\psi_n^{(0)}}{\psi_n^{(0)}}+\lambda\left(\inprod{\psi_n^{(1)}}{\psi_n^{(0)}}+\inprod{\psi_n^{(0)}}{\psi_n^{(1)}}\right)+o(\lambda)=1\]
+上式对所有$\lambda$都成立,因此只能有
+\[\inprod{\psi_n^{(1)}}{\psi_n^{(0)}}+\inprod{\psi_n^{(0)}}{\psi_n^{(1)}}=0\]
+在假定波函数是实值函数的前提下可得$\inprod{\psi_n^{(0)}}{\psi_n^{(1)}}=0$,即二者正交.
+\paragraph{含时微扰}
+含时薛定谔方程为
+\[\i\hbar\p_t\iPsi(\vec{r},t)=\hat{H}\iPsi(\vec{r},t)\]
+如果$\hat{H}$不含时,并且$\psi(\vec{r})$是$\hat{H}$的定态薛定谔方程
+\[\hat{H}\psi(\vec{r})=E\psi(\vec{r})\]
+的解,那么含时波函数即为
+\[\iPsi(\vec{r},t)=\psi(\vec{r})\exp\left(-\dfrac{\i Et}{\hbar}\right)\]
+\indent 现在,将$\hat{H}$的含时部分视作微扰:
+\[\hat{H}=\hat{H}^{(0)}+\hat{H}^{(1)}(t)\]
+在\tbf{偶极近似}下,假定原子处在匀强电磁场中,那么微扰项
+\[\hat{H}^{(1)}(t)=-\hat{\mu}_zE\cos\omega t\]
+其中$z$方向指向电磁场的振荡方向, $\hat{\mu}_z$为偶极算符.\\
+\indent 考虑一阶微扰波函数,与定态微扰相似,可以写作
+\[\ket{\iPsi_n^{(1)}(t)}=\sum_{k\neq n}a_k(t)\ket{\iPsi^{(0)}_k(t)}\]
+类比定态微扰(实际上推导过程是一样的)可得
+\[a_k(t)=\dfrac{1}{\i\hbar}\int_0^{t}\bra{\iPsi_k^{(0)}(\tau)}\hat{H}^{(1)}(\tau)\ket{\iPsi_n^{(0)}(\tau)}\d\tau\]
+将$\iPsi(\vec{r},t)=\psi_k(\vec{r})\exp\left(-\dfrac{\i E_k^{(0)}t}{\hbar}\right)$代入可得
+\[a_k(t)=\dfrac{1}{\i\hbar}\int_0^{t}\bra{\psi_k^{(0)}}\hat{H}^{(1)}(\tau)\ket{\psi_n^{(0)}}\e^{\i\omega_{kn}\tau}\d\tau,\quad\omega_{kn}=\dfrac{E_k^{(0)}-E_n^{(0)}}{\hbar}\]
+\indent 在光谱学中,上式即为\tbf{跃迁概率辐}.跃迁概率即为
+\[P_k(t)=\left|a_k(t)\right|^2\]
+定义\tbf{跃迁速率}
+\[w_k(t)=\dfrac{\d P_k}{\d t}\]
+在光致跃迁中
+\[\hat{H}^{(1)}(t)=-\hat{\mu}_zE\cos\omega t\]
+于是
+\[a_k(t)=\mathcal{E}\bra{\psi_k^{(0)}}\hat{\mu}_z\ket{\psi_n^{(0)}}\dfrac{1}{\i\hbar}\int_0^{t}\e^{\i\omega_{kn}\tau}\cos\omega\tau\d\tau\]
+从而
+\[w_k(t)\propto\mathcal{E}^2\left|\bra{\psi_k^{(0)}}\hat{\mu}_z\ket{\psi_n^{(0)}}\right|^2\]
+于是跃迁速率(正比于吸收/发射强度)正比于偶极矩矩阵元的模长的平方.定义\tbf{跃迁偶极矩}
+\[\mu_{kn}=\bra{\psi_k^{(0)}}\hat{\mu}_z\ket{\psi_n^{(0)}}\]
+\subsubsection{偶极近似}
+\paragraph{泡利方程}
+电场中的薛定谔方程,即泡利方程为
+\[\i\hbar\dfrac{\p}{\p t}\psi=\hat{H}\psi,\quad\hat{H}=\dfrac{1}{2m}\left[\symbf\sigma\cdot{\hat{\vec{p}}-e\mat{A}}\right]^2+e\phi\]
+其中$\symbf\sigma$是泡利矩阵.根据泡利矩阵的性质有
+\[(\symbf\sigma\cdot\vec{a})(\symbf\sigma\cdot\vec{b})=\vec{a}\cdot\vec{b}+\i\symbf\sigma\cdot(\vec{a}\times\vec{b})\]
+
+\end{document}

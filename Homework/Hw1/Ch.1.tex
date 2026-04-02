@@ -68,6 +68,7 @@
 \begin{solution}
     根据\tbf{3.}的结论可得
     \[\lambda_{\max}=\dfrac{\SI{2.898e-3}{\meter\kelvin}}{\SI{5800}{\kelvin}}=\SI{5.00e-7}{\meter}\]
+    \red{颜色为绿色或蓝绿色.}
 \end{solution}
 \begin{homework}[6.]
     如果定义范数为
@@ -78,10 +79,11 @@
     \tbf{三角不等式}:对任意$\vec{x},\vec{y}$和$t$,考虑函数
     \[f(t)=\|\vec{x}+t\vec{y}\|^2=\left\langle\vec{x}+t\vec{y},\vec{x}+t\vec{y}\right\rangle=t^2\|\vec{y}\|^2+t\left(\avg{\vec{x},\vec{y}}+\avg{\vec{y},\vec{x}}\right)+\|\vec{x}\|^2\]
     显然$f(t)\geq0$.上述函数的判别式为
-    \[\Delta=4\left|\left\langle\vec{x},\vec{y}\right\rangle\right|^2-4\|\vec{x}\|^2\|\vec{y}\|^2\]
+    \[\Delta=\red{4\Re\left(\left\langle\vec{x},\vec{y}\right\rangle\right)^2}-4\|\vec{x}\|^2\|\vec{y}\|^2\]
     由于$f(t)$是开口向上的二次函数并且$f(t)\geq0$,于是$\Delta\leq0$,则
-    \[\left|\left\langle\vec{x},\vec{y}\right\rangle\right|<\|\vec{x}\|\|\vec{y}\|\]于是
-    \[\left(\|\vec{x}\|+\|\vec{y}\|\right)^2-\|\vec{x}+\vec{y}\|^2=2\left(\|\vec{x}\|\|\vec{y}\|-\left|\left\langle\vec{x},\vec{y}\right\rangle\right|\right)\geq0\]
+    \[\red{\left|\Re(\left\langle\vec{x},\vec{y}\right\rangle)\right|}<\|\vec{x}\|\|\vec{y}\|\]
+    于是
+    \[\left(\|\vec{x}\|+\|\vec{y}\|\right)^2-\|\vec{x}+\vec{y}\|^2=2\left(\|\vec{x}\|\|\vec{y}\|-\red{\left|\Re(\left\langle\vec{x},\vec{y}\right\rangle)\right|}\right)\geq0\]
     于是
     \[\|\vec{x}\|+\|\vec{y}\|\geq\|\vec{x}+\vec{y}\|\]
     \tbf{放缩性}:对任意$\vec{x}$和$\alpha$有
@@ -95,9 +97,9 @@
     首先有
     \[\int_{0}^{+\infty}\left|\psi(x)\right|^2\di x=\int_{0}^{+\infty}\e^{-2ax}\di x=\left.-\dfrac{\e^{-2ax}}{2a}\right|_0^{+\infty}=\dfrac{1}{2a}\]
     于是归一化后的波函数
-    \[\phi(x)=2a\e^{-ax}\]
+    \[\phi(x)=\red{\sqrt{2a}}\e^{-ax}\]
     在$x\geq\SI{1}{\meter}$处发现粒子的概率为
-    \[P(x\geq1)=\int_{1}^{+\infty}\left|\phi(x)\right|^2\di x=4a^2\int_{1}^{+\infty}\e^{-2ax}\di x=7.33\times10^{-2}\]
+    \[P(x\geq1)=\int_{1}^{+\infty}\left|\phi(x)\right|^2\di x=\red{2a}\int_{1}^{+\infty}\e^{-2ax}\di x=\red{1.83}\times10^{-2}\]
 \end{solution}
 \begin{homework}[8.]
     氢原子的归一化基态波函数是
@@ -143,7 +145,7 @@
         &=-\i\hbar\int_{-\infty}^{+\infty}\psi_i^\ast\dfrac{\di\psi_j}{\di x}\di x=-\i\hbar\left(\left.\psi_i^\ast\psi_j\right|_{-\infty}^{+\infty}-\int_{-\infty}^{+\infty}\psi_{j}\dfrac{\di\psi_i^\ast}{\di x}\di x\right)\\
         &=\i\hbar\int_{-\infty}^{+\infty}\psi_j\dfrac{\di\psi^\ast}{\di x}\di x=-\i\hbar\int_{-\infty}^{+\infty}\psi_j^\ast\dfrac{\di\psi_i}{\di x}\di x=\int_{-\infty}^{+\infty}\psi_j^\ast\hat{p}\psi_i\di x
     \end{aligned}\]
-    于是$\hat{p}$是厄米算符.
+    于是$\hat{p}$是厄米算符. \red{而$\hat{E}_k=\dfrac{\hat{p}^2}{2m}$,因此动能算符也是厄米算符.}
     \item 考虑$\hat{A}^2$的本征值$A$和本征函数$\psi$,总有
     \[A\avg{\psi,\psi}=\avg{A\psi,\psi}=\avg{\hat{A}^2\psi,\psi}=\avg{\hat{A}\psi,\hat{A}\psi}\]
     既然$\avg{\psi,\psi}$和$\avg{\hat{A}\psi,\hat{A}\psi}$都非负,因此$A$也非负.
@@ -235,16 +237,16 @@
             \[\left[\hat{H},\hat{p_x}\right]=\dfrac12k_fx^2\left(-\i\hbar\dfrac{\di}{\di x}\right)-\left(-\i\hbar\dfrac{\di}{\di x}\right)\left(\dfrac12k_fx^2\right)=\i\hbar k_fx\]
         \end{enumerate}
     \item 我们有
-        \[\left[\hat{H},\hat{x}\right]\psi=\left(\dfrac{\hat{p_x}^2\hat{x}}{2m}+\hat{V}\hat{x}\right)\psi-\left(\dfrac{\hat{x}\hat{p_x}^2}{2m}+\hat{x}\hat{V}\right)\psi=\]
+        \[\left[\hat{H},\hat{x}\right]\psi=\left(\dfrac{\hat{p_x}^2\hat{x}}{2m}+\hat{V}\hat{x}\right)\psi-\left(\dfrac{\hat{x}\hat{p_x}^2}{2m}+\hat{x}\hat{V}\right)\psi\]
         而
         \[\hat{p_x}^2\hat{x}\psi=-\hbar^2\dfrac{\di^2}{\di x^2}\left(x\psi\right)=-\hbar^2\left(x\dfrac{\di^2}{\di x^2}+2\dfrac{\di}{\di x}\right)\psi,\quad\hat{x}\hat{p_x}^2\psi=-x\hbar^2\dfrac{\di^2}{\di x^2}\psi\]
         于是
-        \[\left[\hat{H},\hat{x}\right]=-2\hbar^2\dfrac{\di}{\di x}+\hat{V}\hat{x}-\hat{x}\hat{V}\]
+        \[\left[\hat{H},\hat{x}\right]=\red{-\dfrac{\hbar^2}{m}}\dfrac{\di}{\di x}+\hat{V}\hat{x}-\hat{x}\hat{V}\ \red{=\dfrac{\i\hbar}{m}\hat{p}_x+\hat{V}\hat{x}-\hat{x}\hat{V}}\]
         \begin{enumerate}[label=(\roman*)]
             \item 当$V(x)=V_0$时有
-            \[\left[\hat{H},\hat{x}\right]=-2\hbar^2\dfrac{\di}{\di x}\]
+            \[\left[\hat{H},\hat{x}\right]=\ \red{\dfrac{\i\hbar}{m}\hat{p}_x}\]
             \item 当$V(x)=\dfrac12k_fx^2$时有
-            \[\left[\hat{H},\hat{x}\right]=-2\hbar^2\dfrac{\di}{\di x}\]
+            \[\left[\hat{H},\hat{x}\right]=\ \red{\dfrac{\i\hbar}{m}\hat{p}_x}\]
         \end{enumerate}
 \end{enumerate}
 \end{solution}
@@ -352,8 +354,8 @@
     厄米特多项式的性质为
     \[\int H_{v'}H_v\e^{-y^2}\di y\neq0,\quad\text{当且仅当 }v=v'\]
     欲使上式不为零,则仅有$v'=v+1$或$v'=v-1$才能成立.这两种情况的积分分别为
-    \[\int\psi_{v-1}x\psi_v\di x=\alpha N_{v-1}N_{v}\int H_{v-1}H_vy\e^{-y^2}\di y=\left(\dfrac{1}{\sqrt{\pi}2^{2v-1}v!(v-1)!}\right)^{1/2}\sqrt{\pi}2^{v-1}v!=\left(\dfrac{\sqrt{\pi}v}{2}\right)^{1/2}\]
-    \[\int\psi_{v+1}x\psi_v\di x=\alpha N_{v+1}N_{v}\int H_{v-1}H_vy\e^{-y^2}\di y=\left(\dfrac{1}{\sqrt{\pi}2^{2v+1}v!(v+1)!}\right)^{1/2}\sqrt{\pi}2^{v}(v+1)!=\left(\dfrac{\sqrt{\pi}(v+1)}{2}\right)^{1/2}\]
+    \[\int\psi_{v-1}x\psi_v\di x=\alpha N_{v-1}N_{v}\int H_{v-1}H_vy\e^{-y^2}\di y=\left(\dfrac{1}{\sqrt{\pi}2^{2v-1}v!(v-1)!}\right)^{1/2}\sqrt{\pi}2^{v-1}v!\red{\alpha}=\left(\dfrac{\sqrt{\pi}v}{2}\right)^{1/2}\red{\alpha}\]
+    \[\int\psi_{v+1}x\psi_v\di x=\alpha N_{v+1}N_{v}\int H_{v-1}H_vy\e^{-y^2}\di y=\left(\dfrac{1}{\sqrt{\pi}2^{2v+1}v!(v+1)!}\right)^{1/2}\sqrt{\pi}2^{v}(v+1)!\red{\alpha}=\left(\dfrac{\sqrt{\pi}(v+1)}{2}\right)^{1/2}\red{\alpha}\]
 \end{proof}
 \begin{homework}[18.]
     通过计算回答下面的问题,结果请用波数表示.
