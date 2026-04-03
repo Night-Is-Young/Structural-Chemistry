@@ -74,16 +74,15 @@
 中的一者.\\
 \indent 简单而言,当$\vec{r}_1\to\vec{r}_2$时,由于库伦势能增大,波函数$\iPsi(1,2)$应当趋近于$0$.反对称的组合$\iPsi_-(1,2)$天然地满足这一点,而$\iPsi_+(1,2)$则不一定.因而这两个空间波函数对应于不同的能量,我们称之为\tbf{三重态}(对应于$\iPsi_-$)和\tbf{单重态}(对应于$\iPsi_+$).
 \section{原子光谱}
-\subsection{类氢原子的光谱}
 原子中的电子分布从一个态向另一个态转变并导致能量变化(通常是吸收/放出一个光子)的过程称作\tbf{跃迁}.在光谱学中,跃迁被描述为在两个\tbf{谱项}间发生.\\
 \indent 并非所有谱项间的跃迁都能发生.如果它们能发生,则称这一跃迁是\tbf{允许}的;如果它们不发生,则光谱跃迁是\tbf{禁阻}的.\\
 \indent 首先,光子的自旋角动量对应的量子数为$s=1$.为了保证自旋角动量守恒,我们引入以下近似对体系进行处理:
 \begin{theorem}[偶极近似]
 	如果原子(或分子)需要吸收(或产生)频率为$\nu$的光子,那么它们必须拥有在此频率上振荡的偶极子.
 \end{theorem}
-\subsubsection{微扰理论}
+\subsection{微扰理论}
 研究两个态之间的变化必须引入时间参量,也就是求解含时薛定谔方程.这是很难求解的,因此我们需要采用合适的办法进行近似.\tbf{微扰理论}就是一个很合适的办法.
-\paragraph{定态微扰}
+\subsubsection{定态微扰}
 \indent 首先考虑定态微扰问题:
 \[\hat{H}\psi_n=E_n\psi_n,\quad\hat{H}=\hat{H}^{(0)}+\hat{H}^{(1)}\]
 其中$\hat{H}^{(0)}$是对体系微扰前的哈密顿算符, $\hat{H}^{(1)}$是微扰哈密顿算符.微扰前的薛定谔方程
@@ -113,7 +112,7 @@
 上式对所有$\lambda$都成立,因此只能有
 \[\inprod{\psi_n^{(1)}}{\psi_n^{(0)}}+\inprod{\psi_n^{(0)}}{\psi_n^{(1)}}=0\]
 在假定波函数是实值函数的前提下可得$\inprod{\psi_n^{(0)}}{\psi_n^{(1)}}=0$,即二者正交.
-\paragraph{含时微扰}
+\subsubsection{含时微扰}
 含时薛定谔方程为
 \[\i\hbar\p_t\iPsi(\vec{r},t)=\hat{H}\iPsi(\vec{r},t)\]
 如果$\hat{H}$不含时,并且$\psi(\vec{r})$是$\hat{H}$的定态薛定谔方程
@@ -143,11 +142,69 @@
 \[w_k(t)\propto\mathcal{E}^2\left|\bra{\psi_k^{(0)}}\hat{\mu}_z\ket{\psi_n^{(0)}}\right|^2\]
 于是跃迁速率(正比于吸收/发射强度)正比于偶极矩矩阵元的模长的平方.定义\tbf{跃迁偶极矩}
 \[\mu_{kn}=\bra{\psi_k^{(0)}}\hat{\mu}_z\ket{\psi_n^{(0)}}\]
-\subsubsection{偶极近似}
-\paragraph{泡利方程}
+\subsection{偶极近似}
+\subsubsection{泡利方程}
 电场中的薛定谔方程,即泡利方程为
-\[\i\hbar\dfrac{\p}{\p t}\psi=\hat{H}\psi,\quad\hat{H}=\dfrac{1}{2m}\left[\symbf\sigma\cdot{\hat{\vec{p}}-e\mat{A}}\right]^2+e\phi\]
-其中$\symbf\sigma$是泡利矩阵.根据泡利矩阵的性质有
+\[\i\hbar\dfrac{\p}{\p t}\psi=\hat{H}\psi,\quad\hat{H}=\dfrac{1}{2m}\left[\symbf\sigma\cdot\left(\hat{\vec{p}}-e\vec{A}\right)\right]^2+e\phi\]
+其中$\symbf\sigma$是泡利矩阵, $\vec{A}$是磁矢势.根据泡利矩阵的性质有
 \[(\symbf\sigma\cdot\vec{a})(\symbf\sigma\cdot\vec{b})=\vec{a}\cdot\vec{b}+\i\symbf\sigma\cdot(\vec{a}\times\vec{b})\]
-
+于是
+\[\left[\symbf\sigma\cdot\left(\hat{\vec{p}}-e\vec{A}\right)\right]^2=\left(\vec{p}-e\vec{A}\right)^2+\i\sigma\left(\vec{p}-e\vec{A}\right)\times\left(\vec{p}-e\vec{A}\right)\]
+而
+\[\left(\vec{p}-e\vec{A}\right)\times\left(\vec{p}-e\vec{A}\right)\psi=-e\hat{\vec{p}}\times(\vec{A}\psi)-e\vec{A}\times(\hat{\vec{p}}\psi)=\i e\hbar\left[\nabla\times(\vec{A}\psi)+\vec{A}\times(\nabla\psi)\right]=\i e\hbar(\nabla\times\vec{A})\psi\]
+从而泡利方程可以改写为
+\[\hat{H}=\dfrac{1}{2m}\left(\hat{\vec{p}}-e\vec{A}\right)^2+e\phi-\dfrac{e\hbar}{2m}\symbf\sigma\cdot\mat{B},\quad\mat{B}=\nabla\times\vec{A}\]
+根据磁矢势与磁场的关系可知上式中的$\mat{B}$即为磁场.
+\subsubsection{偶极近似}
+采用处理多电子原子相同的办法,考虑电磁场中的多电子原子的哈密顿量(在原子单位制下):
+\[\hat{H}(t)=\dfrac12\sum_{j=1}^{N}\left[\dfrac{\nabla_j}{\i}+\vec{A}(\vec{r}_j,t)\right]^2+\sum_{j=1}^{N}v_0(\vec{r}_j)+\mu_B\sum_{j=1}^{N}\symbf\sigma\cdot\nabla_J\times\vec{A}(\vec{r}_j,t)+\dfrac12\sum_{j\neq k}^{N}\dfrac{1}{\left|\vec{r}_j-\vec{r}_k\right|}\]
+在这里我们做了如下近似
+\begin{enumerate}[label=(\alph*)]
+  	\item 电磁场被经典处理,要求光子数目众多.
+  	\item 非相对论处理,要求电子速度远低于光速.
+\end{enumerate}
+此外,由于通常电磁波的波长远大于原子的尺寸,因此近似地认为$\vec{A}$在局部空间内为常数,不依赖于$\vec{r}_j$.在此近似下,泡利方程为
+\[\i\hbar\dfrac{\p}{\p t}\iPsi=\left(\dfrac12\sum_{j=1}^{N}\left[\dfrac{\nabla_j}{\i}+\vec{A}(t)\right]^2+\sum_{j=1}^{N}v_0(\vec{r}_j)+\dfrac12\sum_{j\neq k}^{N}\dfrac{1}{\left|\vec{r}_j-\vec{r}_k\right|}\right)\iPsi\]
+做酉变换
+\[\iPsi'(t)=\e^{\i\phi(t)}\iPsi(t),\quad\phi(t)=\sum_{j=1}^{N}\vec{r}_j\cdot\vec{A}(t)\]
+这样原方程变为
+\[\i\hbar\dfrac{\p}{\p t}\iPsi'=\hat{H}'(t)\iPsi',\quad\hat{H}'(t)=\e^{\i\phi(t)}\hat{H}(t)\e^{-\i\phi(t)}-\dfrac{\p\phi(t)}{\p t}\]
+整理可得
+\[\i\dfrac{\p}{\p t}\iPsi'=\left(-\sum_{j=1}^{N}\dfrac{\nabla_j^2}{2}+\sum_{j=1}^{N}\left[\vec{r}_j\cdot\vec{E}(t)+v_0(\vec{r}_j)\right]+\dfrac{1}{2}\sum_{j\neq k}\dfrac{1}{\left|\vec{r}_j-\vec{r}_k\right|}\right)\iPsi',\quad\vec{E}(t)=-\dfrac{\p\vec{A}(t)}{\p t}\]
+\subsection{原子光谱}
+\subsubsection{类氢原子的光谱}
+我们已经知道跃迁的强度正比于跃迁偶极矩.而
+\[\mu_{z,fi}=-e\int\iPsi_f^\ast z\iPsi_i\d\tau\]
+代入类氢原子轨道可得
+\[\mu_{z,fi}=-e\int_0^{\infty}\int_0^{2\pi}\int_0^\pi R_{n_f,l_f}Y_{l_f,m_{l,f}}^\ast\sqrt{\dfrac{4\pi}{3}}rY_{1,0}R_{n_i,l_i}Y_{l_i,m_{l,i}}r^2\d r\sin\theta\d\theta\d\phi\]
+整理可得
+\[\mu_{z,fi}=-\sqrt{\dfrac{4\pi}{3}}e\int_0^{\infty}R_{n_f,l_f}r^3R_{n_i,l_i}\d r\int_0^{2\pi}\int_0^\pi Y_{l_f,m_{l,f}}^\ast Y_{1,0}Y^{l_i,m_{l,i}}\sin\theta\d\theta\d\phi\]
+定义一般的角向积分
+\[I=\int_0^{2\pi}\int_0^\pi Y_{l_f,m_{l,f}}^\ast Y_{l,m}Y^{l_i,m_{l,i}}\sin\theta\d\theta\d\phi\]
+$I\neq0$当且仅当$l_f=l_i\pm l$, $m_{l,f}=m_{l,i}\pm m$.对于类氢原子有$l=1$, $m=0$,因此
+\begin{theorem}[类氢原子的跃迁选律]
+	类氢原子的跃迁满足
+	\[\Delta l=\pm1,\quad\Delta m_l=0,\pm1\]
+\end{theorem}
+\subsubsection{氦原子的光谱}
+氦原子的激发态的电子不在同一个轨道上(激发两个电子所需的能量高于电离能,因此至多只有一个电子被激发,并且根据选律可知电子组态为$1\text{s}^1n\text{l}^1$),因此电子自旋的排布方式意味着氦原子的同一电子组态有单重态和三重态,并且一般而言三重态的能量低于单重态.\tbf{单重态和三重态之间也不能发生跃迁}.
+\subsubsection{旋轨耦合}
+电子绕核旋转产生轨道角动量,自旋产生自旋角动量.两者产生的磁矩发生相互作用,倾向于方向相反,这一相互作用称作\tbf{旋轨耦合(Spin-Orbit Coupling, SOC)}.\\
+\indent 定义总角动量为轨道角动量与自旋角动量的矢量和:
+\[\vec{j}=\vec{l}+\vec{s}\]
+在经典力学中,磁矩在磁场中的能量为
+\[E=-\symbf\mu\cdot\vec{B}\]
+而
+\[\symbf\mu=\dfrac{e}{2m}\vec{s},\quad\mat{B}=\dfrac{\mu_0 q}{8\pi m}\cdot\dfrac{3(\vec{l}\cdot\vec{r})\vec{r}-\vec{l}}{r^3}\propto\vec{l}\]
+从而
+\[E=-\symbf\mu\cdot\vec{B}\propto\vec{s}\cdot\vec{l}\]
+\indent 根据$\vec{j}$的定义有
+\[\vec{j}^2=\vec{l}^2+2\vec{s}\cdot\vec{l}+\vec{s}^2\]
+于是
+\[\vec{s}\cdot\vec{l}=\dfrac12\left(\vec{j}^2-\vec{l}^2-\vec{s}^2\right)\]
+根据量子力学中角动量和对应量子数的关系可得
+\[\vec{s}\cdot\vec{l}=\dfrac12\left[j(j+1)-l(l+1)-s(s+1)\right]\hbar^2\]
+其中$l$, $s$和$j$分别为轨道角量子数,自旋磁量子数和总角动量量子数.最终可得旋轨耦合能为
+\[E_{l,s,j}=\dfrac12hc\tilde{A}\left[j(j+1)-l(l+1)-s(s+1)\right]\]
+其中$\tilde{A}$是\tbf{旋轨耦合常数},与波数具有相同的量纲.旋轨耦合常数的大小正比于核电荷数的四次方,因此重原子核的旋轨耦合不可以忽略.
 \end{document}
