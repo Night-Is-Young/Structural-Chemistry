@@ -234,39 +234,155 @@
 \begin{homework}[9.]
     试通过\tbf{(a)}中心力场法, \tbf{(b)}微扰法计算\ce{H-}的能量,并预测其是否能稳定存在.
 \end{homework}
+\begin{solution}
+    \begin{enumerate}[label=\tbf{(\alph*)}]
+        \item 采用中心力场法,由于两个电子均在1s轨道上,因此可以认为它们在同一有效核电荷$Z_{\text{eff}}e$下运动,于是其空间波函数均为(采用原子单位制,下同)
+        \[\psi_{1\text{s}}(r,\theta,\phi)=\sqrt{\dfrac{Z_{\text{eff}}^3}{\pi}}\e^{-Z_{\text{eff}}r}\]
+        全空间波函数即为
+        \[\iPsi(\vec{r}_1,\vec{r}_2)=\psi_{\text{1s}}(\vec{r}_1)\psi_{\text{1s}}(\vec{r}_2)\]
+        而\ce{H-}的哈密顿量为
+        \[\hat{H}=-\dfrac12\left(\nabla_{\vec{r}_1}^2+\nabla_{\vec{r}_1}^2\right)-\left(\dfrac{1}{r_1}+\dfrac{1}{r_2}\right)+\dfrac{1}{\left|\vec{r}_1-\vec{r}_2\right|}\]
+        依次处理各项.动能项为
+        \[\begin{aligned}
+            \int\iPsi^\ast\left(-\dfrac12\nabla_{\vec{r}_1}^2-\dfrac12\nabla_{\vec{r}_2}^2\right)\iPsi\d\vec{r}_1\d\vec{r}_2
+            &=-\int\psi^\ast_{\text{1s}}\nabla_{\vec{r}_1}^2\psi_{\text{1s}}\d\vec{r}_1\int\psi^\ast_{\text{1s}}\psi_{\text{1s}}\d\vec{r}_2\\
+            &=-\int\psi^\ast_{\text{1s}}\left(\dfrac{\d^2\psi_{\text{1s}}}{\d r_1^2}+\dfrac{1}{r_1}\dfrac{\d\psi_{\text{1s}}}{\d r_1}\right)4\pi r_1^2\d r_1\\
+            &=Z_{\text{eff}}^2
+        \end{aligned}\]
+        核吸引势能项为
+        \[\int\iPsi^\ast\left(-\dfrac{1}{r_1}-\dfrac{1}{r_2}\right)\iPsi\d\vec{r}_1\d\vec{r}_2=-2\int\psi^\ast_{\text{1s}}\psi_{\text{1s}}\dfrac{1}{r_1}\d\vec{r}_1\int\psi^\ast_{\text{1s}}\psi_{\text{1s}}\d\vec{r}_2=-2Z_{\text{eff}}\]
+        电子排斥项为
+        \[\int\iPsi^\ast\dfrac{1}{\left|\vec{r}_1-\vec{r}_2\right|}\iPsi\d\vec{r}_1\d\vec{r}_2\]
+        为求解该项,考虑距离函数$\dfrac{1}{\left|\vec{r}_1-\vec{r}_2\right|}$的球谐展开:
+        \[\dfrac{1}{\left|\vec{r}_1-\vec{r}_2\right|}=\sum_{l=0}^{\infty}\dfrac{r_{\min}^l}{r_{\max}^{l+1}}P_l(\cos\gamma)\]
+        其中$\gamma$为$\vec{r}_1$与$\vec{r}_2$的夹角.考虑到1s轨道的球对称性, $P_l(\cos\gamma)$仅在$l=0$时非零,因此
+        \[\begin{aligned}
+            &\int\iPsi^\ast\dfrac{1}{\left|\vec{r}_1-\vec{r}_2\right|}\iPsi\d\vec{r}_1\d\vec{r}_2\\
+            =&\ \dfrac{Z_{\text{eff}}^3}{\pi}\int\e^{-2Z_{\text{eff}}(r_1+r_2)}\dfrac{1}{r_{\max}}\d\vec{r}_1\d\vec{r}_2\\
+            =&\ 16\pi Z_{\text{eff}}^3\left(\int_0^{+\infty}r_1^2\d r_1\int_0^{r_1}\dfrac{\e^{-2Z_{\text{eff}}(r_1+r_2)}}{r_1}r_2^2\d r_2+\int_0^{+\infty}r_2^2\d r_2\int_0^{r_2}\dfrac{\e^{-2Z_{\text{eff}}(r_1+r_2)}}{r_1}r_1^2\d r_1\right)\\
+            =&\ 32\pi Z_{\text{eff}}^3\int_0^{+\infty}r_1\d r_1\int_0^{r_1}r_2^2\e^{-2Z_{\text{eff}}(r_1+r_2)}\d r_2\\
+            =&\ \dfrac{5}{8}Z_{\text{eff}}
+        \end{aligned}\]
+        于是系统总能量
+        \[E=\bra{\iPsi}\hat{H}\ket{\iPsi}=Z_{\text{eff}}^2-\dfrac{11}{8}{Z_\text{eff}}\]
+        将$E$对$Z_{\text{eff}}$求偏导并令其为$0$可得
+        \[\dfrac{\p E}{\p Z_{\text{eff}}}=2Z_{\text{eff}}-\dfrac{11}{8}=0\]
+        于是$Z_{\text{eff}}=\dfrac{11}{16}$,对应能量为
+        \[E=-\dfrac{121}{256}\approx-0.473\]
+        基态\ce{H}原子的能量为$-0.5$,小于上面计算得到的\ce{H-}能量,因此这一结果表面\ce{H-}倾向于电离形成自由电子和氢原子,不能稳定存在.
+        \item 忽略电子排斥,无微扰的情形下
+        \[E^{(0)}=2\ep_0=-1\]
+        一阶微扰项$\hat{H}^{(1)}=\dfrac{1}{\left|\vec{r}_1-\vec{r}_2\right|}$.根据前面的计算结果可得
+        \[E^{(1)}=E^{(0)}+\bra{\iPsi}\hat{H}^{(1)}\ket{\iPsi}=-0.375\]
+        也大于基态\ce{H}原子的能量,不能稳定存在.
+    \end{enumerate}
+    事实上, \ce{H-}是可以稳定存在的,这说明需要考虑电子之间的交换作用等更复杂的因素.
+\end{solution}
 \begin{homework}[10.]
-    为什么He原子的基态是单重态而不是三重态?
+    为什么\ce{He}原子的基态是单重态而不是三重态?
 \end{homework}
+\begin{solution}
+    \ce{He}原子的基态的电子组态为$1\text{s}^2$,其空间波函数为
+    \[\psi(1,2)=\psi_{1\text{s}}(\vec{r}_1)\psi_{1\text{s}}(\vec{r}_2)\]
+    其空间波函数是交换对称的.由于电子是费米子,因此总的波函数$\iPsi(1,2)=\psi(1,2)\chi(1,2)$必须是交换反对称的,因此自旋波函数$\chi(1,2)$必须是交换反对称的,这对应于
+    \[\chi(1,2)=\sigma_-(1,2)=\dfrac{1}{\sqrt{2}}\left[\alpha(1)\beta(2)-\alpha(2)\beta(1)\right]\]
+    即单重态.因此基态氦原子为单重态.
+\end{solution}
 \begin{homework}[11.]
     角动量量子化体现为角动量矢量在三维实空间中只有特定的取向,可以用其与$z$轴的夹角描述.
     \begin{enumerate}[label=\tbf{(\alph*)}]
-        \item 对于角量子数$l=0,1,2$的轨道角动量本征态试求角动量与$z$轴正方向的可能夹角.
+        \item 对于角量子数$l=0,1,2$的轨道角动量本征态,试求角动量与$z$轴正方向的可能夹角.
         \item 试求出电子自旋角动量与$z$轴正方向的可能夹角.
     \end{enumerate}
 \end{homework}
+\begin{solution}
+\begin{enumerate}[label=\tbf{(\alph*)}]
+    \item $\hat{l}^2$和$\hat{l}_z$具有相同的本征态$\psi$,并且有
+    \[\hat{l}^2\psi=l(l+1)\hbar^2\psi,\quad\hat{l}_z\psi=m_l\hbar\psi\]
+    角动量与$z$轴正方向的夹角$theta$应当满足
+    \[\cos\theta=\dfrac{L_z}{L}=\dfrac{m_l\hbar}{\sqrt{l(l+1)}\hbar}=\dfrac{m_l}{\sqrt{l(l+1)}}\]
+    当$l=0$时角动量为$0$,夹角没有物理意义.\\
+    当$l=1$时$\cos\theta=\pm\dfrac{\sqrt2}{2}$, $0$,即可能的夹角为$\dfrac\pi4$, $\dfrac\pi2$和$\dfrac{3\pi}{4}$.\\
+    当$l=2$时$\cos\theta=\pm\dfrac{\sqrt{6}}{6}$, $\pm\dfrac{\sqrt6}{3}$, $0$, 即可能的夹角为$\arccos\dfrac{\sqrt6}{6}$, $\pi-\arccos\dfrac{\sqrt6}{6}$, $\arccos\dfrac{\sqrt6}{3}$, $\pi-\arccos\dfrac{\sqrt6}{3}$和$\dfrac\pi2$.
+    \item 自旋角动量的大小为$\sqrt{s(s+1)}\hbar$,分量的大小则为$m_s\hbar$.对于电子而言, $s=\dfrac12$且$m_s=\pm\dfrac12$,于是自旋角动量与$z$轴正方向的夹角为
+    \[\cos\beta=\dfrac{m_s}{\sqrt{s(s+1)}}=\pm\dfrac{\sqrt3}{3}\]
+    于是可能的夹角为$\arccos\dfrac{\sqrt3}{3}$和$\pi-\arccos\dfrac{\sqrt3}{3}$.
+\end{enumerate}
+\end{solution}
 \begin{homework}[12.]
     构建组态为$1\text{s}^12\text{s}^1$的\ce{He}原子的一个激发态的波函数.对于$1\text{s}$电子, $Z_{\text{eff}}=2$;对于$2\text{s}$电子, $Z_{\text{eff}}=1$.
 \end{homework}
+\begin{solution}
+    采用轨道近似,则1s和2s轨道的空间波函数为
+    \[\psi_{1\text{s}}=\sqrt{\dfrac{Z^3}{\pi}}\e^{-Zr}=\sqrt{\dfrac{8}{\pi}}\e^{-2r}\]
+    \[\psi_{2\text{s}}=\dfrac{1}{4\sqrt{2\pi}}(2-r)\e^{-r/2}\]
+    构造双电子空间波函数
+    \[\psi_{\pm}(1,2)=\dfrac{1}{\sqrt2}\left[\psi_{1\text{s}}(1)\psi_{2\text{s}}(2)\pm\psi_{1\text{s}}(2)\psi_{2\text{s}}(1)\right]\]
+    由于电子是费米子,总的波函数$\iPsi(1,2)=\psi(1,2)\chi(1,2)$是交换反对称的.对于对称的空间波函数$\psi_+(1,2)$,自旋波函数$\chi_+$必须是交换反对称的,即
+    \[\chi_+(1,2)=\dfrac{1}{\sqrt2}\left[\alpha(1)\beta(2)-\alpha(2)\beta(1)\right]\]
+    对于反对称的空间波函数$\psi_-$,自旋波函数$\chi_-$必须是交换对称的,即
+    \[\alpha(1)\alpha(2),\quad\beta(1)\beta(2),\quad\dfrac{1}{\sqrt2}\left[\alpha(1)\beta(2)+\alpha(2)\beta(1)\right]\]
+    中的一者.\\
+    \indent 因此,最终的波函数分为三重态和单重态两种情况,即
+    \[\iPsi_{\text{t}}(1,2)=\dfrac{1}{\sqrt2}\left[\psi_{1\text{s}}(1)\psi_{2\text{s}}(2)-\psi_{1\text{s}}(2)\psi_{2\text{s}}(1)\right]\chi_{\text{t}}(1,2)\]
+    其中
+    \[\chi_{\text{t}}=\alpha(1)\alpha(2),\quad\beta(1)\beta(2),\quad\dfrac{1}{\sqrt2}\left[\alpha(1)\beta(2)+\alpha(2)\beta(1)\right]\]
+    或者
+    \[\iPsi_{\text{s}}(1,2)=\dfrac12\left[\psi_{1\text{s}}(1)\psi_{2\text{s}}(2)+\psi_{1\text{s}}(2)\psi_{2\text{s}}(1)\right]\left[\alpha(1)\beta(2)-\alpha(2)\beta(1)\right]\]
+\end{solution}
 \begin{homework}[13.]
     写出碳原子的光谱项和光谱支项,并指出能量最低的支项.
 \end{homework}
+\begin{solution}
+    考虑两个未成对的p电子,有$l_1=l_2=1$,因此总轨道角动量量子数$L=2,1,0$;总自旋量子数$S=0,1$.此外,考虑泡利不相容原理,当$l_1=l_2$时总有$S=0$.\\
+    对于$L=2$的情形,光谱项为$^1\text{D}$,光谱支项为$^1\text{D}_2$.\\
+    对于$L=1$的情形,光谱项为$^3\text{P}$,光谱支项为$^3\text{P}_2$, $^3\text{P}_1$和$^3\text{P}_0$.\\
+    对于$L=0$的情形,光谱项为$^1\text{D}$,光谱支项为$^1\text{S}_0$.\\
+    根据构造原理,能量最低的支项为$^3\text{P}_0$.
+\end{solution}
 \begin{homework}[14.]
     电子组态$n\text{s}^1n\text{d}^1$的可能原子谱项是什么?哪一个谱项能量可能最低?
 \end{homework}
+\begin{solution}
+    两个电子分别有$l=0$和$l=2$,因此可能的原子谱项为
+    \[^3\text{D}_3,\quad^3\text{D}_2,\quad^3\text{D}_1,\quad^1\text{D}_2\]
+    能量最低的谱项为$^3\text{D}_1$.
+\end{solution}
 \begin{homework}[15.]
     下面哪个谱项间的跃迁是多电子原子的电子发射光谱中所允许的?
     \begin{center}
-        (i) $^3\text{D}_2\to^3\text{P}_1$;    (ii) $^3\text{P}_2\to^1\text{S}_0$;     (iii) $^3\text{F}_4\to^3\text{D}_3$.
+        (i) $^3\text{D}_2\to\ ^3\text{P}_1$;    (ii) $^3\text{P}_2\to\ ^1\text{S}_0$;     (iii) $^3\text{F}_4\to\ ^3\text{D}_3$.
     \end{center}
 \end{homework}
+\begin{solution}
+    首先要求$\Delta S=0$,因此(ii)不允许.而$\Delta L_1=-1$, $\Delta L_3=-1$均符合选律,因此(i)和(iii)是允许的.
+\end{solution}
 \begin{homework}[16.]
     电子偶素由绕它们的共同质心轨道运动的一个电子和一个正电子组成,因而预期光谱的大致特征与氢原子相似,差异主要来源于质量的不同.预测电子偶素的巴尔末谱系的前三条谱线的波数;电子偶素基态的结合能是多少?
 \end{homework}
+\begin{solution}
+    巴尔末系的波长计算公式为
+    \[\dfrac{1}{\lambda}=R\left(\dfrac{1}{2^2}-\dfrac{1}{n^2}\right),\quad n=3,4,5,\cdots\]
+    而对于电子偶素,其折合质量$\mu=\dfrac{m_e}{2}$,因此
+    \[R=\dfrac{2\pi^2\mu e^4}{(4\pi\ep_0)^2h^3c}=\SI{54869}{\per\centi\meter}\]
+    于是
+    \[\tilde{\nu}_1=R\left(\dfrac{1}{2^2}-\dfrac{1}{3^2}\right)=\SI{7621}{\per\centi\meter},\quad\tilde{\nu}_2=R\left(\dfrac{1}{2^2}-\dfrac{1}{4^2}\right)=\SI{10288}{\per\centi\meter},\quad\tilde{\nu}_3=R\left(\dfrac{1}{2^2}-\dfrac{1}{5^2}\right)=\SI{11522}{\per\centi\meter}\]
+    基态结合能为
+    \[E_0=-\dfrac{\mu e^4}{8\ep_0^2h^2}=\SI{-6.80}{\electronvolt}\]
+\end{solution}
 \begin{homework}[17.]
     Zeeman效应是指强磁场作用下对原子光谱的修正。它源自外加磁场及轨道和自旋角动量引起的磁矩之间的相互作用(回忆专题8B中Stern-Gerlach实验提供的电子自旋的证据).在涉及单重态的跃迁中,观察到了所谓的正常Zeeman效应,为了对该效应有一定了解,考虑一个p电子,其\(l=1\)及\(m_l=0,\pm 1 \).在没有磁场时,这三个状态是简并的.当一强度为\(\mathcal{B}\)的磁场存在时,简并度被移去,观察到\(m_l=+1\)的状态其能量上移了\( \mu_\text{B}\mathcal{B}\), \(m_l=0\)的状态能量不变,而\(m_l=-1\)的状态其能量则下移了\( \mu_\text{B}\mathcal{B}\)，式中\(\mu_\text{B}=e\hbar/2m_e=9.274\times10^{-24}\ \text{J·T}^{-1} \)为玻尔磁子.所以,在有磁场存在时, \(^1\text{S}_0\)谱项和\(^1\text{P}_1\)谱项之间的跃迁可由三条谱线组成,而在没有磁场存在时,则只有一条谱线.
     \begin{enumerate}[label=\tbf{(\alph*)}]
-        \item 计算在强度为2T(\( 1\ \text{T} = 1\ \text{kg\cdot s}^{-2}\cdot\text{A}^{-1} \))的磁场存在下,\( ^1\text{S}_0 \)谱项和\( ^1\text{P}_1 \)谱项之间的跃迁的三条谱线之间的裂分,用\( \text{cm}^{-1} \)表示.
+        \item 计算在强度为2T(\( 1\ \text{T} = 1\ \text{kg\cdot s}^{-2}\cdot\text{A}^{-1} \))的磁场存在下, \( ^1\text{S}_0 \)谱项和\( ^1\text{P}_1 \)谱项之间的跃迁的三条谱线之间的裂分,用\( \text{cm}^{-1} \)表示.
         \item 将\tbf{(a)}中计算的值与典型的光跃迁波数(如氢原子巴尔末谱系的那些)相比较,由正常Zeeman效应引起的谱线裂分是相对较小还是相对较大?
     \end{enumerate}
 \end{homework}
+\begin{solution}
+\begin{enumerate}[label=\tbf{(\alph*)}]
+    \item 裂分波数为
+    \[\Delta\tilde{\nu}=\dfrac{1}{\lambda}=\dfrac{\Delta E}{hc}=\dfrac{\mathcal{B}e\hbar}{2m_ehc}=\SI{0.934}{\per\centi\meter}\]
+    即左右谱线相对中心谱线的波数差距均为$\SI{0.934}{\per\centi\meter}$.
+    \item 典型的光跃迁波数的量级大约为$10^4\sim10^5\SI{}{\per\centi\meter}$,因此正常Zeeman效用引起的裂分相对较小.
+\end{enumerate}
+\end{solution}
 \end{document}
