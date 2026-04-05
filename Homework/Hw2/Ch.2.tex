@@ -54,7 +54,7 @@
     \[\begin{aligned}
         \avg{\dfrac1r}_{1\text{s}}=\int\dfrac{1}{r}\left|\iPsi_{1\text{s}}\right|^2\d\tau
         &=\int_0^\pi\int_0^{2\pi}\int_0^{+\infty}4\left(\dfrac{Z}{a}\right)^3\dfrac{\e^{-2(Z/a)r}}{r}\dfrac{1}{4\pi}r^2\d r\sin\theta\d\theta\d\phi\\
-        &=4\left(\dfrac{Z}{a}\right)^3\int_0^{+\infty}r\e^{-2(Z/a)r}\d r=\dfrac{Z}{a}
+        &=4\left(\dfrac{Z}{a}\right)^3\int_0^{+\infty}r\e^{-2(Z/a)r}\d r=\dfrac{Z}{a}=\dfrac{Z}{a_0}
     \end{aligned}\]
     \item 类氢2s轨道的波函数为
     \[\iPsi_{2\text{s}}(r,\theta,\phi)=R_{2,0}(r)Y_{0,0}(\theta,\phi)=\dfrac{1}{\sqrt8}\left(\dfrac{Z}{a}\right)^{3/2}(2-\rho)\e^{-\rho/2}\sqrt{\dfrac{1}{4\pi}}=\dfrac{1}{\sqrt8}\left(\dfrac{Z}{a}\right)^{3/2}\left(2-\dfrac{Z}{a}r\right)\e^{-Zr/(2a)}\sqrt{\dfrac{1}{4\pi}}\]
@@ -62,7 +62,7 @@
     \[\begin{aligned}
         \avg{\dfrac1r}_{2\text{s}}=\int\dfrac{1}{r}\left|\iPsi_{2\text{s}}\right|^2\d\tau
         &=\int_0^\pi\int_0^{2\pi}\int_0^{+\infty}\dfrac{1}{8}\left(\dfrac{Z}{a}\right)^3\left(2-\dfrac{Z}{a}r\right)^2\dfrac{\e^{-(Z/a)r}}{r}\dfrac{1}{4\pi}r^2\d r\sin\theta\d\theta\d\phi\\
-        &=\dfrac{1}{8}\left(\dfrac{Z}{a}\right)^3\int_0^{+\infty}\left(2-\dfrac{Z}{a}r\right)^2r\e^{-(Z/a)r}\d r=\dfrac{Z}{4a}
+        &=\dfrac{1}{8}\left(\dfrac{Z}{a}\right)^3\int_0^{+\infty}\left(2-\dfrac{Z}{a}r\right)^2r\e^{-(Z/a)r}\d r=\dfrac{Z}{4a}=\dfrac{Z}{4a_0}
     \end{aligned}\]
     \item 类氢2p轨道的波函数为
     \[\iPsi_{2\text{p}}(r,\theta,\phi)=R_{2,1}(r)Y_{1,m_l}(\theta,\phi)=\dfrac{1}{\sqrt{24}}\left(\dfrac{Z}{a}\right)^{3/2}\rho\e^{-\rho/2}Y_{1,m_l}=\dfrac{1}{\sqrt{24}}\left(\dfrac{Z}{a}\right)^{3/2}\dfrac{Zr}{a}\e^{-Zr/(2a)}Y_{1,m_l}\]
@@ -70,7 +70,7 @@
     \[\begin{aligned}
         \avg{\dfrac1r}_{2\text{p}}=\int\dfrac{1}{r}\left|\iPsi_{2\text{s}}\right|^2\d\tau
         &=\int_0^\pi\int_0^{2\pi}\int_0^{+\infty}\dfrac{1}{24}\left(\dfrac{Z}{a}\right)^3\left(\dfrac{Z}{a}r\right)^2\dfrac{\e^{-(Z/a)r}}{r}r^2\d r\left|Y_{1,m_l}\right|^2\sin\theta\d\theta\d\phi\\
-        &=\dfrac{1}{24}\left(\dfrac{Z}{a}\right)^3\int_0^{+\infty}\left(\dfrac{Z}{a}r\right)^2r\e^{-(Z/a)r}\d r=\dfrac{Z}{4a}
+        &=\dfrac{1}{24}\left(\dfrac{Z}{a}\right)^3\int_0^{+\infty}\left(\dfrac{Z}{a}r\right)^2r\e^{-(Z/a)r}\d r=\dfrac{Z}{4a}=\dfrac{Z}{4a_0}
     \end{aligned}\]
 \end{enumerate}
 考虑任意常数$a$,总有
@@ -100,7 +100,7 @@
     于是
     \[r=\dfrac{4\pi\ep_0\hbar^2}{m_ee^2}\dfrac{n^2}{Z}\]
     假定原子核静止不动,则类氢原子的能量应为电子势能和动能的加和,则
-    \[E_n=-\dfrac{e^2}{4\pi\ep_0 r}+\dfrac{1}{2}m\omega^2r^2=-\dfrac{e^2}{8\pi\ep_0r}=-\dfrac{m_ee^4}{8\ep_0^2h^2}\dfrac{Z}{n^2},\quad n=1,2,\cdots\]
+    \[E_n=-\dfrac{e^2}{4\pi\ep_0 r}+\dfrac{1}{2}m\omega^2r^2=-\dfrac{e^2}{8\pi\ep_0r}=-\dfrac{m_ee^4}{8\ep_0^2h^2}\dfrac{Z^2}{n^2},\quad n=1,2,\cdots\]
 \end{solution}
 \begin{homework}[5.]
     回答下列问题.
@@ -367,8 +367,9 @@
     \[R=\dfrac{2\pi^2\mu e^4}{(4\pi\ep_0)^2h^3c}=\SI{54869}{\per\centi\meter}\]
     于是
     \[\tilde{\nu}_1=R\left(\dfrac{1}{2^2}-\dfrac{1}{3^2}\right)=\SI{7621}{\per\centi\meter},\quad\tilde{\nu}_2=R\left(\dfrac{1}{2^2}-\dfrac{1}{4^2}\right)=\SI{10288}{\per\centi\meter},\quad\tilde{\nu}_3=R\left(\dfrac{1}{2^2}-\dfrac{1}{5^2}\right)=\SI{11522}{\per\centi\meter}\]
-    基态结合能为
+    基态能量为
     \[E_0=-\dfrac{\mu e^4}{8\ep_0^2h^2}=\SI{-6.80}{\electronvolt}\]
+    因此基态结合能为$\SI{6.80}{\electronvolt}$.
 \end{solution}
 \begin{homework}[17.]
     Zeeman效应是指强磁场作用下对原子光谱的修正。它源自外加磁场及轨道和自旋角动量引起的磁矩之间的相互作用(回忆专题8B中Stern-Gerlach实验提供的电子自旋的证据).在涉及单重态的跃迁中,观察到了所谓的正常Zeeman效应,为了对该效应有一定了解,考虑一个p电子,其\(l=1\)及\(m_l=0,\pm 1 \).在没有磁场时,这三个状态是简并的.当一强度为\(\mathcal{B}\)的磁场存在时,简并度被移去,观察到\(m_l=+1\)的状态其能量上移了\( \mu_\text{B}\mathcal{B}\), \(m_l=0\)的状态能量不变,而\(m_l=-1\)的状态其能量则下移了\( \mu_\text{B}\mathcal{B}\)，式中\(\mu_\text{B}=e\hbar/2m_e=9.274\times10^{-24}\ \text{J·T}^{-1} \)为玻尔磁子.所以,在有磁场存在时, \(^1\text{S}_0\)谱项和\(^1\text{P}_1\)谱项之间的跃迁可由三条谱线组成,而在没有磁场存在时,则只有一条谱线.
