@@ -1,0 +1,28 @@
+\documentclass{ctexbook}
+\usepackage{Note}
+\usepackage{unicode-math}
+\setCJKmainfont[
+  BoldFont = 思源宋体 Bold,
+  ItalicFont = 楷体,
+]{宋体}
+\setcounter{secnumdepth}{3}
+\begin{document}
+\chapter{分子结构与光谱}
+\section{分子轨道理论}
+\subsection{分子的薛定谔方程}
+和多电子原子类似,分子的薛定谔方程需要考虑各个核与电子本身的动能项与相互的势能项,即
+\[\hat{H}\iPsi=E\iPsi,\quad\hat{H}=T_{n}+T_{e}+V_{en}+V_{ee}+V_{nn}\]
+在原子单位下
+\[\hat{H}=-\sum_{A=1}^{N_n}\dfrac{1}{2M_A}\nabla_{\vec{R}_A}^2-\sum_{i=1}^{N_e}\dfrac{1}{2}\nabla_{\vec{r}_i}^2-\sum_{i=1}^{N_e}\sum_{\mu=1}^{N_n}\dfrac{Z_\mu}{\left|\vec{r}_i-\vec{R}_{\mu}\right|}+\sum_{1\leq i<j\leq N_e}\dfrac{1}{\left|\vec{r}_i-\vec{r}_j\right|}+\sum_{1\leq\nu<\mu\neq N_A}\dfrac{Z_\mu Z_\nu}{\left|\vec{R}_\nu-\vec{R}_\mu\right|}\]
+由于原子核的质量相对较大,其动能项较小,可以忽略:
+\begin{theorem}[玻恩-奥本海默近似]
+	可以将分子的哈密顿量中原子核的动能项忽略,得到
+	\[\hat{H}_{\text{BO}}=-\sum_{i=1}^{N_e}\dfrac{1}{2}\nabla_{\vec{r}_i}^2-\sum_{i=1}^{N_e}\sum_{\mu=1}^{N_n}\dfrac{Z_\mu}{\left|\vec{r}_i-\vec{R}_{\mu}\right|}+\sum_{1\leq i<j\leq N_e}\dfrac{1}{\left|\vec{r}_i-\vec{r}_j\right|}+\sum_{1\leq\nu<\mu\neq N_A}\dfrac{Z_\mu Z_\nu}{\left|\vec{R}_\nu-\vec{R}_\mu\right|}\]
+\end{theorem}
+因此分子的薛定谔方程变为
+\[\hat{H}_{\text{BO}}\iPsi=E\iPsi\]
+这就是\tbf{BO问题}.
+\[\hat{H}_{\text{BO}}(\vec{r};\vec{R})\Phi_k(\vec{r};\vec{R})=\epsilon_k^{\text{BO}}(\vec{R})\Phi_k(\vec{r};\vec{R})\]
+其中$\epsilon_k^{\text{BO}}(\vec{R})$即\tbf{绝热势能面(Adiabatic Potential Energy Surfaces)}\footnote{实际上与绝热没有关系,这里的adiabatic更倾向于准静态的意思.}. 势能面对于整个分子的平动,转动具有不变性.\\
+\indent 精确地求解分子的薛定谔方程非常困难,因为多个电子和原子会带来相当高的维度,求解也变得非常困难.
+\end{document}

@@ -1,0 +1,80 @@
+\documentclass{ctexart}
+\usepackage{Note}
+\setCJKmainfont[
+  BoldFont = 思源宋体 Bold,
+  ItalicFont = 楷体,
+]{宋体}
+\author{2400011785 蒋锦豪}
+\title{\tbf{结构化学\ 第3章作业}}
+\begin{document}
+\maketitle
+\begin{homework}[1.]
+    试证明BO势能面对于原子核构型的平动和转动具有不变性.
+\end{homework}
+\begin{homework}[2.]
+    取键长$R=\SI{2}{\bohr}$,利用书中的公式分别画出$\ce{H_2^+}$的$1\sigma$成键/反键轨道对应的电子密度沿键轴方向的图像,并与相同几何构型下两个不成键的\ce{H}原子的1s轨道密度之和的一半进行对比,据此说明成键/反键轨道的电子密度相较于独立原子发生哪些变化.
+\end{homework}
+\begin{homework}[3.]
+    取键轴为$z$方向,试分别估计\ce{F2}(键长约$\SI{135}{\pico\meter}$),乙炔(\ce{C#C}键长约$\SI{106}{\pico\meter}$)分子中两个F/C原子(1)$2\text{p}_z$轨道的重叠积分值; (2)$2\text{p}_x$轨道的重叠积分值.通过计算结果,你能得出什么结论?
+\end{homework}
+\begin{homework}[4.]
+    在休克尔近似下,试编写程序计算并$N$苯($N=1,2,\cdots,6$,即苯,萘, $\cdots$, 并六苯)的HOMO和LUMO轨道能量(用$\alpha$和$\beta$表示),并作图表示趋势.
+\end{homework}
+\begin{homework}[5.]
+    假定一个分子轨道具有$0.145A+0.844B$(非归一化)形式,找出与该分子轨道正交的轨道$A$和$B$的线性组合,并计算$S=0.250$时两种线性组合的归一化常数.
+\end{homework}
+\begin{homework}[6.]
+    回答下面的问题.
+    \begin{enumerate}[label=\tbf{(\alph*)}]
+        \item 指出由p原子轨道肩并肩重叠形成的$\pi$成键与反键分子轨道的对称性特征(g或u).
+        \item 指出由p原子轨道面对面重叠形成的$\delta$成键与反键分子轨道的对称性特征(g或u).
+    \end{enumerate}
+\end{homework}
+\begin{homework}[8.]
+    量子力学中的多体问题有如下形式的哈密顿量:
+    \[\hat{H}=\sum_{k=1}^{N}\left[-\dfrac{1}{2}\dfrac{\p^2}{\p x_k^2}+v(x_k)\right]+\sum_{1\leq k<l\leq N}w(x_k,x_l)\]
+    现在我们考虑一个势能项均为简谐势的一维体系:
+    \[v(x_k)=\dfrac{1}{2}x_k^2,\quad w_{x_l,x_k}=\dfrac{\lambda}{2}(x_1-x_2)^2\]
+    \begin{enumerate}[label=\tbf{(\alph*)}]
+        \item 假定粒子没有自旋,证明此体系具有以下形式的基态波函数与基态能量:
+        \[\iPsi_0=C_0\exp\left\{-\dfrac12\sum_{k=1}^{N}x_k^2-\dfrac{\theta}{2}\sum_{1\leq k<l\leq N}(x_k-x_l)^2\right\}\]
+        \[E_0=\dfrac{1+(N-1)(N\theta+1)}{2}\]
+        其中
+        \[C_0=\dfrac{(N\theta+1)^{(N-1)/4}}{\pi^{N/4}},\quad\theta=\dfrac{\sqrt{\lambda N+1}-1}{N}\]
+        提示:可以寻找一组新的坐标$\{q_k\}_{k=1}^{N}$使得$\hat{H}$具有如下形式:
+        \[\hat{H}=\sum_{k=1}^{N}\left[-\dfrac{1}{2}\dfrac{\p^2}{\p q_k^2}+\dfrac{1}{2}\omega_k^2 q_k^2\right]\]
+        \item 观察可知,\tbf{(a)}中的$\iPsi_0$对应于玻色子的基态.试证明以下波函数给出体系的一个费米子本征态:
+        \[\iPsi_F=C_F\begin{vmatrix}
+            1&1&\cdots&1\\
+            x_1&x_2&\cdots&x_N\\
+            \vdots&\vdots&\ddots&\vdots\\
+            x_1^{N-1}&x_2^{N-1}&\cdots&x_{N}^{N-1}
+        \end{vmatrix}\iPsi_0\]
+        其中$C_F$为归一化系数.实际上$\iPsi_F$就是体系的费米子基态(以下称为费米子的基态正解),其能量为
+        \[E_F=\dfrac{1+(N^2-1)(N\theta+1)}{2}\]
+        \item 请写出此体系的Hartree-Fock方程(不考虑自旋).
+        \item 假设我们考虑的是$N=m+n$个有自旋的电子,其中$m$个是$\alpha$电子, $n$个是$\beta$电子,证明体系有如下本征态:
+        \[\iPsi=C\begin{vmatrix}
+            \alpha(1)&\alpha(2)&\cdots&\alpha(N)\\
+            x_1\alpha(1)&x_2\alpha(2)&\cdots&x_N\alpha(N)\\
+            \vdots&\vdots&\ddots&\vdots\\
+            x_1^{m-1}\alpha(1)&x_2^{m-1}\alpha(2)&\cdots&x_N^{m-1}\alpha(N)\\
+            \beta(1)&\beta(2)&\cdots&\beta(N)\\
+            x_1\beta(1)&x_2\beta(2)&\cdots&x_N\beta(N)\\
+            \vdots&\vdots&\ddots&\vdots\\
+            x_1^{n-1}\beta(1)&x_2^{n-1}\beta(2)&\cdots&x_N^{n-1}\beta(N)
+        \end{vmatrix}\iPsi_0\]
+        这里$C$是归一化系数, $\alpha(k)$表示第$k$个标号的电子是$\alpha$电子, $\beta(l)$表示第$l$个标号的电子为$\beta$电子. $\iPsi$对应的本征能量为
+        \[E=\dfrac{1+(m^2+n^2-1)(N\theta+1)}{2}\]
+        \item 证明在\tbf{(d)}中,如果$N$为偶数,则体系的能量在$m=n$时达到最低(单重态);如果$N$为奇数,则体系的能量在$|m-n|=1$时达到最低(二重态).
+        \item 证明对于\tbf{(d)}中$N=3$的最稳定的状态,总波函数不能写成空间波函数与自旋波函数的乘积:
+        \[\iPsi(x_1,\sigma_1,x_2,\sigma_2,x_3,\sigma_3)\neq\Phi(x_1,x_2,x_3)\chi(\sigma_1,\sigma_2,\sigma_3)\]
+        这里$\sigma_i\in{\alpha,\beta}$是第$i$个电子的自旋维度.
+        \item 在考虑自旋时,证明$N=2$时Hartree-Fock方程给出如下基态解:
+        \[\iPsi^{\text{HF}}=\dfrac{1}{\sqrt2}\psi(x_1)\psi(x_2)\left[\alpha(1)\beta(2)-\alpha(2)\beta(1)\right]\]
+        其中
+        \[\psi(x)=\left(\dfrac{1+\lambda}{\pi^2}\right)^{1/8}\exp\left(-\dfrac{\sqrt{1+\lambda}}{2}x^2\right)\]
+        \item 考虑\tbf{(g)}中的情形,通过计算分别写出正解和Hartree-Fock解的电子密度表达式,并作图比较$\lambda=-\dfrac49,-\dfrac29,0,1,5,10$的时的情形.当$\lambda\to+\infty$时,两者有何区别?当$\lambda\to-\dfrac12$时,两者有何区别?
+    \end{enumerate}
+\end{homework}
+\end{document}
