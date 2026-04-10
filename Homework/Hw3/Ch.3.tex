@@ -34,7 +34,7 @@
     量子力学中的多体问题有如下形式的哈密顿量:
     \[\hat{H}=\sum_{k=1}^{N}\left[-\dfrac{1}{2}\dfrac{\p^2}{\p x_k^2}+v(x_k)\right]+\sum_{1\leq k<l\leq N}w(x_k,x_l)\]
     现在我们考虑一个势能项均为简谐势的一维体系:
-    \[v(x_k)=\dfrac{1}{2}x_k^2,\quad w_{x_l,x_k}=\dfrac{\lambda}{2}(x_1-x_2)^2\]
+    \[v(x_k)=\dfrac{1}{2}x_k^2,\quad w(x_k,x_l)=\dfrac{\lambda}{2}(x_k-x_l)^2\]
     \begin{enumerate}[label=\tbf{(\alph*)}]
         \item 假定粒子没有自旋,证明此体系具有以下形式的基态波函数与基态能量:
         \[\iPsi_0=C_0\exp\left\{-\dfrac12\sum_{k=1}^{N}x_k^2-\dfrac{\theta}{2}\sum_{1\leq k<l\leq N}(x_k-x_l)^2\right\}\]
@@ -43,7 +43,7 @@
         \[C_0=\dfrac{(N\theta+1)^{(N-1)/4}}{\pi^{N/4}},\quad\theta=\dfrac{\sqrt{\lambda N+1}-1}{N}\]
         提示:可以寻找一组新的坐标$\{q_k\}_{k=1}^{N}$使得$\hat{H}$具有如下形式:
         \[\hat{H}=\sum_{k=1}^{N}\left[-\dfrac{1}{2}\dfrac{\p^2}{\p q_k^2}+\dfrac{1}{2}\omega_k^2 q_k^2\right]\]
-        \item 观察可知,\tbf{(a)}中的$\iPsi_0$对应于玻色子的基态.试证明以下波函数给出体系的一个费米子本征态:
+        \item 观察可知, \tbf{(a)}中的$\iPsi_0$对应于玻色子的基态.试证明以下波函数给出体系的一个费米子本征态:
         \[\iPsi_F=C_F\begin{vmatrix}
             1&1&\cdots&1\\
             x_1&x_2&\cdots&x_N\\
@@ -77,4 +77,209 @@
         \item 考虑\tbf{(g)}中的情形,通过计算分别写出正解和Hartree-Fock解的电子密度表达式,并作图比较$\lambda=-\dfrac49,-\dfrac29,0,1,5,10$的时的情形.当$\lambda\to+\infty$时,两者有何区别?当$\lambda\to-\dfrac12$时,两者有何区别?
     \end{enumerate}
 \end{homework}
+\begin{solution}
+\begin{enumerate}[label=\tbf{(\alph*)}]
+    \item 考虑线性空间$V$中的向量$\vec{x}=(x_1,x_2,\cdots,x_N)$,有
+    \[\begin{aligned}
+        \vec{x}^\t\mat{V}\vec{x}
+        &=\sum_{k=1}^{N}v(x_k)+\sum_{1\leq k<l\leq N}w(x_k,x_l)\\
+        &=\dfrac12\sum_{k=1}^{N}x_k^2+\dfrac{\lambda}{2}\sum_{1\leq k<l\leq N}\left(x_k-x_l\right)^2\\
+        &=\dfrac12\sum_{k=1}^{N}x_k^2+\dfrac{\lambda}{2}\left[(N-1)\sum_{k=1}^{N}x_k^2-2\sum_{1\leq k<l\leq N}x_kx_l\right]\\
+        &=\dfrac{\lambda(N-1)+1}{2}\sum_{k=1}^{N}x_k^2-\lambda\sum_{1\leq k<l\leq N}x_kx_l
+    \end{aligned}\]
+    其中
+    \[\mat{V}=\dfrac12(\lambda N+1)\mat{I}-\dfrac\lambda2\mat{E}\]
+    现在考虑$\mat{V}$的所有特征值.首先注意到对任意向量$\vec{u}$都有$\mat{E}\vec{u}=\displaystyle\left(\sum_{k=1}^{N}u_k\right)(1,1,\cdots,1)$.因此令$\vec{q}_1=\dfrac{1}{\sqrt{N}}(1,1,\cdots,1)$则有
+    \[\mat{V}\vec{q}_1=\dfrac{\lambda N+1}{2}\vec{q}_1-\dfrac{\lambda N}{2}\vec{q}_1=\dfrac{1}{2}\vec{q}_1\]
+    除此之外,所有满足$\displaystyle\sum_{k=1}^{N}u_k=0$的非零向量$\vec{u}$都是$\vec{V}$的特征向量,对应的特征值为$\dfrac{\lambda N+1}{2}$.所有这样的$\vec{u}$构成的线性空间$U$的维数为$N-1$,因此该特征值的重数为$N-1$.取$U$的一组规范正交基$\{\vec{q}_k\}_{k=2}^{N}$,这样$\{\vec{q}_k\}_{k=1}^{N}$是$V$的一组规范正交基.于是令
+    \[\mat{P}=\begin{bmatrix}
+        \vec{q}_1&\vec{q}_2&\cdots&\vec{q}_N
+    \end{bmatrix}\]
+    则有
+    \[\mat{P}^\t\mat{V}\mat{P}=\diag\left\{\dfrac{1}{2},\dfrac{1+\lambda N}{2},\cdots,\dfrac{1+\lambda N}{2}\right\}\]
+    于是可以令
+    \[\vec{q}=\mat{P}\vec{x},\quad\vec{x}^\t\mat{V}\vec{x}=\vec{q}^\t\diag\left\{\dfrac{1}{2},\dfrac{1+\lambda N}{2},\cdots,\dfrac{1+\lambda N}{2}\right\}\vec{q}=\dfrac12q_1^2+\dfrac{1+\lambda N}{2}\sum_{k=2}^{N}q_k^2\]
+    令$\omega_1=1$, $\omega_k=\sqrt{\lambda N+1}$(其中$k=2,\cdots,N$)则有
+    \[\sum_{k=1}^{N}v(x_k)+\sum_{1\leq k<l\leq N}w(x_k,x_l)=\sum_{k=1}^{N}\omega_k^2q_k^2\]
+    由于$\vec{q}=\mat{P}\vec{x}$是规范正交变换,因此Laplace算子的形式相同,即
+    \[\sum_{k=1}^{N}\dfrac{\p^2}{\p x_k^2}=\sum_{k=1}^{N}\dfrac{\p^2}{\p q_k^2}\]
+    于是体系的薛定谔方程可以改写为
+    \[\hat{H}\iPsi(q_1,\cdots,q_N)=E\iPsi(q_1,\cdots,q_N),\quad\hat{H}=\sum_{k=1}^{N}\left[-\dfrac{1}{2}\dfrac{\p^2}{\p q_k^2}+\dfrac{1}{2}\omega_k^2 q_k^2\right]\]
+    分离变量
+    \[\iPsi(q_1,\cdots,q_N)=\prod_{k=1}^{N}\psi_k(q_k)\]
+    代入薛定谔方程并整理可得
+    \[-\dfrac{1}{2}\dfrac{\p\psi_k}{\p q_k^2}+\dfrac12\omega_k^2q_k^2\psi_k=E_k\psi_k,\quad k=1,2,\cdots,N\]
+    这是典型的谐振子模型,其基态解为
+    \[\psi_{k,0}(q_k)=\left(\dfrac{\omega_k}{\pi}\right)^{1/4}\exp\left(-\dfrac{\omega_k}{2}q_k^2\right),\quad E_k=\dfrac{1}{2}\omega_k\]
+    于是
+    \[\iPsi_0=\prod_{k=1}^{N}\psi_k(q_k)=\dfrac{\omega_1^{1/4}\prod_{k=2}^{N}\omega_k^{1/4}}{\pi^{N/4}}\exp\left\{-\dfrac12\sum_{k=1}^{N}\omega_kq_k^2\right\}\]
+    而
+    \[\omega_1=1,\quad\omega_k=\sqrt{\lambda N+1}=N\theta+1,\quad k=2,\cdots,N\]
+    于是
+    \[C_0=\dfrac{\omega_1^{1/4}\prod_{k=2}^{N}\omega_k^{1/4}}{\pi^{N/4}}=\dfrac{(N\theta+1)^{(N-1)/4}}{\pi^{N/4}}\]
+    根据前面构造的$\vec{q}_1$可得$\displaystyle q_1=\dfrac{x_1+\cdots+x_N}{\sqrt{N}}$,而
+    \[\vec{q}^\t\vec{q}=\vec{x}^\t\mat{P}^\t\mat{P}\vec{x}=\vec{x}^\t\mat{I}\vec{x}=\vec{x}^\t\vec{x}\]
+    于是
+    \[\sum_{k=2}^{N}q_k^2=\sum_{k=1}^{N}x_k^2-q_1^2=\sum_{k=1}^{N}x_k^2-\dfrac{1}{N}\left(\sum_{k=1}^{N}x_k\right)^2=\dfrac{1}{N}\sum_{1\leq k<l\leq N}(x_k-x_l)^2\]
+    于是
+    \[\sum_{k=1}^{N}\omega_kq_k^2=\dfrac{1}{N}\left(\sum_{k=1}^{N}x_k\right)^2+\dfrac{\sqrt{\lambda N+1}}{N}\sum_{1\leq k<l\leq N}(x_k-x_l)^2=\sum_{k=1}^{N}x_k^2+\dfrac{\sqrt{\lambda N+1}-1}{N}\sum_{1\leq k<l\leq N}(x_k-x_l)^2\]
+    于是
+    \[\iPsi_0=C_0\exp\left\{-\dfrac12\sum_{k=1}^{N}\omega_kq_k^2\right\}=C_0\exp\left\{-\dfrac12\sum_{k=1}^{N}x_k^2-\dfrac{\theta}{2}\sum_{1\leq k<l\leq N}(x_k-x_l)^2\right\}\]
+    基态能量则为
+    \[E_0=\dfrac12\sum_{k=1}^{N}\omega_k=\dfrac{1+(N-1)(N\theta+1)}{2}\]
+    证毕.
+    \item 在\tbf{(a)}的基础上,费米子构成的波函数应当满足交换反对称性,即交换$x_k$与$x_l$后波函数反号.根据行列式的性质,交换其中的两列则行列式反号,而根据$\iPsi_0$的定义可知$\iPsi_0$不变,于是即$\iPsi_F$变为$\iPsi_F$,满足交换反对称性.\\
+    现在证明$\iPsi_F$仍为$\hat{H}$的本征态.根据范德蒙德行列式的性质,令
+    \[D(x_1,\cdots,x_N)=\begin{vmatrix}
+        1&1&\cdots&1\\
+        x_1&x_2&\cdots&x_N\\
+        \vdots&\vdots&\ddots&\vdots\\
+        x_1^{N-1}&x_2^{N-1}&\cdots&x_{N}^{N-1}
+    \end{vmatrix}=\prod_{i<j}(x_i-x_j)\]
+    于是
+    \[\begin{aligned}
+        \hat{H}(D\iPsi_0)
+        &=\left(-\dfrac{1}{2}\sum_{k=1}^{N}\p_k^2+V\right)(D\iPsi_0)\\
+        &=-\dfrac12\sum_{k=1}^{N}\left(\iPsi_0\p_k^2 D+2\p_k\iPsi_0\p_k D+D\p_k^2\iPsi_0\right)+VD\iPsi_0\\
+        &=-\dfrac12\iPsi_0\sum_{k=1}^{N}\left(\p_k^2 D+2\p_k\ln\iPsi_0\p_k D\right)+D\underbrace{\left(-\dfrac{1}{2}\sum_{k=1}^{N}\p_k^2+V\right)\iPsi_0}_{\hat{H}\iPsi_0}\\
+        &=\iPsi_0\left[-\dfrac12\sum_{k=1}^{N}\left(\p_k^2+2\p_k\ln\iPsi_0\p_k \right)\right]D+E(D\iPsi_0)
+    \end{aligned}\]
+    记
+    \[\hat{\mathcal{L}}=-\dfrac12\sum_{k=1}^{N}\left(\p_k^2+2\p_k\ln\iPsi_0\p_k\right)\]
+    只需证明$D$是$\hat{\mathcal{L}}$的本征态.首先
+    \[\p_k\ln\iPsi_0=\p_k\left\{-\dfrac12\sum_{k=1}^{N}x_k^2-\dfrac{\theta}{2}\sum_{1\leq k<l\leq N}(x_k-x_l)^2\right\}=-x_k-\theta\sum_{k\neq l}(x_k-x_l)\]
+    注意到
+    \[\ln D=\sum_{k<l}\ln(x_l-x_k)\]
+    于是
+    \[\p_k D=D\p_k\ln D=D\sum_{k\neq l}\dfrac{1}{x_k-x_l}\]
+    \[\p_k^2 D=D\left[\left(\sum_{k\neq l}\dfrac{1}{x_k-x_l}\right)^2-\sum_{k\neq l}\dfrac{1}{(x_k-x_l)^2}\right]\]
+    而
+    \[\sum_{k=1}^{N}\p_k^2 D=D\sum_{k=1}^{N}\sum_{l\neq k}\sum_{j\neq k}\dfrac{2}{(x_k-x_l)(x_k-x_j)}=2D\sum_{j\neq k\neq l}\dfrac{(x_j-x_l)+(x_l-x_k)+(x_k-x_j)}{(x_k-x_l)(x_l-x_j)(x_j-x_k)}=0\]
+    于是二阶偏导项为零,只需考虑一阶偏导项.如此则有
+    \[\begin{aligned}
+        \hat{\mathcal{L}}D
+        &=-\dfrac12\sum_{k=1}^{N}\left\{2\left[-x_k-\theta\sum_{k\neq l}(x_k-x_l)\right]\sum_{k\neq l}\dfrac{1}{x_k-x_l}\right\}\\
+        &=D\left[(1+N\theta)\sum_{k=1}^{N}\sum_{l\neq k}\dfrac{x_k}{x_k-x_l}+\sum_{j=1}^{N}x_j\sum_{k=1}^{N}\sum_{l\neq k}\dfrac{1}{x_k-x_l}\right]\\
+        &=D\left[\dfrac{(1+N\theta)N(N-1)}{2}+0\right]\\
+        &=\dfrac{(1+N\theta)N(N-1)}{2}D
+    \end{aligned}\]
+    于是$D$确实是$\hat{\mathcal{L}}$的本征态.这样就有
+    \[\hat{H}(D\iPsi_0)=\left[\dfrac{(1+N\theta)N(N-1)}{2}+E_0\right](D\iPsi_0)\]
+    于是$\iPsi_F$是$\hat{H}$的本征态,其本征值为
+    \[E_F=\dfrac{(1+N\theta)N(N+1)}{2}+E_0\dfrac{1+(N-1)(N\theta+1)+(1+N\theta)N(N-1)}{2}=\dfrac{1+(N^2-1)(N\theta+1)}{2}\]
+    证毕.
+    \item 体系的Hartree-Fock方程为
+    \item 注意到题中行列式的第$k$列可以写作
+    \[\begin{bmatrix}
+        \alpha(k)\\\vdots\\x_{k}^{m-1}\alpha(k)\\\beta(k)\\\vdots\\x_{k}^{n-1}\beta(k)
+    \end{bmatrix}=\alpha(k)\begin{bmatrix}
+        1\\\vdots\\x_{k}^{m-1}\\0\\\vdots\\0
+    \end{bmatrix}+\beta(k)\begin{bmatrix}
+        0\\\vdots\\0\\1\\\vdots\\x_k^{n-1}
+    \end{bmatrix}=\alpha(k)\vec{a}_k+\beta(k)\vec{b}_k\]
+    考虑行列式的每一列按上述方法拆分后的求和项.由于$\vec{a}_k$只在前$m$行非零, $\vec{b}_k$只在后$n$行非零;而根据行列式的定义,必须在前$m$行选择$m$个不同列的元素,后$n$行选择$n$个不同列的元素构成求和项,因此必须选择$m$列$\vec{a}$向量和$n$列$\vec{b}$向量才能使得求和项不全为$0$.于是
+    \[|\cdot|=\sum_{k_1k_2\cdots k_N}\prod_{i=1}^{m}\alpha\left(k_i\right)\prod_{j=m+1}^{N}\beta\left(k_j\right)\det\mat{M}_{k_1\cdots k_N}\]
+    其中$k_1k_2\cdots k_N$是$1$到$N$的一个排列,满足$k_1<\cdots<k_m$, $k_{m+1}<\cdots<k_N$. $\mat{M}$是由$\vec{a}_{k_1},\cdots,\vec{a}_{k_m}$和$\vec{b_{k_{m+1}}},\cdots,\vec{b}_{k_N}$按照列号大小组成的矩阵.而
+    \[\begin{aligned}
+        \left|\det\mat{M}\right|
+        &=\begin{vmatrix}
+        \vec{a}_{k_1}&\cdots&\vec{a}_{k_m}&\vec{b_{k_{m+1}}}&\cdots&\vec{b}_{k_N}
+    \end{vmatrix}\\
+    &=\begin{vmatrix}
+        1&\cdots&1\\
+        \vdots&\ddots&\vdots\\
+        x_{k_1}^{m}&\cdots&x_{k_m}^{m}
+    \end{vmatrix}\begin{vmatrix}
+        1&\cdots&1\\
+        \vdots&\ddots&\vdots\\
+        x_{k_{m+1}}^{n}&\cdots&x_{k_N}^{n}
+    \end{vmatrix}\\
+    &=\prod_{1\leq i<j\leq m}\left(x_{k_j}-x_{k_i}\right)\prod_{m<i<j\leq N}\left(x_{k_j}-x_{k_i}\right)
+    \end{aligned}\]
+    现在对于符合前设的所有排列$k_1\cdots k_N$, 考虑任意一项
+    \[D_{k_1\cdots k_N}=(\pm)\prod_{i=1}^{m}\alpha\left(k_i\right)\prod_{j=m+1}^{N}\beta\left(k_j\right)\underbrace{\prod_{1\leq i<j\leq m}\left(x_{k_j}-x_{k_i}\right)}_{D_\alpha}\underbrace{\prod_{m<i<j\leq N}\left(x_{k_j}-x_{k_i}\right)}_{D_\beta}\]
+    则有
+    \[\hat{H}\left(D_{k_1\cdots k_N}\iPsi_0\right)=\iPsi_0\hat{\mathcal{L}}D_{k_1\cdots k_N}+E_0\left(D_{k_1\cdots k_N}\iPsi_0\right)\]
+    观察到$D_{k_1\cdots k_N}$由两部分不相关的项构成.令
+    \[\p_\alpha^2=\sum_{i=1}^{m}\p^2_{x_{k_i}},\quad\p_\beta^2=\sum_{j=m+1}^{N}\p^2_{x_{k_j}},\quad D=D_\alpha D_\beta\]
+    于是
+    \[\begin{aligned}
+        \hat{\mathcal{L}}D
+        &=-\dfrac12\sum_{k=1}^{N}\left(\p_k^2+2\p_k\ln\iPsi_0\p_k\right)D\\
+        &=-\dfrac12\sum_{i=1}^{m}\left(\p_{k_i}^2+2\p_{k_i}\ln\iPsi_0\p_{k_i}\right)D-\dfrac12\sum_{j=m+1}^{N}\left(\p_{k_j}^2+2\p_{k_j}\ln\iPsi_0\p_{k_j}\right)D\\
+        &=-\dfrac12\left[D_\beta\left(\p_\alpha^2+2\sum_{i=1}^{m}\p_{k_i}\ln\iPsi_0\p_{k_i}\right)D_\alpha+D_\alpha\left(\p_\beta^2+2\sum_{j=m+1}^{N}\p_{k_j}\ln\iPsi_0\p_{k_j}\right)D_\beta\right]
+    \end{aligned}\]
+    类似前一问可得
+    \[-\left(\p_\alpha^2+\sum_{i=1}^{m}\p_{k_i}\ln\iPsi_0\p_{k_i}\right)D_\alpha=\dfrac{(1+N\theta)m(m-1)}{2}D_\alpha\]
+    \[-\left(\p_\beta^2+\sum_{j=m+1}^{N}\p_{k_j}\ln\iPsi_0\p_{k_j}\right)D_\beta=\dfrac{(1+N\theta)n(n-1)}{2}D_\beta\]
+    这样就有
+    \[\hat{L}D=\dfrac{(1+N\theta)(m^2+n^2-m-n)}{2}D_\alpha D_\beta=\dfrac{(1+N\theta)(m^2+n^2-m-n)}{2}D\]
+    因此原行列式的每一项与$\iPsi_0$的乘积都是$\hat{H}$的本征态.于是
+    \[\begin{aligned}
+        \hat{H}(|\cdot|\iPsi_0)
+        &=\sum_{k_1\cdots k_N}\hat{H}\left[(\pm)\prod_{i=1}^{m}\alpha\left(k_i\right)\prod_{j=m+1}^{N}\beta\left(k_j\right)D_\alpha D_\beta\iPsi_0\right]\\
+        &=\sum_{k_1\cdots k_N}\left[E_0+\dfrac{(1+N\theta)(m^2+n^2-N)}{2}\right]\left[(\pm)\prod_{i=1}^{m}\alpha\left(k_i\right)\prod_{j=m+1}^{N}\beta\left(k_j\right)D_\alpha D_\beta\iPsi_0\right]\\
+        &=\dfrac{1+(m^2+n^2-1)(N\theta+1)}{2}\sum_{k_1\cdots k_N}\left[(\pm)\prod_{i=1}^{m}\alpha\left(k_i\right)\prod_{j=m+1}^{N}\beta\left(k_j\right)D_\alpha D_\beta\iPsi_0\right]\\
+        &=\dfrac{1+(m^2+n^2-1)(N\theta+1)}{2}\sum_{k_1\cdots k_N}|\cdot|\iPsi_0
+    \end{aligned}\]
+    于是$\iPsi=|\cdot|\iPsi_0$确实是$\hat{H}$的本征态,对应的本征能量为
+    \[E=\dfrac{1+(m^2+n^2-1)(N\theta+1)}{2}\]
+    证毕.
+    \item 将$n=N-m$代入$E$中有
+    \[E=\dfrac12+\dfrac{N\theta+1}{2}\left[m^2+(N-m)^2\right]=\dfrac12+\dfrac{N\theta+1}{2}(2m^2-2mN+N^2)\]
+    由于$N\theta+1>0$,因此当$E$最小时$2m^2-2mN+N^2$最小.这二次函数开口向上,对称轴为$m_0=\dfrac N2$.当$N$为偶数时,取$m=n=\dfrac N2$使$E$最小;当$N$为奇数时,取$m=\dfrac{N\pm1}{2}$,也即$|m-n|=1$时使$E$最小.
+    \item $N=3$的最稳定状态为$m=2$, $n=1$或$m=1$, $n=2$.不妨考虑前者,此时
+    \[\iPsi=C\begin{vmatrix}
+        \alpha(1)&\alpha(2)&\alpha(3)\\
+        x_1\alpha(1)&x_2\alpha(2)&x_3\alpha(3)\\
+        \beta(1)&\beta(2)&\beta(3)
+    \end{vmatrix}\iPsi_0\]
+    \item 1
+    \item 正解为
+    \[\iPsi=C\begin{vmatrix}
+        \alpha(1)&\alpha(2)\\
+        \beta(1)&\beta(2)
+    \end{vmatrix}\iPsi_0=C\begin{vmatrix}
+        \alpha(1)&\alpha(2)\\
+        \beta(1)&\beta(2)
+    \end{vmatrix}C_0\exp\left[-\dfrac12(x_1^2+x_2^2)-\dfrac{\theta}{2}(x_1-x_2)^2\right]\]
+    整理并归一化可得
+    \[\iPsi=\dfrac{(2\lambda+1)^{1/8}}{(2\pi)^{1/2}}\exp\left[-\dfrac12(x_1^2+x_2^2)-\dfrac{\sqrt{2\lambda+1}-1}{4}(x_1-x_2)^2\right]\left[\alpha(1)\beta(2)-\alpha(2)\beta(1)\right]\]
+    于是两者的空间波函数分别为
+    \[\psi^{\text{HF}}(x_1,x_2)=\left(\dfrac{1+\lambda}{\pi^2}\right)^{1/4}\exp\left[-\dfrac{\sqrt{1+\lambda}}{2}\left(x_1^2+x_2^2\right)\right]\]
+    \[\psi(x_1,x_2)=\left(\dfrac{2\lambda+1}{\pi^4}\right)^{1/8}\exp\left[-\dfrac12(x_1^2+x_2^2)-\dfrac{\sqrt{2\lambda+1}-1}{4}(x_1-x_2)^2\right]\]
+    电子密度为空间波函数的平方,即
+    \[\rho^{\text{HF}}(x_1,x_2)=\dfrac{\sqrt{1+\lambda}}{\pi}\exp\left[-\sqrt{1+\lambda}\left(x_1^2+x_2^2\right)\right]\]
+    \[\rho(x_1,x_2)=\dfrac{(2\lambda+1)^{1/4}}{\pi}\exp\left[-\left(x_1^2+x_2^2\right)-\dfrac{\sqrt{2\lambda+1}-1}{2}(x_1-x_2)^2\right]\]
+    $\lambda$取不同值时的电子密度示意图如下(蓝色为$\rho^{\text{HF}}$,红色为$\rho$):
+    \begin{figure}[H]\centering
+        \subfigure[$\lambda=-\dfrac49$]{
+        \begin{minipage}[b]{.45\linewidth}
+            \centering\includegraphics[scale=0.75]{figure/8h-1.eps}
+        \end{minipage}}
+        \subfigure[$\lambda=-\dfrac29$]{
+        \begin{minipage}[b]{.45\linewidth}
+            \centering\includegraphics[scale=0.75]{figure/8h-2.eps}
+        \end{minipage}}
+        \subfigure[$\lambda=0$(取值相同)]{
+        \begin{minipage}[b]{.45\linewidth}
+            \centering\includegraphics[scale=0.75]{figure/8h-3.eps}
+        \end{minipage}}
+        \subfigure[$\lambda=1$]{
+        \begin{minipage}[b]{.45\linewidth}
+            \centering\includegraphics[scale=0.75]{figure/8h-4.eps}
+        \end{minipage}}
+        \subfigure[$\lambda=5$]{
+        \begin{minipage}[b]{.45\linewidth}
+            \centering\includegraphics[scale=0.75]{figure/8h-5.eps}
+        \end{minipage}}
+        \subfigure[$\lambda=10$]{
+        \begin{minipage}[b]{.45\linewidth}
+            \centering\includegraphics[scale=0.75]{figure/8h-6.eps}
+        \end{minipage}}
+        \caption{$\lambda$取不同值时$\rho^{\text{HF}}$与$\rho$的比较}
+    \end{figure}
+    当$\lambda\to-\dfrac12$时,吸引势趋向极限,正解明显趋向于仅在$x_1=x_2$处$\rho\neq0$,而HF解仍给出独立的高斯分布;当$\lambda\to+\infty$时,排斥势趋向极限,正解明显趋向于在$x_1=x_2$处$\rho=0$,而HF解仍给出独立的高斯分布.因此, HF解不能描述粒子之间的相互作用.
+\end{enumerate}
+\end{solution}
 \end{document}
