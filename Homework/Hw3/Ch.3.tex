@@ -11,18 +11,112 @@
 \begin{homework}[1.]
     试证明BO势能面对于原子核构型的平动和转动具有不变性.
 \end{homework}
+\begin{proof}
+    BO近似的哈密顿量为
+    \[\hat{H}_{\text{BO}}(\vec{r},\vec{R})=\sum_{i=1}^{N_e}-\dfrac12\nabla_{\vec{r}_i}^2-\sum_{i=1}^{N_e}\sum_{A=1}^{N_n}\dfrac{Z_A}{\left|\vec{r}_i-\vec{R}_A\right|}+\sum_{1\leq i<j\leq N_e}\dfrac{1}{\left|\vec{r}_i-\vec{r}_j\right|}+\sum_{1\leq A<B\leq N_n}\dfrac{Z_AZ_B}{\left|\vec{R}_A-\vec{R}_B\right|}\]
+    对应的薛定谔方程为
+    \[\hat{H}_{\text{BO}}(\vec{r},\vec{R})\iPsi_k(\vec{r},\vec{R})=\epsilon_k^{\text{BO}}(\vec{R})\iPsi_k(\vec{r},\vec{R})\]
+    \indent 首先考虑对体系进行平移变换:
+    \[\vec{r}_i'=\vec{r}_i+\vec{t},\quad i=1,2,\cdots,N_e\]
+    \[\vec{R}_A'=\vec{R}_A+\vec{t},\quad A=1,2,\cdots,N_n\]
+    Laplace算符在平移前后满足
+    \[\nabla_{\vec{r}_i'}^2=\dfrac{\p^2}{\p(\vec{r}_i')^2}=\dfrac{\p^2}{\p\left(\vec{r}_i+\vec{t}\right)^2}=\dfrac{\p^2}{\p\vec{r}_i^2}=\nabla_{\vec{r}_i}^2\]
+    势能项满足
+    \[\vec{r}_i'-\vec{R}_A'=\left(\vec{r}_i+\vec{t}\right)-\left(\vec{R}_A+\vec{t}\right)=\vec{r}_i-\vec{R}_A\]
+    同理
+    \[\vec{r}_i'-\vec{r}_j'=\vec{r}_i-\vec{r}_j,\quad\vec{R}_A'-\vec{R}_B'=\vec{R}_A-\vec{R}_B\]
+    于是
+    \[\hat{H}_{\text{BO}}(\vec{r}',\vec{R}')=\hat{H}_{\text{BO}}(\vec{r},\vec{R})\]
+    既然哈密顿量不变,那么体系的本征值也应当不变,则有
+    \[\epsilon_k^{\text{BO}}(\vec{R}')=\epsilon_k^{\text{BO}}(\vec{R})\]
+    \indent 然后考虑对体系进行旋转变换:
+    \[\vec{r}_i'=\mathcal{R}\vec{r}_i,\quad i=1,2,\cdots,N_e\]
+    \[\vec{R}_A'=\mathcal{R}\vec{R}_A,\quad A=1,2,\cdots,N_n\]
+    旋转变换是正交变换,因此
+    \[\sum_{i=1}^{N_e}\nabla_{\vec{r}'}^2=\sum_{i=1}^{N_e}\nabla_{\vec{r}}^2\]
+    旋转变换也是保距离的变换,因此各势能项都不变,则
+    \[\hat{H}_{\text{BO}}(\vec{r}',\vec{R}')=\hat{H}_{\text{BO}}(\vec{r},\vec{R})\]
+    既然哈密顿量不变,那么体系的本征值也应当不变,则有
+    \[\epsilon_k^{\text{BO}}(\vec{R}')=\epsilon_k^{\text{BO}}(\vec{R})\]
+    于是BO势能面对$\vec{R}=\left\{\vec{R}_A\right\}_{A=1}^{N_n}$的平动和转动都具有不变性.
+\end{proof}
 \begin{homework}[2.]
-    取键长$R=\SI{2}{\bohr}$,利用书中的公式分别画出$\ce{H_2^+}$的$1\sigma$成键/反键轨道对应的电子密度沿键轴方向的图像,并与相同几何构型下两个不成键的\ce{H}原子的1s轨道密度之和的一半进行对比,据此说明成键/反键轨道的电子密度相较于独立原子发生哪些变化.
+    取键长$R=\SI{2}{\bohr}$,利用书中的公式分别画出$\ce{H_2^+}$的$1\sigma$成键/反键轨道对应的电子密度沿键轴方向的图像,并与相同几何构型下两个不成键的H原子的1s轨道密度之和的一半进行对比,据此说明成键/反键轨道的电子密度相较于独立原子发生哪些变化.
 \end{homework}
+\begin{solution}
+    采用原子单位制,记
+    \[\iPsi_A=\dfrac{1}{\sqrt{\pi}}\e^{-r_{A}},\quad\iPsi_B=\dfrac{1}{\sqrt{\pi}}\e^{-r_{B}}\]
+    当键长$R=2$时,考虑沿键轴建立柱坐标,两个H原子核分别处于$z=1$和$z=-1$的位置,则有
+    \[r_{A}=\sqrt{(z-1)^2+\rho^2},\quad r_B=\sqrt{(z+1)^2+\rho^2}\]
+    \indent 成键轨道的电子密度
+    \[\iPsi_+^2\d\tau=C_+\left(\iPsi_A^2+\iPsi_B^2+2\iPsi_A\iPsi_B\right)\d\tau\]
+    沿键轴的电子密度则为
+    \[\iPsi_+^2\d z=\dfrac{C_+}{\pi}\int_{0}^{2\pi}\d\phi\int_0^{+\infty}\left(\e^{-2\sqrt{(z-1)^2+\rho^2}}+\e^{-2\sqrt{(z-1)^2+\rho^2}}+2\e^{-\sqrt{(z-1)^2+\rho^2}\sqrt{(z+1)^2+\rho^2}}\right)\rho\d\rho\]
+    令
+    \[\int_{-\infty}^{+\infty}\iPsi_+^2\d z=1\]
+    可得归一化系数$C_+=\left(2+\dfrac{26}{3\e^2}\right)^{-1}$.\\
+    \indent 同理,反键轨道的电子密度\[\iPsi_+^2\d\tau=C_+\left(\iPsi_A^2+\iPsi_B^2-2\iPsi_A\iPsi_B\right)\d\tau\]
+    归一化系数$C_-=\left(2-\dfrac{26}{3\e^2}\right)^{-1}$.\\
+    \indent 对电子密度沿键轴作图可得
+    \begin{figure}[H]\centering
+        \includegraphics{figure/2.eps}
+        \caption{\ce{H2+}的成键与反键轨道沿键轴的电子密度图}
+    \end{figure}
+    相比于两个独立原子的电子密度,成键轨道的电子密度在核间更大,在键轴两侧稍小,即倾向于出现在两个核间;反键轨道的电子密度在核间更小,在键轴两侧更大,即倾向于不出现在两个核间.
+\end{solution}
 \begin{homework}[3.]
     取键轴为$z$方向,试分别估计\ce{F2}(键长约$\SI{135}{\pico\meter}$),乙炔(\ce{C#C}键长约$\SI{106}{\pico\meter}$)分子中两个F/C原子(1)$2\text{p}_z$轨道的重叠积分值; (2)$2\text{p}_x$轨道的重叠积分值.通过计算结果,你能得出什么结论?
 \end{homework}
+\begin{solution}
+    查阅重叠积分表,令$u=\dfrac{ZR}{a_0}$可得
+    \[S_{2\text{p}_z-2\text{p}_z}=-\left[1+\dfrac{u}{2}+\dfrac{1}{20}u^2-\dfrac{1}{60}u^3-\dfrac{1}{240}u^4\right]\e^{-u/2}\]
+    \[S_{2\text{p}_x-2\text{p}_x}=\left[1+\dfrac{1}{2}u+\dfrac{1}{10}u^2+\dfrac{1}{120}u^3\right]\e^{-u/2}\]
+    对于 \ce{F2}有$Z=5.1000$,则$u=13.01$,于是
+    \[S_{2\text{p}_z-2\text{p}_z}=0.210,\quad S_{2\text{p}_x-2\text{p}_x}=0.0640\]
+    对于 \ce{C2H2}有$Z=3.1358$,则$u=6.281$,于是
+    \[S_{2\text{p}_z-2\text{p}_z}=0.195,\quad S_{2\text{p}_x-2\text{p}_x}=0.439\]
+    \indent 可以看出两者的$\sigma$键的重叠积分大体相近,但 \ce{F2}的$\pi$键的重叠积分小于$\sigma$键,而 \ce{C2H2}正相反.这也说明 \ce{C2H2}中存在明显的$\pi$键,而 \ce{F2}几乎只有$\sigma$键.
+\end{solution}
 \begin{homework}[4.]
     在休克尔近似下,试编写程序计算并$N$苯($N=1,2,\cdots,6$,即苯,萘, $\cdots$, 并六苯)的HOMO和LUMO轨道能量(用$\alpha$和$\beta$表示),并作图表示趋势.
 \end{homework}
+\begin{solution}
+    休克尔近似下$H$的矩阵表示
+    \[H=\mat{H}=\alpha\mat{I}+\beta\mat{B}\]
+    借助程序计算得到
+    \begin{table}[H]\centering
+        \begin{tabular}{|c|c|c|c|c|c|c|}\hline
+            $N$&1&2&3&4&5&6\\\hline
+            $E_{\text{HOMO}}$&$\alpha-\beta$&$\alpha-0.618\beta$&$\alpha-0.414\beta$&$\alpha-0.295\beta$&$\alpha-0.220\beta$&$\alpha-0.169\beta$\\\hline
+            $E_{\text{LUMO}}$&$\alpha+\beta$&$\alpha+0.618\beta$&$\alpha+0.414\beta$&$\alpha+0.295\beta$&$\alpha+0.220\beta$&$\alpha+0.169\beta$\\\hline
+        \end{tabular}
+    \end{table}
+    作图如下:
+    \begin{figure}[H]\centering
+        \includegraphics{figure/4.eps}
+        \caption{并$N$苯$(N=1,\cdots,6)$的HOMO与LUMO轨道能量示意图}      
+    \end{figure}
+\end{solution}
 \begin{homework}[5.]
     假定一个分子轨道具有$0.145A+0.844B$(非归一化)形式,找出与该分子轨道正交的轨道$A$和$B$的线性组合,并计算$S=0.250$时两种线性组合的归一化常数.
 \end{homework}
+\begin{solution}
+    设与$\iPsi_+=C_+(0.145A+0.844B)$正交的轨道为$\iPsi_-=C_-(\alpha A+\beta B)$,则有
+    \[0=\int\iPsi_+^\ast\iPsi_-\d\tau=0.145\alpha\int A^\ast A\d\tau+0.844\beta\int B^\ast B\d\tau+0.145\beta\int A^\ast B\d\tau+0.844\alpha\int B^\ast A\d\tau\]
+    由于
+    \[\int A^\ast A\d\tau=\int B^\ast B\d\tau=1\]
+    于是
+    \[0.145\alpha+0.844\beta=0\]
+    于是可以令
+    \[\alpha=0.844,\quad\beta=-0.145\]
+    因此正交的轨道可以为
+    \[\iPsi_-=C_-(0.844 A-0.145B)\]
+    \indent 现在考虑归一化系数.有
+    \[1=\int\iPsi_+^\ast\iPsi_+\d\tau=C_+^2\left(0.145^2+0.844^2+2\cdot0.145\cdot0.844\cdot S\right)\]
+    \[1=\int\iPsi_-^\ast\iPsi_-\d\tau=C_-^2\left(0.145^2+0.844^2-2\cdot0.145\cdot0.844\cdot S\right)\]
+    于是$C_+=1.12$, $C_-=1.23$.归一化后的波函数为
+    \[\iPsi_+=0.163A+0.947B,\quad \iPsi_-=1.029A-0.177B\]
+\end{solution}
 \begin{homework}[6.]
     回答下面的问题.
     \begin{enumerate}[label=\tbf{(\alph*)}]
@@ -30,6 +124,12 @@
         \item 指出由p原子轨道面对面重叠形成的$\delta$成键与反键分子轨道的对称性特征(g或u).
     \end{enumerate}
 \end{homework}
+\begin{solution}
+    \begin{enumerate}[label=\tbf{(\alph*)}]
+        \item 成键轨道: $u$, 反键轨道: $g$.
+        \item 成键轨道: $g$, 反键轨道: $u$.
+    \end{enumerate}
+\end{solution}
 \begin{homework}[8.]
     量子力学中的多体问题有如下形式的哈密顿量:
     \[\hat{H}=\sum_{k=1}^{N}\left[-\dfrac{1}{2}\dfrac{\p^2}{\p x_k^2}+v(x_k)\right]+\sum_{1\leq k<l\leq N}w(x_k,x_l)\]
