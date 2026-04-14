@@ -28,5 +28,39 @@
 \subsection{氢分子离子}
 在BO近似下, \ce{H2+}的薛定谔方程为
 \[-\dfrac12\nabla^2\psi+\left(-\dfrac{1}{r_1}-\dfrac{1}{r_2}+\dfrac{1}{R}\right)\psi=E\psi\]
-
+\subsubsection{分离变量法}
+处理这一体系可以在长椭球坐标系下采用分离变量法.令
+\[\xi=\dfrac{r_1+r_2}{R},\quad\eta=\dfrac{r_1-r_2}{R}\]
+以及方位角$\phi$.长椭球坐标系中的Laplace算子为
+\[\nabla^2=-\dfrac{4}{R^2(\xi^2-\eta^2)}\left\{\dfrac{\p}{\p\xi}\left[(\xi^2-1)\dfrac{\p}{\p\xi}\right]+\dfrac{\p}{\p\eta}\left[(1-\eta^2)\dfrac{\p}{\p\eta}\right]+\left(\dfrac{1}{\xi^2-1}+\dfrac{1}{1-\eta^2}\dfrac{\p^2}{\p\phi^2}\right)\right\}\]
+而
+\[\dfrac{1}{r_1}+\dfrac{1}{r_2}=\dfrac{2}{R}\left(\dfrac{1}{\xi+\eta}+\dfrac{1}{\xi-\eta}\right)=\dfrac{4\xi}{R(\xi^2-\eta^2)}\]
+令$\tilde{E}=E-\dfrac1R$,代入原方程,在两边乘以$\dfrac14R^2(\xi^2-\eta^2)$可得
+\[-\dfrac12\left\{\dfrac{\p}{\p\xi}\left[(\xi^2-1)\dfrac{\p}{\p\xi}\right]+\dfrac{\p}{\p\eta}\left[(1-\eta^2)\dfrac{\p}{\p\eta}\right]+\left(\dfrac{1}{\xi^2-1}+\dfrac{1}{1-\eta^2}\dfrac{\p^2}{\p\phi^2}\right)\right\}\psi-R\xi\psi=\dfrac14R^2(\xi^2-\eta^2)\tilde{E}\psi\]
+令$\psi=N(\xi)M(\eta)\dfrac{1}{\sqrt{2\pi}}\e^{\i m\phi}$即可对上面的方程实现变量分离:
+\[\left\{\dfrac{\p}{\p\eta}\left[(1-\eta^2)\dfrac{\p}{\p\eta}\right]-\dfrac{m^2}{1-\eta^2}-\dfrac{R^2}{2}\tilde{E}\eta^2-A\right\}M(\eta)=0\]
+\[\left\{\dfrac{\p}{\p\xi}\left[(1-\xi^2)\dfrac{\p}{\p\xi}\right]-\dfrac{m^2}{1-\xi^2}-\dfrac{R^2}{2}\tilde{E}\xi^2-2R\xi-A\right\}N(\eta)=0\]
+方程中$\tilde{E}$与$A$是待定常数.
+\subsubsection{基组展开}
+\paragraph{$\symbf\sigma$轨道}
+采用\tbf{原子轨道线性组合(Linear Combination of Atomic Orbitals, LACO)},将波函数视作原子轨道的线性组合.这里考虑最小基组,即两个H原子各自的1s轨道,则有
+\[\iPsi_{\pm}=C_{\pm}(\iPsi_A\pm\iPsi_B)\]
+由此组合的轨道是$\symbf\sigma$\tbf{轨道}.在分离变量的解中, $\sigma$轨道对应的角动量分量$m=0$.从对称性上看, $\sigma$轨道沿键轴方向的对称性与$s$轨道相同,投影图都是圆.
+\paragraph{成键与反键轨道}
+\indent 现在考虑\tbf{成键轨道}$\iPsi_+$和\tbf{反键轨道}$\iPsi_{-}$.成键轨道的电子密度为
+\[\iPsi_+^2\propto\iPsi_A^2+\iPsi_B^2+2\iPsi_A\iPsi_B\]
+交叉项导致核间区域干涉相长,电子密度增加.同样地,反键轨道的交叉项导致核间区域干涉相消,电子密度减小.\\
+\indent 通过推导可得成键轨道的能量为
+\[E_\sigma=E_{\text{H}1\text{s}}+\dfrac{j_0}{R}-\dfrac{j+k}{1+S}\]
+其中重叠积分$S$为
+\[S=\int\iPsi_A\iPsi_B\d\tau=\left[1+\dfrac{R}{a_0}+\dfrac13\left(\dfrac{R}{a_0}\right)^2\right]\e^{-R/a_0}\]
+库伦积分$j$为
+\[j=j_0\int\dfrac{\iPsi_A^2}{r_B}\d\tau=\dfrac{j_0}{R}\left[1-\left(1+\dfrac{R}{a_0}\right)\e^{-2R/a_0}\right]\]
+交换积分$k$为
+\[k=j_0\int\dfrac{\iPsi_A\iPsi_B}{r_B}\d\tau=\dfrac{j_0}{a_0}\left(1+\dfrac{R}{a_0}\right)\e^{-R/a_0}\]
+这里$j_0$是能量单位,衡量库伦势能.在原子单位下对于 \ce{H2+}而言$j_0=1$.\\
+\indent 反键轨道的电子密度为
+\[E_{\sigma^\ast}=E_{\text{H}1\text{s}}+\dfrac{j_0}{R}-\dfrac{j-k}{1-S}\]
+反键轨道的能量上升比成键轨道的能量下降的程度更明显.
+\subsection{}
 \end{document}
