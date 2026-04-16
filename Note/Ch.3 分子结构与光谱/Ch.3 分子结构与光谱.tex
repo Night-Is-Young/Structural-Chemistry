@@ -9,7 +9,7 @@
 \begin{document}
 \chapter{分子结构与光谱}
 \section{分子轨道理论}
-\subsection{分子的薛定谔方程}
+\subsection{玻恩-奥本海默近似}
 和多电子原子类似,分子的薛定谔方程需要考虑各个核与电子本身的动能项与相互的势能项,即
 \[\hat{H}\iPsi=E\iPsi,\quad\hat{H}=T_{n}+T_{e}+V_{en}+V_{ee}+V_{nn}\]
 在原子单位下
@@ -28,7 +28,7 @@
 \subsection{氢分子离子}
 在BO近似下, \ce{H2+}的薛定谔方程为
 \[-\dfrac12\nabla^2\psi+\left(-\dfrac{1}{r_1}-\dfrac{1}{r_2}+\dfrac{1}{R}\right)\psi=E\psi\]
-\subsubsection{分离变量法}
+\subsubsection{氢分子离子的精确解}
 处理这一体系可以在长椭球坐标系下采用分离变量法.令
 \[\xi=\dfrac{r_1+r_2}{R},\quad\eta=\dfrac{r_1-r_2}{R}\]
 以及方位角$\phi$.长椭球坐标系中的Laplace算子为
@@ -41,12 +41,10 @@
 \[\left\{\dfrac{\p}{\p\eta}\left[(1-\eta^2)\dfrac{\p}{\p\eta}\right]-\dfrac{m^2}{1-\eta^2}-\dfrac{R^2}{2}\tilde{E}\eta^2-A\right\}M(\eta)=0\]
 \[\left\{\dfrac{\p}{\p\xi}\left[(1-\xi^2)\dfrac{\p}{\p\xi}\right]-\dfrac{m^2}{1-\xi^2}-\dfrac{R^2}{2}\tilde{E}\xi^2-2R\xi-A\right\}N(\eta)=0\]
 方程中$\tilde{E}$与$A$是待定常数.
-\subsubsection{基组展开}
-\paragraph{$\symbf\sigma$轨道}
+\subsubsection{原子轨道线性组合(LCAO)}
 采用\tbf{原子轨道线性组合(Linear Combination of Atomic Orbitals, LACO)},将波函数视作原子轨道的线性组合.这里考虑最小基组,即两个H原子各自的1s轨道,则有
 \[\iPsi_{\pm}=C_{\pm}(\iPsi_A\pm\iPsi_B)\]
-由此组合的轨道是$\symbf\sigma$\tbf{轨道}.在分离变量的解中, $\sigma$轨道对应的角动量分量$m=0$.从对称性上看, $\sigma$轨道沿键轴方向的对称性与$s$轨道相同,投影图都是圆.
-\paragraph{成键与反键轨道}
+由此组合的轨道是$\symbf\sigma$\tbf{轨道}.在分离变量的解中, $\sigma$轨道对应的角动量分量$m=0$.从对称性上看, $\sigma$轨道沿键轴方向的对称性与$s$轨道相同,投影图都是圆.\\
 \indent 现在考虑\tbf{成键轨道}$\iPsi_+$和\tbf{反键轨道}$\iPsi_{-}$.成键轨道的电子密度为
 \[\iPsi_+^2\propto\iPsi_A^2+\iPsi_B^2+2\iPsi_A\iPsi_B\]
 交叉项导致核间区域干涉相长,电子密度增加.同样地,反键轨道的交叉项导致核间区域干涉相消,电子密度减小.\\
@@ -62,5 +60,114 @@
 \indent 反键轨道的电子密度为
 \[E_{\sigma^\ast}=E_{\text{H}1\text{s}}+\dfrac{j_0}{R}-\dfrac{j-k}{1-S}\]
 反键轨道的能量上升比成键轨道的能量下降的程度更明显.
-\subsection{}
+\subsection{变分原理}
+设想我们需要计算由哈密顿量$\hat{H}$描述的系统的\textit{基态}能量$E$.通常,定态薛定谔方程难以直接求解,但我们可以用变分原理得到$E$的上限:
+\begin{theorem}[变分原理]
+    任意选择归一化函数$\psi$,都有
+    \[E\leq\bra\psi\hat{H}\ket\psi=\avg{H}\]
+\end{theorem}
+\begin{proof}
+    因为$\hat{H}$的本征函数构成一个完备集$\left\{\psi_n\right\}$,于是可以将$\psi$用这一基组展开:
+    \[\psi=\sum_{n}c_n\psi_n,\quad\hat{H}\psi_n=E_n\psi_n\]
+    由于$\psi$是归一化的,于是
+    \[1=\inprod\psi\psi=\inprod{\sum_{n}c_n\psi_n}{\sum_{m}c_m\psi_m}=\sum_{m}\sum_{n}c_m^\ast c_n\inprod{\psi_m}{\psi_n}=\sum_{n}\left|c_n\right|^2\]
+    与此同时
+    \[\avg{H}=\inprod{\sum_{n}c_n\psi_n}{\hat{H}\sum_{m}c_m\psi_m}=\sum_{n}E_n\left|c_n\right|^2\]
+    由定义可知,基态能量是最小的本征值,因此$E\leq E_n$,于是
+    \[\avg{H}\geq E\sum_{n}\left|c_n\right|^2=E\]
+\end{proof}
+\subsubsection{久期方程}
+考虑用LCAO法表示双原子分子轨道:
+\[\psi=\sum_{n}c_n\psi_n\]
+为了简单考虑,假定一个原子只贡献一个原子轨道,则有
+\[\psi=c_A\psi_A+c_B\psi_B\]
+由于不同原子的原子轨道不一定正交,因此
+\[\avg{E}=\dfrac{\displaystyle\int\psi\hat{H}\psi\d\tau}{\displaystyle\int\psi^2\d\tau}\]
+而
+\[\begin{aligned}
+    \int\psi^2\d\tau
+    &=\int(c_A\psi_A+c_B\psi_B)^2\d\tau\\
+    &=c_A^2\underbrace{\int\psi_A^2\d\tau}_{1}+c_B^2\underbrace{\int\psi_B^2\d\tau}_{1}+2c_Ac_B\underbrace{\int\psi_A\psi_B\d\tau}_{1}\\
+    &=c_A^2+c_B^2+2c_Ac_BS
+\end{aligned}\]
+\[\begin{aligned}
+    \int\psi^2\d\tau
+    &=\int(c_A\psi_A+c_B\psi_B)\hat{H}\int(c_A\psi_A+c_B\psi_B)\d\tau\\
+    &=c_A^2\underbrace{\int\psi_A\hat{H}\psi_A\d\tau}_{\alpha_A}+c_B^2\underbrace{\int\psi_B\hat{H}\psi_B\d\tau}_{\alpha_B}+2c_Ac_B\underbrace{\int\psi_A\hat{H}\psi_B\d\tau}_{\beta}+2c_Ac_B\underbrace{\int\psi_B\hat{H}\psi_A\d\tau}_{\beta}\\
+    &=c_A^2\alpha_A+c_B^2\alpha_B+2c_Ac_B\beta
+\end{aligned}\]
+于是
+\[E=\dfrac{c_A^2\alpha_A+c_B^2\alpha_B+2c_Ac_B\beta}{c_A^2+c_B^2+2c_Ac_BS}\]
+根据变分原理,总有$E_0\leq E$.将$E$对参数$c_A$和$c_B$求偏导可得
+\[\dfrac{\p E}{\p c_A}=\dfrac{2\left[(\alpha_A-E)c_A+(\beta-SE)c_B\right]}{c_A^2+c_B^2+2c_Ac_BS},\quad\dfrac{\p E}{\p c_B}=\dfrac{2\left[(\alpha_B-E)c_B+(\beta-SE)c_A\right]}{c_A^2+c_B^2+2c_Ac_BS}\]
+令$\dfrac{\p E}{\p c_A}=\dfrac{\p E}{\p c_B}=0$即可得\tbf{久期方程}
+\[(\alpha_A-E)c_A+(\beta-SE)c_B=0\]
+\[(\alpha_B-E)c_B+(\beta-SE)c_A=0\]
+久期方程等价于\tbf{久期行列式}
+\[\begin{vmatrix}
+    \alpha_A-E&\beta-SE\\
+    \beta-SE&\alpha_B-E
+\end{vmatrix}=0\]
+对于同核双原子分子,其解可以化简为
+\[E_\pm=\dfrac{(\alpha\pm\beta)(1\mp S)}{1-S^2}\]
+\subsubsection{休克尔近似}
+多原子分子的久期方程是复杂的.为了简化问题,休克尔
+\section{价键理论}
+\subsection{价键理论的基本内容}
+价键理论的核心思想是电子配对形成定域化学键.
+\subsection{海特勒-伦敦氢分子模型}
+采用价键理论处理氢分子的波函数.在原子单位下,记两个\ce{H}原子的1s轨道波函数为
+\[\psi_\mu=\dfrac{1}{\sqrt\pi}\e^{-|\vec{r}-\vec{R}_\mu|},\quad\mu=A,B\]
+依照价键理论的思想,氢分子的空间波函数可由原子轨道按以下方式构建:
+\[\iPsi^{\text{VB}}(\vec{r}_1,\vec{r}_2)=c_1\psi_A(\vec{r}_1)\psi_B(\vec{r}_2)+c_2\psi_A(\vec{r}_2)\psi_B(\vec{r}_1)\]
+\section{计算化学简介}
+\subsection{泛函分析简介}
+\subsubsection{泛函的定义}
+一般的多元函数是有限维实空间或复空间到数域的映射,也即\textit{有限维}希尔伯特空间到数域的映射,可以记为$F(\vec{x})$.多元函数的级数展开形式为
+\[F(\vec{x}+\ep\Delta\vec{x})=F(\vec{x})+\ep\sum_{i}\dfrac{\p F}{\p x_i}\Delta x_i+\dfrac12\ep^2\sum_{i}\sum_{j}\dfrac{\p^2 F}{\p x_i\p x_j}\Delta x_i\Delta x_j+\cdots\]
+命$\ep\to0$即可得$F$对各变元的各级偏导数.
+\[\dfrac{\p F}{\p\vec{x}}=\]
+\indent 所谓泛函,即\textit{无限维}希尔伯特空间到数域的映射,可以记为$F[\rho(x)]$,其中$\rho(x)$即为无限维希尔伯特空间中的向量(通常是一个函数),而$F$是函数到数的映射.类似地,泛函也可以进行与多元函数类似的级数展开:
+\[F[\rho+\ep\phi]=F[\rho]+\ep\int\dfrac{\delta F}{\delta\rho(x)}\phi(x)\d x+\dfrac12\ep^2\int\dfrac{\delta^2 F}{\delta\rho(x)\delta\rho(x')}\phi(x)\phi(x')\d x\d x'+\cdots\]
+实际上就是把有限维的求和换成无限维的积分(我们已经见过很多类似的操作).类似于多元函数微分,定义泛函的\tbf{变分}
+\[\int\dfrac{\delta F}{\delta\rho(x)}\phi(x)\d x=\lim_{\ep\to0}\dfrac{F[\rho+\ep\phi]-F[\rho]}{\ep}\]
+\subsubsection{常见泛函的变分}
+\begin{lemma}
+    如果
+    \[I[f(x)]=\displaystyle\int f(x)g(x)\d x\]
+    则有
+    \[\dfrac{\delta I}{\delta f(x)}=g(x)\]
+\end{lemma}
+\begin{lemma}
+    如果
+    \[\rho(x)=\int_{-\infty}^{+\infty}\rho(x')\delta(x-x')\d x'\]
+    则有
+    \[\dfrac{\delta\rho(x)}{\delta\rho(x')}=\delta(x-x')\]
+\end{lemma}
+\begin{problem}
+    托马斯-费米的动能泛函为
+    \[T_{\text{TF}}[\rho(\vec{r})]=C_\text{F}\int\rho^{5/3}(\vec{r})\d\vec{r}\]
+    则有
+\end{problem}
+\begin{proof}
+    记$F[\rho(\vec{r})]=[\rho(\vec{r})]^{5/3}$, $G[\phi(\vec{r})]=C_\text{F}\displaystyle\int\phi(\vec{r})\d\vec{r}$.
+\end{proof}
+\subsection{Hartree-Fock方法}
+为了表示多电子体系的波函数,定义
+\begin{definition}[Slater行列式]
+    \[\det\ket{\varphi_1,\cdots,\varphi_N}:=\dfrac{1}{\sqrt{N!}}\begin{vmatrix}
+        \varphi_1(\vec{r}_1,s_1)&\cdots&\varphi_1(\vec{r}_N,s_N)\\
+        \vdots&\ddots&\vdots\\
+        \varphi_N(\vec{r}_1,s_1)&\cdots&\varphi_N(\vec{r}_N,s_N)
+    \end{vmatrix}\]
+\end{definition}
+其中$\varphi_1,\cdots,\varphi_N$是正交归一的轨道; $\vec{r}_i$, $s_i$是代表第$i$个电子的变元,也可以合记为$\vec{x}_i$.根据行列式交换行或列即反号的性质,可知Slater行列式自动地满足交换反对称性.
+\begin{theorem}[Hartree-Fock的基本思想]
+    \begin{enumerate}[label=\tbf{\alph*.}]
+        \item 相互作用的体系用一个有效的无相互作用的平均场描述,即
+        \[\hat{H}_{\text{HF}}=\sum_{i=1}^{N}h_{\text{HF}}^i=\sum_{i=1}^{N}t_i+v_{\text{HF}}^{i}\]
+        \item 上述平均场产生的行列式能量最低.
+    \end{enumerate}
+\end{theorem}
+
 \end{document}

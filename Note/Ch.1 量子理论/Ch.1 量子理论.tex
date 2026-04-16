@@ -1,4 +1,4 @@
-\documentclass{ctexart}
+\documentclass{ctexbook}
 \usepackage{Note}
 \usepackage{unicode-math}
 \setCJKmainfont[
@@ -6,15 +6,81 @@
   ItalicFont = 楷体,
 ]{宋体}
 \begin{document}
-\section{量子理论}
-\subsection{}
+\chapter{量子理论}
+\section{量子力学的起源}
+\subsection{能量的量子化}
 \subsubsection{黑体辐射}
+所有物体都会通过向外辐射电磁波的形式传递热量,这种传热方式称为\tbf{热辐射}.为了研究热辐射与物体温度的关系,假定一种理想的研究对象:
 \begin{definition}[黑体]
     黑体是对一切入射的电磁辐射完全吸收而不发生反射或透射的物体.
 \end{definition}
-黑体的热辐射光谱仅与其温度有关,而与材质等无关.由经典理论可以推出黑体辐射的瑞利-金斯公式.
+黑体的热辐射光谱仅与其温度有关,而与材质等无关.典型的黑体是一个开小孔的空腔.由经典理论可以推出黑体辐射的瑞利-金斯公式.
 \begin{theorem}[瑞利-金斯公式]
     黑体辐射的辐射能量密度$u$与频率$\nu$,温度$T$的关系如下:
     \[u(\nu,T)=\dfrac{8\pi\nu^2kT}{c^3}\]
 \end{theorem}
+瑞利-金斯公式的推导过程如下:由于黑体辐射与黑体的体积,形状等都无关,因此考虑一个边长为$L$的立方体空腔.由于空腔的壁面上的电磁场必须为$0$,否则电磁波将穿透黑体,因此要求空腔内的电磁波形成驻波.因此其波长为
+\[\lambda=\dfrac{2L}{n},\quad n=1,2,\cdots\]
+我们用波数描述特定的波,有$k=\dfrac{2\pi}{\lambda}=\dfrac{n\pi}{L}$.在三维空间中,特定驻波的波矢可以按如下方式表述:
+\[\vec{k}=\left(\dfrac{n_x\pi}{L},\dfrac{n_y\pi}{L},\dfrac{n_z\pi}{L}\right)\]
+波矢的大小满足
+\[\left|\vec{k}\right|^2=\dfrac{\pi^2}{L^2}n^2=\dfrac{\pi^2}{L^2}\left(n_x^2+n_y^2+n_z^2\right)\]
+\subsection{波粒二象性}
+\subsubsection{}
+\section{波函数}
+\subsection{波函数}
+\subsection{薛定谔方程}
+薛定谔方程是量子力学的基本假设之一;也可以启发式地从几个假设中推导出来:
+\begin{enumerate}[label=\tbf{\alph*.}]
+    \item 粒子的总能量$E$可以经典地表示为动能$T$和势能$V$的总和:
+    \[E=T+V=\dfrac{p^2}{2m}+V\]
+    \item 光子的能量与对应的电磁波的频率$f$成正比.假定这一事实对微观粒子成立,就有
+    \[E=hf=\hbar\omega\]
+    \item 德布罗意提出的假说表明微观粒子具有波粒二象性,其动量$p$和伴随的物质波波长$\lambda$有如下关系:
+    \[p=\dfrac{h}{\lambda}=\hbar k\]
+    其中$k=\dfrac{2\pi}{\lambda}$为波数.在空间中就有
+    \[\vec{p}=\hbar\vec{k}\]
+    \item 假定粒子的波函数是一个复平面波:
+    \[\iPsi(x,t)=A\e^{\i(kx-\omega t)}\]
+\end{enumerate}
+\indent 于是根据\tbf{d.}可得波函数对时间$t$的导数和对位置$x$的二阶导数为
+\[\dfrac{\p\Psi}{\p t}=A\e^{\i(kx-\omega t)}(-\i\omega)=-\i\omega\iPsi\]
+\[\dfrac{\p^2\Psi}{\p x^2}=A\e^{\i(kx-\omega t)}(\i k)^2=-k^2\iPsi\]
+根据\tbf{b.}可得
+\[E\iPsi=\hbar\omega\iPsi=\i\hbar\dfrac{\p}{\p t}\iPsi\]
+根据\tbf{c.}可得
+\[p^2\iPsi=\hbar^2k^2\iPsi=-\hbar^2\dfrac{\p^2}{\p x^2}\iPsi\]
+于是再根据\tbf{a.}可得
+\[-\dfrac{\hbar^2}{2m}\dfrac{\p^2}{\p x^2}\iPsi+V\iPsi=\i\hbar\dfrac{\p}{\p t}\iPsi\]
+推广到多维空间,则$\dfrac{\p^2}{\p x^2}$应当替换为Laplace算符.设哈密顿算符$\hat{H}=-\dfrac{\hbar^2}{2m}\nabla^2+V$,则有
+\begin{theorem}[含时薛定谔方程]
+    \[\hat{H}\iPsi=\i\hbar\dfrac{\p}{\p t}\iPsi,\quad\hat{H}=-\dfrac{\hbar^2}{2m}\nabla^2+V(x,t)\]
+\end{theorem}
+如果假定势函数$V$不含时,则$\hat{H}$也不含时.考虑一维情形的含时薛定谔方程(更高维度的也同理),做分离变量$\iPsi(x,t)=\psi(x)\phi(t)$,则有
+\[-\dfrac{\hbar^2}{2m}\dfrac{\p^2}{\p x^2}\psi(x)\phi(t)+V(x)\psi(x)\phi(t)=\i\hbar\dfrac{\p}{\p t}\psi(x)\phi(t)\]
+两边除以$\psi(x)\phi(t)$可得
+\[-\dfrac{\hbar^2}{2m}\dfrac{1}{\psi(x)}\dfrac{\p^2}{\p x^2}\psi(x)+V(x)=\i\hbar\dfrac{1}{\phi(t)}\dfrac{\p}{\p t}\phi(t)\]
+于是方程的两边分别是$x$和$t$的函数,因此它们都必须等于一个常数$E$(实际上就是能量).此时就有
+\[\i\hbar\dfrac{\p}{\p t}\phi=E\phi,\quad-\dfrac{\hbar^2}{2m}\dfrac{\p^2}{\p x^2}\psi+V\psi=E\psi\]
+第一个微分方程的解为
+\[\phi(t)=\exp\left(-\dfrac{\i E}{\hbar}t\right)\]
+而第二个方程即为
+\begin{theorem}[定态薛定谔方程]
+    \[\hat{H}\psi=E\psi,\quad\hat{H}=-\dfrac{\hbar^2}{2m}\nabla^2+V(x)\]
+\end{theorem}
+它的解依$V(x)$而定.
+\section{算符}
+\subsection{}
+\begin{definition}[算符]
+    算符是函数到函数的映射,即
+    \[\hat{O}:f(x)\to g(x),\quad g(x)=\hat{O}f(x)\]
+\end{definition}
+为了界定我们讨论的对象的范围,定义如下两个空间.
+\begin{definition}[巴拿赫空间]
+    完备的赋范向量空间是\tbf{巴拿赫空间}.
+\end{definition}
+\begin{definition}[希尔伯特空间]
+    完备的内积空间是\tbf{希尔伯特空间}.
+\end{definition}
+
 \end{document}
