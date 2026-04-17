@@ -162,12 +162,54 @@
     \end{vmatrix}\]
 \end{definition}
 其中$\varphi_1,\cdots,\varphi_N$是正交归一的轨道; $\vec{r}_i$, $s_i$是代表第$i$个电子的变元,也可以合记为$\vec{x}_i$.根据行列式交换行或列即反号的性质,可知Slater行列式自动地满足交换反对称性.
-\begin{theorem}[Hartree-Fock的基本思想]
+\begin{theorem}[Hartree-Fock方法的基本思想]
     \begin{enumerate}[label=\tbf{\alph*.}]
         \item 相互作用的体系用一个有效的无相互作用的平均场描述,即
         \[\hat{H}_{\text{HF}}=\sum_{i=1}^{N}h_{\text{HF}}^i=\sum_{i=1}^{N}t_i+v_{\text{HF}}^{i}\]
         \item 上述平均场产生的行列式能量最低.
     \end{enumerate}
 \end{theorem}
+能量是轨道的泛函,用变分法求极值
+\[E[\{\varphi_i\}]=-\dfrac12\sum_{i=1}^{N}\int\varphi_i^\ast(\vec{x})\nabla^2\varphi_i(\vec{x})\d\vec{x}+V[\gamma(\vec{x},\vec{x})]+J[\gamma(\vec{x},\vec{x})]+K[\gamma(\vec{x}_1,\vec{x}_2)]\]
+考虑归一化条件,引入拉格朗日乘子
+\[L[\{\varphi_i\}]=E[\{\varphi_i\}]-\sum_{i=1}^{N}\epsilon_i\left(\right)\]
+于是
+\[\dfrac{\delta L}{\delta\varphi_i^\ast(\vec{x})}=\dfrac{\delta E}{\delta\varphi_i^\ast(\vec{x})}-\ep_i\varphi_i(\vec{x})=0\]
+\indent 现在考虑其中的各项.对于$J[\gamma]$有
+\[\dfrac{\delta J[\gamma]}{\delta\varphi_i^\ast(\vec{x})}
+\xlongequal{\text{链式法则}}\int\dfrac{\delta J[\gamma]}{\delta\gamma(\vec{x}_3,\vec{x}_3)}\dfrac{\delta\gamma(\vec{x}_3,\vec{x}_3)}{\delta\varphi_i^\ast(\vec{x})}\d\vec{x}_3
+=\int\dfrac{\delta J[\gamma]}{\delta\gamma(\vec{x}_3,\vec{x}_3)}\delta(\vec{x}-\vec{x}_3)\varphi_i(\vec{x})\d\vec{x}_3
+=\dfrac{\delta J[\gamma]}{\delta\gamma(\vec{x},\vec{x})}\varphi_i(\vec{x})\]
+根据$J[\gamma]$的定义
+\[J[\gamma]=\dfrac12\iint\dfrac{\gamma(\vec{x}_1,\vec{x}_1)\gamma(\vec{x}_2,\vec{x}_2)}{|\vec{r}_1-\vec{r}_2|}\d\vec{x}_1\d\vec{x}_2\]
+可得
+\[\dfrac{\delta J[\gamma]}{\delta\gamma(\vec{x},\vec{x})}=\int\dfrac{\gamma(\vec{x}',\vec{x}')}{|\vec{r}-\vec{r}'|}\d\vec{x}'\]
+\indent 对于$K[\gamma]$有
+\[\begin{aligned}
+    \dfrac{\delta K[\gamma]}{\delta\varphi_i^\ast(\vec{x})}
+    &\xlongequal{\text{链式法则}}\iint\dfrac{\delta K[\gamma]}{\delta\gamma(\vec{x}',\vec{x}_3)}\dfrac{\delta\gamma(\vec{x}',\vec{x}_3)}{\delta\varphi_i^\ast(\vec{x})}\d\vec{x}'\d\vec{x}_3\\
+    &=\int\dfrac{\delta K[\gamma]}{\delta\gamma(\vec{x}',\vec{x}_3)}\delta(\vec{x}-\vec{x}_3)\varphi_i(\vec{x}')\d\vec{x}'\d\vec{x}_3\\
+    &=\int\dfrac{\delta K[\gamma]}{\delta\gamma(\vec{x}',\vec{x})}\varphi_i(\vec{x}')\d\vec{x}'
+\end{aligned}\]
+根据$K[\gamma]$的定义
+\[K[\gamma]=\dfrac12\iint\dfrac{\gamma(\vec{x}_1,\vec{x}_2)\gamma(\vec{x}_2,\vec{x}_1)}{|\vec{r}_1-\vec{r}_2|}\d\vec{x}_1\d\vec{x}_2\]
+
+\indent 定义库伦算符$\hat{J}$和交换算符$\hat{K}$:
+\[\hat{J}=\int\dfrac{\gamma(\vec{x}',\vec{x}')}{|\vec{r}-\vec{r}'|}\d\vec{x}'\]
+\[\hat{K}:\varphi_i(\vec{x})\mapsto\int\dfrac{\gamma(\vec{x},\vec{x}')\varphi_i(\vec{x}')}{|\vec{r}-\vec{r}'|}\d\vec{x}'\]
+$\hat{J}$和$\hat{K}$都是单电子算符. $\hat{J}$是\tbf{局域算符}\footnote{
+    考虑算符$\hat{\mathcal{O}}$,
+}, $\hat{K}$是\tbf{非局域算符}.\\
+\indent 定义Fock算符$\hat{F}$为
+\[\hat{F}=-\dfrac12\nabla^2+v(\vec{r})+\hat{J}-\hat{K}\]
+于是Hartree-Fock方程可以简写为
+\[\hat{F}\varphi_i=\epsilon_i\varphi_i\]
+容易验证$\hat{F}$是厄米算符,因此所有本征态$\varphi_i$自动地正交.因此在前面的推导中没有要求正交性.这一形式的方程又被称作\tbf{正则Hartree-Fock方程}.\\
+\indent Fock算符依赖于密度矩阵,而密度矩阵又依赖于占据轨道,即
+\[\hat{F}=\hat{F}[\gamma(\vec{x}_1,\vec{x}_2)],\quad\gamma(\vec{x}_1,\vec{x}_2)=\sum_{i=1}^N\varphi_i(\vec{x}_1)\varphi_i^\ast(\vec{x}_2)\]
+而$\varphi_i$又是$\hat{F}$的本征态.因此方程不是线性的,需要用不动点迭代的方式求解.方程的解不一定是基态,基态解的轨道填充顺序按照Aufbau规则填充\footnote{优先填充低能级的轨道,低能级的轨道未占满前不填入高能级的轨道.}.
+\subsection{自洽场}
+求解方程$f(x)=x$可以采用不动点迭代的方法.类似地,求解正则HF方程可以采用\tbf{自洽场迭代}的方法:
+\[\hat{F}\varphi_i=\epsilon_i\varphi_i,\quad i=1,2,\cdots,N\]
 
 \end{document}
