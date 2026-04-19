@@ -48,13 +48,47 @@
 在$C=-l(l+1)$的前提下,径向方程可以改写为
 \[-\dfrac{\hbar^2}{2\mu}\left(\dfrac{\p^2 R}{\p r^2}+\dfrac{2}{r}\dfrac{\p R}{\p r}\right)+\left[\dfrac{l(l+1)\hbar^2}{2\mu r^2}-\dfrac{Ze^2}{4\pi\ep_0r}\right]R=ER\]
 做变量代换
-\[\rho=\dfrac{2Zr}{na},\quad a=\dfrac{m_e}{\mu}a_0,\quad a_0=\dfrac{4\pi\ep_0\hbar^2}{m_ee^2}\]
+\[\rho=\dfrac{2Zr}{na},\quad a=\dfrac{m_e}{\mu}a_0,\quad a_0=\dfrac{4\pi\ep_0\hbar^2}{m_ee^2},\quad R(r)=r^l L(r)\e^{-\alpha r}\]
+则本征波函数满足
+\[R_{n,l}(r)=N_{n,l}\rho^l L_{n,l}(\rho)\e^{-\rho/2}\]
+其中$L_{n,l}$时连带拉盖尔多项式,满足
+\[x\dfrac{\d^2 L_{n,l}}{\d x^2}+(l+1-x)\dfrac{\d L_{n,l}}{\d x}+nL=0\]
+$n$必须是整数,称作\tbf{主量子数},并且$l=0,1,\cdots,n-1$.径向波函数$R(r)$除去$r=0$之外的零点称作\tbf{节点},节点的数目为$n-l-1$.
+\subsection{原子单位制}
+考虑类氢原子的薛定谔方程(忽略原子核动能项):
+\[-\dfrac{\hbar^2}{2m_e}\nabla^2\psi-\dfrac{Ze^2}{4\pi\ep_0 r}\psi=E\psi\]
+于是
+\[-\dfrac12\nabla^2\psi-\dfrac{Zm_e e^2}{4\pi\ep_0\hbar^2 r}=\dfrac{m_e}{\hbar^2}E\psi\]
+令$a_0=\dfrac{4\pi\ep_0\hbar^2}{m_e e^2}$为Bohr半径,则
+\[-\dfrac12\nabla^2\psi-\dfrac{Z}{a_0 r}\psi=\dfrac{m_e}{\hbar^2}E\psi\]
+令$\tilde{\vec{r}}=\dfrac{\vec{r}}{a_0}$,则有
+\[-\dfrac{1}{2}\nabla_{\tilde{\vec{r}}}^2\psi-\dfrac{Z}{\tilde{r}}\psi=\dfrac{m_e a_0^2}{\hbar^2}E\psi\]
+令$\tilde{E}=\dfrac{m_e a_0^2}{\hbar^2}E=\dfrac{4h^2\ep_0^2}{m_e e^4}E$,则有
+\[-\dfrac12\nabla^2\psi-\dfrac{Z}{r}\psi=E\psi\]
+这里省去了$\sim$符号.在原子单位中长度$a_0=1$,质量$m_e=1$, $\hbar=1$.由此,氢原子1s轨道的能量为$-\dfrac12$.
 \section{多电子原子}
-\subsection{轨道近似}
+\subsection{自旋}
+Stern-Gerlach实验表明银原子束通过非匀强磁场散射,并且偏转程度并不连续分布,只有两种模式.实验证明电子的\tbf{自旋量子数}$s=\dfrac12$,自旋角动量的模为
+\[S=\hbar\sqrt{s(s+1)}\]
+自旋量子数是粒子的内禀属性.\\
+\indent 电子的自旋状态有两种,对应的\tbf{自旋磁量子数}分别为$m_s=\dfrac12$和$m_s=-\dfrac12$.两种状态通常用$\alpha$和$\beta$,或向上和向下的箭头标记.
+\indent 根据自旋量子数的不同可以把粒子分为两类:
+\begin{definition}[费米子和玻色子]
+	自旋量子数为整数的粒子是\tbf{玻色子},自旋量子数为半整数的粒子是\tbf{费米子}.
+\end{definition}
+\subsubsection{交换对称性}
+玻色子和费米子具有如下重要性质:
+\begin{theorem}
+	费米子的多粒子波函数满足交换反对称性,即
+	\[\iPsi_F(1,2)=-\iPsi_F(2,1)\]
+	玻色子的多粒子波函数满足交换对称性,即
+	\[\iPsi_B(1,2)=\iPsi_B(2,1)\]
+\end{theorem}
+\subsection{多电子原子}
 氦原子的定态薛定谔方程为
 \[\hat{H}=\underbrace{-\dfrac{\hbar^2}{2m_e}\nabla_{\vec{r}_1}^2-\dfrac{2e^2}{4\pi\ep_0 r_1}}_{\hat{H}_1}\underbrace{-\dfrac{\hbar^2}{2m_e}\nabla_{\vec{r}_2}^2-\dfrac{2e^2}{4\pi\ep_0 r_2}}_{\hat{H}_2}+\dfrac{e^2}{4\pi\ep_0r_{12}}\]
-\subsection{自旋}
-将氦原子的全波函数的空间部分与自旋部分进行变量分离:
+如果电子之间没有相互作用,则可以对波函数分离变量$\iPsi(\vec{r}_1,\vec{r}_2)=\psi_1(\vec{r}_1)\psi_2(\vec{r}_2)$,将问题转化为两个类氢原子问题.这种方法就是\tbf{单电子近似}或\tbf{轨道近似}.\\
+\indent 除去空间部分的波函数,还需要考虑电子的自旋,以及作为费米子的交换反对称性.将氦原子的全波函数的空间部分与自旋部分进行变量分离:
 \[\iPsi(1,2)=\psi(\vec{r}_1,\vec{r}_2)\chi(1,2)\]
 根据泡利不相容原理,由于电子是费米子,因此全波函数必须是反对称的,即$\iPsi(1,2)=-\iPsi(2,1)$.在单电子近似下,基态氦原子的空间波函数为
 \[\psi(\vec{r}_1,\vec{r}_2)=\psi_{1\text{s}}(\vec{r}_1)\psi_{1\text{s}}(\vec{r}_2)\]
