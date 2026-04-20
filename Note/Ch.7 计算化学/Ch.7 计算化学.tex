@@ -65,7 +65,6 @@
 \begin{theorem}[变分原理]
     任意选择归一化函数$\psi$,都有
     \[E\leq\bra\psi\hat{H}\ket\psi=\avg{H}\]
-    其中$E$是基态能量.
 \end{theorem}
 \begin{proof}
     因为$\hat{H}$的本征函数构成一个完备集$\left\{\psi_n\right\}$,于是可以将$\psi$用这一基组展开:
@@ -92,8 +91,8 @@
     &=c_A^2+c_B^2+2c_Ac_BS
 \end{aligned}\]
 \[\begin{aligned}
-    \int\psi\hat{H}\psi\d\tau
-    &=\int(c_A\psi_A+c_B\psi_B)\hat{H}(c_A\psi_A+c_B\psi_B)\d\tau\\
+    \int\psi^2\d\tau
+    &=\int(c_A\psi_A+c_B\psi_B)\hat{H}\int(c_A\psi_A+c_B\psi_B)\d\tau\\
     &=c_A^2\underbrace{\int\psi_A\hat{H}\psi_A\d\tau}_{\alpha_A}+c_B^2\underbrace{\int\psi_B\hat{H}\psi_B\d\tau}_{\alpha_B}+2c_Ac_B\underbrace{\int\psi_A\hat{H}\psi_B\d\tau}_{\beta}+2c_Ac_B\underbrace{\int\psi_B\hat{H}\psi_A\d\tau}_{\beta}\\
     &=c_A^2\alpha_A+c_B^2\alpha_B+2c_Ac_B\beta
 \end{aligned}\]
@@ -115,111 +114,102 @@
 多原子分子的久期方程是复杂的.为了简化问题,休克尔
 \section{价键理论}
 \subsection{价键理论的基本内容}
-价键理论的核心思想是电子配对形成定域化学键.价键理论构建波函数的步骤如下:
-\begin{enumerate}[label=\tbf{\alph*.}]
-    \item 根据化学直觉先验地给出分子的成键情况.
-    \item 对每一根单键,构建一个双电子波函数.
-    \item 未成键电子依旧填充到单电子轨道里.
-    \item 反对陈化,最终得到的波函数不是单个Slater行列式.
-    \item 存在不同结构间的共振时,对每个结构给出波函数,再线性组合.
-\end{enumerate}
+价键理论的核心思想是电子配对形成定域化学键.
 \subsection{海特勒-伦敦氢分子模型}
-采用价键理论处理氢分子的波函数,即海特勒-伦敦氢分子模型.在原子单位下,记两个\ce{H}原子的1s轨道波函数为
+采用价键理论处理氢分子的波函数.在原子单位下,记两个\ce{H}原子的1s轨道波函数为
 \[\psi_\mu=\dfrac{1}{\sqrt\pi}\e^{-|\vec{r}-\vec{R}_\mu|},\quad\mu=A,B\]
-依照价键理论的思想,氢分子的空间波函数$\symit\Phi(\vec{r}_1,\vec{r}_2)$可由原子轨道按以下方式构建:
-\[\symit\Phi(\vec{r}_1,\vec{r}_2)=c_1\psi_A(\vec{r}_1)\psi_B(\vec{r}_2)+c_2\psi_A(\vec{r}_2)\psi_B(\vec{r}_1)\]
-显然, $\symit\Phi$不满足薛定谔方程,是价键法得到的近似解.现在来求解参数$c_1$, $c_2$.首先对称性要求单重态时$c_1=c_2$,三重态时$c_1=-c_2$.对波函数归一化可得
-\[\begin{aligned}
-    1
-    &=\int\left|\symit\Phi(\vec{r}_1,\vec{r}_2)\right|^2\d\vec{r}_1\d\vec{r}_2\\
-    &=\int\left|c_1\psi_A(\vec{r}_1)\psi_B(\vec{r}_2)+c_2\psi_A(\vec{r}_2)\psi_B(\vec{r}_1)\right|^2\d\vec{r}_1\d\vec{r}_2\\
-    &=c_1^2(2\pm 2S_{12})
-\end{aligned}\]
-其中$S_{12}=\displaystyle\int\psi_A(\vec{r}_1)\psi_B(\vec{r}_2)\psi_A(\vec{r}_2)\psi_B(\vec{r}_1)\d\vec{r}_1\vec{r}_2$.于是可得
-\begin{table}[H]\centering
-    \begin{tabular}{cc}\hline
-        单重态&三重态\\\hline
-        $c_1=c_2=\dfrac{1}{\sqrt{2+2S_{12}}}$&$c_1=-c_2=\dfrac{1}{\sqrt{2-2S_{12}}}$\\\hline
-        $\symit\Phi_S=\dfrac{\psi_A(\vec{r}_1)\psi_B(\vec{r}_2)+\psi_A(\vec{r}_2)\psi_B(\vec{r}_1)}{\sqrt{2+2S_{12}}}$&$\symit\Phi_A=\dfrac{\psi_A(\vec{r}_1)\psi_B(\vec{r}_2)-\psi_A(\vec{r}_2)\psi_B(\vec{r}_1)}{\sqrt{2-2S_{12}}}$\\\hline
-    \end{tabular}
-\end{table}
-现在考虑体系的能量.改写能量表达式可得
-\[E=\dfrac1R+\int\symit\Phi^\ast(\vec{r}_1,\vec{r}_2)\hat{H}\symit\Phi(\vec{r}_1,\vec{r}_2)\d\vec{r}_1\d\vec{r}_2\]
-\[\hat{H}=-\dfrac12\left(\nabla_1^2+\nabla_2^2\right)+\left(-\dfrac{1}{|\vec{r}_1-\vec{R}_A|}-\dfrac{1}{|\vec{r}_1-\vec{R}_B|}-\dfrac{1}{|\vec{r}_2-\vec{R}_A|}-\dfrac{1}{|\vec{r}_2-\vec{R}_B|}\right)+\dfrac{1}{|\vec{r}_1-\vec{r}_2|}\]
-代入能量表达式,改写可得
-\[E=\dfrac1R+H_{11}c_1^2+H_{22}c_2^2+2H_{12}c_1c_2\]
-其中
-\[H_{11}=\int\psi_A(1)\psi_B(2)\hat{H}\left[\psi_A(1)\psi_B(2)\right]\d\vec{r}_1\d\vec{r}_2\]
-\[H_{22}=\int\psi_A(2)\psi_B(1)\hat{H}\left[\psi_A(2)\psi_B(1)\right]\d\vec{r}_1\d\vec{r}_2\]
-\[H_{12}=\int\psi_A(1)\psi_B(2)\hat{H}\left[\psi_A(2)\psi_B(1)\right]\d\vec{r}_1\d\vec{r}_2\]
-\subsection{双电子积分}
-考虑$S_{12}$
-\[\begin{aligned}
-    S_{12}
-    &=\int\psi_A(\vec{r}_1)\psi_B(\vec{r}_2)\psi_A(\vec{r}_2)\psi_B(\vec{r}_1)\d\vec{r}_1\vec{r}_2\\
-    &=\left(\int\psi_A(\vec{r}_1)\psi_B(\vec{r}_1)\d\vec{r}_1\right)\left(\int\psi_A(\vec{r}_2)\psi_B(\vec{r}_2)\d\vec{r}_2\right)\\
-    &=S_{AB}^2
-\end{aligned}\]
-记$S_{AB}=\displaystyle\int\psi_A(\vec{r})\psi_B(\vec{r})\d\vec{r}$为\tbf{重叠积分}.\\
-\indent 现在考虑哈密顿量.对其分组:
-\[\hat{H}_A=-\dfrac12\nabla_1^2-\dfrac{1}{|\vec{r}_1-\vec{R}_A|},\quad\hat{H}_B=-\dfrac12\nabla_2^2-\dfrac{1}{|\vec{r}_2-\vec{R}_B|},\quad\hat{H}_{AB}=-\dfrac{1}{|\vec{r}_1-\vec{R}_B|}-\dfrac{1}{|\vec{r}_2-\vec{R}_A|}+\dfrac{1}{|\vec{r}_1-\vec{r}_2|}\]
-则
-\[H_{11}=\int\psi_A(1)\psi_B(2)\left(\hat{H}_A+\hat{H}_B+\hat{H}_{AB}\right)\left[\psi_A(1)\psi_B(2)\right]\d\vec{r}_1\d\vec{r}_2\]
-逐项考虑上述积分:
-\[\begin{aligned}
-    &\int\psi_A(1)\psi_B(2)\hat{H}_A\left[\psi_A(1)\psi_B(2)\right]\d\vec{r}_1\d\vec{r}_2\\
-    =&\int\psi_A(1)\psi_B(2)\left[\hat{H}_A\psi_A(1)\right]\psi_B(2)\d\vec{r}_1\d\vec{r}_2\\
-    =&\int\psi_A(1)\left[\hat{H}_A\psi_A(1)\right]\d\vec{r}_1\int\psi_B(2)\psi_B(2)\d\vec{r}_2\\
-    =&-\dfrac12
-\end{aligned}\]
-其中注意到$\hat{H}_A$是氢原子的哈密顿量, $\psi_A$是其本征值为$-\dfrac12$的本征态.同样地有
-\[\begin{aligned}
-    &\int\psi_A(1)\psi_B(2)\hat{H}_B\left[\psi_A(1)\psi_B(2)\right]\d\vec{r}_1\d\vec{r}_2\\
-    =&\int\psi_A(1)\psi_B(2)\left[\hat{H}_B\psi_B(2)\right]\psi_A(1)\d\vec{r}_1\d\vec{r}_2\\
-    =&\int\psi_B(2)\left[\hat{H}_B\psi_B(2)\right]\d\vec{r}_2\int\psi_A(1)\psi_A(1)\d\vec{r}_1\\
-    =&-\dfrac12
-\end{aligned}\]
-剩余的一项定义为\tbf{库伦积分}$Q$:
-\[\begin{aligned}
-    Q
-    &\equiv\int\psi_A(1)\psi_B(2)\hat{H}_{AB}\left[\psi_A(1)\psi_B(2)\right]\d\vec{r}_1\d\vec{r}_2\\
-    &=\int\left|\psi_A(1)\right|^2\left(-\dfrac{1}{|\vec{r}_1-\vec{R}_B|}-\dfrac{1}{|\vec{r}_2-\vec{R}_A|}+\dfrac{1}{|\vec{r}_1-\vec{r}_2|}\right)\left|\psi_B(2)\right|^2\d\vec{r}_1\d\vec{r}_2
-\end{aligned}\]
-\indent 而
-\[H_{12}=\int\psi_A(1)\psi_B(2)\left(\hat{H}_A+\hat{H}_B+\hat{H}_{AB}\right)\left[\psi_A(2)\psi_B(1)\right]\d\vec{r}_1\d\vec{r}_2\]
-仍然逐项考虑上述积分有
-\[\begin{aligned}
-    &\int\psi_A(1)\psi_B(2)\hat{H}_A\left[\psi_A(2)\psi_B(1)\right]\d\vec{r}_1\d\vec{r}_2\\
-    =&\int\psi_A(1)\psi_B(2)\left[\hat{H}_A\psi_B(1)\right]\psi_A(2)\d\vec{r}_1\d\vec{r}_2\\
-    =&\int\psi_A(1)\left[\hat{H}_A\psi_B(1)\right]\d\vec{r}_1\int\psi_A(2)\psi_B(2)\d\vec{r}_2\\
-    =&\ S_{AB}\int\psi_B(1)\left[\hat{H}_A\psi_A(1)\right]\d\vec{r}_1\\
-    =&-\dfrac12S_{AB}^2
-\end{aligned}\]
-同样地有
-\[\int\psi_A(1)\psi_B(2)\hat{H}_B\left[\psi_A(2)\psi_B(1)\right]\d\vec{r}_1\d\vec{r}_2=-\dfrac12S_{AB}^2\]
-剩余的一项定义为\tbf{交换积分}$A$:
-\[\begin{aligned}
-    A
-    &\equiv\int\psi_A(1)\psi_B(2)\hat{H}_{AB}\left[\psi_A(2)\psi_B(1)\right]\d\vec{r}_1\d\vec{r}_2\\
-    &=\int\psi_A(1)\psi_B(1)\left(-\dfrac{1}{|\vec{r}_1-\vec{R}_B|}-\dfrac{1}{|\vec{r}_2-\vec{R}_A|}+\dfrac{1}{|\vec{r}_1-\vec{r}_2|}\right)\psi_A(2)\psi_B(2)\d\vec{r}_1\d\vec{r}_2
-\end{aligned}\]
-\indent 现在计算库伦积分和交换积分.对于库伦积分,分项计算
-\[\int\left|\psi_A(1)\right|^2\left(-\dfrac{1}{|\vec{r}_1-\vec{R}_B|}\right)\left|\psi_B(2)\right|^2\d\vec{r}_1\d\vec{r}_2=-\int\dfrac{\left|\psi_A(1)\right|^2}{|\vec{r}_1-\vec{R}_B|}\d\vec{r}_1=-\int\dfrac{\left|\psi_A(\vec{r})\right|^2}{|\vec{r}-\vec{R}_B|}\d\vec{r}\equiv P\]
-\[\int\left|\psi_A(1)\right|^2\left(-\dfrac{1}{|\vec{r}_2-\vec{R}_A|}\right)\left|\psi_B(2)\right|^2\d\vec{r}_1\d\vec{r}_2=-\int\dfrac{\left|\psi_B(\vec{r})\right|^2}{|\vec{r}-\vec{R}_A|}\d\vec{r}=P\]
-定义\tbf{双电子库伦积分}$J$:
-\[J=\int\left|\psi_A(1)\right|^2\dfrac{1}{|\vec{r}_1-\vec{r}_2|}|\psi_B(2)|^2\d\vec{r}_1\d\vec{r}_2\]
-\indent 对于交换积分,考虑
-\[G=\int\dfrac{\psi_A(\vec{r})\psi_B(\vec{r})}{|\vec{r}-\vec{R}_A|}\d\vec{r}=\int\dfrac{\psi_A(\vec{r})\psi_B(\vec{r})}{|\vec{r}-\vec{R}_B|}\d\vec{r}\]
+依照价键理论的思想,氢分子的空间波函数可由原子轨道按以下方式构建:
+\[\iPsi^{\text{VB}}(\vec{r}_1,\vec{r}_2)=c_1\psi_A(\vec{r}_1)\psi_B(\vec{r}_2)+c_2\psi_A(\vec{r}_2)\psi_B(\vec{r}_1)\]
+\section{计算化学简介}
+\subsection{泛函分析简介}
+\subsubsection{泛函的定义}
+一般的多元函数是有限维实空间或复空间到数域的映射,也即\textit{有限维}希尔伯特空间到数域的映射,可以记为$F(\vec{x})$.多元函数的级数展开形式为
+\[F(\vec{x}+\ep\Delta\vec{x})=F(\vec{x})+\ep\sum_{i}\dfrac{\p F}{\p x_i}\Delta x_i+\dfrac12\ep^2\sum_{i}\sum_{j}\dfrac{\p^2 F}{\p x_i\p x_j}\Delta x_i\Delta x_j+\cdots\]
+命$\ep\to0$即可得$F$对各变元的各级偏导数.
+\[\dfrac{\p F}{\p\vec{x}}=\]
+\indent 所谓泛函,即\textit{无限维}希尔伯特空间到数域的映射,可以记为$F[\rho(x)]$,其中$\rho(x)$即为无限维希尔伯特空间中的向量(通常是一个函数),而$F$是函数到数的映射.类似地,泛函也可以进行与多元函数类似的级数展开:
+\[F[\rho+\ep\phi]=F[\rho]+\ep\int\dfrac{\delta F}{\delta\rho(x)}\phi(x)\d x+\dfrac12\ep^2\int\dfrac{\delta^2 F}{\delta\rho(x)\delta\rho(x')}\phi(x)\phi(x')\d x\d x'+\cdots\]
+实际上就是把有限维的求和换成无限维的积分(我们已经见过很多类似的操作).类似于多元函数微分,定义泛函的\tbf{变分}
+\[\int\dfrac{\delta F}{\delta\rho(x)}\phi(x)\d x=\lim_{\ep\to0}\dfrac{F[\rho+\ep\phi]-F[\rho]}{\ep}\]
+\subsubsection{常见泛函的变分}
+\begin{lemma}
+    如果
+    \[I[f(x)]=\displaystyle\int f(x)g(x)\d x\]
+    则有
+    \[\dfrac{\delta I}{\delta f(x)}=g(x)\]
+\end{lemma}
+\begin{lemma}
+    如果
+    \[\rho(x)=\int_{-\infty}^{+\infty}\rho(x')\delta(x-x')\d x'\]
+    则有
+    \[\dfrac{\delta\rho(x)}{\delta\rho(x')}=\delta(x-x')\]
+\end{lemma}
+\begin{problem}
+    托马斯-费米的动能泛函为
+    \[T_{\text{TF}}[\rho(\vec{r})]=C_\text{F}\int\rho^{5/3}(\vec{r})\d\vec{r}\]
+    则有
+\end{problem}
+\begin{proof}
+    记$F[\rho(\vec{r})]=[\rho(\vec{r})]^{5/3}$, $G[\phi(\vec{r})]=C_\text{F}\displaystyle\int\phi(\vec{r})\d\vec{r}$.
+\end{proof}
+\subsection{Hartree-Fock方法}
+为了表示多电子体系的波函数,定义
+\begin{definition}[Slater行列式]
+    \[\det\ket{\varphi_1,\cdots,\varphi_N}:=\dfrac{1}{\sqrt{N!}}\begin{vmatrix}
+        \varphi_1(\vec{r}_1,s_1)&\cdots&\varphi_1(\vec{r}_N,s_N)\\
+        \vdots&\ddots&\vdots\\
+        \varphi_N(\vec{r}_1,s_1)&\cdots&\varphi_N(\vec{r}_N,s_N)
+    \end{vmatrix}\]
+\end{definition}
+其中$\varphi_1,\cdots,\varphi_N$是正交归一的轨道; $\vec{r}_i$, $s_i$是代表第$i$个电子的变元,也可以合记为$\vec{x}_i$.根据行列式交换行或列即反号的性质,可知Slater行列式自动地满足交换反对称性.
+\begin{theorem}[Hartree-Fock方法的基本思想]
+    \begin{enumerate}[label=\tbf{\alph*.}]
+        \item 相互作用的体系用一个有效的无相互作用的平均场描述,即
+        \[\hat{H}_{\text{HF}}=\sum_{i=1}^{N}h_{\text{HF}}^i=\sum_{i=1}^{N}t_i+v_{\text{HF}}^{i}\]
+        \item 上述平均场产生的行列式能量最低.
+    \end{enumerate}
+\end{theorem}
+能量是轨道的泛函,用变分法求极值
+\[E[\{\varphi_i\}]=-\dfrac12\sum_{i=1}^{N}\int\varphi_i^\ast(\vec{x})\nabla^2\varphi_i(\vec{x})\d\vec{x}+V[\gamma(\vec{x},\vec{x})]+J[\gamma(\vec{x},\vec{x})]+K[\gamma(\vec{x}_1,\vec{x}_2)]\]
+考虑归一化条件,引入拉格朗日乘子
+\[L[\{\varphi_i\}]=E[\{\varphi_i\}]-\sum_{i=1}^{N}\epsilon_i\left(\right)\]
 于是
-\[\int\psi_A(1)\psi_B(1)\left(-\dfrac{1}{|\vec{r}_1-\vec{R}_B|}\right)\psi_A(2)\psi_B(2)\d\vec{r}_1\d\vec{r}_2=-S_{AB}\int\dfrac{\psi_A(\vec{r}_1)\psi_B(\vec{r}_1)}{|\vec{r}_1-\vec{R}_B|}\d\vec{r}_1=-S_{AB}G\]
-\[\int\psi_A(1)\psi_B(1)\left(-\dfrac{1}{|\vec{r}_2-\vec{R}_A|}\right)\psi_A(2)\psi_B(2)\d\vec{r}_1\d\vec{r}_2=-S_{AB}\int\dfrac{\psi_A(\vec{r}_2)\psi_B(\vec{r}_2)}{|\vec{r}_2-\vec{R}_A|}\d\vec{r}_2=-S_{AB}G\]
-定义\tbf{双电子交换积分}$K$:
-\[K=\int\psi_A(1)\psi_B(1)\dfrac{1}{\left|\vec{r}_1-\vec{r}_2\right|}\psi_A(2)\psi_B(2)\d\vec{r}_1\d\vec{r}_2\]
-\subsection{结果分析与改进}
-综合前述讨论可得
-\[H_{11}=-1+Q=-1+2P+J,\quad H_{12}=-S_{AB}^2+A=-S_{AB}^2-2S_{AB}G+K\]
-于是
-\[E_S=\dfrac{1}{R}+\dfrac{H_{11}+H_{12}}{1+S_{12}}=\dfrac1R-1+\dfrac{Q+A}{1+S_{AB}^2},\quad E_A=\dfrac{1}{R}+\dfrac{H_{11}-H_{12}}{1-S_{12}}=\dfrac1R-1+\dfrac{Q-A}{1-S_{AB}^2}\]
-于是可知主要的成键贡献来自于交换积分$A$. 交换积分$A$是纯粹的非经典项,库伦积分$Q$是经典项.\\
-\indent 引入有效核电荷数,或者采用更复杂的基组,可以取得更好的结果.但海特勒-伦敦模型半定量地解释了分子的成键原理,也有深远的影响.
+\[\dfrac{\delta L}{\delta\varphi_i^\ast(\vec{x})}=\dfrac{\delta E}{\delta\varphi_i^\ast(\vec{x})}-\ep_i\varphi_i(\vec{x})=0\]
+\indent 现在考虑其中的各项.对于$J[\gamma]$有
+\[\dfrac{\delta J[\gamma]}{\delta\varphi_i^\ast(\vec{x})}
+\xlongequal{\text{链式法则}}\int\dfrac{\delta J[\gamma]}{\delta\gamma(\vec{x}_3,\vec{x}_3)}\dfrac{\delta\gamma(\vec{x}_3,\vec{x}_3)}{\delta\varphi_i^\ast(\vec{x})}\d\vec{x}_3
+=\int\dfrac{\delta J[\gamma]}{\delta\gamma(\vec{x}_3,\vec{x}_3)}\delta(\vec{x}-\vec{x}_3)\varphi_i(\vec{x})\d\vec{x}_3
+=\dfrac{\delta J[\gamma]}{\delta\gamma(\vec{x},\vec{x})}\varphi_i(\vec{x})\]
+根据$J[\gamma]$的定义
+\[J[\gamma]=\dfrac12\iint\dfrac{\gamma(\vec{x}_1,\vec{x}_1)\gamma(\vec{x}_2,\vec{x}_2)}{|\vec{r}_1-\vec{r}_2|}\d\vec{x}_1\d\vec{x}_2\]
+可得
+\[\dfrac{\delta J[\gamma]}{\delta\gamma(\vec{x},\vec{x})}=\int\dfrac{\gamma(\vec{x}',\vec{x}')}{|\vec{r}-\vec{r}'|}\d\vec{x}'\]
+\indent 对于$K[\gamma]$有
+\[\begin{aligned}
+    \dfrac{\delta K[\gamma]}{\delta\varphi_i^\ast(\vec{x})}
+    &\xlongequal{\text{链式法则}}\iint\dfrac{\delta K[\gamma]}{\delta\gamma(\vec{x}',\vec{x}_3)}\dfrac{\delta\gamma(\vec{x}',\vec{x}_3)}{\delta\varphi_i^\ast(\vec{x})}\d\vec{x}'\d\vec{x}_3\\
+    &=\int\dfrac{\delta K[\gamma]}{\delta\gamma(\vec{x}',\vec{x}_3)}\delta(\vec{x}-\vec{x}_3)\varphi_i(\vec{x}')\d\vec{x}'\d\vec{x}_3\\
+    &=\int\dfrac{\delta K[\gamma]}{\delta\gamma(\vec{x}',\vec{x})}\varphi_i(\vec{x}')\d\vec{x}'
+\end{aligned}\]
+根据$K[\gamma]$的定义
+\[K[\gamma]=\dfrac12\iint\dfrac{\gamma(\vec{x}_1,\vec{x}_2)\gamma(\vec{x}_2,\vec{x}_1)}{|\vec{r}_1-\vec{r}_2|}\d\vec{x}_1\d\vec{x}_2\]
+
+\indent 定义库伦算符$\hat{J}$和交换算符$\hat{K}$:
+\[\hat{J}=\int\dfrac{\gamma(\vec{x}',\vec{x}')}{|\vec{r}-\vec{r}'|}\d\vec{x}'\]
+\[\hat{K}:\varphi_i(\vec{x})\mapsto\int\dfrac{\gamma(\vec{x},\vec{x}')\varphi_i(\vec{x}')}{|\vec{r}-\vec{r}'|}\d\vec{x}'\]
+$\hat{J}$和$\hat{K}$都是单电子算符. $\hat{J}$是\tbf{局域算符}\footnote{
+    考虑算符$\hat{\mathcal{O}}$,
+}, $\hat{K}$是\tbf{非局域算符}.\\
+\indent 定义Fock算符$\hat{F}$为
+\[\hat{F}=-\dfrac12\nabla^2+v(\vec{r})+\hat{J}-\hat{K}\]
+于是Hartree-Fock方程可以简写为
+\[\hat{F}\varphi_i=\epsilon_i\varphi_i\]
+容易验证$\hat{F}$是厄米算符,因此所有本征态$\varphi_i$自动地正交.因此在前面的推导中没有要求正交性.这一形式的方程又被称作\tbf{正则Hartree-Fock方程}.\\
+\indent Fock算符依赖于密度矩阵,而密度矩阵又依赖于占据轨道,即
+\[\hat{F}=\hat{F}[\gamma(\vec{x}_1,\vec{x}_2)],\quad\gamma(\vec{x}_1,\vec{x}_2)=\sum_{i=1}^N\varphi_i(\vec{x}_1)\varphi_i^\ast(\vec{x}_2)\]
+而$\varphi_i$又是$\hat{F}$的本征态.因此方程不是线性的,需要用不动点迭代的方式求解.方程的解不一定是基态,基态解的轨道填充顺序按照Aufbau规则填充\footnote{优先填充低能级的轨道,低能级的轨道未占满前不填入高能级的轨道.}.
+\subsection{自洽场}
+求解方程$f(x)=x$可以采用不动点迭代的方法.类似地,求解正则HF方程可以采用\tbf{自洽场迭代}的方法:
+\[\hat{F}\varphi_i=\epsilon_i\varphi_i,\quad i=1,2,\cdots,N\]
+
 \end{document}
