@@ -104,18 +104,18 @@
     设与$\iPsi_+=C_+(0.145A+0.844B)$正交的轨道为$\iPsi_-=C_-(\alpha A+\beta B)$,则有
     \[0=\int\iPsi_+^\ast\iPsi_-\d\tau=0.145\alpha\int A^\ast A\d\tau+0.844\beta\int B^\ast B\d\tau+0.145\beta\int A^\ast B\d\tau+0.844\alpha\int B^\ast A\d\tau\]
     由于
-    \[\int A^\ast A\d\tau=\int B^\ast B\d\tau=1\]
+    \[\int A^\ast A\d\tau=\int B^\ast B\d\tau=1,\quad\int A^\ast B\d\tau=\int B^\ast A\d\tau=S\]
     于是
-    \[0.145\alpha+0.844\beta=0\]
-    于是可以令
-    \[\alpha=0.844,\quad\beta=-0.145\]
+    \[(0.145\alpha+0.844\beta)+S(0.145\beta+0.844\alpha)=0\]
+    于是
+    \[\dfrac{\beta}{\alpha}=-\dfrac{0.145+0.844S}{0.844+0.145S}\]
     因此正交的轨道可以为
-    \[\iPsi_-=C_-(0.844 A-0.145B)\]
-    \indent 现在考虑归一化系数.有
+    \[\iPsi_-=C_-\left(A-\dfrac{0.145+0.844S}{0.844+0.145S}B\right)\]
+    \indent 现在考虑归一化系数.当$S=0.25$时有
     \[1=\int\iPsi_+^\ast\iPsi_+\d\tau=C_+^2\left(0.145^2+0.844^2+2\cdot0.145\cdot0.844\cdot S\right)\]
-    \[1=\int\iPsi_-^\ast\iPsi_-\d\tau=C_-^2\left(0.145^2+0.844^2-2\cdot0.145\cdot0.844\cdot S\right)\]
-    于是$C_+=1.12$, $C_-=1.23$.归一化后的波函数为
-    \[\iPsi_+=0.163A+0.947B,\quad \iPsi_-=1.029A-0.177B\]
+    \[1=\int\iPsi_-^\ast\iPsi_-\d\tau=C_-^2\left(1^2+0.404^2-2\cdot1\cdot0.404\cdot S\right)\]
+    于是$C_+=1.12$, $C_-=1.02$.归一化后的波函数为
+    \[\iPsi_+=0.163A+0.947B,\quad \iPsi_-=1.02A-0.412B\]
 \end{solution}
 \begin{homework}[6.]
     回答下面的问题.

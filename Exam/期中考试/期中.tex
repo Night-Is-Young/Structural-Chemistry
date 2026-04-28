@@ -1,0 +1,123 @@
+\documentclass{ctexart}
+\usepackage{note}
+\setCJKmainfont[
+    BoldFont = 思源宋体 Bold,
+    ItalicFont = 楷体,
+]{宋体}
+\ctexset{
+    section = {
+    format = \raggedright\Large\bfseries}
+}
+\author{Glimmerium}
+\date{}
+\title{\tbf{2026年结构化学挑战班期中考试}}
+\begin{document}
+\maketitle
+\section*{前言}
+\begin{itemize}
+    \item 各个常数(如约化Planck常数等)均已给出;
+    \item 考试为随堂考试,时长1小时50分钟,无延时.
+\end{itemize}
+\section{不定项选择(8分,每题2分)}
+\begin{enumerate}[label=\tbf{\arabic*.}]
+    \item 暂无.
+    \item 以下可以发生跃迁的是:
+        \begin{enumerate}[label=\Alph*.]
+            \item 氧原子 $^1\text{S}_0 \rightarrow ^1\text{D}_2$
+            \item 钾原子 $^2\text{S}_{1/2} \rightarrow ^2\text{P}_{1/2}$
+            \item 氢原子 $2\text{s}_{1}\rightarrow 3\text{s}_{1}$;
+            \item 某原子(忘了) 单重态 $\rightarrow$ 三重态.
+        \end{enumerate}
+    \item 以下说法正确的是:
+        \begin{enumerate}[label=\Alph*.]
+            \item (忘了)
+            \item (忘了)
+            \item (忘了)
+            \item 氢分子离子在椭圆坐标系下表示的(某个复杂方程,忘了)是$\sigma$轨道.
+        \end{enumerate}
+    \item 以下关于Hartree-Fock方法的说法中错误的是
+        \begin{enumerate}[label=\Alph*.]
+            \item 如果基组可以做到完备,则HF方法可以做到无误差.
+            \item Fock算符可以写作$\hat{f}=\hat{h}+v_{\text{eff}}(\vec{r})$,其中$v_{\text{eff}}(\vec{r})$是有效势.
+            \item 中心力场法,微扰理论和HF方法均基于单电子近似.
+            \item HF方法的基本原则之一是有相互作用的体系可以用有效的没有相互作用的平均场来描述.
+        \end{enumerate}
+\end{enumerate}
+\section{概念解释(6分,每题3分)}
+回答下面有关量子力学基础概念的问题,每小题不超过$50$字.
+\begin{enumerate}[label=\tbf{\arabic*.}]
+    \item 对于类氢原子,其波函数为$\psi(r, \theta, \phi)$,电子密度为$\rho(\vec{r})$,则$|\psi(r, \theta, \phi)|^2$和$\rho(\vec{r})$的区别和联系是什么？
+    \item 什么是量子隧穿？举一个量子隧穿的实例.
+\end{enumerate}
+\section{概念纠错(9分,每题3分)}
+指出下面各段落中的错误并改正.
+\begin{enumerate}[label=\tbf{\arabic*.}]
+    \item (忘了)
+    \item 在考虑跃迁时,利用到了偶极近似,这要求电磁波波长远远小于分子尺度,这样才能忽略电磁场随时间的变化.可以推出,跃迁的概率与跃迁矩阵元$\mu_{if} = \bra{\psi_i}\hat{\mu}\ket{\psi_f}$成正比.原子与电磁场相互作用的Hamilton算符为$\hat{H} = -\hat{\mu} \cdot \vec{B}$,其中$\hat{\mu}$为电偶极子算符.
+    \item (前面忘了)对于类氢原子,其旋轨耦合的分裂能与$Z$成反比.
+\end{enumerate}
+\section{一维粒子问题(6分,每题3分)}
+考虑一维粒子,其势能函数为$V(x)$,回答以下问题.
+\begin{enumerate}[label=\tbf{\arabic*.}]
+    \item 如何定义其零点能$E_0$?
+    \item 证明：$E_0\geq0$.
+\end{enumerate}
+\section{薛定谔方程(8分)}
+\begin{enumerate}[label=\tbf{\arabic*.}]
+    \item \tbf{(3')}\ 在国际单位制下,写出氘分子(D$_2$)精确的薛定谔方程;
+    \item \tbf{(3')}\ 在原子单位制下,写出其精确的薛定谔方程;
+    \item \tbf{(2')}\ 在Born-Oppenheimer近似下,改写\tbf{2}中的方程.
+\end{enumerate}
+\section{氢分子(14分)}
+\begin{enumerate}
+    \item \tbf{(6')}\ 试分别使用价键理论和分子轨道理论写出氢分子的波函数,要求只用到$\phi_A$和$\phi_B$;
+    \item \tbf{(8')}\ 记$R$为两个H原子核的距离,试描述在以下渐进行为下分子的能量,并说明价键理论和分子轨道理论哪种近似能力更强.
+    \begin{enumerate}[label=\Alph*.]
+        \item $R\to0$.
+        \item $R\to\infty$.
+    \end{enumerate}
+\end{enumerate}
+\section{算符对易(9分)}
+原子的总角动量,轨道角动量和自旋角动量分别用$\hat{J}$,$\hat{L}$和$\hat{S}$表示.
+\begin{enumerate}[label=\tbf{\arabic*.}]
+    \item \tbf{(5')}\ 证明：$\hat{J}^2$, $\hat{L}^2$和$\hat{S}^2$两两对易;
+    \item \tbf{(4')}\ 若$\hat{A}$和$\hat{B}$对易, $\hat{B}$有$n$重正交简并态$\phi_1$, $\phi_2$, $\cdots$, $\phi_k$, $\cdots$,证明: $\hat{A}\phi_k$仍然是$\hat{B}$的本征态,即证明$\hat{A}\phi_k$落在$\phi_1$, $\phi_2$, $\cdots$, $\phi_k$, $\cdots$张成的空间中.
+\end{enumerate}
+\section{原子光谱}
+已知对于任意两个角动量矢量 $\hat{\vec{J}}_1$ 和 $\hat{\vec{J}}_2$,其夹角 $\theta$ 的余弦满足
+\[\cos\theta=\frac{\langle \vec{J}_1, \vec{J}_2 \rangle}{\sqrt{\langle \vec{J}_1, \vec{J}_1 \rangle \langle \vec{J}_2, \vec{J}_2\rangle}}\]
+其中 $\langle \vec{A}, \vec{B} \rangle$ 表示内积.
+
+\begin{enumerate}[label=\tbf{\arabic*.}]
+    \item \tbf{(4')}\ 对于氢原子的$4f$电子组态,求其轨道角动量 $\hat{\vec{L}}$ 与自旋角动量 $\hat{\vec{S}}$ 之间可能出现的夹角$\theta$ (用角度制表示);
+    \item \tbf{(5')}\ 
+    \item \tbf{(7')}\ 写出基态钪原子和钛原子的光谱项,并指出其基态光谱支项.
+\end{enumerate}
+\section{Thomas-Fermi近似(8分)}
+在Thomas-Fermi近似中,电子的总动能可以使用以下公式来近似表示：
+\[T = C_{\text{TF}} \int \rho(\vec{r})^{5/3} 
+\d\vec{r}\]其中
+\[
+C_{TF} = \frac{3\hbar^2}{10}(3\pi^2)^{2/3}
+\]
+$\rho(\vec{r})$是电子密度.试使用上述公式计算基态氢原子的动能$T$,并与精确结果进行比较.
+\section{Wigner方程(18分)}
+1932年,Eugene Wigner提出维格纳方程,尝试将经典统计力学用量子修正来解释的方法,目标是连接出现在薛定谔方程里的波函数至概率分布里的相空间.Wigner方程为:
+\[
+W(x, p) = \frac{1}{2\pi\hbar} \int_{-\infty}^{\infty} \psi^*\left(x + \frac{y}{2}\right) \psi\left(x - \frac{y}{2}\right) e^{-\i p y / \hbar} \, dy.
+\]
+
+\begin{enumerate}[label=\tbf{\arabic*.}]
+    \item \tbf{(3')}\ 证明: Wigner函数是实函数;
+    \item \tbf{(3')}\ 如果$\inprod{\psi(x)}{\psi(x)}=1$,证明：
+    \[\int_{-\infty}^{\infty} W(x, p) \, dp = |\psi(x)|^2\]
+    \item \tbf{(3')}\ 已知动量空间波函数$\phi(p)$与坐标空间波函数$\psi(x)$通过傅里叶变换相联系：
+    \[\phi(p) = \frac{1}{\sqrt{2\pi\hbar}} \int_{-\infty}^{\infty} \psi(x) e^{-\i p x/\hbar} \d x\]
+    试证明：
+    \[\int_{-\infty}^{\infty} W(x, p)\d x =|\phi(p)|^2\]
+    \item \tbf{(6')}\ 给出谐振子的基态波函数
+    \[\psi_n(x) = \left( \frac{m\omega}{\pi\hbar} \right)^{1/4} e^{-\frac{m\omega x^2}{2\hbar}}\]
+    求谐振子基态波函数的Wigner函数;
+    \item \tbf{(3')}\ 求谐振子基态波函数的$\sigma_x$与$\sigma_p$,并验证两者满足位置-动量的不确定关系.
+\end{enumerate}
+\end{document}
