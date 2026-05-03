@@ -10,5 +10,23 @@
 \chapter{分子对称性}
 \section{分子几何构型与对称性}
 \section{群论}
-
+\subsection{群的定义}
+\begin{definition}[群]
+    如果集合$G$中的元素和其上定义的乘法操作满足
+    \begin{enumerate}[label=\tbf{\alph*.}]
+        \item 对乘法封闭,即
+        \[\forall a,b\in G,\quad a\cdot b\in G\]
+        \item 满足乘法结合律,即
+        \[\forall a,b,c\in G,\quad (a\cdot b)\cdot c=a\cdot(b\cdot c)\]
+        \item 有唯一单位元$e$,使得
+        \[\forall a\in G,\quad a\cdot e=e\cdot a=a\]
+        \item 任意元素都存在唯一逆元,即
+        \[\forall a\in G,\quad \exists!b\in G,\quad a\cdot b=b\cdot a=e\]
+        可以记作$b=a^{-1}$.
+    \end{enumerate}
+\end{definition}
+我们主要研究的是\tbf{点群}.
+\begin{definition}[点群]
+    通过同一点的对称操作构成的群称作点群.
+\end{definition}
 \end{document}
