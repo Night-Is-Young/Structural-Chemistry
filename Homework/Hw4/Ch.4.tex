@@ -1,0 +1,536 @@
+\documentclass{ctexart}
+\usepackage{Note}
+\setCJKmainfont[
+  BoldFont = 思源宋体 Bold,
+  ItalicFont = 楷体,
+]{宋体}
+\author{2400011785 蒋锦豪}
+\title{\tbf{结构化学\ 第4章作业}}
+\begin{document}
+\maketitle
+\begin{homework}[1.]
+    填写附表1.
+\end{homework}
+\begin{solution}
+如下表所示.
+\begin{table}[H]\centering
+\begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline
+    分子 & 对称轴 & 镜面 & 反演 & 点群 & 偶极矩 & 旋光性 \\\hline
+    \ce{CH4} & $4C_3\ 3C_2$ & $6\sigma_\text{d}$ & 无 & $T_{\text{d}}$ & 无 & 无 \\\hline
+    \ce{SF6} & $3C_4\ 4C_3\ 6C_2$ & $3\sigma_{\text{h}}\ 6\sigma_{\text{d}}$ & $i$ & $O_\text{h}$ & 无 & 无 \\\hline
+    \ce{B12} & $6C_5\ 10C_3\ 15C_2$ & $15\sigma$ & $i$ & $I_\text{h}$ & 无 & 无 \\\hline
+    船式环己烷 & $C_2$ & $2\sigma_\text{v}$ & 无 & $C_{2\text{v}}$ & 有 & 无 \\\hline
+    椅式环己烷 & $C_3\ 3C_2$ & $3\sigma_\text{d}$ & $i$ & $D_{3\text{d}}$ & 无 & 无 \\\hline
+    \ce{H2O2} & $C_2$ & 无 & 无 & $C_2$ & 有 & 无 \\\hline
+    重叠式乙烷 & $C_3\ 3C_2$ & $\sigma_\text{h}\ 3\sigma_\text{d}$ & 无 & $D_{3\text{h}}$ & 无 & 无 \\\hline
+    交叉式乙烷 & $C_3\ 3C_2$ & $3\sigma_\text{d}$ & $i$ & $D_{3\text{d}}$ & 无 & 无 \\\hline
+    中间式乙烷 & $C_3\ 3C_2$ & 无 & 无 & $D_3$ & 无 & 无 \\\hline
+    \ce{N4(CH2)6} & $4C_3\ 3C_2$ & $6\sigma_\text{d}$ & 无 & $T_{\text{d}}$ & 无 & 无 \\\hline
+    \ce{Co(NO2)6^{3-}} & $4C_3\ 3C_2$ & $3\sigma_\text{h}$ & $i$ & $T_{\text{h}}$ & 无 & 无 \\\hline
+    \ce{N4S4F4} & 无 & 无 & 无 & $S_4$ & 无 & 无 \\\hline
+    \ce{H2C=C=CH2} & $3C_2$ & $2\sigma_\text{d}$ & 无 & $D_{2\text{d}}$ & 无 & 无 \\\hline
+    \ce{ClHC=C=CH2} & 无 & $\sigma$ & 无 & $C_\text{s}$ & 有 & 无 \\\hline
+    \ce{Cl2C=C=CH2} & $C_2$ & $2\sigma_\text{v}$ & 无 & $C_{2\text{v}}$ & 有 & 无 \\\hline
+    \ce{ClHC=C=CHCl} & $C_2$ & 无 & 无 & $C_2$ & 有 & 无\\\hline
+    \ce{IF5} & $C_3\ 3C_2$ & $\sigma_\text{h}\ 3\sigma_\text{d}$ & 无 & $D_{3\text{h}}$ & 无 & 无 \\\hline 
+\end{tabular}
+\end{table}
+\end{solution}
+\begin{homework}[2.]
+    将复数域$\C$上的所有$n$阶可逆矩阵构成的集合记作$A$, 其中行列式为$1$的矩阵构成的集合记作$B$.
+    \begin{enumerate}[label=\tbf{(\alph*)}]
+        \item 证明:在矩阵乘法下, $A$和$B$各自构成群.
+        \item 判断在矩阵加法下$A$和$B$是否构成群.
+    \end{enumerate}
+\end{homework}
+\begin{solution}
+\begin{enumerate}[label=\tbf{(\alph*)}]
+    \item 对于$A$,考虑任意$\mat{M},\ \mat{N}\in A$,由于$\mat{M},\ \mat{N}$可逆,因此$\det\mat{M},\ \det\mat{N}\neq0$,于是
+    \[\det(\mat{M}\mat{N})=\det\mat{M}\det\mat{N}\neq0\]
+    于是$\mat{M}\mat{N}$可逆,因而$\mat{M}\mat{N}\in A$, 即$A$对矩阵乘法封闭.\\
+    矩阵乘法满足乘法结合律,因此$A$上的矩阵乘法也应当满足结合律.\\
+    考虑$n$阶恒等矩阵$\mat{I}\in A$使得对任意$\mat{M}\in A$都有$\mat{I}\mat{M}=\mat{M}\mat{I}=\mat{M}$.如果存在另一矩阵$\mat{J}$也满足此性质,考虑将$\mat{M}$取为$\mat{J}$,则有
+    \[\mat{J}=\mat{I}\mat{J}=\mat{J}\mat{I}=\mat{I}\]
+    于是单位元$\mat{I}$存在且唯一.\\
+    对于任意$\mat{M}\in A$,依可逆矩阵的性质可知其逆$\mat{M}^{-1}$也是可逆矩阵,满足
+    \[\mat{M}\mat{M}^{-1}=\mat{M}^{-1}\mat{M}=\mat{I}\]
+    于是$\mat{M}$的逆元$\mat{M}^{-1}$存在,并且根据矩阵求逆运算的过程可知其唯一.\\
+    综合上述四点性质,可知$A$在矩阵乘法下构成群.\\
+    对于$B$,考虑任意$\mat{M},\ \mat{N}\in B$,则$\det\mat{M}=\det\mat{N}=$,于是
+    \[\det(\mat{M}\mat{N})=\det\mat{M}\det\mat{N}=1\]
+    于是$\mat{M}\mat{N}$可逆并且行列式为$1$,因而$\mat{M}\mat{N}\in B$, 即$B$对矩阵乘法封闭.\\
+    $B$在矩阵乘法下也满足结合律,存在单位元,每个元素存在逆元的性质,证明过程与$A$相似,这里略去.因此综上亦可得$B$在矩阵乘法下构成群.
+    \item 对于$A$和$B$,考虑$n$阶恒等矩阵$\mat{I}$和$\mat{J}=-\mat{I}$,则有$\mat{I},\ \mat{J}\in A$且$\mat{I},\ \mat{J}\in B$.然而
+    \[\mat{I}+\mat{J}=\mat{I}-\mat{I}=\mbf0\notin A,B\]
+    即$A$和$B$对矩阵加法都不封闭,因此在矩阵加法下两者都不构成群.
+\end{enumerate}
+\end{solution}
+\begin{homework}[3.]
+    若群$G$中的元素满足乘法交换律,即对任意$g_1,\ g_2\in G$有$g_1g_2=g_2g_1$,则称$G$为一个交换群.
+    \begin{enumerate}[label=\tbf{(\alph*)}]
+        \item 证明: $C_n$群是交换群, $D_3$群不是交换群.
+        \item 证明:交换群的每个元素自成一类,从而$C_n$群含有$n$个共轭类.
+        \item 请写出$D_3$群的所有共轭类.
+    \end{enumerate}
+\end{homework}
+\begin{solution}
+\begin{enumerate}[label=\tbf{(\alph*)}]
+    \item $C_n$群的元素为
+    \[\left\{E,C_n^1,\cdots,C_n^{n-1}\right\}\]
+    则有
+    \[EC_{n}^{k}=C_{n}^{k}E=C_{n}^{k},\quad C_{n}^{j}C_{n}^{k}=C_{n}^{k}C_{n}^{j}=C_n^{(j+k)\%n}\]
+    其中$(j+k)\%n$表示$(j+k)$模$n$的余数.从而$C_n$群是交换群.\\
+    $D_3$群的元素为
+    \[\left\{E,C_2^a,C_2^b,C_2^c,C_3^1,C_3^2\right\}\]
+    其中$C_2^{a,b,c}$表示三个互不相同的$C_2$操作.不妨记$r=C_3^1$, $s=C_2^a$,则有$s^2=E$且
+    \[srs=r^{-1}\]
+    两边右乘$s$可得
+    \[sr=r^{-1}s\]
+    如果$D_3$是交换群,就有$sr=rs$,则
+    \[r^{-1}s=sr=rs\]
+    两边右乘$s$可得
+    \[r^{-1}=r\]
+    而$r^{-1}=C_3^2\neq C_3^1=r$,矛盾,因此$D_3$不是交换群.
+    \item 考虑交换群$G$的元素$a$,假设另一元素$b\in G$与$a$共轭,则
+    \[\exists g\in G\quad\text{s.t.}\quad gag^{-1}=b\]
+    两边左乘$g$可得
+    \[ga=bg\]
+    由于$G$是交换群,因此
+    \[ga=ag=bg\]
+    两边左乘$g^{-1}$可得
+    \[a=b\]
+    于是$a$如果由共轭,其共轭只能是它本身.因此交换群中的每个元素自成一类.
+    \item 根据前面的推导可知$D_3$群的共轭类为
+    \[\text{Cl}(E)=\left\{E\right\},\quad\text{Cl}(C_3)=\left\{C_3^1,C_3^2\right\},\quad\text{Gl}(C_2)=\left\{C_2^a,C_2^b,C_2^c\right\}\]
+\end{enumerate}
+\end{solution}
+\begin{homework}[4.]
+    列出下列分子的对称元素,并指出它们所属的点群:
+    \begin{center}
+        \tbf{(c)}\ \ce{B2H6}\qquad\tbf{(d)}\ \ce{Co(en)3^{3+}}\qquad\tbf{(e)} 冠状\ce{S8}
+    \end{center}
+    判断它们是否有极性或手性.
+\end{homework}
+\begin{solution}
+如下表所示.
+\begin{table}[H]\centering
+    \begin{tabular}{|c|c|c|c|c|}\hline
+        分子 & 对称元素 & 点群 & 极性 & 手性\\\hline
+        \ce{B2H6} & $E$, $3C_2$, $3\sigma$, $i$ & $D_{2\text{h}}$ & 无 & 无 \\\hline
+        \ce{Co(en)3^{3+}} & $E$, $C_3$, $3C_2$ & $D_{3}$ & 无 & 有 \\\hline
+        冠状\ce{S8} & $E$, $C_4$, $4C_2'$, $4\sigma_\text{d}$, $S_8$ & $D_{4\text{d}}$ & 无 & 无\\\hline
+    \end{tabular}
+\end{table}    
+\end{solution}
+\begin{homework}[5.]
+    考虑系列分子\ce{SF6}, \ce{SF5Cl}, \ce{SF4Cl2}和\ce{SF3Cl3},指出每个分子所属的点群以及是否为极性分子.考虑所有可能的异构体.
+\end{homework}
+\begin{solution}
+如下表所示.
+\begin{table}[H]\centering
+    \begin{tabular}{|c|c|c|c|c|c|c|}\hline
+        分子 & \ce{SF6} & \ce{SF5Cl} & 顺式-\ce{SF4Cl2} & 反式-\ce{SF4Cl2} & 面式-\ce{SF3Cl3} & 经式-\ce{SF3Cl3} \\\hline
+        点群 & $O_\text{h}$ & $C_{4\text{v}}$ & $C_{2\text{v}}$ & $D_{4\text{h}}$ & $C_{3\text{v}}$ & $C_{2\text{v}}$ \\\hline
+        极性 & 无 & 有 & 有 & 无 & 有 & 有 \\\hline
+    \end{tabular}
+\end{table}
+\end{solution}
+\begin{homework}[6.]
+    考虑联苯分子\ce{Ph-Ph},如果二面角分别为以下数值,指出分子中存在的对称元素及其所属点群.
+    \[\tbf{(a)}\ 0^\circ\qquad\tbf{(b)}\ 90^\circ\qquad\tbf{(c)}\ 45^\circ\qquad\tbf{(d)}\ 60^\circ\]
+\end{homework}
+\begin{solution}
+如下表所示.
+\begin{table}[H]\centering
+    \begin{tabular}{|c|c|c|c|c|}\hline
+        二面角 & $0^\circ$ & $90^\circ$ & $45^\circ$ & $60^\circ$ \\\hline
+        对称元素 & $E$, $3C_2$, $3\sigma$, $i$ & $E$, $3C_2$, $2\sigma$, $S_4$ & $E$, $3C_2$ & $E$, $3C_2$ \\\hline
+        点群 & $D_{2\text{h}}$ & $D_{2\text{d}}$ & $D_2$ & $D_2$ \\\hline
+    \end{tabular}
+\end{table}
+\end{solution}
+\begin{homework}[7.]
+    验证氨分子所属点群各不可约表示的特征标之间满足正交归一条件.
+\end{homework}
+\begin{proof}
+    氨分子所属的点群为$C_{3\text{v}}$,其特征标表为
+    \begin{table}[H]\centering
+        \begin{tabular}{|c|c|c|c|}\hline
+            $C_{3\text{v}}$ & $E$ & $2C_3$ & $3\sigma_\text{v}$ \\\hline
+            $\text{A}_1$ & $1$ & $1$ & $1$ \\\hline
+            $\text{A}_2$ & $1$ & $1$ & $-1$ \\\hline
+            $\text{E}$ & $2$ & $-1$ & $0$ \\\hline
+        \end{tabular}        
+    \end{table}
+    并且$h=6$.首先验证正交性,有
+    \[\text{A}_1,\text{A}_2\quad 1\cdot1\cdot1+2\cdot1\cdot1+3\cdot1\cdot(-1)=0\]
+    \[\text{A}_1,E\quad 1\cdot1\cdot2+2\cdot1\cdot(-1)+3\cdot1\cdot0=0\]
+    \[\text{A}_2,E\quad 1\cdot1\cdot2+2\cdot1\cdot(-1)+3\cdot(-1)\cdot0=0\]
+    因此满足正交性.然后验证归一性,有
+    \[\text{A}_1\quad\dfrac{1}{6}(1\cdot1^2+2\cdot1^2+3\cdot1^2)=1\]
+    \[\text{A}_2\quad\dfrac{1}{6}(1\cdot1^2+2\cdot1^2+3\cdot(-1)^2)=1\]
+    \[\text{E}\quad\dfrac{1}{6}(1\cdot2^2+2\cdot(-1)^2+3\cdot0^2)=1\]
+    因此满足归一性.
+\end{proof}
+\begin{homework}[8.]
+    $C_{2\text{h}}$点群含有元素$E$, $C_2$, $\sigma_\text{h}$和$i$.请构建群的乘法表,给出一个属于该点群的分子.
+\end{homework}
+\begin{solution}
+    群乘法表如下:
+    \begin{table}[H]\centering
+        \begin{tabular}{|c|c|c|c|c|}\hline
+            $\cdot$ & $E$ & $C_2$ & $\sigma_\text{h}$ & $i$ \\\hline
+            $E$ & $E$ & $C_2$ & $\sigma_\text{h}$ & $i$ \\\hline
+            $C_2$ & $C_2$ & $E$ & $i$ & $\sigma_\text{h}$ \\\hline
+            $\sigma_\text{h}$ & $\sigma_\text{h}$ & $i$ & $E$ & $C_2$ \\\hline
+            $i$ & $i$ & $\sigma_\text{h}$ & $C_2$ & $E$ \\\hline
+        \end{tabular}
+    \end{table}
+    反式\ce{ClHC=CHCl}就属于$C_{2\text{h}}$点群.
+\end{solution}
+\begin{homework}[9.]
+    考虑属于$C_{2\text{v}}$点群的水分子,设分子在$yz$平面内, $z$轴沿$C_2$轴方向, 镜面$\sigma_{\text{v}}'$为$yz$平面, $\sigma_{\text{v}}$为$xz$平面.将两个H原子的1s轨道和O原子的四个价键轨道作为一个基建立$6\times6$矩阵用以表示该基的群.
+    \begin{enumerate}[label=\tbf{(\alph*)}]
+        \item 通过矩阵相乘证明$C_2\sigma_{\text{v}}=\sigma_{\text{v}}'$以及$\sigma_{\text{v}}\sigma_{\text{v}}'=C_2$.
+        \item 证明表示是可约化的,并生成$3\text{A}_1+\text{B}_1+2\text{B}_2$.
+    \end{enumerate}
+\end{homework}
+\begin{solution}
+\begin{enumerate}[label=\tbf{(\alph*)}]
+    \item 记两个H原子的1s轨道分别为$\text{s}_a$, $\text{s}_b$, 与$H$原子相连的价键轨道分别为$\text{sp}_1$, $\text{sp}_2$, 孤电子对的价键轨道分别为$\text{sp}_3$, $\text{sp}_4$.根据题意可以写出各对称操作的矩阵表示:
+    \[\mat{D}(C_2)=\begin{bmatrix}
+        0&1&0&0&0&0\\
+        1&0&0&0&0&0\\
+        0&0&0&1&0&0\\
+        0&0&1&0&0&0\\
+        0&0&0&0&0&1\\
+        0&0&0&0&1&0
+    \end{bmatrix},\quad\mat{D}(\sigma_\text{v})=\begin{bmatrix}
+        0&1&0&0&0&0\\
+        1&0&0&0&0&0\\
+        0&0&0&1&0&0\\
+        0&0&1&0&0&0\\
+        0&0&0&0&1&0\\
+        0&0&0&0&0&1\\
+    \end{bmatrix},\quad\mat{D}(\sigma_\text{v}')=\begin{bmatrix}
+        1&0&0&0&0&0\\
+        0&1&0&0&0&0\\
+        0&0&1&0&0&0\\
+        0&0&0&1&0&0\\
+        0&0&0&0&0&1\\
+        0&0&0&0&1&0\\
+    \end{bmatrix}\]
+    于是
+    \[\mat{D}(C_2\sigma_{\text{v}})=\mat{D}(C_2)\mat{D}(\sigma_\text{v})=\begin{bmatrix}
+        0&1&0&0&0&0\\
+        1&0&0&0&0&0\\
+        0&0&0&1&0&0\\
+        0&0&1&0&0&0\\
+        0&0&0&0&0&1\\
+        0&0&0&0&1&0
+    \end{bmatrix}\begin{bmatrix}
+        0&1&0&0&0&0\\
+        1&0&0&0&0&0\\
+        0&0&0&1&0&0\\
+        0&0&1&0&0&0\\
+        0&0&0&0&1&0\\
+        0&0&0&0&0&1\\
+    \end{bmatrix}=\begin{bmatrix}
+        1&0&0&0&0&0\\
+        0&1&0&0&0&0\\
+        0&0&1&0&0&0\\
+        0&0&0&1&0&0\\
+        0&0&0&0&0&1\\
+        0&0&0&0&1&0\\
+    \end{bmatrix}=\mat{D}(\sigma_\text{v}')\]
+    \[\mat{D}(\sigma_{\text{v}}\sigma_\text{v}')=\mat{D}(\sigma_\text{v})\mat{D}(\sigma_\text{v}')=\begin{bmatrix}
+        0&1&0&0&0&0\\
+        1&0&0&0&0&0\\
+        0&0&0&1&0&0\\
+        0&0&1&0&0&0\\
+        0&0&0&0&1&0\\
+        0&0&0&0&0&1\\
+    \end{bmatrix}\begin{bmatrix}
+        1&0&0&0&0&0\\
+        0&1&0&0&0&0\\
+        0&0&1&0&0&0\\
+        0&0&0&1&0&0\\
+        0&0&0&0&0&1\\
+        0&0&0&0&1&0\\
+    \end{bmatrix}=\begin{bmatrix}
+        0&1&0&0&0&0\\
+        1&0&0&0&0&0\\
+        0&0&0&1&0&0\\
+        0&0&1&0&0&0\\
+        0&0&0&0&0&1\\
+        0&0&0&0&1&0
+    \end{bmatrix}=\mat{D}(C_2)\]
+    于是
+    \[C_2\sigma_{\text{v}}=\sigma_{\text{v}}',\quad\sigma_{\text{v}}\sigma_{\text{v}}'=C_2\]
+    命题得证.
+    \item 观察上述矩阵的形式,将原基组分为($\text{s}_a$, $\text{s}_b$), ($\text{sp}_1$, $\text{sp}_2$)和($\text{sp}_3$, $\text{sp}_4$)三组,则所有操作的矩阵表示在这三组下都有分块对角的形式.\\
+    对于($\text{s}_a$, $\text{s}_b$)有
+    \[\mat{D}(E)=\mat{D}(\sigma_{\text{v}}')=\begin{bmatrix}
+        1&0\\
+        0&1
+    \end{bmatrix},\quad\mat{D}(C_2)=\mat{D}(\sigma_{\text{v}})=\begin{bmatrix}
+        0&1\\
+        1&0
+    \end{bmatrix}\]
+    令$\text{s}_a=\text{s}_1+\text{s}_2$, $\text{s}_b=\text{s}_1-\text{s}_2$,则有
+    \[\mat{D}(E)=\mat{D}(\sigma_{\text{v}}')=\begin{bmatrix}
+        1&0\\
+        0&1
+    \end{bmatrix},\quad\mat{D}(C_2)=\mat{D}(\sigma_{\text{v}})=\begin{bmatrix}
+        1&0\\
+        0&-1
+    \end{bmatrix}\]
+    约化为
+    \[\text{s}_a:\quad\mat{D}(E)=\mat{D}(\sigma_{\text{v}}')=\mat{D}(C_2)=\mat{D}(\sigma_{\text{v}})=1\]
+    \[\text{s}_b:\quad\mat{D}(E)=\mat{D}(\sigma_{\text{v}}')=1,\quad\mat{D}(C_2)=\mat{D}(\sigma_{\text{v}})=-1\]
+    分别为$\text{A}_1$和$\text{B}_2$.\\
+    对于($\text{sp}_1$, $\text{sp}_2$)有
+    \[\mat{D}(E)=\mat{D}(\sigma_{\text{v}}')=\begin{bmatrix}
+        1&0\\
+        0&1
+    \end{bmatrix},\quad\mat{D}(C_2)=\mat{D}(\sigma_{\text{v}})=\begin{bmatrix}
+        0&1\\
+        1&0
+    \end{bmatrix}\]
+    类似地令$\text{sp}_a=\text{sp}_1+\text{sp}_2$, $\text{sp}_b=\text{sp}_1-\text{sp}_2$,则有
+    \[\text{sp}_a:\quad\mat{D}(E)=\mat{D}(\sigma_{\text{v}}')=\mat{D}(C_2)=\mat{D}(\sigma_{\text{v}})=1\]
+    \[\text{sp}_b:\quad\mat{D}(E)=\mat{D}(\sigma_{\text{v}}')=1,\quad\mat{D}(C_2)=\mat{D}(\sigma_{\text{v}})=-1\]
+    分别为$\text{A}_1$和$\text{B}_2$.\\
+    对于($\text{sp}_3$, $\text{sp}_4$)有
+    \[\mat{D}(E)=\mat{D}(\sigma_\text{v})=\begin{bmatrix}
+        1&0\\
+        0&1
+    \end{bmatrix},\quad\mat{D}(C_2)=\mat{D}(\sigma_\text{v}')=\begin{bmatrix}
+        0&1\\
+        1&0
+    \end{bmatrix}\]
+    令$\text{sp}_c=\text{sp}_3+\text{sp}_4$, $\text{sp}_d=\text{sp}_3-\text{sp}_4$,则有
+    \[\text{sp}_c:\quad\mat{D}(E)=\mat{D}(\sigma_\text{v})=\mat{D}(C_2)=\mat{D}(\sigma_\text{v}')=1\]
+    \[\text{sp}_d:\quad\mat{D}(E)=\mat{D}(\sigma_\text{v})=1,\quad\mat{D}(C_2)=\mat{D}(\sigma_\text{v}')=-1\]
+    分别为$\text{A}_1$和$\text{B}_1$.\\
+    综上可知该表示约化为$3\text{A}_1+\text{B}_1+2\text{B}_2$,得证.
+\end{enumerate}
+\end{solution}
+\begin{homework}[10.]
+    回答下列问题.
+    \begin{enumerate}[label=\tbf{(\alph*)}]
+        \item f轨道的代数形式为一径向函数乘以以下因子之一:
+        \[z(5z^2-3r^2),\quad y(5y^2-3r^2),\quad x(5x^2-3r^2),\quad z(x^2-y^2),\quad y(x^2-z^2),\quad x(z^2-y^2),\quad xyz\]
+        确定在$C_{2\text{v}}$点群中由这些轨道生成的不可约表示.
+        \item $C_{2\text{v}}$点群在以d轨道或p轨道为基下的表示分别可以约化为哪些不可约表示?
+        \item $O_\text{h}$点群在以d轨道为基下的表示分别可以约化为哪些不可约表示?
+    \end{enumerate}
+\end{homework}
+\begin{solution}
+\begin{enumerate}[label=\tbf{(\alph*)}]
+    \item 分别将上述轨道记作$\text{f}_1$至$\text{f}_7$.不妨设
+    \[E:(x,y,z)\mapsto(x,y,z),\quad C_2:(x,y,z)\mapsto(-x,-y,z)\]
+    \[\sigma_\text{v}:(x,y,z)\mapsto(x,-y,z),\quad\sigma_\text{v}':(x,y,z)\mapsto(-x,y,z)\]
+    由于上述四种操作均不改变$x,y,z$的相对性,因此不会混合上述所有轨道;并且对称操作不改变$r^2$.因此可以列出下表:
+    \begin{table}[H]\centering
+        \begin{tabular}{|c|c|c|c|c|c|}\hline
+            轨道 & $\mat{D}(E)$ & $\mat{D}(C_2)$ & $\mat{D}(\sigma_\text{v})$ & $\mat{D}(\sigma_\text{v}')$ & 不可约表示 \\\hline
+            $\text{f}_1$ & $1$ & $1$ & $1$ & $1$ & $\text{A}_1$ \\\hline
+            $\text{f}_2$ & $1$ & $-1$ & $-1$ & $1$ & $\text{B}_1$ \\\hline
+            $\text{f}_3$ & $1$ & $-1$ & $1$ & $-1$ & $\text{B}_2$ \\\hline
+            $\text{f}_4$ & $1$ & $1$ & $1$ & $1$ & $\text{A}_1$ \\\hline
+            $\text{f}_5$ & $1$ & $-1$ & $-1$ & $1$ & $\text{B}_1$ \\\hline
+            $\text{f}_6$ & $1$ & $-1$ & $1$ & $-1$ & $\text{B}_2$ \\\hline
+            $\text{f}_7$ & $1$ & $1$ & $-1$ & $-1$ & $\text{A}_2$ \\\hline
+        \end{tabular}
+    \end{table}
+    总的不可约表示为$\Gamma=2\text{A}_1+\text{A}_2+2\text{B}_1+2\text{B}_2$.
+    \item 同理,在d轨道为基下的表示有
+    \begin{table}[H]\centering
+        \begin{tabular}{|c|c|c|c|c|c|}\hline
+            轨道 & $\mat{D}(E)$ & $\mat{D}(C_2)$ & $\mat{D}(\sigma_\text{v})$ & $\mat{D}(\sigma_\text{v}')$ & 不可约表示 \\\hline
+            $\text{d}_{xy}$ & $1$ & $1$ & $-1$ & $-1$ & $\text{A}_2$ \\\hline
+            $\text{d}_{yz}$ & $1$ & $-1$ & $-1$ & $1$ & $\text{B}_2$ \\\hline
+            $\text{d}_{xz}$ & $1$ & $-1$ & $1$ & $-1$ & $\text{B}_1$ \\\hline
+            $\text{d}_{x^2-y^2}$ & $1$ & $1$ & $1$ & $1$ & $\text{A}_1$ \\\hline
+            $\text{d}_{z^2}$ & $1$ & $1$ & $1$ & $1$ & $\text{A}_1$ \\\hline
+        \end{tabular}
+    \end{table}
+    总的不可约表示为$\Gamma=2\text{A}_1+\text{A}_2+\text{B}_1+\text{B}_2$.\\
+    在p轨道为基下的表示有
+    \begin{table}[H]\centering
+        \begin{tabular}{|c|c|c|c|c|c|}\hline
+            轨道 & $\mat{D}(E)$ & $\mat{D}(C_2)$ & $\mat{D}(\sigma_\text{v})$ & $\mat{D}(\sigma_\text{v}')$ & 不可约表示 \\\hline
+            $\text{p}_{x}$ & $1$ & $-1$ & $1$ & $-1$ & $\text{B}_1$ \\\hline
+            $\text{p}_{y}$ & $1$ & $-1$ & $-1$ & $1$ & $\text{B}_2$ \\\hline
+            $\text{p}_{z}$ & $1$ & $1$ & $1$ & $1$ & $\text{A}_1$ \\\hline
+        \end{tabular}
+    \end{table}
+    总的不可约表示为$\Gamma=\text{A}_1+\text{B}_1+\text{B}_2$.
+    \item $O_\text{h}$点群符合八面体场的对称性,在d轨道为基下约化为$E_\text{g}$和$T_{2\text{g}}$,可知$\Gamma=E_\text{g}+T_{2\text{g}}$.
+\end{enumerate}
+\end{solution}
+\begin{homework}[11.]
+    回答下列问题.
+    \begin{enumerate}[label=\tbf{(\alph*)}]
+        \item 在一个$C_{3\text{v}}$分子中,电偶极跃迁$\text{A}_1\to\text{A}_2$是否禁阻?
+        \item 在一个$D_{6\text{h}}$分子中,电偶极跃迁$\text{A}_{1\text{g}}\to\text{E}_{2\text{u}}$是否禁阻?
+    \end{enumerate}
+\end{homework}
+\begin{solution}
+    \begin{enumerate}[label=\tbf{(\alph*)}]
+        \item 考虑跃迁偶极矩对应的直积:
+        \[\text{A}_1\otimes\Gamma^{(q)}\otimes\text{A}_2=\Gamma^{(q)}\otimes(\text{A}_1\otimes\text{A}_2)=\Gamma^{(q)}\otimes\text{A}_2,\quad q=x,y,z\]
+        当且仅当$\Gamma^{(q)}=\text{A}_2$时$\Gamma^{(q)}\otimes\text{A}_2$含有$\text{A}_1$成分.查阅特征标表,可知没有满足条件的$q$,因此积分为$0$,跃迁禁阻.
+        \item 考虑跃迁偶极矩对应的直积:
+        \[\text{A}_{1\text{g}}\otimes\Gamma^{(q)}\otimes\text{E}_{2\text{u}}=\Gamma^{(q)}\otimes(\text{A}_{1\text{g}}\otimes\text{E}_{2\text{u}})=\Gamma^{(q)}\otimes\text{E}_{2\text{u}},\quad q=x,y,z\]
+        当且仅当$\Gamma^{(q)}=\text{E}_{2\text{u}}$时$\Gamma^{(q)}\otimes\text{E}_{2\text{u}}$含有$\text{A}_{1\text{g}}$成分.查阅特征标表,可知没有满足条件的$q$,因此积分为$0$,跃迁禁阻.
+    \end{enumerate}
+\end{solution}
+\begin{homework}[12.]
+    \ce{CH4}分子的四个H原子的1s轨道生成哪些不可约表示?中心碳原子的s和p轨道能否与它们形成分子轨道?在 \ce{SiH4}分子中(这里还有3d轨道),这些轨道能否通过与H原子的1s轨道重叠从而在形成分子轨道中发挥作用?
+\end{homework}
+\begin{solution}
+    \ce{CH4}为$T_\text{d}$点群.\\
+    对于$E$操作,所有H原子的1s轨道不变,因此$\chi(E)=4$.\\
+    对于$C_3$操作,仅有轴上的轨道不变,因此$\chi(C_3)=1$.\\
+    对于$C_2$操作,没有轨道不变,因此$\chi(C_2)=0$.\\
+    对于$S_4$操作,没有轨道不变,因此$\chi(S_4)=0$.\\
+    对于$\sigma_\text{d}$操作,面内的轨道不变,因此$\chi(\sigma_\text{d})=2$.\\
+    根据大正交定理,有
+    \[n(\text{A}_1)=\dfrac{1}{24}\cdot(1\cdot1\cdot4+8\cdot1\cdot1+3\cdot1\cdot0+6\cdot1\cdot2+6\cdot1\cdot0)=1\]
+    \[n(\text{A}_2)=\dfrac{1}{24}\cdot(1\cdot1\cdot4+8\cdot1\cdot1+3\cdot1\cdot0+6\cdot(-1)\cdot2+6\cdot(-1)\cdot0)=0\]
+    \[n(\text{E})=\dfrac{1}{24}\cdot(1\cdot2\cdot4+8\cdot(-1)\cdot1+3\cdot2\cdot0+6\cdot0\cdot2+6\cdot0\cdot0)=0\]
+    \[n(\text{T}_1)=\dfrac{1}{24}\cdot(1\cdot3\cdot4+8\cdot0\cdot1+3\cdot(-1)\cdot0+6\cdot(-1)\cdot2+6\cdot1\cdot0)=0\]
+    \[n(\text{T}_2)=\dfrac{1}{24}\cdot(1\cdot3\cdot4+8\cdot0\cdot1+3\cdot(-1)\cdot0+6\cdot1\cdot2+6\cdot(-1)\cdot0)=1\]
+    于是$\Gamma_{\text{H1s}}=\text{A}_1+\text{T}_2$.\\
+    形成分子轨道时重叠积分不为$0$,因此对应的直积应当含有$\text{A}_1$或$\text{T}_2$成分.\\
+    中心碳原子的s轨道有$\text{A}_1$对称性,而p轨道共同张成$\text{T}_2$对称性,因此可以与H原子的1s轨道形成分子轨道.\\
+    对于 \ce{SiH4}分子,中心硅原子的s轨道和p轨道的对称性与 \ce{CH4}中的碳原子相同,因此也可以与H原子的1s轨道形成分子轨道;而$\text{d}_{xy}$, $\text{d}_{xz}$和$\text{d}_{yz}$轨道共同张成$\text{T}_2$对称性, $\text{d}_{x^2-y^2}$和$\text{d}_{z^2}$轨道共同张成$\text{E}$对称性.因此$\text{d}_{xy}$, $\text{d}_{xz}$和$\text{d}_{yz}$轨道可以与H原子的1s轨道形成分子轨道,而后两者不能.
+\end{solution}
+\begin{homework}[13.]
+    在\ce{XeF4}分子中,考虑对称性匹配线性组合
+    \[\text{p}_1=\text{p}_A-\text{p}_B+\text{p}_C-\text{p}_D\]
+    其中$\text{p}_A$至$\text{p}_D$分别为四个F原子的$2\text{p}_z$原子轨道.中心Xe原子上的各s, p, d原子轨道中哪些能与$\text{p}_1$形成分子轨道?
+\end{homework}
+\begin{solution}
+    首先, \ce{XeF4}为$D_{4\text{h}}$点群.设四个F原子分别位于$x$轴和$y$轴的正负方向上,考虑所有对称元素对$\text{p}_1$的作用情况,可以列出如下特征标:
+    \begin{table}[H]\centering
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}\hline
+            操作 & $E$ & $2C_4$ & $C_2$ & $2C_2'$ & $2C_2''$ & $\sigma_\text{h}$ & $2\sigma_\text{v}$ & $2\sigma_\text{d}$ & $i$ & $2S_4$ \\\hline
+            $\chi$ & $1$ & $-1$ & $1$ & $1$ & $-1$ & $-1$ & $1$ & $1$ & $-1$ & $1$ \\\hline
+        \end{tabular}
+    \end{table}
+    对比可知$\text{p}_1$在$D_{4\text{h}}$点群中的对称性为$\text{B}_{2\text{u}}$.因此如果要形成分子轨道,其需含有$\text{B}_{2\text{u}}$对称性.\\
+    \indent 中心Xe原子的s轨道有$\text{A}_{1\text{g}}$对称性, p轨道中$\text{p}_z$有$\text{A}_{2\text{u}}$对称性, $\text{p}_x$和$\text{p}_y$共同张成$\text{E}_{\text{u}}$对称性; d轨道中$\text{d}_{z^2}$有$\text{A}_{1\text{g}}$对称性, $\text{d}_{x^2-y^2}$有$\text{B}_{1\text{g}}$对称性, $\text{d}_{xy}$有$\text{B}_{2\text{g}}$对称性, $\text{d}_{xz}$和$\text{d}_{yz}$共同张成$\text{E}_{\text{g}}$对称性.\\
+    \indent 由于上述所有轨道的对称性与$\text{B}_{2\text{u}}$的直积均不含$\text{A}_{1\text{g}}$, 因此没有轨道能与$\text{p}_1$形成分子轨道.
+\end{solution}
+\begin{homework}[14.]
+    卟吩阴离子属于$D_{4\text{h}}$点群,电子基态为$\text{A}_{1\text{g}}$, 最低激发态是$\text{E}_{\text{u}}$.请问基态至最低激发态的光诱导跃迁是否允许?解释原因.
+\end{homework}
+\begin{solution}
+    与前面同理,考虑
+    \[\text{A}_{1\text{g}}\otimes\Gamma^{(q)}\otimes\text{E}_{\text{u}}=\Gamma^{(q)}\otimes(\text{A}_{1\text{g}}\otimes\text{E}_{\text{u}})=\Gamma^{(q)}\otimes\text{E}_\text{u}\]
+    当且仅当$\Gamma^{(q)}=\text{E}_{2\text{u}}$时,上式含有$\text{A}_{1\text{g}}$成分.查阅特征标表,可知没有满足条件的$q$,因此积分为$0$,跃迁禁阻.
+\end{solution}
+\begin{homework}[15.]
+    考虑 \ce{F2C=CF2}分子,其点群为$D_{2\text{h}}$,设其位于$xy$平面内, $x$轴沿着 \ce{C-C}键方向.
+    \begin{enumerate}[label=\tbf{(\alph*)}]
+        \item 考虑由四个F原子的$2\text{p}_z$轨道形成的基,证明该基生成$\text{B}_{1\text{u}}$, $\text{B}_{2\text{g}}$, $\text{B}_{3\text{g}}$和$\text{A}_{\text{u}}$.
+        \item 通过对其中一个$2\text{p}_z$轨道使用投影公式,产生具有所示对称性的SALCs.
+        \item 对于由四个$2\text{p}_y$轨道形成的一个基,重复上述过程.
+    \end{enumerate}
+\end{homework}
+\begin{solution}
+\begin{enumerate}[label=\tbf{(\alph*)}]
+    \item 与前面类似地有
+    \begin{table}[H]\centering
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}\hline
+            操作 & $E$ & $C_2(z)$ & $C_2(y)$ & $C_2(x)$ & $i$ & $\sigma_{xy}$ & $\sigma_{xz}$ & $\sigma_{yz}$ \\\hline
+            $\chi$ & $4$ & $0$ & $0$ & $-4$ & $0$ & $0$ & $0$ & $0$ \\\hline
+        \end{tabular}
+    \end{table}
+    于是由大正交定律可知
+    \[n(\text{A}_\text{g})=n(\text{B}_{1\text{g}})=n(\text{B}_{2\text{u}})=n(\text{B}_{3\text{u}})=\dfrac18\cdot(1\cdot4+1\cdot(-4))=0\]
+    \[n(\text{B}_{2\text{g}})=n(\text{B}_{3\text{g}})=n(\text{A}_{\text{u}})=n(\text{B}_{1\text{u}})=\dfrac18\cdot(1\cdot4+(-1)\cdot(-4))=1\]
+    于是$\Gamma= \text{B}_{1\text{u}}+\text{B}_{2\text{g}}+\text{B}_{3\text{g}}+\text{A}_{\text{u}}$,得证.
+    \item 从一个C原子上的F开始将四个F原子顺时针依次编号为$A$, $B$, $C$和$D$.根据投影公式
+    \[P^{(\Gamma)}=\dfrac{1}{h}\sum_{R}\chi^{(\Gamma)}(R)R\]
+    不妨考虑$\psi_A$轨道,首先有
+    \begin{table}[H]\centering
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}\hline
+            操作 & $E$ & $C_2(z)$ & $C_2(y)$ & $C_2(x)$ & $i$ & $\sigma_{xy}$ & $\sigma_{xz}$ & $\sigma_{yz}$ \\\hline
+            变换后的轨道 & $\psi_A$ & $\psi_C$ & $-\psi_D$ & $-\psi_B$ & $-\psi_C$ & $-\psi_A$ & $\psi_B$ & $\psi_D$ \\\hline
+        \end{tabular}
+    \end{table}
+    于是
+    \[\begin{aligned}
+        P^{(\text{B}_{1\text{u}})}\psi_A
+        =&\ \dfrac18\cdot(1\cdot\psi_A+1\cdot\psi_C+(-1)\cdot(-\psi_D)+(-1)\cdot(-\psi_B)\\
+        &+(-1)\cdot(-\psi_C)+(-1)\cdot(-\psi_A)+1\cdot\psi_B+1\cdot\psi_D)\\
+        =\ &\dfrac14\cdot(\psi_A+\psi_B+\psi_C+\psi_D)
+    \end{aligned}\]
+    \[\begin{aligned}
+        P^{(\text{B}_{2\text{g}})}\psi_A
+        =&\ \dfrac18\cdot(1\cdot\psi_A+(-1)\cdot\psi_C+1\cdot(-\psi_D)+(-1)\cdot(-\psi_B)\\
+        &+1\cdot(-\psi_C)+(-1)\cdot(-\psi_A)+1\cdot\psi_B+(-1)\cdot\psi_D)\\
+        =\ &\dfrac14\cdot(\psi_A+\psi_B-\psi_C-\psi_D)
+    \end{aligned}\]
+    \[\begin{aligned}
+        P^{(\text{B}_{3\text{g}})}\psi_A
+        =&\ \dfrac18\cdot(1\cdot\psi_A+(-1)\cdot\psi_C+(-1)\cdot(-\psi_D)+1\cdot(-\psi_B)\\
+        &+1\cdot(-\psi_C)+(-1)\cdot(-\psi_A)+(-1)\cdot\psi_B+1\cdot\psi_D)\\
+        =\ &\dfrac14\cdot(\psi_A-\psi_B-\psi_C+\psi_D)
+    \end{aligned}\]
+    \[\begin{aligned}
+        P^{(\text{A}_{\text{u}})}\psi_A
+        =&\ \dfrac18\cdot(1\cdot\psi_A+(-1)\cdot\psi_C+(-1)\cdot(-\psi_D)+(-1)\cdot(-\psi_B)\\
+        &+(-1)\cdot(-\psi_C)+(-1)\cdot(-\psi_A)+(-1)\cdot\psi_B+(-1)\cdot\psi_D)\\
+        =\ &\dfrac14\cdot(\psi_A-\psi_B+\psi_C-\psi_D)
+    \end{aligned}\]
+    \item 同样地,特征标为
+    \begin{table}[H]\centering
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}\hline
+            操作 & $E$ & $C_2(z)$ & $C_2(y)$ & $C_2(x)$ & $i$ & $\sigma_{xy}$ & $\sigma_{xz}$ & $\sigma_{yz}$ \\\hline
+            $\chi$ & $4$ & $0$ & $0$ & $-4$ & $0$ & $0$ & $0$ & $0$ \\\hline
+        \end{tabular}
+    \end{table}
+    于是由大正交定律可知
+    \[n(\text{A}_\text{g})=n(\text{B}_{1\text{g}})=n(\text{B}_{2\text{u}})=n(\text{B}_{3\text{u}})=\dfrac18\cdot(1\cdot4+1\cdot4)=1\]
+    \[n(\text{B}_{2\text{g}})=n(\text{B}_{3\text{g}})=n(\text{A}_{\text{u}})=n(\text{B}_{1\text{u}})=\dfrac18\cdot(1\cdot4+(-1)\cdot4)=0\]
+    于是$\Gamma=\text{A}_\text{g}+\text{B}_{1\text{g}}+\text{B}_{2\text{u}}+\text{B}_{3\text{u}}$.按照相同的方式进行标号,考虑$\psi_A$轨道,有
+    \begin{table}[H]\centering
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}\hline
+            操作 & $E$ & $C_2(z)$ & $C_2(y)$ & $C_2(x)$ & $i$ & $\sigma_{xy}$ & $\sigma_{xz}$ & $\sigma_{yz}$ \\\hline
+            变换后的轨道 & $\psi_A$ & $-\psi_C$ & $-\psi_D$ & $\psi_B$ & $-\psi_C$ & $\psi_A$ & $\psi_B$ & $-\psi_D$ \\\hline
+        \end{tabular}
+    \end{table}
+    于是
+    \[\begin{aligned}
+        P^{(\text{A}_\text{g})}\psi_A
+        =&\ \dfrac18\cdot(1\cdot\psi_A+1\cdot(-\psi_C)+1\cdot(-\psi_D)+1\cdot\psi_B\\
+        &+1\cdot(-\psi_C)+1\cdot\psi_A+1\cdot\psi_B+1\cdot(-\psi_D))\\
+        =\ &\dfrac14\cdot(\psi_A+\psi_B-\psi_C-\psi_D)
+    \end{aligned}\]
+    \[\begin{aligned}
+        P^{(\text{B}_{1\text{g}})}\psi_A
+        =&\ \dfrac18\cdot(1\cdot\psi_A+1\cdot(-\psi_C)+(-1)\cdot(-\psi_D)+(-1)\cdot\psi_B\\
+        &+1\cdot(-\psi_C)+1\cdot\psi_A+(-1)\cdot\psi_B+(-1)\cdot(-\psi_D))\\
+        =\ &\dfrac14\cdot(\psi_A-\psi_B-\psi_C+\psi_D)
+    \end{aligned}\]
+    \[\begin{aligned}
+        P^{(\text{B}_{2\text{u}})}\psi_A
+        =&\ \dfrac18\cdot(1\cdot\psi_A+(-1)\cdot(-\psi_C)+1\cdot(-\psi_D)+(-1)\cdot\psi_B\\
+        &+(-1)\cdot(-\psi_C)+1\cdot\psi_A+(-1)\cdot\psi_B+1\cdot(-\psi_D))\\
+        =\ &\dfrac14\cdot(\psi_A-\psi_B+\psi_C-\psi_D)
+    \end{aligned}\]
+    \[\begin{aligned}
+        P^{(\text{B}_{3\text{u}})}\psi_A
+        =&\ \dfrac18\cdot(1\cdot\psi_A+(-1)\cdot(-\psi_C)+(-1)\cdot(-\psi_D)+1\cdot\psi_B\\
+        &+(-1)\cdot(-\psi_C)+1\cdot\psi_A+1\cdot\psi_B+(-1)\cdot(-\psi_D))\\
+        =\ &\dfrac14\cdot(\psi_A+\psi_B+\psi_C+\psi_D)
+    \end{aligned}\]
+\end{enumerate}
+\end{solution}
+\end{document}
