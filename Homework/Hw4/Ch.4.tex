@@ -57,7 +57,7 @@
     \[\mat{M}\mat{M}^{-1}=\mat{M}^{-1}\mat{M}=\mat{I}\]
     于是$\mat{M}$的逆元$\mat{M}^{-1}$存在,并且根据矩阵求逆运算的过程可知其唯一.\\
     综合上述四点性质,可知$A$在矩阵乘法下构成群.\\
-    对于$B$,考虑任意$\mat{M},\ \mat{N}\in B$,则$\det\mat{M}=\det\mat{N}=$,于是
+    对于$B$,考虑任意$\mat{M},\ \mat{N}\in B$,则$\det\mat{M}=\det\mat{N}=1$,于是
     \[\det(\mat{M}\mat{N})=\det\mat{M}\det\mat{N}=1\]
     于是$\mat{M}\mat{N}$可逆并且行列式为$1$,因而$\mat{M}\mat{N}\in B$, 即$B$对矩阵乘法封闭.\\
     $B$在矩阵乘法下也满足结合律,存在单位元,每个元素存在逆元的性质,证明过程与$A$相似,这里略去.因此综上亦可得$B$在矩阵乘法下构成群.
@@ -100,7 +100,8 @@
     \[ga=ag=bg\]
     两边左乘$g^{-1}$可得
     \[a=b\]
-    于是$a$如果由共轭,其共轭只能是它本身.因此交换群中的每个元素自成一类.
+    于是$a$如果由共轭,其共轭只能是它本身.因此交换群中的每个元素自成一类.\\
+    既然$C_n$群中有$n$个元素,并且每个元素自成一类,因此$C_n$群含有$n$个共轭类.
     \item 根据前面的推导可知$D_3$群的共轭类为
     \[\text{Cl}(E)=\left\{E\right\},\quad\text{Cl}(C_3)=\left\{C_3^1,C_3^2\right\},\quad\text{Gl}(C_2)=\left\{C_2^a,C_2^b,C_2^c\right\}\]
 \end{enumerate}
@@ -432,7 +433,7 @@
 \begin{solution}
     与前面同理,考虑
     \[\text{A}_{1\text{g}}\otimes\Gamma^{(q)}\otimes\text{E}_{\text{u}}=\Gamma^{(q)}\otimes(\text{A}_{1\text{g}}\otimes\text{E}_{\text{u}})=\Gamma^{(q)}\otimes\text{E}_\text{u}\]
-    当且仅当$\Gamma^{(q)}=\text{E}_{2\text{u}}$时,上式含有$\text{A}_{1\text{g}}$成分.查阅特征标表,可知没有满足条件的$q$,因此积分为$0$,跃迁禁阻.
+    当且仅当$\Gamma^{(q)}=\text{E}_{\text{u}}$时$\Gamma^{(q)}\otimes\text{E}_\text{u}$含有$\text{A}_{1\text{g}}$成分.查阅特征标表,可知$\Gamma^{(q)}=\text{E}_{\text{u}}$满足条件,因此积分不为$0$,跃迁允许.
 \end{solution}
 \begin{homework}[15.]
     考虑 \ce{F2C=CF2}分子,其点群为$D_{2\text{h}}$,设其位于$xy$平面内, $x$轴沿着 \ce{C-C}键方向.
@@ -493,7 +494,7 @@
     \begin{table}[H]\centering
         \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}\hline
             操作 & $E$ & $C_2(z)$ & $C_2(y)$ & $C_2(x)$ & $i$ & $\sigma_{xy}$ & $\sigma_{xz}$ & $\sigma_{yz}$ \\\hline
-            $\chi$ & $4$ & $0$ & $0$ & $-4$ & $0$ & $0$ & $0$ & $0$ \\\hline
+            $\chi$ & $4$ & $0$ & $0$ & $0$ & $0$ & $4$ & $0$ & $0$ \\\hline
         \end{tabular}
     \end{table}
     于是由大正交定律可知

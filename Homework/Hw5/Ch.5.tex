@@ -1,0 +1,371 @@
+\documentclass{ctexart}
+\usepackage{Note}
+\setCJKmainfont[
+  BoldFont = 思源宋体 Bold,
+  ItalicFont = 楷体,
+]{宋体}
+\author{2400011785 蒋锦豪}
+\title{\tbf{结构化学\ 第5章作业}}
+\begin{document}
+\maketitle
+\begin{homework}[1.]
+    在问题\tbf{P11A.8}中,注意到原子谱线的多普勒频移可用于估算恒星后退或接近的速率.返现在一遥远的恒星中的 \ce{^{48}Ti^{8+}}(质量为$47.95\ m_{\text{u}}$)谱线从 \SI{654.2}{\nano\meter}偏移到 \SI{706.5}{\nano\meter},并且变宽至 \SI{61.8}{\pico\meter}.求恒星后退的速率和表面温度.
+\end{homework}
+\begin{solution}
+    根据
+    \[\nu'=\nu\sqrt{\dfrac{1-s/c}{1+s/c}},\quad\nu=\dfrac{c}{\lambda}\]
+    可得
+    \[\lambda=\lambda'\sqrt{\dfrac{1-s/c}{1+s/c}}\]
+    代入$\lambda=\SI{654.2}{\nano\meter}$, $\lambda'=\SI{706.5}{\nano\meter}$解得
+    \[s=\SI{2.30e7}{\meter\per\second}\]
+    由谱线展宽公式可得
+    \[\dfrac{\delta\lambda_{\text{obs}}}{\lambda_0}=\dfrac{2}{c}\left(\dfrac{2kT\ln 2}{m}\right)^{1/2}\]
+    代入$\lambda_0=\SI{706.5}{\nano\meter}$, $\delta\lambda_{\text{obs}}=\SI{61.8}{\pico\meter}$解得
+    \[T=\SI{7.15e5}{\kelvin}\]
+    于是该行星后退的速率$s=\SI{2.30e7}{\meter\per\second}$, 表面温度$T=\SI{7.15e5}{\kelvin}$.
+\end{solution}
+\begin{homework}[2.]
+    验证 \ce{CH4}和 \ce{SF6}是球形转子.
+\end{homework}
+\begin{solution}
+    对于正四面体构型的 \ce{CH4},参考下图
+    \begin{figure}[H]\centering
+        \includegraphics[scale=1]{figure/2-1.eps}
+    \end{figure}
+    \noindent 将$x$, $y$, $z$轴取做与立方体的边平行,原点(即质心)为中心的碳原子.设氢原子质量为$m_{\ce{H}}$, 键长为$l$,则转动惯量为
+    \[I_x=I_y=I_z=\sum_{i}m_ir_i^2=4\cdot m_{\ce{H}}\cdot\left(\dfrac{\sqrt2}{\sqrt3}l\right)^2=\dfrac{8}{3}m_{\ce{H}}l^2\]
+    因此 \ce{CH4}是球形转子.\\
+    \indent 对于正八面体构型的\ce{SF6},将$x$, $y$, $z$轴取做与三组 \ce{S-F}键轴平行,原点(即质心)为中心的硫原子.设氟原子质量为$m_{\ce{F}}$, 键长为$l$,则转动惯量为
+    \[I_x=I_y=I_z=\sum_{i}m_ir_i^2=4\cdot m_{\ce{F}}\cdot l^2+2\cdot m_{\ce{F}}\cdot0^2=4m_{\ce{F}}l^2\]
+    因此 \ce{SF6}也是球形转子.
+\end{solution}
+\begin{homework}[3.]
+    \ce{^1HCl}的键长是否与 \ce{^2HCl}的键长相同? \ce{^1HCl}和 \ce{^2HCl}的$J=1\leftarrow0$转动跃迁的波数分别为 \SI{20.8784}{\per\centi\meter}和 \SI{10.7840}{\per\centi\meter}.对于 \ce{^1H}和 \ce{^2H},准确的原子质量分别为$1.007825\ m_{\text{u}}$和$2.0140\ m_{\text{u}}$. \ce{^{35}Cl}的质量为$34.968\pm0.0085\ m_{\text{u}}$.仅根据这些信息能否判断两个分子的键长相同或不同?
+\end{homework}
+\begin{solution}
+    不相同.\\
+    对于刚性转子模型有
+    \[E_J=hc\tilde{B}J(J+1),\quad \tilde{B}=\dfrac{\hbar}{4\pi cI},\quad I=\mu r^2\]
+    于是
+    \[\tilde{\nu}_{J+1\leftarrow J}=2\tilde{B}(J+1)\]
+    于是
+    \[r=\left[\dfrac{2(J+1)\hbar}{4\pi c\mu\tilde{\nu}_{J+1\leftarrow J}}\right]^{1/2}\]
+    代入题中的数据,并且令$J=0$,解得
+    \[r_{\ce{^1HCl}}=\SI{128.39}{\pico\meter},\quad r_{\ce{^2HCl}}=\SI{128.13}{\pico\meter}\]
+    于是依据题中的数据可知两者的键长不相等.
+\end{solution}
+\begin{homework}[4.]
+    在温度$T$下,对于一个双原子转子,建立具有最多布居数的转动能级对应$J$值的表达式,注意每个能级的简并度为$2J+1$.对于 \SI{25}{\celsius}的 \ce{ICl} ($\tilde{B}=\SI{0.1142}{\per\centi\meter}$),计算相应的$J$值.对于球形转子,重复上述问题,注意每个能级的简并度为$(2J+1)^2$.对于\SI{25}{\celsius}的 \ce{CH4} ($\tilde{B}=\SI{5.24}{\per\centi\meter}$),计算相应的$J$值.
+\end{homework}
+\begin{solution}
+    对于双原子转子,处于量子数为$J$的转动能级占总体的比例为
+    \[x(J,T)=\dfrac{g_J\exp\left[-E_J/(\kB T)\right]}{\displaystyle\sum_{j}g_j\exp\left[-E_j/(\kB T)\right]},\quad g_j=2j+1,\quad E_j=\dfrac{\hbar^2j(j+1)}{2I}\]
+    记$\Theta_{\text{rot}}=\dfrac{\hbar^2}{2I\kB}=\dfrac{hc\tilde{B}}{\kB}$,将$J$视作连续变量,则有
+    \[\dfrac{\p x(J,T)}{\p J}=2\exp\left(-\dfrac{J(J+1)\Theta_{\text{rot}}}{T}\right)-(2J+1)^2\dfrac{\Theta_{\text{rot}}}{T}\exp\left(-\dfrac{J(J+1)\Theta_{\text{rot}}}{T}\right)\]
+    令$\dfrac{\p x(J,T)}{\p x}=0$,可得
+    \[J=\dfrac12\left(\sqrt{\dfrac{2T}{\Theta_{\text{rot}}}}-1\right)\]
+    对于 \ce{ICl},代入题中数据可得
+    \[\Theta_{\text{rot}}=\SI{0.164}{\kelvin},\quad J=29.6\]
+    经过验证, $x(30,T)>x(29,T)$.于是相应的$J$值为$30$.\\
+    \indent 对于双原子转子,处于量子数为$J$的转动能级占总体的比例为
+    \[x(J,T)=\dfrac{g_J\exp\left[-E_J/(\kB T)\right]}{\displaystyle\sum_{j}g_j\exp\left[-E_j/(\kB T)\right]},\quad g_j=(2j+1)^2,\quad E_j=\dfrac{\hbar^2j(j+1)}{2I}\]
+    同样地有
+    \[\dfrac{\p x(J,T)}{\p J}=\left[4(2J+1)-(2J+1)^3\dfrac{\Theta_{\text{rot}}}{T}\right]\exp\left(-\dfrac{J(J+1)\Theta_{\text{rot}}}{T}\right)\]
+    令$\dfrac{\p x(J,T)}{\p x}=0$,可得
+    \[J=\dfrac12\left(\sqrt{\dfrac{4T}{\Theta_{\text{rot}}}}-1\right)\]
+    对于 \ce{CH4},代入题中数据可得
+    \[\Theta_{\text{rot}}=\SI{7.54}{\kelvin},\quad J=5.78\]
+    经过验证, $x(6,T)>x(5,T)$.于是相应的$J$值为$6$.
+\end{solution}
+\begin{homework}[5.]
+    回答下列问题.
+    \begin{enumerate}[label=\tbf{(\alph*)}]
+        \item 判断气相中水分子的振动模式是否具有红外/拉曼活性.
+        \item 判断微波炉加热食物时,食物中的水分子发生的跃迁形式.
+    \end{enumerate}
+\end{homework}
+\begin{solution}
+\begin{enumerate}[label=\tbf{(\alph*)}]
+    \item 水分子属于$C_{2\text{v}}$点群,其特征标表为
+    \begin{table}[H]\centering
+    \begin{tabular}{cccccc}\hline
+        $C_{2\text{v}}$ & $E$ & $C_2$ & $\sigma_{\text{v}}$ & $\sigma_{\text{v}}'$ & $h=4$ \\\hline
+        $\text{A}_1$ & $1$ & $1$ & $1$ & $1$ & $z$, $z^2$, $x^2$, $y^2$ \\\hline
+        $\text{A}_2$ & $1$ & $1$ & $-1$ & $-1$ & $xy$ \\\hline
+        $\text{B}_1$ & $1$ & $-1$ & $1$ & $-1$ & $x$, $xz$ \\\hline
+        $\text{B}_2$ & $1$ & $-1$ & $-1$ & $1$ & $y$, $yz$ \\\hline
+    \end{tabular}
+    \end{table}
+    将水分子置于$xy$平面内, $z$轴与$C_2$轴重合,以三个原子各自在$x$, $y$和$z$方向上的位移矢量作为基,则各操作的特征标为
+    \begin{table}[H]\centering
+        \begin{tabular}{ccccc}\hline
+            & $E$ & $C_2$ & $\sigma_{\text{v}}$ & $\sigma_{\text{v}}'$ \\\hline
+            $\chi$ & $9$ & $-1$ & $1$ & $3$\\\hline
+        \end{tabular}
+    \end{table}
+    于是约化可得
+    \[\Gamma=3\text{A}_1\oplus\text{A}_2\oplus2\text{B}_1\oplus3\text{B}_2\]
+    平动的对称性种类为$\text{B}_1$, $\text{B}_2$和$\text{A}_1$;转动的对称性重量为$\text{B}_1$, $\text{B}_2$和$\text{A}_2$.因此振动的对称性种类为$2\text{A}_1+\text{B}_2$.查阅特征标表,它们都具有一次项和平方项,因此水分子的所有振动模式都有红外活性和拉曼活性.
+    \item 水分子的转动光谱在微波波段,与微波炉产生的微波波长在同一范围,因此主要是转动.
+\end{enumerate}
+\end{solution}
+\begin{homework}[6.]
+    查找一种分子的气相和液相的红外光谱图,比较两者的异同.
+\end{homework}
+\begin{homework}[7.]
+    回答下列问题.
+    \begin{enumerate}[label=\tbf{(\alph*)}]
+        \item 已知 \ce{HCl}的红外光谱在如下波数出现吸收峰(单位为 $\text{cm}^{-1}$)
+        \[2885.9,\quad5668.0,\quad8346.9,\quad10923.1,\quad13396.5\]
+        试用摩尔斯势拟合 \ce{HCl}的势能曲线,并计算力常数,零点能以及分子解离能$D_0$.
+        \item 处于一维摩尔斯势下运动的粒子满足如下薛定谔方程:
+        \[\left[-\dfrac{\hbar^2}{2m}\dfrac{\d^2}{\d x^2}+D_e(1-\e^{-ax})^2\right]\psi=E\psi\]
+        已知基态和第一激发态波函数分别为
+        \[\psi_0(x)=\sqrt{\dfrac{(2\lambda-1)a}{\Gamma(2\lambda)}}z^{\lambda-\frac12}\e^{-\frac12z}\]
+        \[\psi_1(x)=\sqrt{\dfrac{(2\lambda-3)a}{\Gamma(2\lambda-1)}}z^{\lambda-\frac32}\e^{-\frac12z}(2\lambda-2-z)\]
+        其中$\lambda=\dfrac{\sqrt{2mD_e}}{a\hbar}$, $z=2\lambda\e^{-ax}$, $\Gamma(y)$是伽马函数:
+        \[\Gamma(y)=\int_0^{+\infty}t^{y-1}\e^{-t}\d t\]
+        结合\tbf{(a)}中的数据,分别在简谐势和摩尔斯势近似下画出 \ce{HCl}分子振动基态和第一激发态的波函数,比较两种近似下波函数的异同.
+    \end{enumerate}
+\end{homework}
+\begin{solution}
+\begin{enumerate}[label=\tbf{(\alph*)}]
+    \item 摩尔斯势下分子的振动能级为
+    \[\tilde{G}(v)=\left(v+\dfrac12\right)\tilde{\nu}-\left(v+\dfrac12\right)^2x_e\tilde{\nu}\]
+    于是振动跃迁的允许波数为
+    \[\Delta\tilde{G}_{v\leftarrow 0}=v\tilde{\nu}-(v^2+v)x_e\tilde{\nu}\]
+    也即
+    \[\dfrac{\Delta\tilde{G}_{v\leftarrow 0}}{v}=\tilde{\nu}-(v+1)x_e\tilde{\nu}\]
+    代入题中的数据线性回归可得
+    \[\tilde{\nu}=\SI{2989.0}{\per\centi\meter},\quad x_e\tilde{\nu}=\SI{51.643}{\per\centi\meter}\]
+    于是
+    \[\omega=2\pi c\tilde{\nu}=\SI{6.804e13}{\per\second}\]
+    于是力常数为
+    \[k_{\text{f}}=\omega^2m_{\text{eff}}=\SI{5.156e2}{\newton\per\meter}\]
+    而
+    \[\tilde{D}_e=\dfrac{\tilde{\nu}}{4x_e}=\SI{4.325e4}{\per\centi\meter}\]
+    于是
+    \[a=\left(\dfrac{k_{\text{f}}}{2hc\tilde{D}_e}\right)^{1/2}=\SI{1.732e10}{\per\meter}\]
+    于是势能曲线为
+    \[V(x)=hc\tilde{D}_e(1-\e^{-ax})^2=8.591\times10^{-19}(1-\e^{-\SI{1.732e10}{\per\meter}\cdot x})\ \text{J}\]
+    零点能为
+    \[E_0=hc\tilde{G}(0)=\SI{2.943e-20}{\joule}\]
+    解离能为
+    \[D_0=D_e-E_0=\SI{8.297e-19}{\joule}\]
+    \item 简谐势的基态和第一激发态波函数分别为
+    \[\psi'_0(x)=\left(\dfrac{m_{\text{eff}}\omega}{\pi\hbar}\right)^{1/4}\exp\left(-\dfrac{m_{\text{eff}}\omega}{2\hbar}x^2\right)\]
+    \[\psi'_1(x)=\left(\dfrac{m_{\text{eff}}\omega}{\pi\hbar}\right)^{1/4}\dfrac{1}{\sqrt{2}}2\sqrt{\dfrac{m_{\text{eff}}\omega}{\hbar}}x\exp\left(-\dfrac{m_{\text{eff}}\omega}{2\hbar}x^2\right)\]
+    因此可以作图如下:
+    \begin{figure}[H]\centering
+        \includegraphics[scale=1]{figure/7-1.eps}
+        \caption{基态}
+    \end{figure}
+    \begin{figure}[H]\centering
+        \includegraphics[scale=1]{figure/7-2.eps}
+        \caption{第一激发态}
+    \end{figure}
+    简谐势的波函数严格关于平衡位置对称,而摩尔斯势的波函数则不完全对称;在拉长时摩尔斯势的波函数衰减更慢,而在压缩时衰减更快.
+\end{enumerate}
+\end{solution}
+\begin{homework}[8.]
+    在低分辨率下, \ce{^{12}C^{16}O}的红外吸收光谱中最强吸收带的中心位于$\SI{2150}{\per\centi\meter}$.在更高分辨率下,观察到该带被分成两组间隔紧密的峰,光谱中心位于$\SI{2143.26}{\per\centi\meter}$处两侧各一组,中心左右两峰的距离为$\SI{7.665}{\per\centi\meter}$.做谐振子和刚性转子近似,根据上述数据计算:
+    \begin{enumerate}[label=\tbf{(\alph*)}]
+        \item \ce{CO}分子的振动波数.
+        \item 分子的摩尔零点振动能.
+        \item \ce{CO}键的力常数.
+        \item 转动常数$\tilde{B}$.
+        \item \ce{CO}的键长.
+    \end{enumerate}
+\end{homework}
+\begin{solution}
+\begin{enumerate}[label=\tbf{(\alph*)}]
+    \item 对于双原子分子的振动-转动光谱,光谱中心对应于纯振动跃迁,于是振动波数
+    \[\tilde{\nu}_e=\SI{2143.26}{\per\centi\meter}\]
+    \item 对于谐振子模型,其零点能为$E=\dfrac12h\nu$,于是
+    \[E_{0,{\text{m}}}=\dfrac12N_{\text{A}}hc\tilde{\nu}_e=\SI{12.82}{\kilo\joule\per\mol}\]
+    \item 力常数为
+    \[k_{\text{f}}=\omega^2m_{\text{eff}}=4\pi^2c^2\tilde{\nu}^2m_{\text{eff}}=\SI{1.856e3}{\newton\per\meter}\]
+    \item 两侧的峰分别对应于$\Delta J=\pm1$的转动能级跃迁,即对应于$\tilde{\nu}\pm2\tilde{B}$,于是
+    \[\tilde{B}=\dfrac{\Delta\tilde{\nu}}{4}=\SI{1.916}{\per\centi\meter}\]
+    \item 由
+    \[\tilde{B}=\dfrac{\hbar}{4\pi cI},\quad I=m_{\text{eff}}r^2\]可得
+    \[r=\left(\dfrac{\hbar}{4\pi c m_{\text{eff}}\tilde{B}}\right)^{1/2}=\SI{113.3}{\pico\meter}\]
+\end{enumerate}
+\end{solution}
+\begin{homework}[9.]
+    考虑 \ce{CH3Cl}分子,回答下列问题.
+    \begin{enumerate}[label=\tbf{(\alph*)}]
+        \item 该分子属于什么点群?
+        \item 该分子有多少简正振动模式?
+        \item 简正振动模式的对称性种类是什么?
+        \item 该分子的哪些振动模式具有红外活性?
+        \item 该分子的哪些振动模式具有拉曼活性?
+    \end{enumerate}
+\end{homework}
+\begin{solution}
+\begin{enumerate}[label=\tbf{(\alph*)}]
+    \item 属于$C_{3\text{v}}$点群.
+    \item \ce{CH3Cl}是非线性分子,因此其简正振动模式的数目为$3N-6=9$种.
+    \item $C_{3\text{v}}$点群的特征标表如下:
+    \begin{table}[H]\centering
+    \begin{tabular}{cccccc}\hline
+        $C_{3\text{v}}$ & $E$ & $2C_3$ & $3\sigma_{\text{v}}$ & $h=6$ & \\\hline
+        $\text{A}_1$ & $1$ & $1$ & $1$ & $z$, $z^2$, $x^2+y^2$ & \\\hline
+        $\text{A}_2$ & $1$ & $1$ & $-1$ & & $R_z$\\\hline
+        $\text{E}$ & $2$ & $-1$ & $0$ & $(x,y)$, $(xy,x^2-y^2)$, $(yz,zx)$ & $(R_x,R_y)$ \\\hline
+    \end{tabular}
+    \end{table}
+    将$z$轴置于与$C_3$轴重合的位置,以所有原子的位移矢量为基.由于有二维不可约表示,因此将$C_3$轴外的三个氢原子与$C_3$轴上的碳原子和氯原子分开考虑.\\
+    对于碳原子和氯原子,由于它们位于主轴上,因此$z$位移矢量必须像函数$z$一样变换,于是其拥有$\text{A}_1$对称性;对于$x$, $y$方向矢量,同理可知其拥有$\text{E}$对称性.\\
+    对于三个氢原子,可得
+    \[\chi(E)=9,\quad\chi(C_3)=0,\quad\chi(\sigma_{\text{v}})=1\]
+    因此可以被约化为
+    \[2\text{A}_1+\text{A}_2+3\text{E}\]
+    因此完整的表示为
+    \[4\text{A}_1+\text{A}_2+5\text{E}\]
+    除去平动对应的$\text{A}_1+\text{E}$和转动对应的$\text{A}_2+\text{E}$可知振动模式的对称性种类为
+    \[3\text{A}_1+3\text{E}\]
+    \item $\text{A}_1$具有一次项$z$, $\text{E}$具有一次项$(x,y)$,因此所有简正振动模式都具有红外活性.
+    \item $\text{A}_1$具有二次项$z^2$和$x^2+y^2$, $\text{E}$具有二次项$(xy,x^2-y^2)$和$(yz,zx)$,因此所有简正振动模式都具有拉曼活性.
+\end{enumerate}
+\end{solution}
+\begin{homework}[10.]
+    试证明:对于键轴在$z$轴上的双原子分子,总电子角动量$z$分量与哈密顿量对易,即
+    \[\left[\hat{L}_z,\hat{H}\right]=0\]
+    提示:
+    \[\left[\hat{A}\hat{B},\hat{C}\right]=\hat{A}\left[\hat{B},\hat{C}\right]+\left[\hat{A},\hat{C}\right]\hat{B}\]
+    \[\left[\hat{\vec{p}},f(\vec{r})\right]=-\i\hbar\nabla f(\vec{r})\]
+    \[\nabla_{\vec{r}_1}\dfrac{1}{\left|\vec{r}_1-\vec{r}_2\right|}=-\nabla_{\vec{r}_2}\dfrac{1}{\left|\vec{r}_1-\vec{r}_2\right|}=-\dfrac{\vec{r}_1-\vec{r}_2}{\left|\vec{r}_1-\vec{r}_2\right|^3}\]
+\end{homework}
+\begin{proof}
+    采用原子单位制.首先有
+    \[\hat{L}_z=\sum_{i}^{N_e}\hat{l}_{z,i}=\sum_{i}^{N_e}\dfrac{1}{\i}\dfrac{\p}{\p\phi_i}\]
+    \[\hat{H}=-\sum_{A=1}^{N_n}\dfrac{1}{2M_A}\nabla_{\vec{R}_A}^2-\sum_{i=1}^{N_e}\dfrac{1}{2}\nabla_{\vec{r}_i}^2-\sum_{i=1}^{N_e}\sum_{\mu=1}^{N_n}\dfrac{Z_\mu}{\left|\vec{r}_i-\vec{R}_{\mu}\right|}+\sum_{1\leq i<j\leq N_e}\dfrac{1}{\left|\vec{r}_i-\vec{r}_j\right|}+\sum_{1\leq\nu<\mu\neq N_A}\dfrac{Z_\mu Z_\nu}{\left|\vec{R}_\nu-\vec{R}_\mu\right|}\]
+    \indent 首先,总电子角动量算符作用的对象是电子位矢$\vec{r}_i$,而核动能与核间势能算符作用的对象是核位矢$\vec{R}_\mu$,因此
+    \[\left[\hat{L}_z,-\sum_{A=1}^{N_n}\dfrac{1}{2M_A}\nabla_{\vec{R}_A}^2\right]=\left[\hat{L}_z,\sum_{1\leq\nu<\mu\neq N_A}\dfrac{Z_\mu Z_\nu}{\left|\vec{R}_\nu-\vec{R}_\mu\right|}\right]=0\]
+    \indent 在柱坐标中Laplace算符为
+    \[\nabla_{\vec{r}}^2=\dfrac{\p^2}{\p\rho^2}+\dfrac{1}{\rho}\dfrac{\p}{\p\rho}+\dfrac{1}{\rho^2}\dfrac{\p}{\p\phi^2}+\dfrac{\p^2}{\p z^2}\]
+    不难看出各项都与$\dfrac{\p}{\p\phi_i}$对易.于是
+    \[\left[\nabla^2_{{\vec{r}_i}},\dfrac{\p}{\p\phi_j}\right]=0\]
+    因此
+    \[\left[\hat{L}_z,-\sum_{i=1}^{N_e}\dfrac{1}{2}\nabla_{\vec{r}_i}^2\right]=0\]
+    \indent 对于双原子分子,不妨假定键长为$R$,原子分别位于$z=-\dfrac{R}{2}$和$z=\dfrac{R}{2}$处.于是电子-核势能项
+    \[V_{ne}(\vec{r};\vec{R})=-\sum_{i=1}^{N_e}\sum_{\mu=1}^{N_n}\dfrac{Z_\mu}{\left|\vec{r}_i-\vec{R}_{\mu}\right|}=-\sum_{i=1}^{N_e}\left(\dfrac{Z_{\mu,1}}{\sqrt{\rho_i^2+\left(z-R/2\right)^2}}+\dfrac{Z_{\mu,1}}{\sqrt{\rho_i^2+\left(z+R/2\right)^2}}\right)\]
+    具有柱对称性,与$\phi_i$无关.因此
+    \[\left[\dfrac{\p}{\p\phi_i},V(\vec{r};\vec{R})\right]=0\]
+    于是
+    \[\left[\hat{L}_z,V_{ne}(\vec{r};\vec{R})\right]=0\]
+    \indent 最后考虑电子间势能项.记
+    \[U_{ij}(\rho_i,\phi_i,z_i,\rho_j,\phi_j,z_j)=\dfrac{1}{\left|\vec{r}_i-\vec{r}_j\right|}=\dfrac{1}{\sqrt{\rho_i^2+\rho_j^2+2\rho_i\rho_j\cos(\phi_i-\phi_j)+(z_i-z_j)^2}}=U_{ij}(\rho_i,\rho_j,\phi_i-\phi_j,z_i,z_j)\]
+    令$\varphi_{ij}=\phi_i-\phi_j$,则
+    \[\dfrac{\p U_{ij}}{\p\phi_i}=\dfrac{\p U_{ij}}{\p\varphi_{ij}}\dfrac{\p\varphi_{ij}}{\p\phi_i}=\dfrac{\p U_{ij}}{\p\varphi_{ij}},\quad\dfrac{\p U_{ij}}{\p\phi_j}=\dfrac{\p U_{ij}}{\p\varphi_{ij}}\dfrac{\p\varphi_{ij}}{\p\phi_j}=-\dfrac{\p U_{ij}}{\p\varphi_{ij}}\]
+    于是
+    \[\left[\dfrac{\p}{\p\phi_i}+\dfrac{\p}{\p\phi_j},U_{ij}\right]f
+    =U_{ij}\left(\dfrac{\p f}{\p\phi_i}+\dfrac{\p f}{\p\phi_j}\right)+f\left(\dfrac{\p U_{ij}}{\p\phi_i}+\dfrac{\p U_{ij}}{\p\phi_j}\right)-U_{ij}\left(\dfrac{\p f}{\p\phi_i}+\dfrac{\p f}{\p\phi_j}\right)=0\]
+    从而
+    \[\left[\hat{L}_z,\sum_{1\leq i<j\leq N_e}\dfrac{1}{\left|\vec{r}_i-\vec{r}_j\right|}\right]=\dfrac{1}{\i(N_e-1)}\sum_{1\leq i<j\leq N_e}\left[\dfrac{\p}{\p\phi_i}+\dfrac{\p}{\p\phi_j},U_{ij}\right]=0\]
+    \indent 综上可知$\hat{L}_z$与$\hat{H}$的各项都对易,因此
+    \[\left[\hat{L}_z,\hat{H}\right]=0\]
+\end{proof}
+\begin{homework}[11.]
+    已知 \ce{N2}分子基态光谱项为$^1\Sigma_g^+$,该分子有若干单激发态,分别对应于如下光谱项: \tbf{(a)}: $^1\Pi_g$, \tbf{(b)}: $^1\Sigma_u^-$, \tbf{(c)}: $^1\Delta_u$, \tbf{(d)}: $^1\Pi_u$, \tbf{(e)}: $^3\Sigma_u^+$.在分子轨道理论框架下,若仅考虑$2\sigma_{g/u}$和$1\pi_{g/u}$轨道,分析基态到上述各激发态的跃迁对应何种轨道跃迁.
+\end{homework}
+\begin{solution}
+    基态 \ce{N2}的电子排布为
+    \[(1\sigma_g)^2(1\sigma_u)^2(1\pi_u)^4(2\sigma_g)^2\]
+    因此可以列出下表:
+    \begin{table}[H]\centering
+        \begin{tabular}{ccc}\hline
+            谱项 & 电子排布 & 轨道跃迁方式 \\\hline
+            $^1\Pi_g$ & $(1\sigma_g)^2(1\sigma_u)^2(1\pi_u)^4(2\sigma_g)^1(1\pi_g)^1$ & $2\sigma_g\to1\pi_g$ \\\hline
+            $^1\Sigma_u^{-}$ & $(1\sigma_g)^2(1\sigma_u)^2(1\pi_u)^4(2\sigma_g)^1(1\pi_g)^1$
+        \end{tabular}
+    \end{table}
+\end{solution}
+\begin{homework}[12.]
+    下列哪种跃迁是电偶极所允许的?
+    \begin{center}
+        \tbf{(i)} $^2\Pi\leftrightarrow{^2\Pi}$\qquad\tbf{(ii)} $^1\Sigma\leftrightarrow{^1\Sigma} $\qquad\tbf{(iii)} $\Sigma\leftrightarrow\Delta$\qquad\tbf{(iv)} $\Sigma^+\leftrightarrow\Sigma^{-}$\qquad\tbf{(v)} $\Sigma^+\leftrightarrow\Sigma^{+}$
+    \end{center}
+\end{homework}
+\begin{solution}
+    允许的跃迁为
+\end{solution}
+\begin{homework}[13.]
+    根据群论,以下哪种跃迁是电偶极所允许的?
+    \begin{center}
+        \tbf{(a)} 乙烯中的$\pi^\ast\leftarrow\pi$跃迁\qquad\tbf{(b)} $C_{2\text{v}}$环境中羰基中的$\pi^\ast\leftarrow n$跃迁
+    \end{center}
+\end{homework}
+\begin{homework}[14.]
+    在分子轨道理论框架下,假设 \ce{[Ti(H2O)6]^{3+}}离子的价电子满足如下单电子薛定谔方程:
+    \[\hat{H}\psi=E\psi\]
+    其中
+    \[\hat{H}=\underbrace{-\dfrac12\nabla^2-\dfrac Zr}_{\hat{H}_0}+\underbrace{\delta\sum_{j=1}^{6}\left(\dfrac{1}{\left|\vec{r}-\vec{l}_j\right|}-\dfrac{1}{\left|\vec{r}-\vec{L}_j\right|}\right)}_{\hat{H}'}\]
+    这里$\hat{H}_0$为刻画金属中心离子的哈密顿量, $\hat{H}'$反应水分子配体的影响,每个水分子被抽象为一个偶极,偶极的正/负电荷到中心金属离子的距离分别为$L$和$l$,电量为$\pm\delta$.\\
+    \indent 已知$\hat{H}_0$有五个能量简并的d轨道:
+    \[\phi_1(\vec{r})=\dfrac{Z^{7/2}}{81\sqrt{6}\pi}(2z^2-x^2-y^2)\e^{-Zr/3},\quad\phi_2(\vec{r})=\dfrac{Z^{7/2}}{81\sqrt{2}\pi}(x^2-y^2)\e^{-Zr/3}\]
+    \[\phi_3(\vec{r})=\dfrac{\sqrt2Z^{7/2}}{81\sqrt{\pi}}xz\e^{-Zr/3},\quad\phi_4(\vec{r})=\dfrac{\sqrt2Z^{7/2}}{81\sqrt{\pi}}yz\e^{-Zr/3},\quad\phi_5(\vec{r})=\dfrac{\sqrt2Z^{7/2}}{81\sqrt{\pi}}xy\e^{-Zr/3}\]
+    能量为$E_0$.受$\hat{H}'$的影响,以上轨道能量将改变.按如下方法近似求解改变后轨道的能级.首先在所有d轨道张成的空间中将$\hat{H}'$表示为矩阵,矩阵元$\hat{H}'_{ij}=\bra{\phi_i}\hat{H}'\ket{\phi_j}$.在一阶微扰近似下新的能级分别为$E_0+\ep_i$,其中$\ep_i$为矩阵$\mat{H}'$的本征值.
+    \begin{enumerate}[label=\tbf{(\alph*)}]
+        \item 试证明: $\mat{H}'$是对角矩阵.
+        \item 试求$\ep_i$,其中$i=1$, $2$, $3$, $4$, $5$.
+    \end{enumerate}
+\end{homework}
+\begin{solution}
+    \begin{enumerate}[label=\tbf{(\alph*)}]
+        \item 只需证明对任意$i\neq j$都有$\hat{H}'_{ij}=\bra{\phi_i}\hat{H}'\ket{\phi_j}=0$即可.注意到
+        \[\hat{H}'\ket{\phi_j}=\delta\sum_{j=1}^{6}\left(\dfrac{1}{\left|\vec{r}-\vec{l}_j\right|}-\dfrac{1}{\left|\vec{r}-\vec{L}_j\right|}\right)\ket{\phi_j}\]
+        于是
+        \[\bra{\phi_i}\hat{H}'\ket{\phi_j}=\left\langle\phi_i\middle\vert\delta\sum_{j=1}^{6}\left(\dfrac{1}{\left|\vec{r}-\vec{l}_j\right|}-\dfrac{1}{\left|\vec{r}-\vec{L}_j\right|}\right)\middle\vert\phi_j\right\rangle=\delta\sum_{j=1}^{6}\left(\dfrac{1}{\left|\vec{r}-\vec{l}_j\right|}-\dfrac{1}{\left|\vec{r}-\vec{L}_j\right|}\right)\inprod{\phi_i}{\phi_j}\]
+        而d轨道之间的正交性要求
+        \[\inprod{\phi_i}{\phi_j}=0,\quad\forall i\neq j\]
+        因此
+        \[H_{ij}'=0,\quad\forall i\neq j\]
+        因此$\mat{H}'$是对角矩阵.
+        \item 由于$\mat{H}'$是对角矩阵,因此其本征值$\ep_i$即对角元$\hat{H}'_{ii}=\bra{\phi_i}\hat{H}'\ket{\phi_i}$.\\
+        对于$\phi_1(\vec{r})$,首先考虑在$z$轴上的偶极.令$\vec{R}=(0,0,R)$,则有
+        \[\left|\vec{r}-\vec{R}\right|=\sqrt{x^2+y^2+(z-R)^2}=\sqrt{r^2-2Rz+R^2}\]
+        \[\begin{aligned}
+            \bra{\phi_1}\delta\dfrac{1}{\left|\vec{r}-\vec{R}\right|}\ket{\phi_1}
+            &=\left(\dfrac{Z^{7/2}}{81\sqrt{6}\pi}\right)^2\delta\int\d\vec{r}\e^{-2Zr/3}\dfrac{(2z^2-x^2-y^2)^2}{\sqrt{r^2-2Rz+R^2}}\\
+            &=\left(\dfrac{Z^{7/2}}{81\sqrt{6}\pi}\right)^2\delta\int\d\vec{r}\e^{-2Zr/3}\dfrac{4z^4+x^4+y^4-4x^2z^2-4y^2z^2+2x^2y^2}{\sqrt{r^2-2Rz+R^2}}\\
+            &=4B(R)+2A(R)-8C(R)+2D(R)
+        \end{aligned}\]
+        再考虑在$x$, $y$轴上的偶极(根据对称性,两者等价).令$\vec{R}=(R,0,0)$,类似地有
+        \[\begin{aligned}
+            \bra{\phi_1}\delta\dfrac{1}{\left|\vec{r}-\vec{R}\right|}\ket{\phi_1}
+            &=\left(\dfrac{Z^{7/2}}{81\sqrt{6}\pi}\right)^2\delta\int\d\vec{r}\e^{-2Zr/3}\dfrac{(2z^2-x^2-y^2)^2}{\sqrt{r^2-2Rx+R^2}}\\
+            &=\left(\dfrac{Z^{7/2}}{81\sqrt{6}\pi}\right)^2\delta\int\d\vec{r}\e^{-2Zr/3}\dfrac{4z^4+x^4+y^4-4x^2z^2-4y^2z^2+2x^2y^2}{\sqrt{r^2-2Rx+R^2}}\\
+            &=5A(R)+B(R)-4D(R)-2C(R)
+        \end{aligned}\]
+        因此含$l$的项为
+        \[2[4B(l)+2A(l)-8C(l)+2D(l)]+4[5A(l)+B(l)-4D(l)-2C(l)]=24A(l)+12B(l)-24C(l)-12D(l)\]
+        含$L$的项同理,但符号相反.于是
+        \[\ep_1=24A(l)+12B(l)-24C(l)-12D(l)-24A(L)-12B(l)+24C(L)+12D(L)\]
+        对于$\phi_2(\vec{r})$,同样首先考虑在$z$轴上的偶极.令$\vec{R}=(0,0,R)$,则有
+        \[\begin{aligned}
+            \bra{\phi_2}\delta\dfrac{1}{\left|\vec{r}-\vec{R}\right|}\ket{\phi_2}
+            &=3\left(\dfrac{Z^{7/2}}{81\sqrt{6}\pi}\right)^2\delta\int\d\vec{r}\e^{-2Zr/3}\dfrac{(x^2-y^2)^2}{\sqrt{r^2-2Rz+R^2}}\\
+            &=3\left(\dfrac{Z^{7/2}}{81\sqrt{6}\pi}\right)^2\delta\int\d\vec{r}\e^{-2Zr/3}\dfrac{x^4+y^4-2x^2y^2}{\sqrt{r^2-2Rz+R^2}}\\
+            &=6A(R)-6D(R)
+        \end{aligned}\]
+        再考虑在$x$轴或$y$轴上的偶极.令$\vec{R}=(R,0,0)$,则有
+        \[\begin{aligned}
+            \bra{\phi_2}\delta\dfrac{1}{\left|\vec{r}-\vec{R}\right|}\ket{\phi_2}
+            &=3\left(\dfrac{Z^{7/2}}{81\sqrt{6}\pi}\right)^2\delta\int\d\vec{r}\e^{-2Zr/3}\dfrac{(x^2-y^2)^2}{\sqrt{r^2-2Rx+R^2}}\\
+            &=3\left(\dfrac{Z^{7/2}}{81\sqrt{6}\pi}\right)^2\delta\int\d\vec{r}\e^{-2Zr/3}\dfrac{x^4+y^4-2x^2y^2}{\sqrt{r^2-2Rx+R^2}}\\
+            &=3A(R)+3B(R)-6C(R)
+        \end{aligned}\]
+        类似地可得
+        \[\ep_2=24A(l)+12B(l)-24C(l)-12D(l)-24A(L)-12B(L)+24C(L)+12D(L)\]
+        对于$\phi_{3,4,5}(\vec{r})$,根据对称性可知$\ep_3=\ep_4=\ep_5$.不妨考虑$\phi_5$,同理有
+        \[\vec{R}=(0,0,R)\qquad\bra{\phi_5}\delta\dfrac{1}{\left|\vec{r}-\vec{R}\right|}\ket{\phi_5}
+        =12\left(\dfrac{Z^{7/2}}{81\sqrt{6}\pi}\right)^2\delta\int\d\vec{r}\e^{-2Zr/3}\dfrac{x^2y^2}{\sqrt{r^2-2Rz+R^2}}=12D(R)\]
+        \[\vec{R}=(R,0,0)\qquad\bra{\phi_5}\delta\dfrac{1}{\left|\vec{r}-\vec{R}\right|}\ket{\phi_5}
+        =12\left(\dfrac{Z^{7/2}}{81\sqrt{6}\pi}\right)^2\delta\int\d\vec{r}\e^{-2Zr/3}\dfrac{x^2y^2}{\sqrt{r^2-2Rx+R^2}}=12C(R)\]
+        于是可得
+        \[\ep_3=\ep_4=\ep_5=48C(l)+24D(l)-48C(L)-24D(L)\]
+    \end{enumerate}
+\end{solution}
+\end{document}
