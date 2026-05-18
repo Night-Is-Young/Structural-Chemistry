@@ -112,6 +112,19 @@
 \begin{homework}[6.]
     查找一种分子的气相和液相的红外光谱图,比较两者的异同.
 \end{homework}
+\begin{solution}
+    以下是~\ce{C6H6}分别在溶液和气相中的红外光谱图(https://doi.org/10.18434/T4D303):
+    \begin{figure}[H]\centering
+        \subfigure[Gas (70 mmHg, \ce{N2} Added, Total pressure 600 mmHg)]{
+            \includegraphics[scale=0.6]{figure/Gas.png}
+        }
+        \subfigure[Solution (10\% in \ce{CCl4} for 3800-1300, 10\% in \ce{CS2} for 1300-625, and 10\% in \ce{CCl4} for 625-240 \si{\per\centi\meter}) VS. Solvent]{
+            \includegraphics[scale=0.6]{figure/Sol.png}
+        }
+    \end{figure}
+    两张谱图的主要吸收峰位置总体一致,包括在$\SI{3000}{\per\centi\meter}$附近的芳环~\ce{C-H}键伸缩振动,在$\SI{1500}{\per\centi\meter}$附近的芳环骨架~\ce{C-C}键伸缩振动等.两者的本质是相同的.\\
+    \indent 在气相的谱图中,吸收峰更窄,并且出现明显的分裂,说明转动能级没有被限制,可以观察到转动-振动复合的现象.而溶液中由于溶剂分子不断碰撞导致上述精细结构消失,吸收峰表现为单峰.
+\end{solution}
 \begin{homework}[7.]
     回答下列问题.
     \begin{enumerate}[label=\tbf{(\alph*)}]
@@ -273,14 +286,14 @@
 \begin{solution}
     基态 \ce{N2}的电子排布为
     \[(1\sigma_g)^2(1\sigma_u)^2(1\pi_u)^4(2\sigma_g)^2\]
-    因此可以列出下表:
-    \begin{table}[H]\centering
-        \begin{tabular}{ccc}\hline
-            谱项 & 电子排布 & 轨道跃迁方式 \\\hline
-            $^1\Pi_g$ & $(1\sigma_g)^2(1\sigma_u)^2(1\pi_u)^4(2\sigma_g)^1(1\pi_g)^1$ & $2\sigma_g\to1\pi_g$ \\\hline
-            $^1\Sigma_u^{-}$ & $(1\sigma_g)^2(1\sigma_u)^2(1\pi_u)^4(2\sigma_g)^1(1\pi_g)^1$
-        \end{tabular}
-    \end{table}
+    基态光谱项为$^1\Sigma_g^+$.现在对各情况分析如下:
+    \begin{enumerate}[label=\tbf{(\alph*)}]
+        \item 由$\Sigma\to\Pi$要求必须是$\sigma\leftrightarrow\pi$的跃迁,而$g$对称性要求必须是$g\to g$或$u\to u$的跃迁.因此对应于$2\sigma_g\to1\pi_g$或$1\pi_u\to2\sigma_u$.
+        \item 跃迁后仍为$\Sigma$态,只能来源于两个$\pi$电子的耦合,并且$u$对称性要求跃迁前后对称性相反.于是对应于$1\pi_u\to1\pi_g$.
+        \item 同样, $\Delta$态也只能来源于两个$\pi$电子的耦合,因此对应于$1\pi_u\to1\pi_g$.
+        \item 与\tbf{(a)}相似,但是对称性相反,因此对应于$2\sigma_u\to1\pi_g$.
+        \item 与\tbf{(b)}相似,并且三重态也可以来源于两个$\pi$电子的耦合.于是对应于$1\pi_u\to1\pi_g$.
+    \end{enumerate}
 \end{solution}
 \begin{homework}[12.]
     下列哪种跃迁是电偶极所允许的?
@@ -289,7 +302,7 @@
     \end{center}
 \end{homework}
 \begin{solution}
-    允许的跃迁为
+    电偶极跃迁需要满足$\Delta S=0$, $\Delta\Lambda=0,\pm1$,且对$\Sigma$态必须保持对称性.因此允许的跃迁为\tbf{(i)}, \tbf{(ii)}和\tbf{(v)}.
 \end{solution}
 \begin{homework}[13.]
     根据群论,以下哪种跃迁是电偶极所允许的?
@@ -297,6 +310,23 @@
         \tbf{(a)} 乙烯中的$\pi^\ast\leftarrow\pi$跃迁\qquad\tbf{(b)} $C_{2\text{v}}$环境中羰基中的$\pi^\ast\leftarrow n$跃迁
     \end{center}
 \end{homework}
+\begin{solution}
+    电偶极跃迁允许,则根据群论
+    \[\Gamma(\psi_i)\otimes\Gamma(\mu)\otimes\Gamma(\psi_f)\]
+    必须包含全对称表示.下面分情况考虑:
+    \begin{enumerate}[label=\tbf{(\alph*)}]
+        \item 乙烯属于$D_{2\text{h}}$点群. $\pi$轨道的对称性为$\text{B}_{1\text{u}}$, $\pi^\ast$轨道的对称性为$\text{B}_{2\text{g}}$.在$D_{2\text{h}}$点群中$x$, $y$和$z$分别对应于$\text{B}_{3\text{u}}$, $\text{B}_{2\text{u}}$和$\text{B}_{1\text{u}}$.分别有
+        \[\text{B}_{1\text{u}}\otimes\text{B}_{3\text{u}}\otimes\text{B}_{2\text{g}}=\text{B}_{2\text{g}}\otimes\text{B}_{2\text{g}}=\text{A}_{\text{g}}\]
+        \[\text{B}_{1\text{u}}\otimes\text{B}_{2\text{u}}\otimes\text{B}_{2\text{g}}=\text{B}_{3\text{g}}\otimes\text{B}_{2\text{g}}=\text{B}_{1\text{g}}\nsupset\text{A}_{\text{g}}\]
+        \[\text{B}_{1\text{u}}\otimes\text{B}_{1\text{u}}\otimes\text{B}_{2\text{g}}=\text{A}_{\text{g}}\otimes\text{B}_{2\text{g}}=\text{B}_{2\text{g}}\nsupset\text{A}_{\text{g}}\]
+        因此是允许的.
+        \item 同样地, 参与跃迁的$n$电子的对称性为$\text{B}_2$或$\text{B}_1$.而$\pi^\ast$轨道的对称性为$\text{B}_1$.在$D_{2\text{h}}$点群中$x$, $y$和$z$分别对应于$\text{B}_{1}$, $\text{B}_{2}$和$\text{A}_{1}$对称性.分别有
+        \[\text{B}_2\otimes\text{B}_1\otimes\text{B}_1=\text{B}_2\otimes\text{A}_1=\text{B}_2\nsupset\text{A}_1,\quad\text{B}_1\otimes\text{B}_1\otimes\text{B}_1=\text{A}_1\otimes\text{B}_1=\text{B}_1\nsupset\text{A}_1\]
+        \[\text{B}_2\otimes\text{B}_2\otimes\text{B}_1=\text{A}_1\otimes\text{B}_1=\text{B}_1\nsupset\text{A}_1,\quad\text{B}_1\otimes\text{B}_2\otimes\text{B}_1=\text{A}_2\otimes\text{B}_1=\text{B}_2\nsupset\text{A}_1\]
+        \[\text{B}_2\otimes\text{A}_1\otimes\text{B}_1=\text{B}_2\otimes\text{A}_1=\text{B}_1\nsupset\text{A}_2,\quad\text{B}_1\otimes\text{A}_1\otimes\text{B}_1=\text{B}_1\otimes\text{B}_1=\text{A}_1\]
+        因此跃迁是允许的.
+    \end{enumerate}
+\end{solution}
 \begin{homework}[14.]
     在分子轨道理论框架下,假设 \ce{[Ti(H2O)6]^{3+}}离子的价电子满足如下单电子薛定谔方程:
     \[\hat{H}\psi=E\psi\]
