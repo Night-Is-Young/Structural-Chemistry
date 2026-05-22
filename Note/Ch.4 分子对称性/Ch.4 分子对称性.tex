@@ -9,6 +9,32 @@
 \begin{document}
 \chapter{分子对称性}
 \section{分子几何构型与对称性}
+\subsection{对称操作与对称元素}
+为了讨论分子具有的对称性,我们先定义\tbf{对称操作}与\tbf{对称元素}.
+\begin{definition}[对称操作与对称元素]
+    使一个物体经过几何变换后与变换前完全重合的操作称为\tbf{对称操作}.进行对称操作时依据的几何要素称为\tbf{对称元素}.
+\end{definition}
+\subsection{常见的对称元素}
+$n$重对称轴$C_n$是一种常见的对称元素,对应的操作是绕轴旋转$\dfrac{2k\pi}{n}$(其中$k=1,2,\cdots,n-1$),分别记作$C_n^1,\,C_n^2,\cdots,\,C_{n}^{n-1}$.\\
+\indent 另一种常见的对称元素是镜面,按位置的不同分类如下:
+\begin{definition}[镜面]
+    镜面$\sigma$是对称元素,对应的对称操作是沿镜面反射.过主轴的镜面记作$\sigma_{\text{v}}$;垂直于主轴的镜面记作$\sigma_{\text{h}}$;平分两个$C_2$轴的镜面记作$\sigma_{\text{d}}$.
+\end{definition}
+一般而言,~$\sigma_{\text{d}}$可以视作一种特殊的$\sigma_{\text{v}}$.
+\subsection{分子的对称性分类}
+为了讨论分子的对称性,将它们按照可能的所有对称操作进行分类.对于单独的分子,所有对称操作至少保持一个点不动,它们构成的集合称作\tbf{点群}.如果在此基础上再考虑平移对称性,则可以进一步分类为\tbf{空间群},这在讨论晶体的对称性时将会介绍.有关群的定义与性质将在下一节介绍.\\
+\indent 常见的点群记号有两种,一种是Schoenflies记号,例如$D_{3\text{h}}$, $C_{2\text{v}}$等等;另一种是Hermann-Mauguin记号(又称作国际记号),例如$4\,\text{m}\,\text{m}$, $2/\text{m}$等.描述分子点群时常使用Schoenflies记号.下面是主要的分子点群的分类:
+\begin{enumerate}[label=\tbf{\roman*.}]
+    \item $C_1$, $C_\i$和$C_\text{s}$群.\\
+    $C_1$群只含有恒等操作$E$; $C_\i$群在$C_1$群的基础上含有反演中心$\i$; $C_{\text{s}}$群在$C_1$群的基础上含有镜面$\sigma$.
+    \item $C_{n}$, $C_{n\text{v}}$和$C_{n\text{h}}$群.\\
+    所有$C_n$群在$C_1$群的基础上含有一根$C_n$旋转轴.此外, $C_{n\text{v}}$点群有$n$个$\sigma_{\text{v}}$镜面; $C_{n\text{h}}$点群有$\sigma_{\text{h}}$镜面.
+    \item $D_{n}$, $D_{n\text{h}}$和$D_{n\text{d}}$群.\\
+    $D_n$群在$C_n$群的基础上含有$n$个垂直于主轴的$C_2$轴,记作$C_2'$. $D_{n\text{h}}$点群在$D_n$点群的基础上有$\sigma_{\text{h}}$镜面.$D_{n\text{d}}$点群在$D_n$点群的基础上有$n$个$\sigma_{\text{d}}$镜面.
+    \item $C_{\infty\text{v}}$和$D_{\infty\text{h}}$群.\\
+    线形分子按有无对称中心分属$D_{\infty\text{h}}$和$C_{\infty\text{v}}$点群.
+    
+\end{enumerate}
 \section{群论}
 \subsection{群的定义}
 \begin{definition}[群]
