@@ -115,12 +115,14 @@
 \begin{solution}
     以下是~\ce{C6H6}分别在溶液和气相中的红外光谱图(https://doi.org/10.18434/T4D303):
     \begin{figure}[H]\centering
-        \subfigure[Gas (70 mmHg, \ce{N2} Added, Total pressure 600 mmHg)]{
-            \includegraphics[scale=0.6]{figure/Gas.png}
-        }
-        \subfigure[Solution (10\% in \ce{CCl4} for 3800-1300, 10\% in \ce{CS2} for 1300-625, and 10\% in \ce{CCl4} for 625-240 \si{\per\centi\meter}) VS. Solvent]{
-            \includegraphics[scale=0.6]{figure/Sol.png}
-        }
+        \begin{subfigure}[b]{.95\linewidth}
+            \centering\includegraphics[scale=0.6]{figure/Gas.png}
+            \caption{Gas (70 mmHg, \ce{N2} Added, Total pressure 600 mmHg)}
+        \end{subfigure}
+        \begin{subfigure}[b]{.95\linewidth}
+            \centering\includegraphics[scale=0.6]{figure/Sol.png}
+            \caption{Solution (10\% in \ce{CCl4} for 3800-1300, 10\% in \ce{CS2} for 1300-625, and 10\% in \ce{CCl4} for 625-240 \si{\per\centi\meter}) VS. Solvent}
+        \end{subfigure}
     \end{figure}
     两张谱图的主要吸收峰位置总体一致,包括在$\SI{3000}{\per\centi\meter}$附近的芳环~\ce{C-H}键伸缩振动,在$\SI{1500}{\per\centi\meter}$附近的芳环骨架~\ce{C-C}键伸缩振动等.两者的本质是相同的.\\
     \indent 在气相的谱图中,吸收峰更窄,并且出现明显的分裂,说明转动能级没有被限制,可以观察到转动-振动复合的现象.而溶液中由于溶剂分子不断碰撞导致上述精细结构消失,吸收峰表现为单峰.
@@ -160,7 +162,7 @@
     于是
     \[a=\left(\dfrac{k_{\text{f}}}{2hc\tilde{D}_e}\right)^{1/2}=\SI{1.732e10}{\per\meter}\]
     于是势能曲线为
-    \[V(x)=hc\tilde{D}_e(1-\e^{-ax})^2=8.591\times10^{-19}(1-\e^{-\SI{1.732e10}{\per\meter}\cdot x})\ \text{J}\]
+    \[V(x)=hc\tilde{D}_e(1-\e^{-ax})^2=8.591\times10^{-19}(1-\e^{-\SI{1.732e10}{\per\meter}\cdot x})^2\ \text{J}\]
     零点能为
     \[E_0=hc\tilde{G}(0)=\SI{2.943e-20}{\joule}\]
     解离能为
@@ -288,10 +290,10 @@
     \[(1\sigma_g)^2(1\sigma_u)^2(1\pi_u)^4(2\sigma_g)^2\]
     基态光谱项为$^1\Sigma_g^+$.现在对各情况分析如下:
     \begin{enumerate}[label=\tbf{(\alph*)}]
-        \item 由$\Sigma\to\Pi$要求必须是$\sigma\leftrightarrow\pi$的跃迁,而$g$对称性要求必须是$g\to g$或$u\to u$的跃迁.因此对应于$2\sigma_g\to1\pi_g$或$1\pi_u\to2\sigma_u$.
+        \item 首先$\Pi$组态来源于$\sigma$与$\pi$电子的耦合,或两个$\pi$电子的耦合.齐次,$g$对称性要求必须是$g\to g$或$u\to u$的跃迁.因此对应于$2\sigma_g\to1\pi_g$或$1\pi_u\to2\sigma_u$.
         \item 跃迁后仍为$\Sigma$态,只能来源于两个$\pi$电子的耦合,并且$u$对称性要求跃迁前后对称性相反.于是对应于$1\pi_u\to1\pi_g$.
         \item 同样, $\Delta$态也只能来源于两个$\pi$电子的耦合,因此对应于$1\pi_u\to1\pi_g$.
-        \item 与\tbf{(a)}相似,但是对称性相反,因此对应于$2\sigma_u\to1\pi_g$.
+        \item 与\tbf{(a)}相似,但是对称性相反,因此只能对应于$1\pi_u\to1\pi_g$.
         \item 与\tbf{(b)}相似,并且三重态也可以来源于两个$\pi$电子的耦合.于是对应于$1\pi_u\to1\pi_g$.
     \end{enumerate}
 \end{solution}
@@ -320,11 +322,11 @@
         \[\text{B}_{1\text{u}}\otimes\text{B}_{2\text{u}}\otimes\text{B}_{2\text{g}}=\text{B}_{3\text{g}}\otimes\text{B}_{2\text{g}}=\text{B}_{1\text{g}}\nsupset\text{A}_{\text{g}}\]
         \[\text{B}_{1\text{u}}\otimes\text{B}_{1\text{u}}\otimes\text{B}_{2\text{g}}=\text{A}_{\text{g}}\otimes\text{B}_{2\text{g}}=\text{B}_{2\text{g}}\nsupset\text{A}_{\text{g}}\]
         因此是允许的.
-        \item 同样地, 参与跃迁的$n$电子的对称性为$\text{B}_2$或$\text{B}_1$.而$\pi^\ast$轨道的对称性为$\text{B}_1$.在$D_{2\text{h}}$点群中$x$, $y$和$z$分别对应于$\text{B}_{1}$, $\text{B}_{2}$和$\text{A}_{1}$对称性.分别有
-        \[\text{B}_2\otimes\text{B}_1\otimes\text{B}_1=\text{B}_2\otimes\text{A}_1=\text{B}_2\nsupset\text{A}_1,\quad\text{B}_1\otimes\text{B}_1\otimes\text{B}_1=\text{A}_1\otimes\text{B}_1=\text{B}_1\nsupset\text{A}_1\]
-        \[\text{B}_2\otimes\text{B}_2\otimes\text{B}_1=\text{A}_1\otimes\text{B}_1=\text{B}_1\nsupset\text{A}_1,\quad\text{B}_1\otimes\text{B}_2\otimes\text{B}_1=\text{A}_2\otimes\text{B}_1=\text{B}_2\nsupset\text{A}_1\]
-        \[\text{B}_2\otimes\text{A}_1\otimes\text{B}_1=\text{B}_2\otimes\text{A}_1=\text{B}_1\nsupset\text{A}_2,\quad\text{B}_1\otimes\text{A}_1\otimes\text{B}_1=\text{B}_1\otimes\text{B}_1=\text{A}_1\]
-        因此跃迁是允许的.
+        \item 同样地, 参与跃迁的$n$电子的对称性为$\text{B}_1$.而$\pi^\ast$轨道的对称性为$\text{B}_1$.在$D_{2\text{h}}$点群中$x$, $y$和$z$分别对应于$\text{B}_{1}$, $\text{B}_{2}$和$\text{A}_{1}$对称性.分别有
+        \[\text{B}_2\otimes\text{B}_1\otimes\text{B}_1=\text{B}_2\otimes\text{A}_1=\text{B}_2\nsupset\text{A}_1\]
+        \[\text{B}_2\otimes\text{B}_2\otimes\text{B}_1=\text{A}_1\otimes\text{B}_1=\text{B}_1\nsupset\text{A}_1\]
+        \[\text{B}_2\otimes\text{A}_1\otimes\text{B}_1=\text{B}_2\otimes\text{A}_1=\text{B}_1\nsupset\text{A}_2\]
+        因此跃迁是禁阻的.
     \end{enumerate}
 \end{solution}
 \begin{homework}[14.]
@@ -344,15 +346,17 @@
 \end{homework}
 \begin{solution}
     \begin{enumerate}[label=\tbf{(\alph*)}]
-        \item 只需证明对任意$i\neq j$都有$\hat{H}'_{ij}=\bra{\phi_i}\hat{H}'\ket{\phi_j}=0$即可.注意到
-        \[\hat{H}'\ket{\phi_j}=\delta\sum_{j=1}^{6}\left(\dfrac{1}{\left|\vec{r}-\vec{l}_j\right|}-\dfrac{1}{\left|\vec{r}-\vec{L}_j\right|}\right)\ket{\phi_j}\]
-        于是
-        \[\bra{\phi_i}\hat{H}'\ket{\phi_j}=\left\langle\phi_i\middle\vert\delta\sum_{j=1}^{6}\left(\dfrac{1}{\left|\vec{r}-\vec{l}_j\right|}-\dfrac{1}{\left|\vec{r}-\vec{L}_j\right|}\right)\middle\vert\phi_j\right\rangle=\delta\sum_{j=1}^{6}\left(\dfrac{1}{\left|\vec{r}-\vec{l}_j\right|}-\dfrac{1}{\left|\vec{r}-\vec{L}_j\right|}\right)\inprod{\phi_i}{\phi_j}\]
-        而d轨道之间的正交性要求
-        \[\inprod{\phi_i}{\phi_j}=0,\quad\forall i\neq j\]
-        因此
-        \[H_{ij}'=0,\quad\forall i\neq j\]
-        因此$\mat{H}'$是对角矩阵.
+        \item 只需证明对任意$i\neq j$都有$\hat{H}'_{ij}=\bra{\phi_i}\hat{H}'\ket{\phi_j}=0$即可.考虑~\ce{Ti(H2O)6^{3+}}为$O_{\text{h}}$点群的分子,则
+        \[\Gamma(\phi_1)=\Gamma(\phi_2)=\text{E}_{\text{g}},\quad\Gamma(\phi_3)=\Gamma(\phi_4)=\Gamma(\phi_5)=\text{T}_{1\text{u}}\]
+        而$\Gamma(\hat{H}')=\text{A}_{1\text{g}}$.考虑过$z$轴的$C_4$操作,有
+        \[C_4\phi_1=\phi_1,\quad C_4\phi_2=-\phi_2,\quad C_4\phi_3=\phi_4,\quad C_4\phi_4=-\phi_3,\quad C_4\phi_5=-\phi_5\]
+        由于$\hat{H}'$是厄米算符,并且$C_4\hat{H}'=\hat{H}'$,因此
+        \[\bra{\phi_1}\hat{H}'\ket{\phi_2}=\bra{\phi_1}\left(\hat{H}'C_4\right)\ket{\phi_2}=\bra{\phi_1}\hat{H}'\left(C_4\ket{\phi_2}\right)=-\bra{\phi_1}\hat{H}'\ket{\phi_2}\]
+        于是$\hat{H}'_{12}=\bra{\phi_1}\hat{H}'\ket{\phi_2}=0$.同样地,对于$i,j\in\{1,2,5\}$且$i\neq j$都有$\hat{H}'_{ij}=0$.\\
+        同样地有
+        \[\bra{\phi_1}\hat{H}'\ket{\phi_3}=\bra{\phi_1}\hat{H}'C_4\ket{\phi_3}=\bra{\phi_1}\hat{H}'\ket{\phi_4}=\bra{\phi_1}\hat{H}'C_4\ket{\phi_4}=-\bra{\phi_1}\hat{H}'\ket{\phi_3}\]
+        于是$\hat{H}'_{13}=\bra{\phi_1}\hat{H}'\ket{\phi_3}=0$.同样地,对于$i\in\{1,2,5\}$且$j\in\{3,4\}$(或者反之)都有$\hat{H}'_{ij}=0$.\\
+        综上可得$\hat{H}'$是对角矩阵.
         \item 由于$\mat{H}'$是对角矩阵,因此其本征值$\ep_i$即对角元$\hat{H}'_{ii}=\bra{\phi_i}\hat{H}'\ket{\phi_i}$.\\
         对于$\phi_1(\vec{r})$,首先考虑在$z$轴上的偶极.令$\vec{R}=(0,0,R)$,则有
         \[\left|\vec{r}-\vec{R}\right|=\sqrt{x^2+y^2+(z-R)^2}=\sqrt{r^2-2Rz+R^2}\]

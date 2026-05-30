@@ -1,0 +1,210 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{Salzmann2019}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=787a61caae70ba99ac82529305740b7d}{%
+           family={Salzmann},
+           familyi={S\bibinitperiod},
+           given={Christoph\bibnamedelima G.},
+           giveni={C\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \strng{namehash}{787a61caae70ba99ac82529305740b7d}
+      \strng{fullhash}{787a61caae70ba99ac82529305740b7d}
+      \strng{fullhashraw}{787a61caae70ba99ac82529305740b7d}
+      \strng{bibnamehash}{787a61caae70ba99ac82529305740b7d}
+      \strng{authorbibnamehash}{787a61caae70ba99ac82529305740b7d}
+      \strng{authornamehash}{787a61caae70ba99ac82529305740b7d}
+      \strng{authorfullhash}{787a61caae70ba99ac82529305740b7d}
+      \strng{authorfullhashraw}{787a61caae70ba99ac82529305740b7d}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Water’s phase diagram displays enormous complexity with currently 17 experimentally confirmed polymorphs of ice and several more predicted computationally. For almost 120 years, it has been a stomping ground for scientific discovery, and ice research has often been a trailblazer for investigations into a wide range of materials-related phenomena. Here, the experimental progress of the last couple of years is reviewed, and open questions as well as future challenges are discussed. The specific topics include (i) the polytypism and stacking disorder of ice I, (ii) the mechanism of the pressure amorphization of ice I, (iii) the emptying of gas-filled clathrate hydrates to give new low-density ice polymorphs, (iv) the effects of acid/base doping on hydrogen-ordering phase transitions as well as (v) the formation of solid solutions between salts and the ice polymorphs, and the effect this has on the appearance of the phase diagram. In addition to continuing efforts to push the boundaries in terms of the extremes of pressure and temperature, the exploration of the “chemical” dimensions of ice research appears to now be a newly emerging trend. It is without question that ice research has entered a very exciting era.}
+      \field{issn}{0021-9606}
+      \field{journaltitle}{The Journal of Chemical Physics}
+      \field{month}{02}
+      \field{number}{6}
+      \field{title}{Advances in the experimental exploration of water’s phase diagram}
+      \field{volume}{150}
+      \field{year}{2019}
+      \field{pages}{060901}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1063/1.5085163
+      \endverb
+      \verb{eprint}
+      \verb https://pubs.aip.org/aip/jcp/article-pdf/doi/10.1063/1.5085163/19986917/060901_1_1.5085163.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1063/1.5085163
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1063/1.5085163
+      \endverb
+    \endentry
+    \entry{Li2024}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=228c72f9896a3f72c8c7ed3a025f02df}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={De-Zhang},
+           giveni={D\bibinithyphendelim Z\bibinitperiod}}}%
+        {{hash=d067e0561b5b663905b2b0a9c4e9d79e}{%
+           family={Cen},
+           familyi={C\bibinitperiod},
+           given={Yu-Jie},
+           giveni={Y\bibinithyphendelim J\bibinitperiod}}}%
+        {{hash=03d3e23852937fa39b0e34246c4ecd1d}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Xin},
+           giveni={X\bibinitperiod}}}%
+        {{hash=b4609c0b916f135e69d16a3f2fb27745}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Xiao-Bao},
+           giveni={X\bibinithyphendelim B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Physical Society}%
+      }
+      \strng{namehash}{3e274da532ecac62db5670b2d5adb280}
+      \strng{fullhash}{884cde5c23e95a6bca237c8a11865081}
+      \strng{fullhashraw}{884cde5c23e95a6bca237c8a11865081}
+      \strng{bibnamehash}{884cde5c23e95a6bca237c8a11865081}
+      \strng{authorbibnamehash}{884cde5c23e95a6bca237c8a11865081}
+      \strng{authornamehash}{3e274da532ecac62db5670b2d5adb280}
+      \strng{authorfullhash}{884cde5c23e95a6bca237c8a11865081}
+      \strng{authorfullhashraw}{884cde5c23e95a6bca237c8a11865081}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issue}{19}
+      \field{journaltitle}{Phys. Rev. B}
+      \field{month}{11}
+      \field{title}{Residual entropy of ice: A study based on transfer matrices}
+      \field{volume}{110}
+      \field{year}{2024}
+      \field{pages}{195414}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1103/PhysRevB.110.195414
+      \endverb
+      \verb{urlraw}
+      \verb https://link.aps.org/doi/10.1103/PhysRevB.110.195414
+      \endverb
+      \verb{url}
+      \verb https://link.aps.org/doi/10.1103/PhysRevB.110.195414
+      \endverb
+    \endentry
+    \entry{Loerting2011}{article}{}{}
+      \name{author}{10}{}{%
+        {{hash=ee6b5f934f5933aff71c69d66b488f9a}{%
+           family={Loerting},
+           familyi={L\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=7a9b27ab8ad2e6688bca0459e3936234}{%
+           family={Winkel},
+           familyi={W\bibinitperiod},
+           given={Katrin},
+           giveni={K\bibinitperiod}}}%
+        {{hash=1755cb38d70388e44737e81c61f577d8}{%
+           family={Seidl},
+           familyi={S\bibinitperiod},
+           given={Markus},
+           giveni={M\bibinitperiod}}}%
+        {{hash=dc4b7680f7eb35c6c7468bb3e4d53fe4}{%
+           family={Bauer},
+           familyi={B\bibinitperiod},
+           given={Marion},
+           giveni={M\bibinitperiod}}}%
+        {{hash=7afa90ac84f5362130001e65e228c54b}{%
+           family={Mitterdorfer},
+           familyi={M\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod}}}%
+        {{hash=b8a2a4aa6b8e7c01de68b8537f38f63c}{%
+           family={Handle},
+           familyi={H\bibinitperiod},
+           given={Philip\bibnamedelima H.},
+           giveni={P\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=787a61caae70ba99ac82529305740b7d}{%
+           family={Salzmann},
+           familyi={S\bibinitperiod},
+           given={Christoph\bibnamedelima G.},
+           giveni={C\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=2f8eb77c6af504485df65cb6f40f77e7}{%
+           family={Mayer},
+           familyi={M\bibinitperiod},
+           given={Erwin},
+           giveni={E\bibinitperiod}}}%
+        {{hash=73a575603f12b867f5e2ad0a99fff93b}{%
+           family={Finney},
+           familyi={F\bibinitperiod},
+           given={John\bibnamedelima L.},
+           giveni={J\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=ae39bd12a614315cf79cffa71351353b}{%
+           family={Bowron},
+           familyi={B\bibinitperiod},
+           given={Daniel\bibnamedelima T.},
+           giveni={D\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {The Royal Society of Chemistry}%
+      }
+      \strng{namehash}{42673effb383b97b05396f3e302d5c38}
+      \strng{fullhash}{b6b2486e2e3d105b3634b5d6cfe586e5}
+      \strng{fullhashraw}{b6b2486e2e3d105b3634b5d6cfe586e5}
+      \strng{bibnamehash}{b6b2486e2e3d105b3634b5d6cfe586e5}
+      \strng{authorbibnamehash}{b6b2486e2e3d105b3634b5d6cfe586e5}
+      \strng{authornamehash}{42673effb383b97b05396f3e302d5c38}
+      \strng{authorfullhash}{b6b2486e2e3d105b3634b5d6cfe586e5}
+      \strng{authorfullhashraw}{b6b2486e2e3d105b3634b5d6cfe586e5}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Many acronyms are used in the literature for describing different kinds of amorphous ice{,} mainly because many different preparation routes and many different sample histories need to be distinguished. We here introduce these amorphous ices and discuss the question of how many of these forms are of relevance in the context of polyamorphism. We employ the criterion of reversible transitions between amorphous “states” in finite intervals of pressure and temperature to discriminate between independent metastable amorphous “states” and between “substates” of the same amorphous “state”. We argue that the experimental evidence suggests we should consider there to be three polyamorphic “states” of ice{,} namely low-(LDA){,} high-(HDA) and very high-density amorphous ice (VHDA). In addition to the realization of reversible transitions between them{,} they differ in terms of their properties{,} e.g.{,} compressibility{,} or number of “interstitial” water molecules. Thus they cannot be regarded as structurally relaxed variants of each other and so we suggest considering them as three distinct megabasins in an energy landscape visualization.}
+      \field{issue}{19}
+      \field{journaltitle}{Phys. Chem. Chem. Phys.}
+      \field{title}{How many amorphous ices are there?}
+      \field{volume}{13}
+      \field{year}{2011}
+      \field{pages}{8783\bibrangedash 8794}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1039/C0CP02600J
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1039/C0CP02600J
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1039/C0CP02600J
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
