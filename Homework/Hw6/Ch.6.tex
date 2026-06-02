@@ -374,9 +374,9 @@
             $(0,\frac12,\frac12)$, $(\frac12,0,\frac12)$\\
             \ce{F-}\,:\\
             $(\frac14,\frac14,\frac14)$, $(\frac14,\frac34,\frac14)$\\
-            $(\frac14,\frac34,\frac14)$, $(\frac34,\frac34,\frac14)$\\
-            $(\frac14,\frac34,\frac34)$, $(\frac34,\frac34,\frac34)$\\
-            $(\frac14,\frac34,\frac34)$, $(\frac34,\frac34,\frac34)$\\
+            $(\frac34,\frac14,\frac14)$, $(\frac34,\frac34,\frac14)$\\
+            $(\frac14,\frac14,\frac34)$, $(\frac14,\frac34,\frac34)$\\
+            $(\frac34,\frac14,\frac34)$, $(\frac34,\frac34,\frac34)$\\
         } &
         \makecell[c]{
             \ce{Ni^2+}\,:\\
@@ -418,7 +418,7 @@
     \[\vec{a}'=\dfrac23\vec{a}+\dfrac13\vec{b}+\dfrac13\vec{c},\quad\vec{b}'=-\dfrac13\vec{a}+\dfrac13\vec{b}+\dfrac13\vec{c}\]
     于是
     \[a'=\sqrt{\vec{a}'\cdot\vec{a}'}=\sqrt{\dfrac49\vec{a}^2+\dfrac19\vec{b}^2+\dfrac19\vec{c}^2+\dfrac49\vec{a}\cdot\vec{b}}=\sqrt{\dfrac{1}{3}a^2+\dfrac19c^2}=\dfrac{\sqrt{3a^2+b^2}}{3}\]
-    \[\cos\alpha'=\dfrac{\vec{a}'\cdot\vec{b}'}{a'b'}=\dfrac{-\dfrac{2}{9}\vec{a}^2+\dfrac19\vec{b}^2+\dfrac19\vec{a}\cdot\vec{b}+\dfrac19\vec{c}^2}{\dfrac{1}{3}a^2+\dfrac{1}{9}c^2}=\dfrac{-a^2+2c^2}{6a^2+2c^2}\]
+    \[\cos\alpha'=\dfrac{\vec{a}'\cdot\vec{b}'}{a'b'}=\dfrac{-\dfrac{2}{9}\vec{a}^2+\dfrac19\vec{b}^2+\dfrac19\vec{a}\cdot\vec{b}+\dfrac19\vec{c}^2}{\dfrac{1}{3}a^2+\dfrac{1}{9}c^2}=\dfrac{-3a^2+2c^2}{6a^2+2c^2}\]
     于是
     \[a'=\dfrac{\sqrt{3a^2+b^2}}{3},\quad\alpha=\arccos\left(\dfrac{-a^2+2c^2}{6a^2+2c^2}\right)\]
 \end{solution}
@@ -744,7 +744,7 @@
         \[\vec{a}\cdot\vec{a}=a^2,\quad\vec{b}\cdot\vec{b}=b^2,\quad\vec{c}\cdot\vec{c}=c^2\]
         \[\vec{a}\cdot\vec{b}=ab\cos\gamma,\quad\vec{b}\cdot\vec{c}=bc\cos\alpha,\quad\vec{c}\cdot\vec{a}=ca\cos\beta\]
         于是
-        \[V=\begin{vmatrix}
+        \[V^2=\begin{vmatrix}
             a^2&ab\cos\gamma&ca\cos\beta\\
             ab\cos\gamma&b^2&bc\cos\alpha\\
             ca\cos\beta&bc\cos\alpha&c^2
@@ -788,7 +788,11 @@
     给出.
 \end{homework}
 \begin{proof}
-    这一晶面过$\left(\dfrac{a}{h},0,0\right)$, $\left(0,\dfrac{b}{k},0\right)$和$\left(0,0,\dfrac{c}{l}\right)$.设平面的法向量为$\vec{n}$,则有
+    当$(hkl)$三者中只有一个为$0$时,问题转化为平面几何问题,此时到平面的距离即在对应二维平面内三角形的高.不妨设$l=0$,则有
+    \[d=\dfrac{\frac{a}{h}\cdot\frac{b}{k}}{\sqrt{\left(\frac{a}{h}\right)^2+\left(\frac{b}{k}\right)^2}}=\dfrac{1}{\sqrt{\left(\frac{h}{a}\right)^2+\left(\frac{k}{b}\right)^2}}\]
+    于是$\dfrac{1}{d^2}=\dfrac{h^2}{a^2}+\dfrac{k^2}{b^2}=\dfrac{h^2}{a^2}+\dfrac{k^2}{b^2}+\dfrac{l^2}{c^2}$.\\
+    当$(hkl)$三者中有两个为$0$时,晶面间距$d$即截坐标轴的截距,同样有$\dfrac{1}{d^2}=\dfrac{h^2}{a^2}+\dfrac{k^2}{b^2}+\dfrac{l^2}{c^2}$.\\
+    当$(hkl)$三者全不为$0$时,这一晶面过$\left(\dfrac{a}{h},0,0\right)$, $\left(0,\dfrac{b}{k},0\right)$和$\left(0,0,\dfrac{c}{l}\right)$.设平面的法向量为$\vec{n}$,则有
     \[\left(\dfrac{a}{h},-\dfrac{b}{k},0\right)\cdot\vec{n}=0,\quad\left(\dfrac{a}{h},0,-\dfrac{c}{l}\right)\cdot\vec{n}=0\]
     解得
     \[\vec{n}=\left(\dfrac{h}{a},\dfrac{k}{b},\dfrac{l}{c}\right)\]
@@ -796,6 +800,7 @@
     \[d=\dfrac{\left(\dfrac{a}{h},0,0\right)\cdot\vec{n}}{|\vec{n}|}=\dfrac{1}{\sqrt{\dfrac{h^2}{a^2}+\dfrac{k^2}{b^2}+\dfrac{l^2}{c^2}}}\]
     于是
     \[\dfrac{1}{d^2}=\dfrac{h^2}{a^2}+\dfrac{k^2}{b^2}+\dfrac{l^2}{c^2}\]
+    综上,命题得证.
 \end{proof}
 \begin{homework}[11.]
     已知金红石属于四方晶系,晶胞参数$a=\SI{458}{\pico\meter}$, $c=\SI{298}{\pico\meter}$,原子的分数坐标为

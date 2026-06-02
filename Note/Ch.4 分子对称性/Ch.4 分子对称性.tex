@@ -15,8 +15,9 @@
     使一个物体经过几何变换后与变换前完全重合的操作称为\tbf{对称操作}.进行对称操作时依据的几何要素称为\tbf{对称元素}.
 \end{definition}
 \subsection{常见的对称元素}
-$n$重对称轴$C_n$是一种常见的对称元素,对应的操作是绕轴旋转$\dfrac{2k\pi}{n}$(其中$k=1,2,\cdots,n-1$),分别记作$C_n^1,\,C_n^2,\cdots,\,C_{n}^{n-1}$.\\
-\indent 另一种常见的对称元素是镜面,按位置的不同分类如下:
+\begin{definition}[旋转轴]
+    $n$重对称轴$C_n$是一种常见的对称元素,对应的操作是绕轴旋转$\dfrac{2k\pi}{n}$(其中$k=1,2,\cdots,n-1$),分别记作$C_n^1,\,C_n^2,\cdots,\,C_{n}^{n-1}$.
+\end{definition}
 \begin{definition}[镜面]
     镜面$\sigma$是对称元素,对应的对称操作是沿镜面反射.过主轴的镜面记作$\sigma_{\text{v}}$;垂直于主轴的镜面记作$\sigma_{\text{h}}$;平分两个$C_2$轴的镜面记作$\sigma_{\text{d}}$.
 \end{definition}
@@ -33,8 +34,17 @@ $n$重对称轴$C_n$是一种常见的对称元素,对应的操作是绕轴旋�
     $D_n$群在$C_n$群的基础上含有$n$个垂直于主轴的$C_2$轴,记作$C_2'$. $D_{n\text{h}}$点群在$D_n$点群的基础上有$\sigma_{\text{h}}$镜面.$D_{n\text{d}}$点群在$D_n$点群的基础上有$n$个$\sigma_{\text{d}}$镜面.
     \item $C_{\infty\text{v}}$和$D_{\infty\text{h}}$群.\\
     线形分子按有无对称中心分属$D_{\infty\text{h}}$和$C_{\infty\text{v}}$点群.
-    
+    \item $S_n$群.\\
+    $S_n$群在$C_1$群的基础上有$n$重反轴$S_n$.
+    \item 含有多个主轴的群.
 \end{enumerate}
+\subsection{对称性的应用}
+\begin{theorem}[用对称性判断偶极矩]
+    对称操作不能改变偶极矩,因此只有$C_n$, $C_{n\text{v}}$和$C_{\text{s}}$群可能有偶极矩.
+\end{theorem}
+\begin{theorem}[用对称性判断手性]
+    手性分子不具有虚操作元素(对称中心$\i$,镜面$\sigma$和映轴$S_n$).
+\end{theorem}
 \section{群论}
 \subsection{群的定义}
 \begin{definition}[群]
@@ -55,4 +65,17 @@ $n$重对称轴$C_n$是一种常见的对称元素,对应的操作是绕轴旋�
 \begin{definition}[点群]
     通过同一点的对称操作构成的群称作点群.
 \end{definition}
+\begin{definition}[类]
+    对于群$G$中的元素$a$和$b$,如果存在$g\in G$使得$gag^{-1}=b$,则称$a$与$b$共轭.群$G$中所有与$a$共轭的元素称作$a$的共轭类/等价类.
+\end{definition}
+\begin{definition}[同态与同构]
+    对于群$G$和$H$,如果存在映射$h:G\to H$使得对任意$u,v\in G$都有$h(uv)=h(u)h(v)$,则称$G$与$H$\tbf{同态}.如果$h$是双射,则称$G$与$H$\tbf{同构}.
+\end{definition}
+\subsection{群表示论}
+\begin{definition}[群表示]
+    群$G$在向量空间$V$上的\tbf{表示}是一个同态映射
+    \[\rho:G\mapsto\text{GL}(V)\]
+    其中$\text{GL}(V)$是$V$上的线性变换群.
+\end{definition}
+如此,可以将群操作表示为线性变换,进而表示为矩阵.
 \end{document}
