@@ -1,0 +1,206 @@
+\documentclass{ctexbook}
+\usepackage{Note}
+\usepackage{unicode-math}
+\setCJKmainfont[
+  BoldFont = 思源宋体 Bold,
+  ItalicFont = 楷体,
+]{宋体}
+\setcounter{secnumdepth}{3}
+\begin{document}
+\chapter{固体理论}
+\section{晶体结构}
+\subsection{晶体形貌与晶系}
+与研究分子对称性不同,在研究晶体时主要关注以下对称元素:
+\begin{theorem}[晶体的对称性与相应的对称元素记号]
+    \begin{enumerate}[label=\tbf{\roman*.}]
+        \item 镜面$m$:记号为$\text{m}$.
+        \item 反演中心$i$:记号为$\text{i}$.
+        \item 旋转轴$C_n$:记号为轴次$n$.
+        \item 反轴(旋转反演轴)$I_n$:旋转操作与反演操作的复合,即$I_n^1=iC_n^1$.记号为带上划线的轴次$\bar{n}$.
+        \item 旋转轴与镜面:在同一方向上同时具有$n$次旋转轴和镜面.记号为$n/\text{m}$.
+    \end{enumerate}
+\end{theorem}
+由此,可能的对称元素记号一共有$13$种:
+\[\text{i},\,\text{m}=\bar{2}=1/\text{m},\,1,\,2,\,3,\,4,\,6,\,\bar{3},\,\bar{4},\,\bar{6}=3/\text{m},\,2/\text{m},\,4/\text{m},\,6/\text{m}\]
+按照晶胞的\textit{旋转对称性}可以将晶体划分为七个\tbf{晶系}:
+\begin{definition}[晶系]
+    七种晶系及特征对称性如下:
+    \begin{table}[H]\centering
+        \begin{tabular}{ccc}\hline
+            中文名称 & 英文名称 & 特征对称性\\\hline
+            三斜 & Triclinic & 无 \\
+            单斜 & Monoclinic & $1$根二重轴\\
+            正交 & Orthorhombic & $3$根正交的二重轴\\
+            三方 & Trigonal & $1$根三重轴\\
+            四方 & Tetragonal & $1$根四重轴\\
+            六方 & Hexagonal & $1$根六重轴\\
+            立方 & Cubic & $4$根三重轴\\\hline
+        \end{tabular}
+    \end{table}
+    表中的轴可以是旋转轴或者反轴.
+\end{definition}
+\subsection{点阵,点群和空间群}
+考虑晶体的平移对称性可以将结构基元抽象成点阵点,进而构成14种Bravais点阵.\\
+\indent 只考虑点操作对结构基元进行分类可以得到32种晶体学点群.\\
+\indent 同时考虑平移和点操作可以分类得到230个空间群.这里引入了两种平移复合点群操作:
+\begin{definition}[螺旋轴]
+    $n_m$螺旋轴表示旋转$\dfrac{2\pi m}{n}$,同时平移$\dfrac{m}{n}z$的对称操作.旋转和平移的关系符合右手螺旋.
+\end{definition}
+\begin{definition}[滑移面]
+    滑移面表示以该面为镜面进行反射后按特定方向平移的对称操作.
+\end{definition}
+\subsection{晶胞中的点,线和面}
+
+\section{晶体衍射}
+波遇到障碍物会发生衍射,并且在波长与障碍物尺寸相当时衍射最明显.采用波长与晶格参数相近的X射线即可通过衍射的结果推测晶格参数.常用的X射线源是Cu $\text{K}_{\alpha}$射线,其波长为$\lambda=\SI{154.18}{\pico\meter}$.\\
+\indent 当X射线照射到晶体时,晶体中的原子会在X射线的作用下做受迫振动,从而会以原子球为单位对外发射次生的球面波:
+\[E_s\propto \e^{\i kr}\]
+总体的散射是
+\[E(\vec{q})=\sum_{j}f_j\e^{\i\vec{q}\cdot\vec{r_j}}\]
+衍射光实际上就是所有次生球面波形成新的波的波前. Bragg将衍射进行等价处理,将晶面视作反射平面,提出了Bragg方程:
+\begin{theorem}[Bragg方程]
+    相邻晶面反射光发生相长干涉需要满足
+    \[n\lambda=2d\sin\theta\]
+    其中$d$为晶面间距, $\lambda$为入射波长, $\theta$是入射角.
+\end{theorem}
+在立方晶系的晶格中,晶面间距为
+\[d_{hkl}=\dfrac{a}{\sqrt{h^2+k^2+l^2}}\]
+于是可以将Bragg方程改写为
+\[\sin\theta=\dfrac{\lambda}{2d_{hkl}}=sqrt{h^2+k^2+l^2}\dfrac{\lambda}{2a}\]
+\subsection{系统消光}
+不同原子由于电子数和分布形式不同,因而对X射线散射的能力也不相同.
+\begin{definition}[散射因子]
+    定义\tbf{散射因子}
+    \[f(\vec{q})=\int\rho(\vec{r})\e^{\i\vec{q}\cdot\vec{r}}\d^3r\]
+    反映散射强度随元素电子数(实际上是电子密度$\rho(\vec{r})$)的变化.实际上$f(\vec{q})$正是$\rho(\vec{r})$的傅里叶变换.
+\end{definition}
+对于球对称的电子云,散射因子为
+\[f(\theta)=4\pi\int_0^{+\infty}\rho(r)\dfrac{\sin kr}{kr}r^2\d r,\quad k=\dfrac{4\pi\sin\theta}{\lambda}\]
+并且$f(0)=N_{e}$,即前向散射时的散射因子为电子数.同时可以看出,电子越多,散射越强.\\
+\indent 在更复杂的晶体中,同一指标的晶面可能有不同类型,其间距也不相同(也可以理解为晶面之间出现了其它种类的原子).假定一个原子位于原点$\vec{r}_1=0$,其散射振幅为$A_1=f$.如此,处于$\vec{r}_j$的原子由于路径差会产生额外的相位$\phi_j=\vec{q}\cdot\vec{r}_j$,散射振幅即为$A_j=f_j\e^{\i\vec{q}\cdot\vec{r}_j}$.总的散射振幅即为所有原子的相干叠加
+\[F(\vec{q})=\sum_{j=1}^{N}f_j\e^{\i\vec{q}\cdot\vec{r}_j}\]
+用倒易空间的相关知识可以证明
+\[F(hkl)=\sum_{j=1}^{N}f_j\e^{2\pi\i(hx_j+ky_j+lz_j)}\]
+\begin{definition}[结构因子]
+    定义\tbf{结构因子}
+    \[F(hkl)=\sum_{j=1}^{N}f_j\e^{2\pi\i(hx_j+ky_j+lz_j)}\]
+    反应特定衍射方向$(hkl)$的叠加后的散射振幅.
+\end{definition}
+光强正比于散射振幅的模的平方
+\[I_{hkl}\propto F_{hkl}^\ast F_{hkl}\]
+\begin{definition}[系统消光]
+    某些指标的反射振幅为$0$,这一现象称作\tbf{系统消光}.
+\end{definition}
+容易消光的结构主要是各种属于带心点阵或含有螺旋轴和滑移面的晶体等,其主要特征就是晶面之间有原子.
+\begin{theorem}[立方晶系的系统消光条件]
+    cP点阵无系统消光. cI点阵当$h+k+l$为奇数时消光. cF点阵当$h$, $k$和$l$同时有奇数和偶数时消光.
+\end{theorem}
+\section{固体成键}
+\subsection{金属晶体的结构与成键方式}
+金属晶体的结构可以简单地用硬球模型描述,各硬球按照密堆积的形式排布.典型的密堆积形式有\tbf{六方密堆积(hcp)},\tbf{立方密堆积(ccp)},\tbf{简单立方堆积(bcc)}和\tbf{体心立方堆积}.\\
+\indent 我们将在下一节详细介绍能带理论.这里先定性地认为能带是多个原子轨道重叠并线性组合形成的能量取值近似连续的轨道.类似地引入前线轨道:
+\begin{definition}[费米能级]
+    定义$T=\SI{0}{\kelvin}$时能带的HOMO轨道能量为\tbf{费米能级}.
+\end{definition}
+只有费米能级附近的电子能被激发,这也与金属热容有关.
+\subsection{离子晶体的结构与成键方式}
+简单的离子晶体总是阴阳离子交替排列的,两者分别处在对方构成的多面体中心.通常,由于阳离子的半径相较阴离子更小,因此主要考虑阳离子处在阴离子构成的配位多面体中.两者的半径比和配位多面体的关系如下所示:
+\begin{table}[H]\centering
+    \begin{tabular}{cc}\hline
+        $\gamma=r_+/r_-$ & 配位多面体\\\hline
+        $\gamma<\sqrt{2}-1$ & 四面体配位(如闪锌矿)\\
+        $\sqrt{2}-1<\gamma<\sqrt{3}-1$ & 八面体配位(如氯化钠)\\
+        $\sqrt{3}-1<\gamma$ & 立方体配位(如氯化铯)\\\hline
+    \end{tabular}    
+\end{table}
+现在考虑晶格能(即晶体升华为气态离子的势能变化).在一维晶格(阴阳离子交替排列)中,经典的静电势能为
+\[E_p=\dfrac{1}{4\pi\ep_0}\cdot2\cdot\left(-\dfrac{z^2e^2}{d}+\dfrac{z^2e^2}{2d}-\dfrac{z^2e^2}{3d}+\cdots\right)=-\dfrac{z^2e^2}{4\pi\ep_0d}\cdot2\ln2\]
+于是摩尔势能为$U=N_{\text{A}}E_p=-2\ln2\dfrac{z^2e^2N_{\text{A}}}{4\pi\ep_0d}$.推而广之,在三维晶体中势能也可以由一个无穷求和确定,于是
+\[U=A\dfrac{\left|z_Az_B\right|e^2N_{\text{A}}}{4\pi\ep_0d}\]
+系数$A$即为\tbf{Madelung常数},由晶体的具体结构决定.\\
+\indent 实际势能曲线需要考虑各种量子效应,即原子轨道重叠并线性组合.做此校正后可得电子态贡献正的能量,因此经典势高估晶格能.
+\subsection{共价晶体的结构与成键方式}
+共价晶体通常具有复杂的结构,并且与共价键的方向性密切相关.
+\section{能带理论}
+\subsection{周期势与Bloch定理}
+考虑到晶体的平移对称性,势函数$U$应当具有一定的周期性,即
+\[U(\vec{r})=U(\vec{r}+\vec{R})\]
+其中$\vec{R}$是Bravais晶格矢量.现在要求解在周期势$U(\vec{r})$下单电子薛定谔方程
+\[\hat{H}\psi=\left(-\dfrac{\hbar^2}{2m}\nabla^2+U(\vec{r})\right)\psi=\ep\psi\]
+为求解这一方程,我们需要引入Bloch定理.
+\begin{theorem}[Bloch定理]
+    具有平移对称性的势场$U(\vec{r})=U(\vec{r}+\vec{R})$中的波函数$\psi$满足
+    \[\psi(\vec{r})=\e^{\i\vec{k}\cdot\vec{r}}u(\vec{r})\]
+    其中$u(\vec{r})$与$U(\vec{r})$具有相同的平移对称性.
+\end{theorem}
+式中的$\vec{k}$为Bloch波向量,是体系的量子数.考虑满足$\e^{\i\vec{K}\vec{R}}$的矢量$\vec{K}$,则有
+\[\psi(\vec{r}+\vec{R})=\e^{\i\vec{k}\cdot\vec{R}}\psi(\vec{r})=\e^{\i(\vec{k}+\vec{K})\cdot\vec{R}}\psi(\vec{r})\]
+由此可以限定$\vec{k}$的取值范围(类比辐角主值).
+\begin{definition}[倒易空间]
+    对任意Bravais晶格矢量$\vec{R}$,其\tbf{倒易空间}定义为集合$\left\{\vec{K}:\e^{\i\vec{K}\cdot\vec{R}}=1\right\}$.
+\end{definition}
+\begin{theorem}[倒易空间的基矢]
+    记Bravais晶格的基矢为$\vec{a}_1$, $\vec{a}_2$和$\vec{a}_3$,则倒易空间的基矢为
+    \[\vec{b}_1=2\pi\dfrac{\vec{a}_2\times\vec{a}_3}{\vec{a}_1\cdot(\vec{a}_2\times\vec{a}_3)},\quad\vec{b}_2=2\pi\dfrac{\vec{a}_3\times\vec{a}_1}{\vec{a}_1\cdot(\vec{a}_2\times\vec{a}_3)},\quad\vec{b}_3=2\pi\dfrac{\vec{a}_1\times\vec{a}_2}{\vec{a}_1\cdot(\vec{a}_2\times\vec{a}_3)}\]
+\end{theorem}
+为了考虑$\vec{k}$是否能在倒易空间中任意选取,设定如下边界条件:
+\begin{definition}[Born-Von Karman边界条件]
+    单电子波函数须满足
+    \[\psi(\vec{r}+N_j\vec{a}_j)=\psi(\vec{r}),\quad j=1,2,3\]
+    其中$N_i$是基矢$\vec{a}_i$方向的晶胞数目.
+\end{definition}
+由此可得
+\[\e^{\i N_j\vec{k}\cdot\vec{a}_j}=1,\quad j=1,2,3\]
+考虑$\vec{k}=k_1\vec{b}_1+k_2\vec{b}_2+k_3\vec{b}_3$和$\vec{R}=n_1\vec{a}_1+n_2\vec{a}_2+n_3\vec{a}_3$,则有
+\[\vec{K}\cdot\vec{R}=2\pi\sum_{j=1}^{3}k_jn_j\]
+因此若使条件成立,则$k_jN_j$为整数.于是
+\[\vec{k}=\sum_{j=1}^{3}\dfrac{m_j}{N_j}\vec{b}_j\]
+当$N_j\to\infty$时$\vec{k}$即可连续取值.
+\begin{definition}[Wigner-Seitz晶胞]
+    对于某点阵点$A$,相比其它点阵点与$A$距离更近的点的集合构成$A$出的\tbf{Wigner-Seitz晶胞}.
+\end{definition}
+\begin{definition}[布里渊区]
+    在倒易空间空间中,定义\tbf{第一布里渊区}为空间原点的Wigner-Seitz晶胞.
+\end{definition}
+由于动量算符的本征态为$\psi(\vec{r})=\e^{\i\vec{k}\cdot\vec{r}}$,因此称$\hbar\vec{k}$为\tbf{晶格动量}.晶格动量是由晶格平移对称性产生的守恒量,决定了Bloch波的相位,但不是电子的真实动量.考虑到前面推导的$\vec{k}$的形式可知$\vec{k}$总是可以取在第一布里渊区.\\
+\indent 将Bloch波$\psi_{\vec{k}}(\vec{r})=\e^{\i\vec{k}\cdot\vec{r}}u_{\vec{k}}(\vec{r})$代入薛定谔方程可得
+\[\underbrace{\left[\dfrac{\hbar^2}{2m}(-\i\nabla+\vec{k})^2+U(\vec{r})\right]}_{\hat{H}_{\vec{k}}}u_{\vec{k}}(\vec{r})=\ep_{\vec{k}}u_{\vec{k}}(\vec{r})\]
+同时根据周期性边界条件可得$u_{\vec{k}}(\vec{r})=u_{\vec{k}}(\vec{r}+\vec{R})$.于是,只需在晶胞内解上述本征方程即可.对于给定的$\vec{k}$,可以得到离散的本征值$\ep_{\vec{n}}(\vec{k})$.
+\begin{definition}[能带]
+    能带是电子在周期性晶格势场中允许占据的一组能量的连续本征值.对于前述能量本征值$\ep_{n}(\vec{k})$,固定指标$n$,遍历$\vec{k}$所得到的连续函数$\ep_{n}(\vec{k})$就是第$n$条能带.
+\end{definition}
+根据周期性,只遍历$\vec{k}$于第一布里渊区中即可得到能带的所有信息.\\
+\indent 在能带的底部或顶部, $\ep_{n}(\vec{k})$可以近似为抛物线,即
+\[\ep_{n}(\vec{k})=\ep_{n,0}+\dfrac{\hbar^2\vec{k}^2}{2m^\ast}\]
+式中$m^\ast$称作\tbf{有效质量},它是电子在晶格势中响应外力的实际质量.如果$m^\ast<0$,为了避免处理负的质量,记此处为电子空穴(即一个负质量,负电荷的电子).
+\begin{definition}[费米面]
+    在$\SI{0}{\kelvin}$时,倒易空间中分割占据与非占据态的曲面定义为\tbf{费米面}.
+\end{definition}
+现在来考虑态密度$D(E)$,即在体积$V$内能量处于$E$到$E+\delta E$的态的数目.能态与波矢$\vec{k}$有关,统计能态数目等价于统计波矢数目,则有
+\[\begin{aligned}
+    D(E)
+    &=\dfrac{1}{V}\sum_{i=1}^{N}\delta(E-E(\vec{k}_i))\\
+    &=\dfrac{1}{(2\pi)^3}\dfrac{(2\pi)^3}{V}\sum_{i=1}^{N}\delta(E-E(\vec{k}_i))\\
+    &=\dfrac{1}{(2\pi)^3}\sum_{i=1}^{N}\delta(E-E(\vec{k}_i))V_{\vec{k}_i}\\
+    &\xlongequal{V\to\infty}\dfrac{1}{(2\pi)^3}\int\delta(E-E(\vec{k}))\d\vec{k}
+\end{aligned}\]
+现在考虑三维下的情形,则有$E(\vec{k})=\dfrac{k^2\hbar^2}{2m}$,于是
+\[\dfrac{\d k}{\d E}=\dfrac{1}{\hbar}\sqrt{\dfrac{m}{2E}}\]
+于是代入前述$D(E)$的积分表达式可得
+\[\begin{aligned}
+    D(E)
+    &=\dfrac{1}{(2\pi)^3}\int\delta(E-E(k))4\pi k^2\d k\\
+    &=\dfrac{1}{2\pi^2}\int\delta(E-E')\dfrac{2mE'}{\hbar^2}\dfrac{1}{\hbar}\sqrt{\dfrac{m}{2E'}}\d E'\\
+    &=\dfrac{m^{3/2}}{\sqrt{2}\pi^2\hbar^3}\sqrt{E}
+\end{aligned}\]
+\subsection{导体与半导体}
+单电子密度算符为$\hat{\rho}(\vec{r})=\delta(\vec{r}-\vec{r}_1)$,因此电流密度算符(其经典对应为$\vec{j}=\rho\vec{v}$)为
+\[\hat{{\vec{j}}}(\vec{r})=\dfrac{1}{2m}\left[\hat{\rho}(\vec{r}),\hat{\vec{p}}\right]\]
+因此对于$\psi(\vec{r})$态,其电流密度为
+\[\vec{j}(\vec{r})=\bra{\psi}\hat{\vec{j}}(\vec{r})\ket{\psi}=-\dfrac{\i\hbar}{2m}\left[\psi^\ast\nabla\psi-\psi\nabla\psi^\ast\right]=\dfrac{\hbar}{m}\Im\left[\psi^\ast(\vec{r})\nabla\psi(\vec{r})\right]\]
+现在将波函数的相位分离,即$\psi(\vec{r})=\e^{\i S(\vec{r})}\phi(\vec{r})$,代入上式可得
+\[\vec{j}(\vec{r})=\dfrac{\hbar}{m}\Im\left[\i\phi^2(\vec{r})\nabla S(\vec{r})+\phi(\vec{r})\nabla\phi(\vec{r})\right]=\dfrac{\hbar}{m}\rho(\vec{r})\nabla S(\vec{r})\]
+对于Bloch波,代入上式可得
+\[\vec{j}(\vec{r})=\dfrac{\hbar\vec{k}}{m}\left|u_{n,\vec{k}}(\vec{r})\right|^2+\dfrac{\hbar}{m}\Im\left[u_{n,\vec{k}}(\vec{r})\nabla u_{n,\vec{k}}(\vec{r})\right]\]
+
+\end{document}

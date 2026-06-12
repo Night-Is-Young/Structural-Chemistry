@@ -9,8 +9,27 @@
 \begin{document}
 \chapter{分子光谱}
 \section{分子光谱的一般特征}
+\subsection{谱线展宽}
+当辐射源与观测者有相对速度$s$时,由于多普勒效应,接收频率发生位移
+\[\nu_{\text{receding}}=\sqrt{\dfrac{1-s/c}{1+s/c}}\nu_0,\quad\nu_{\text{approaching}}=\sqrt{\dfrac{1+s/c}{1-s/c}}\nu_0\]
+当$s\ll c$时,近似地有
+\[\nu_{\text{receding}}\approx(1-s/c)\nu_0,\quad\nu_{\text{approaching}}\approx(1+s/c)\nu_0\]
+\indent 同样地,分子作为辐射源也有方向随机的热运动,相对观测者有随机分布的速度,从而引起谱线展宽.利用玻尔兹曼分布可得半峰宽为
+\[\delta\nu_{\text{obs}}=\dfrac{2\nu_0}{c}\sqrt{\dfrac{2kT\ln 2}{m}}\]
 \section{转动光谱}
 经典物体绕轴转动的能量为
+\[E_q=\dfrac12I_q\omega_q^2\]
+其中$\omega_q$为角速度, $I_q$为转动惯量.对于三维空间中的转子,做如下定义:
+\begin{definition}[惯性矩张量]
+    三维空间中由$N$个质点组成的物体的\tbf{惯性矩张量}$\mat{I}$定义为一个$3\times 3$矩阵:
+    \[\mat{I}\xlongequal{\text{def}}\left\{I_{ij}\right\}_{1\leq i,j\leq 3}\quad I_{ij}\xlongequal{\text{def}}\sum_{k=1}^{N}m_k\left(||\vec{r}_k||^2\delta_{ij}-x_i^{(k)}x_{j}^{(k)}\right)\]
+    其中质心位于原点,各质点位置为$\vec{r}_k=\left(x_1^{(k)},x_2^{(k)},x_3^{(k)}\right)$.
+\end{definition}
+如此,三维空间中的物体的角动量即为
+\[\vec{J}=\mat{I}\symbf{\omega}\]
+对惯性矩张量$\mat{I}$进行对角化即可得到转动主轴和对应的转动惯量.转动能量即为
+\[E=\dfrac{J_x^2}{2I_x}+\dfrac{J_y^2}{2I_y}+\dfrac{J_z^2}{2I_z}\]
+
 \section{振动光谱}
 \section{电子光谱}
 \subsection{双原子分子的电子光谱}

@@ -74,8 +74,78 @@
 \subsection{群表示论}
 \begin{definition}[群表示]
     群$G$在向量空间$V$上的\tbf{表示}是一个同态映射
-    \[\rho:G\mapsto\text{GL}(V)\]
+    \[\Gamma:G\mapsto\text{GL}(V)\]
     其中$\text{GL}(V)$是$V$上的线性变换群.
 \end{definition}
-如此,可以将群操作表示为线性变换,进而表示为矩阵.
+如此,可以将群元$g$(对于点群而言就是各种对称操作)表示为线性变换,进而表示为矩阵$\Gamma(g)$.
+\begin{definition}[可约表示与不可约表示]
+    如果群$G$的群元$g$在向量空间$V$上的表示$\Gamma(g)$没有非平凡不变子空间,则称$\Gamma$是一个\tbf{不可约表示}.反之,如果存在非平凡不变子空间,则称$\Gamma$是一个\tbf{可约表示}.
+\end{definition}
+可约表示可以被约化为不可约表示的直和.具体而言,将向量空间$V$做直和分解,使得群元$g$的表示$\Gamma(g)$满足
+\[\Gamma(g)=\bigoplus_{i=1}^{m}\Gamma^{(i)}(g)=\begin{bmatrix}
+\Gamma^{(1)}(g) & 0 & \cdots & 0\\
+0 & \Gamma^{(2)}(g) & \cdots & 0\\
+0 & 0 & \ddots & 0\\
+0 & 0 & \cdots & \Gamma^{(m)}(g)
+\end{bmatrix}\]
+其中每个$\Gamma^{(i)}(g)$都是不可约表示,也就是将$\Gamma(g)$表示为分块对角矩阵,每个块对应一个不可约表示,其作用的空间是$V$的子空间.有关不可约表示的数目以及维数有以下两个定理:
+\begin{theorem}[不可约表示的数目]
+    群$G$的不可约表示的数目等于群$G$的共轭类的数目.
+\end{theorem}
+\begin{theorem}[不可约表示的维数]
+    群$G$的所有不可约表示的维数的平方和等于$G$的阶(即群元的数目),即
+    \[\sum_{i=1}^{m}d_i^2=h\]
+\end{theorem}
+\subsection{特征标与特征标表}
+\begin{definition}[特征标]
+    考虑群$G$在特定的向量空间$V$上的表示$\rho$,群元$g$在$V$上的表示$\Gamma(g)$的\tbf{特征标}$\chi(g)$定义为
+    \[\chi^{\Gamma}(g)=\text{Tr}(\Gamma(g))\]
+\end{definition}
+群元$g$及其共轭类的特征标都相同,因为矩阵的迹在相似变换下保持不变.\\
+\indent 考虑将群$G$到向量空间$V$上的表示$\Gamma$分解为不可约表示
+\[\Gamma=\bigoplus_{i=1}^{m}\Gamma^{(m)}\]
+对于每个群元$g$,都可以计算$\Gamma^{\Gamma^{(m)}}(g)$的特征标$\chi^{(m)}(g)$,如此可以构成一张表,每行对应一个不可约表示,每列对应一个共轭类,表中的元素就是对应群元的特征标.这张表称作\tbf{特征标表}.
+\begin{theorem}[正交归一定理]
+    特征标表的任意不同两行正交,每行自身归一,即
+    \[\dfrac{1}{h}\sum_{C}N(C)\chi^{\Gamma^{(i)}}(C)\chi^{\Gamma^{(j)}}(C)=\delta_{ij}\]
+    其中$C$表示共轭类.
+\end{theorem}
+\begin{theorem}[不可约表示的标记]
+    通常用$\text{A}$和$\text{B}$标记一维不可约表示,前者对主轴旋转保持不变,即$\chi^{\text{A}}(C_n)=1$,后者对主轴旋转改变符号,即$\chi^{\text{B}}(C_n)=-1$.\\
+    通常用$\text{E}$标记二维不可约表示,用$\text{T}$标记三维不可约表示,等等.
+\end{theorem}
+\section{对称性的应用}
+\subsection{消失积分}
+对于区域$\Omega$上函数$f$的积分,在简单的情形下可以根据奇偶性等简单对称性判断积分是否为零.对于复杂的情形,可以用群论的方式判断.
+\begin{theorem}[用群论判断消失积分]
+    对于函数$f$在空间$\Omega$上的积分$\displaystyle\int_{\Omega}f\d\tau$,当且仅当被积函数$f$生成$\Omega$所属点群$G$的全对称不可约表示时,积分不为零.
+\end{theorem}
+全对称不可约表示的特征标均为$1$,典型的是$\text{A}_1$不可约表示.\\
+\indent 我们进一步考虑被积函数是两个函数$f_1$与$f_2$的乘积,即
+\[I=\int f_1f_2\d\tau\]
+假定$f_1$和$f_2$分别生成表示$\Gamma^{(1)}$和$\Gamma^{(2)}$,根据同态映射的性质可知$f_1f_2$生成表示$\Gamma^{(1)}\otimes\Gamma^{(2)}$.因此,当且仅当$\Gamma^{(1)}\otimes\Gamma^{(2)}$包含全对称不可约表示时,积分$I$不为零.表示的直积的特征标满足
+\[\chi^{\Gamma^{(1)}\otimes\Gamma^{(2)}}(g)=\chi^{\Gamma^{(1)}}(g)\chi^{\Gamma^{(2)}}(g)\]
+\begin{theorem}[广义正交定理]
+    不可约表示$\Gamma$在某表示中出现的次数$n(\Gamma)$可由
+    \[n(\Gamma)=\dfrac{1}{h}\sum_{C}N(C)\chi^{\Gamma}(C)\chi(C)\]
+    得到,其中$\chi^{\Gamma}(C)$和$\chi(C)$分别表示$\Gamma$和待分解表示的特征标.
+\end{theorem}
+\begin{theorem}[不可约表示的直积与全对称表示的关系]
+    不可约表示$\Gamma^{(i)}$和$\Gamma^{(j)}$的直积$\Gamma^{(i)}\otimes\Gamma^{(j)}$的不可约表示含有$\text{A}_1$当且仅当$\Gamma^{(i)}$与$\Gamma^{(j)}$相同.
+\end{theorem}
+\subsection{群论在分子轨道理论中的应用}
+\subsubsection{重叠积分}
+根据前面的推导可知
+\begin{theorem}[对称性相同的轨道才能有非零重叠]
+    只有两个轨道生成相同的对称种类时,重叠积分$S$才可能不为$0$,并进而形成成键和反键轨道.
+\end{theorem}
+\subsubsection{对称性匹配线性组合}
+构建对称性匹配线性组合(SALC)需要用到投影算符.
+\begin{definition}[投影算符]
+    对于群$G$中的不可约表示$\Gamma$,其投影算符$p^{\Gamma}$定义为
+    \[p^{\Gamma}=\dfrac{1}{h}\sum_{g}\chi^{\Gamma}(g)g\]
+\end{definition}
+根据投影算符即可构建具有$\Gamma$对称性的轨道:
+\[\psi^{\Gamma}=p^{\Gamma}\psi_i\]
+
 \end{document}
