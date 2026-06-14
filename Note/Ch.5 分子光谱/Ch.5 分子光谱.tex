@@ -17,6 +17,7 @@
 \indent 同样地,分子作为辐射源也有方向随机的热运动,相对观测者有随机分布的速度,从而引起谱线展宽.利用玻尔兹曼分布可得半峰宽为
 \[\delta\nu_{\text{obs}}=\dfrac{2\nu_0}{c}\sqrt{\dfrac{2kT\ln 2}{m}}\]
 \section{转动光谱}
+\subsection{刚性转子的物理性质}
 经典物体绕轴转动的能量为
 \[E_q=\dfrac12I_q\omega_q^2\]
 其中$\omega_q$为角速度, $I_q$为转动惯量.对于三维空间中的转子,做如下定义:
@@ -29,8 +30,163 @@
 \[\vec{J}=\mat{I}\symbf{\omega}\]
 对惯性矩张量$\mat{I}$进行对角化即可得到转动主轴和对应的转动惯量.转动能量即为
 \[E=\dfrac{J_x^2}{2I_x}+\dfrac{J_y^2}{2I_y}+\dfrac{J_z^2}{2I_z}\]
-
+现在讨论几种特殊的转子的转动能级与光谱.
+\subsection{特殊转子的转动光谱}
+\subsubsection{球形转子}
+\begin{definition}[球形转子]
+    定义各转动惯量相同的转子为\tbf{球形转子}.
+\end{definition}
+需要注意的是,如果要证明某一分子为球形转子,一定要将惯性矩张量对角化后再观察对角元是否相等.\\
+\indent 现在考虑球形转子的转动能级.转动能的经典表示为
+\[E=\dfrac{J_x^2+J_y^2+J_z^2}{2I}=\dfrac{\mathcal{J}^2}{2I}\]
+根据角动量的量子化,其对应的量子形式为
+\[\mathcal{J}^2=J(J+1)\hbar^2,\quad J=0,1,2,\cdots\]
+其中$J$是角动量量子数.于是
+\begin{theorem}[球形转子的转动能级]
+    球形转子的转动能级为
+    \[E_J=J(J+1)\dfrac{\hbar^2}{2I},\quad J=0,1,2,\cdots\]
+    能级$E_J$的简并度为$g_J=(2J+1)^2$.
+\end{theorem}
+分子的转动能通常用分子的转动常数$\tilde{B}$表示:
+\begin{definition}[转动常数]
+    定义转动常数$\tilde{B}$为
+    \[\tilde{B}=\dfrac{\hbar}{4\pi cI}\]
+    则有
+    \[E_J=hc\tilde{B}J(J+1),\quad J=0,1,2,\cdots\]
+    转动常数具有与波数相同的单位.
+\end{definition}
+\begin{definition}[转动项]
+    转动状态的能量(以波数记)通常称为\tbf{转动项}$\tilde{F}(J)$,满足$\tilde{F}(J)=\tilde{B}J(J+1)$.
+\end{definition}
+于是相邻转动能级的间隔为$\tilde{F}(J+1)-\tilde{F}(J)=2\tilde{B}(J+1)$.
+\subsubsection{线形转子}
+\begin{theorem}[线形转子的转动能级和转动项]
+    线性转子的转动能级和转动项具有与球形转子相同的形式,即
+    \[E_J=hc\tilde{B}J(J+1),\quad\tilde{F}(J)=\tilde{B}J(J+1)\]
+    但是能级$E_J$的简并度为$2J+1$.
+\end{theorem}
+\subsection{微波光谱}
+对小分子而言,转动常数$\tilde{B}$的典型值位于$0.1$到$\SI{10}{\per\centi\meter}$附近,因此可以用\tbf{微波光谱}研究分子的转动跃迁.
+\subsubsection{转动光谱的选律}
+与原子光谱时一样,光谱选律可以考虑相关的跃迁偶极矩建立.因此可以得到以下基本结论:
+\begin{theorem}[极性分子产生转动光谱]
+    只有极性分子才能观测到转动光谱.
+\end{theorem}
+可以如此理解:对静止的观察者而言,转动的极性分子可以视作一个振荡的偶极子,其产生振荡的电磁波与外场相互作用从而产生吸收.因此,球形转子(以及所有非极性分子)不存在转动光谱.\\
+\indent 对于线形转子,进一步的分析给出以下选律:
+\begin{theorem}[线形分子的转动跃迁选律]
+    \[\Delta J=\pm1,\quad\Delta M_J=0,\pm1\]
+\end{theorem}
+同时,跃迁偶极矩的大小为
+\[\mu_{J+1,J}=\left(\dfrac{J+1}{2J+1}\right)\mu_0^2\]
+其中$\mu_0$为分子的永久偶极矩.因此,偶极矩越大的分子具有越强的转动光谱吸收.
+\subsubsection{线形分子的转动光谱}
+我们已经知道相邻转动项的能量差为
+\[\tilde{\nu}(J+1\leftarrow J)=\tilde{F}(J+1)-\tilde{F}(J)=2\tilde{B}(J+1),\quad J=0,1,2,\cdots\]
+因此光谱的形式由一系列间隔为$2\tilde{B}$,波数为$2\tilde{B}$, $4\tilde{B}$, $6\tilde{B}$等的一组谱线组成.由谱线间隔即可得到$\tilde{B}$与垂直于主轴的转动惯量$I$,进而得到键长等结构数据.\\
+\indent 峰强度正比于转动能级布居数$N_J$,最高峰满足
+\[J_{\max}=\left(\dfrac{kT}{2hc\tilde{B}}\right)^{1/2}-\dfrac12\]
+\subsection{转动拉曼光谱}
+转动跃迁也可以引起拉曼散射.
+\begin{theorem}[转动拉曼光谱的总选律]
+    分子的极化率具有各向异性.
+\end{theorem}
+球形转子总是各向同性的,因此没有拉曼活性.特别地有
+\begin{theorem}[线性转子的转动拉曼光谱的选律]
+    \[\Delta=0,\pm2\]
+\end{theorem}
+由此,对于线形转子可以得到三类吸收峰:
+\begin{enumerate}[label=\tbf{\alph*.}]
+    \item Rayleigh线
+    \[\Delta J=0:\quad\tilde{\nu}=\tilde{\nu}_{\i}\]
+    \item Stokes线(频率降低):
+    \[\Delta J=+2:\quad\tilde{\nu}(J+2\leftarrow J)=\tilde{\nu}_{\i}-2\tilde{B}(2J+3)\]
+    \item 反Stokes线(频率增大):
+    \[\Delta J=-2:\quad\tilde{\nu}(J-2\leftarrow J)=\tilde{\nu}_{\i}-2\tilde{B}(2J-1)\]
+\end{enumerate}
 \section{振动光谱}
+\subsection{双原子分子的振动光谱}
+\subsubsection{谐振子模型}
+分子的势能面在平衡位置(不妨记为$x=0$)做级数展开可得
+\[V(x)=V(0)+\left(\dfrac{\p V}{\p x}\right)_{0}x+\dfrac12\left(\dfrac{\p^2 V}{\p x^2}\right)_{0}x^2+\cdots\]
+在平衡位置,势能函数取极值,有$\left(\dfrac{\p V}{\p x}\right)_{0}=0$.在此基础上忽略高阶项即可得
+\[V(x)=\dfrac12\left(\dfrac{\p^2 V}{\p x^2}\right)_0x^2=\dfrac12k_fx^2\]
+我们已经求解过简谐振子的能级
+\[E_\nu=\left(v+\dfrac12\right)\hbar\omega=\left(v+\dfrac12\right)h\nu,\quad\omega=\sqrt{\dfrac{k_f}{m_{\text{eff}}}},\quad v=0,1,2,\cdots\]
+改写成波数即为
+\begin{theorem}[双原子分子的振动能级与振动项]
+    采用谐振子模型近似的双原子分子的\tbf{振动能级}$E_v$和振动项$\tilde{G}$分别为
+    \[E_v=hc\tilde{G}(v),\quad\tilde{G}(v)=\left(v+\dfrac12\right)\tilde{\nu},\quad\tilde{\nu}=\dfrac{1}{2\pi c}\sqrt{\dfrac{k_f}{m_{\text{eff}}}}\]
+\end{theorem}
+\subsubsection{红外光谱的选律}
+由通常一样,通过考虑跃迁电偶极矩的改变可以建立振动跃迁的选律.
+\begin{definition}[红外活性]
+    红外活性的跃迁对应于偶极矩发生改变的振动模式.
+\end{definition}
+相应的,不改变偶极矩的振动模式(例如同核双原子分子的伸缩振动)被称作是\tbf{非红外活性}的.
+\begin{theorem}[谐振子模型的振动跃迁选律]
+    \[\Delta v=\pm1\]
+\end{theorem}
+由此,振动光谱的波数均为
+\[\Delta\tilde{G}_{v+1/2}=\tilde{G}(v+1)-\tilde{G}(v)=\tilde{\nu}\]
+一般的振动模式的$\tilde{\nu}$都落在红外区域,因此振动跃迁吸收并产生红外辐射.在室温下,大部分分子处于振动基态,因此主要的光谱跃迁将是$v=0$到$v=1$的\tbf{基本跃迁}.
+\subsubsection{非谐性}
+实际情况下谐振子模型并不足够精确,即级数展开并不只能停止于二阶项.这样,振子就变为\tbf{非谐性}的.\\
+\indent 典型的非谐性振子模型采用Morse势:
+\begin{definition}[Morse势]
+    \[V(x)=hc\tilde{D}_e\left(1-\e^{-ax}\right)^2,\quad a=\sqrt{\dfrac{m_{\text{eff}}\omega^2}{2hc\tilde{D}_e}}\]
+\end{definition}
+平衡位置$x=0$时仍然有$V(x)=0$.当$x\to\infty$,即解离极限时, $V(x)=hc\tilde{D}_e$为解离能,因此这是一个更加合理的模型.采用Morse势求解薛定谔方程得到如下振动项:
+\begin{theorem}[Morse势的振动项]
+    \[\tilde{G}(v)=\left(v+\dfrac12\right)\tilde{\nu}-\left(v+\dfrac12\right)^2x_e\tilde{\nu},\quad v=0,1,2,\cdots,v_{\max},\quad x_e=\dfrac{\tilde{v}}{4\tilde{D}_e}\]
+    仅有有限个振动项. $x_e$为\tbf{非谐性常数}.
+\end{theorem}
+对于非谐性振子,由于对称性松动导致选律松动,因此$2\leftarrow0$, $3\leftarrow0$等跃迁也是允许的,称作\tbf{第一泛音}, \tbf{第二泛音}等.
+\subsection{多原子分子的振动光谱}
+\subsubsection{多原子分子的振动模式}
+对于$N$原子分子,其自由度为$3N$.除去平动自由度为$3$,转动自由度对线形和非线形分子分别为$2$和$3$,剩余的自由度均为振动自由度.
+\begin{theorem}[多原子分子的振动自由度]
+    线形$N$原子分子的振动自由度为$3N-5$;非线形$N$原子分子的振动自由度为$3N-6$.    
+\end{theorem}
+每个振动自由度对应于一种\tbf{振动模式}.\\
+\indent 现在考虑如何描述这些振动模式.以水分子为例,势能面可以视作三个原子之间各自的距离的函数(实际上,对于具有$m$个振动自由度的分子,总可以用$m$个参数描述分子的形状),即
+\[E=E(r_1,r_2,r_3)\]
+将势能面在平衡距离处做三维的级数展开:
+\[E(r_1,r_2,r_3)=E_0+\sum_{k}\left.\dfrac{\p E}{\p r_k}\right|_{0}\left(r_k-r_k^0\right)+\dfrac12\sum_{jk}\left.\dfrac{\p^2 E}{\p r_j\p r_k}\right|_{0}\left(r_j-r_j^0\right)\left(r_k-r_k^0\right)+\cdots\]
+不妨令$E_0=0$.类似地可知在平衡位置一阶偏微分$\left.\dfrac{\p E}{\p r_k}\right|_{0}=0$.截断到二阶项可得
+\[E(r_1,r_2,r_3)=\dfrac12\sum_{jk}\left.\dfrac{\p^2 E}{\p r_j\p r_k}\right|_{0}\left(r_j-r_j^0\right)\left(r_k-r_k^0\right)\]\
+记$q_j=r_j-r_j^0$表示位移,则有
+\[E(q_1,q_2,q_3)=\dfrac12\sum_{jk}H_{jk}q_jq_k,\quad H_{jk}=\left.\dfrac{\p^2 E}{\p r_j\p r_k}\right|_{0}=\left.\dfrac{\p^2 E}{\p r_k\p r_j}\right|_{0}=H_{kj}\]
+由此,令$\vec{q}=\begin{bmatrix}
+    q_1&q_2&q_3
+\end{bmatrix}^\t$,可以将能量改写为二次型
+\[E(\vec{q})=\vec{q}^\t\mat{H}\vec{q}\]
+将二次型矩阵(这是一个Hessian矩阵)正交对角化可得
+\[E(\vec{q})=q^\t\mat{H}\vec{q}=\vec{Q}^\t\mathcal{E}\vec{Q}=\sum_{j=1}^{N_{\text{vib}}}\ep_jQ_j^2\]
+其中
+\[\mathcal{E}=\begin{bmatrix}
+    \ep_1&0&0\\
+    0&\ep_2&0\\
+    0&0&\ep_3
+\end{bmatrix},\quad\mat{H}=\mat{U}^\t\mathcal{E}\mat{U},\quad\vec{Q}=\mat{U}\vec{q}\]
+$\vec{Q}$即为正则模式(也成为简正模式)坐标.由此,简谐振动的哈密顿量为
+\[\hat{H}_{\text{vib}}=\sum_{j=1}^{N_{\text{vib}}}\left(-\dfrac{\hbar^2}{2\mu_j}\dfrac{\p^2}{\p Q_j^2}+\dfrac12\ep_jQ_j^2\right)\]
+各简正振动模式相互独立, $\mu_j$是对应于振动模式$j$的有效质量.\\
+\indent 与双原子分子相同,各简正模式的能量为
+\[\tilde{G}_q(v_q)=\left(v_q+\dfrac12\right)\tilde{\nu}_q,\quad v_q=0,1,2,\cdots,\quad\tilde{\nu}_q=\dfrac{1}{2\pi c}\sqrt{\dfrac{k_{f,q}}{\mu_q}}\]
+\subsubsection{红外光谱与拉曼光谱的选律}
+判断多原子分子的简正振动模式是否具有红外活性或拉曼活性,可以按以下步骤操作:
+\begin{enumerate}[label=\tbf{\alph*.}]
+    \item 以每个分子的笛卡尔坐标为基,得到分子点群的表示$\Gamma$.
+    \item 计算$\Gamma$的特征标并进行约化.
+    \item 在约化表示中剔除平动表示(分别对应$x$, $y$和$z$的不可约表示)和转动表示(分别对应$R_x$, $R_y$和$R_z$的不可约表示),从而得到振动模式的不可约表示.
+    \item 对每个振动模式,如果与$x$, $y$或$z$对应的不可约表示相同,则具有红外活性;如果与$x^2$, $y^2$, $z^2$, $xy$, $yz$或$xz$(以及它们的线性组合)对应的不可约表示相同,则具有拉曼活性.
+\end{enumerate}
+对于具有对称中心的多原子分子,有如下规则:
+\begin{theorem}[具有对称中心的多原子分子的振动光谱选律]
+    如果多原子分子具有对称中心$i$,那么其所有振动模式如果具有红外活性则没有拉曼活性,如果具有拉曼活性则没有红外活性.
+\end{theorem}
+需要注意,上述规则允许某些振动模式既没有拉曼振动活性也没有红外振动活性.
 \section{电子光谱}
 \subsection{双原子分子的电子光谱}
 对于原子光谱,我们使用谱项符号来描述其电子状态.双原子分子的电子状态也可以通过谱项符号定义,区别在于由原子的球对称性变为沿键轴的柱对称性.
@@ -47,4 +203,5 @@
 \end{center}
 同样地,总自旋角动量$S$是各电子自旋角动量量子数的加和,将$2S+1$的值作为左上标表示谱项的多重度.
 \end{table}
+
 \end{document}
